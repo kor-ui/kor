@@ -1,0 +1,44 @@
+/* colors */
+html, *[theme="light"] {
+  --neutral-1: 0, 0, 0;
+  --neutral-2: 255, 255, 255;
+  --accent-1: 98, 98, 144;
+  --base-0: 80, 100, 120;
+  --base-1: 255, 255, 255;
+  --base-2: 245, 245, 245;
+  --base-3: 235, 235, 235;
+}
+*[theme="dark"] {
+  --neutral-1: 255, 255, 255;
+  --neutral-2: 0, 0, 0;
+  --accent-1: 98, 98, 144;
+  --base-0: 80, 100, 120;
+  --base-1: 15, 15, 20;
+  --base-2: 25, 25, 30;
+  --base-3: 35, 35, 40;
+}
+/* typography */
+@font-face {
+  font-family: 'md-icons';
+  src:  local('Material Icons'), local('MaterialIcons-Regular'), url('./fonts/md-icons.woff2') format('woff2'), url('./fonts/md-icons.woff') format('woff');
+}
+@font-face {
+  font-family: 'open-sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('./fonts/open-sans-bold.woff2') format('woff2'), url('./fonts/open-sans-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'open-sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url('./fonts/open-sans-regular.woff2') format('woff2'), url('./fonts/open-sans-regular.woff') format('woff');
+}
+html, body {
+  font-family: 'open-sans', sans-serif;
+  color: rgb(var(--neutral-1));
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}

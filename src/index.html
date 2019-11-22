@@ -4,17 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Component Playground</title>
     <link rel="stylesheet" href="xin-styles.css">
     <!-- <script src="xin.js"></script> -->
   </head>
   <body>
-    <xin-button label="Hello" color="primary"></xin-button>
-    <br>
-    <xin-button label="Lorem Ipsum" color="secondary"></xin-button>
-    <br>
-    <xin-button label="Lorem Ipsum Dolor" color="tertiary"></xin-button>
-    <br>
-    <xin-button icon="hi" color="tertiary"></xin-button>
+
+    <xin-page theme="dark">
+      <xin-button label="Hello" color="primary"></xin-button>
+      <xin-button label="Lorem Ipsum" color="secondary"></xin-button>
+      <xin-button label="Lorem Ipsum Dolor" color="tertiary"></xin-button>
+      <xin-button icon="send" color="primary"></xin-button>
+      <xin-button icon="save" color="secondary"></xin-button>
+      <xin-button icon="album" color="tertiary"></xin-button>
+      <xin-icon icon="send"></xin-icon>
+      <xin-icon icon="save" button></xin-icon>
+      <xin-icon icon="album" disabled></xin-icon>
+    </xin-page>
   </body>
 </html>
