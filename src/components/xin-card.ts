@@ -19,6 +19,7 @@ export class xinCard extends LitElement {
         display: flex;
         flex-direction: column;
         flex: 1;
+        border-radius: 4px;
       }
       /* header */
       slot,
@@ -38,18 +39,21 @@ export class xinCard extends LitElement {
       slot[name="header"].emptyHeader {
         padding: 0;
       }
+      slot[name="footer"]::slotted(*), 
+      slot[name="functions"]::slotted(*) {
+        margin-left: 8px;
+      }
       .label-wrapper {
         flex: 1;
         display: flex;
-        font: bold 15px/24px 'open-sans';
-        color: rgba(var(--neutral-1), .90)
+        font: bold 16px/24px 'open-sans';
+        color: rgba(var(--neutral-1), .90);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .label-wrapper xin-icon {
         margin-right: 8px;
-      }
-      /* functions */
-      slot[name="functions"]:not(.emptyFunctions) {
-        margin-left: 16px;
       }
       /* content */
       slot:not([name]) {
@@ -62,6 +66,11 @@ export class xinCard extends LitElement {
       slot[name="footer"] {
         justify-content: flex-end;
       }
+      slot[name="header"],
+      slot[name="functions"],
+      slot[name="footer"] {
+        align-items: center;
+      }
     `
   }
 
@@ -73,7 +82,7 @@ export class xinCard extends LitElement {
           ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
           ${this.label}
         </div>
-        <slot name="functions" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}" class="${this.emptyFunctions ? 'emptyFunctions' : ''}"></slot>
+        <slot name="functions"></slot>
       </slot>
       <!-- content -->
       <slot class="${this.emptyHeader ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>

@@ -46,7 +46,7 @@ export class xinButton extends LitElement {
       /* hover inputs */
       @media (hover: hover) {
         :host([color="primary"]:not(:active):hover) {
-          background-color: rgba(var(--accent-1), .90);
+          background-color: rgb(var(--accent-1b));
         }
         :host([color="secondary"]:not(:active):hover) {
           background-color: rgba(var(--neutral-1), .15);
@@ -58,7 +58,7 @@ export class xinButton extends LitElement {
       }
       /* active */
       :host([color="primary"]:active) {
-        background-color: rgba(var(--accent-1), .85);
+        background-color: rgb(var(--accent-1c));
       }
       :host([color="secondary"]:active) {
         background-color: rgba(var(--neutral-1), .05);
