@@ -1,7 +1,7 @@
 const path = require("path");
 const dist = path.resolve(__dirname, "dist");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.ts",
@@ -36,11 +36,12 @@ module.exports = {
       title: "wu",
       filename: "index.html",
       template: "src/index.html",
-      alwaysWriteToDisk: true,
-      minify: false
+      alwaysWriteToDisk: false,
+      minify: true
     }),
-    new HtmlWebpackHarddiskPlugin({
-      outputPath: path.resolve(__dirname, "dist")
-    })
+    new CopyPlugin([
+      { from: path.resolve(__dirname, 'src/wu-styles.css'), to: dist },
+      {from: path.resolve(__dirname, 'src/fonts/'), to: 'fonts/[path][name].[ext]'}
+    ]),
   ]
 };
