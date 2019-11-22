@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('wu-button')
-export class wuButton extends LitElement {
+@customElement('xin-button')
+export class xinButton extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) color = 'primary';

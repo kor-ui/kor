@@ -1,1 +1,1 @@
-import './components/wu-button';
+import './components/xin-button';
