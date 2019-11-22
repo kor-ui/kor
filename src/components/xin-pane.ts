@@ -1,24 +1,25 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-card')
-export class xinCard extends LitElement {
+@customElement('xin-pane')
+export class xinPane extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) flexDirection = "row";
+  @property({ type: String, reflect: true }) size = "l";
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
+  @property({ type: Boolean }) emptyFunctions = true;
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
     return css`
       :host {
-        background-color: rgb(var(--base-3));
+        background-color: rgb(var(--base-2));
         display: flex;
         flex-direction: column;
         flex: 1;
-        border-radius: 4px;
         box-shadow: var(--shadow-1);
       }
       /* header */
@@ -71,13 +72,17 @@ export class xinCard extends LitElement {
       slot[name="footer"] {
         align-items: center;
       }
+      /* sizes */
+      :host([size="l"]) {
+        width: 280px;
+      }
     `
   }
 
   render() {
     return html`
       <!-- header -->
-      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''}">
+      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 && !this.label}" class="${this.emptyHeader ? 'emptyHeader' : ''}">
         <div class="label-wrapper">
           ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
           ${this.label}
@@ -85,9 +90,9 @@ export class xinCard extends LitElement {
         <slot name="functions"></slot>
       </slot>
       <!-- content -->
-      <slot class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
+      <slot class="${this.emptyHeader ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
       <!-- footer -->
       <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
     `
-  }  
+  }
 }

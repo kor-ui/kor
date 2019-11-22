@@ -9,6 +9,7 @@ html, *[theme="light"] {
   --base-1: 235, 235, 235;
   --base-2: 245, 245, 245;
   --base-3: 255, 255, 255;
+  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
 }
 *[theme="dark"] {
   --neutral-1: 255, 255, 255;
@@ -20,6 +21,7 @@ html, *[theme="light"] {
   --base-1: 20, 20, 20;
   --base-2: 30, 30, 30;
   --base-3: 40, 40, 40;
+  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
 }
 /* typography */
 @font-face {
