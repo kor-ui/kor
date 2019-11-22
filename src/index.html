@@ -11,27 +11,19 @@
   <body>
     <!-- page -->
     <xin-page theme="dark">
-      <xin-pane slot="left" label="Hi">
-        content text
-        <xin-button slot="footer"></xin-button>
+      <!-- panes -->
+      <xin-pane slot="left" label="Left Pane">
+        <xin-button slot="footer" color="tertiary" label="Tertiary"></xin-button>
+        <xin-button slot="footer" color="secondary" label="Secondary"></xin-button>
+      </xin-pane>
+      <xin-pane slot="right" label="Right Pane">
+        <xin-button slot="footer" color="secondary" icon="rowing"></xin-button>
+        <xin-button slot="footer" color="primary" label="Primary"></xin-button>
       </xin-pane>
       <!-- cards -->
       <xin-card label="All Components" icon="extension">
-        Not empty header
-      </xin-card>
-      <xin-card label="All Components">
-        Not empty header
-      </xin-card>
-      <xin-card>
-        <xin-icon icon="add" slot="functions"></xin-icon>
-        Not empty header
-      </xin-card>
-      <xin-card>
-        <xin-icon icon="add" slot="header"></xin-icon>
-        Not empty header
-      </xin-card>
-      <xin-card>
-        Empty header
+        <xin-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('xin-page').setAttribute('theme', 'dark')"></xin-icon>
+        <xin-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('xin-page').setAttribute('theme', 'light')"></xin-icon>
       </xin-card>
     </xin-page>
   </body>

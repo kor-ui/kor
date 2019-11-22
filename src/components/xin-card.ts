@@ -5,7 +5,7 @@ export class xinCard extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) flexDirection = "row";
+  @property({ type: String, reflect: true }) flexDirection = "column";
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;

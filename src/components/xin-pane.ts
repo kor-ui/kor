@@ -10,7 +10,6 @@ export class xinPane extends LitElement {
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
-  @property({ type: Boolean }) emptyFunctions = true;
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
@@ -21,6 +20,7 @@ export class xinPane extends LitElement {
         flex-direction: column;
         flex: 1;
         box-shadow: var(--shadow-1);
+        transition: .1s width ease-in-out;
       }
       /* header */
       slot,
@@ -76,13 +76,16 @@ export class xinPane extends LitElement {
       :host([size="l"]) {
         width: 280px;
       }
+      :host([size="s"]) {
+        width: 80px;
+      }
     `
   }
 
   render() {
     return html`
       <!-- header -->
-      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 && !this.label}" class="${this.emptyHeader ? 'emptyHeader' : ''}">
+      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''}">
         <div class="label-wrapper">
           ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
           ${this.label}
@@ -90,9 +93,9 @@ export class xinPane extends LitElement {
         <slot name="functions"></slot>
       </slot>
       <!-- content -->
-      <slot class="${this.emptyHeader ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
+      <slot class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
       <!-- footer -->
       <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
     `
-  }
+  }  
 }
