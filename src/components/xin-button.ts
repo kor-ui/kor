@@ -18,57 +18,30 @@ export class xinButton extends LitElement {
         transition: .1s all ease-in-out;
       }
       :host(:not([icon])) {
-        min-width: 64px;
+        min-width: 56px;
         max-width: 160px;
-        padding: 4px 8px;
+        padding: 4px 12px;
+      }
+      :host([color="tertiary"]:not([icon])) {
+        padding: 3px 11px;
       }
       :host([icon]) {
         padding: 4px;
       }
-      .label {
-        flex: 1;
-        text-align: center;
-        line-height: 24px;
-        font-size: 14px;
-        font-weight: bold;
-        user-select: none;
+      :host([color="tertiary"][icon]) {
+        padding: 3px;
       }
-      /* color = primary */
+      /* idle */
       :host([color="primary"]) {
         background-color: rgb(var(--accent-1));
       }
-      :host([color="primary"]:active) {
-        background-color: rgba(var(--accent-1), .80);
-      }
-      :host([color="primary"]) .label,
-      :host([color="primary"][icon]) xin-icon {
-        color: white;
-      }
-      /* color = secondary */
       :host([color="secondary"]) {
-        background-color: rgb(var(--neutral-1), .15);
-      }
-      :host([color="secondary"]:active) {
         background-color: rgba(var(--neutral-1), .10);
       }
-      :host([color="secondary"]) .label,
-      :host([color="tertiary"]) .label {
-        color: rgba(var(--neutral-1), .9);
-      }
-      /* color = tertiary */
       :host([color="tertiary"]) {
         border-width: 1px;
         border-style: solid;
-        border-color: rgb(var(--neutral-1), .25);
-      }
-      :host([color="tertiary"]:active) {
-        border-color: rgb(var(--neutral-1), .20);
-      }
-      :host([color="tertiary"]:not([icon])) {
-        padding: 3px 7px;
-      }
-      :host([color="tertiary"][icon]) {
-        padding: 3px;
+        border-color: rgba(var(--neutral-1), .25);
       }
       /* hover inputs */
       @media (hover: hover) {
@@ -76,12 +49,44 @@ export class xinButton extends LitElement {
           background-color: rgba(var(--accent-1), .90);
         }
         :host([color="secondary"]:not(:active):hover) {
-          background-color: rgba(var(--neutral-1), .20);
+          background-color: rgba(var(--neutral-1), .15);
         }
         :host([color="tertiary"]:not(:active):hover) {
-          border-color: rgb(var(--neutral-1), .30);
-          background-color: rgb(var(--neutral-1), .05);
+          border-color: rgba(var(--neutral-1), .30);
+          background-color: rgba(var(--neutral-1), .05);
         }
+      }
+      /* active */
+      :host([color="primary"]:active) {
+        background-color: rgba(var(--accent-1), .85);
+      }
+      :host([color="secondary"]:active) {
+        background-color: rgba(var(--neutral-1), .05);
+      }
+      :host([color="tertiary"]:active) {
+        border-color: rgba(var(--neutral-1), .20);
+      }
+      /* label */
+      .label {
+        flex: 1;
+        text-align: center;
+        font: bold 13px/24px 'open-sans';
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      :host([color="primary"]) .label,
+      :host([color="primary"][icon]) xin-icon {
+        color: white;
+      }
+      :host(:not([color="primary"])) .label,
+      :host(:not([color="primary"])[icon]) xin-icon {
+        color: rgba(var(--neutral-1), .9);
+      }
+      :host([color="secondary"]) .label,
+      :host([color="tertiary"]) .label {
+        color: rgba(var(--neutral-1), .9);
       }
     `
   }

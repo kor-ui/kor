@@ -9,17 +9,44 @@
     <!-- <script src="xin.js"></script> -->
   </head>
   <body>
-
+    <!-- page -->
     <xin-page theme="dark">
-      <xin-button label="Hello" color="primary"></xin-button>
-      <xin-button label="Lorem Ipsum" color="secondary"></xin-button>
-      <xin-button label="Lorem Ipsum Dolor" color="tertiary"></xin-button>
-      <xin-button icon="send" color="primary"></xin-button>
-      <xin-button icon="save" color="secondary"></xin-button>
-      <xin-button icon="album" color="tertiary"></xin-button>
-      <xin-icon icon="send"></xin-icon>
-      <xin-icon icon="save" button></xin-icon>
-      <xin-icon icon="album" disabled></xin-icon>
-    </xin-page>
+        <!-- cards -->
+        <xin-card label="Hello There!" icon="add">
+          <xin-icon icon="save" slot="functions"></xin-icon>
+          <!-- buttons -->
+          <xin-button label="Hello"></xin-button>
+          <xin-button label="Lorem Ipsum" color="secondary"></xin-button>
+          <xin-button label="Lorem Ipsum Dolor" color="tertiary"></xin-button>
+          <xin-button icon="send"></xin-button>
+          <xin-button icon="save" color="secondary"></xin-button>
+          <xin-button icon="album" color="tertiary"></xin-button>
+          <!-- icons -->
+          <xin-icon icon="send"></xin-icon>
+          <xin-icon icon="save" button></xin-icon>
+          <xin-icon icon="album" disabled></xin-icon>
+          <!-- footer slot -->
+          <xin-button slot="footer" label="Hello"></xin-button>
+        </xin-card>
+      </xin-page>
+      <xin-page theme="light">
+        <!-- cards -->
+        <xin-card label="Hello There!" icon="add">
+          <xin-icon icon="save" slot="functions"></xin-icon>
+          <!-- buttons -->
+          <xin-button label="Hello"></xin-button>
+          <xin-button label="Lorem Ipsum" color="secondary"></xin-button>
+          <xin-button label="Lorem Ipsum Dolor" color="tertiary"></xin-button>
+          <xin-button icon="send"></xin-button>
+          <xin-button icon="save" color="secondary"></xin-button>
+          <xin-button icon="album" color="tertiary"></xin-button>
+          <!-- icons -->
+          <xin-icon icon="send"></xin-icon>
+          <xin-icon icon="save" button></xin-icon>
+          <xin-icon icon="album" disabled></xin-icon>
+          <!-- footer slot -->
+          <xin-button slot="footer" label="Hello"></xin-button>
+        </xin-card>
+      </xin-page>
   </body>
 </html>
