@@ -5,6 +5,7 @@ export class waPage extends LitElement {
 
   @property({ type: String, reflect: true }) theme = "dark";
   @property({ type: String, reflect: true }) flexDirection = "row";
+  @property({ type: Boolean, reflect: true }) flat = false;
 
   static get styles() {
     return css`
@@ -15,6 +16,9 @@ export class waPage extends LitElement {
         display: flex;
         flex-direction: column;
         background-color: rgb(var(--base-1));
+      }
+      :host([flat]) {
+        background-color: rgb(var(--base-3));
       }
       .center-wrapper,
       slot {

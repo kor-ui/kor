@@ -23,12 +23,17 @@
         <wa-button slot="footer" color="secondary" label="Second."></wa-button>
         <wa-button slot="footer" color="primary" label="Prim."></wa-button>
       </wa-pane>
-      <!-- cards -->
-      <wa-card label="All Components" icon="extension">
-        <wa-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
-        <wa-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
-        <wa-button slot="footer"></wa-button>
-      </wa-card>
+      <wa-grid>
+        <!-- cards -->
+        <wa-card label="All Components" icon="extension" grid-cols="12">
+          <wa-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
+          <wa-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
+          <wa-button slot="footer"></wa-button>
+        </wa-card>
+        <wa-card grid-cols="2"></wa-card>
+        <wa-card grid-cols="4"></wa-card>
+        <wa-card grid-cols="6"></wa-card>
+      </wa-grid>
     </wa-page>
   </body>
 </html>

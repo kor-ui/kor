@@ -6,6 +6,7 @@ export class waCard extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) flexDirection = "column";
+  @property({ type: Boolean, reflect: true }) flat = false;
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
@@ -15,14 +16,16 @@ export class waCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        background-color: rgb(var(--base-3));
         display: flex;
         flex-direction: column;
         flex: 1;
         border-radius: 4px;
+        box-sizing: border-box;
+      }
+      :host(:not([flat])) {
+        background-color: rgb(var(--base-3));
         box-shadow: var(--shadow-1);
         padding: 16px;
-        box-sizing: border-box;
       }
       /* header */
       slot,
@@ -91,15 +94,15 @@ export class waCard extends LitElement {
             ${!this.emptyHeader && (this.label || this.icon) ? html` <div style="margin-top: 16px"></div> ` : ''}
           ` : ''}
           <!-- header -->
-          <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader ? 'empty' : ''}"></slot>
+          <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}" class="${this.emptyHeader ? 'empty' : ''}"></slot>
         </div>
         <!-- functions -->
-        <slot name="functions" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0 }"></slot>
+        <slot name="functions" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
       </div>
       <!-- content -->
       <slot></slot>
       <!-- footer -->
       <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'empty' : ''}"></slot>
     `
-  }  
+  }
 }
