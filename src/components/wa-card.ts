@@ -29,24 +29,24 @@ export class waCard extends LitElement {
       }
       /* header */
       slot,
-      .header-wrapper,
-      .top-wrapper {
+      .header,
+      .top {
         display: flex;
       }
-      .header-wrapper,
+      .header,
       slot[name="functions"] {
         height: fit-content;
       }
-      .header-wrapper {
+      .header {
         flex: 1;
       }
-      .top-wrapper:not(.empty) {
+      .top:not(.empty) {
         padding-bottom: 16px;
       }
       slot[name="footer"]:not(.empty) {
         padding-top: 16px;
       }
-      .label-wrapper {
+      .label {
         flex: 1;
         display: flex;
         font: bold 16px/24px 'open-sans';
@@ -55,7 +55,7 @@ export class waCard extends LitElement {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .label-wrapper wa-icon {
+      .label wa-icon {
         margin-right: 8px;
       }
       slot[name="footer"]::slotted(*), 
@@ -67,7 +67,7 @@ export class waCard extends LitElement {
         flex: 1;
       }
       :host([flexDirection="column"]) slot:not([name]),
-      .header-wrapper {
+      .header {
         flex-direction: column;
       }
       /* footer */
@@ -84,10 +84,10 @@ export class waCard extends LitElement {
 
   render() {
     return html`
-      <div class="top-wrapper ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
-        <div class="header-wrapper">
+      <div class="top ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
+        <div class="header">
           ${this.label || this.icon ? html`
-            <div class="label-wrapper">
+            <div class="label">
               ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
               ${this.label}
             </div>

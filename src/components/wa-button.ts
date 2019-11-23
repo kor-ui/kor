@@ -6,6 +6,7 @@ export class waButton extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) color = 'primary';
   @property({ type: String, reflect: true }) icon;
+  @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
     return css`
@@ -65,6 +66,11 @@ export class waButton extends LitElement {
       }
       :host([color="tertiary"]:active) {
         border-color: rgba(var(--neutral-1), .20);
+      }
+      /* disabled */
+      :host([disabled]) {
+        pointer-events: none;
+        opacity: .20;
       }
       /* label */
       .label {

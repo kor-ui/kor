@@ -19,16 +19,16 @@
       </wa-pane>
       <wa-pane slot="right" icon="train" label="Right Pane">
         <wa-icon slot="functions" button icon="save"></wa-icon>
-        <wa-button slot="footer" color="tertiary" label="Tert."></wa-button>
-        <wa-button slot="footer" color="secondary" label="Second."></wa-button>
-        <wa-button slot="footer" color="primary" label="Prim."></wa-button>
+        <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
+        <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>
+        <wa-button slot="footer" color="primary" label="Primary"></wa-button>
       </wa-pane>
       <wa-grid>
         <!-- cards -->
         <wa-card label="All Components" icon="extension" grid-cols="12">
           <wa-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
           <wa-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
-          <wa-button slot="footer"></wa-button>
+          <wa-button disabled slot="footer"></wa-button>
         </wa-card>
         <wa-card grid-cols="2"></wa-card>
         <wa-card grid-cols="4"></wa-card>
