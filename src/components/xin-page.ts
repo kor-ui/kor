@@ -23,14 +23,13 @@ export class xinPage extends LitElement {
       .center-wrapper,
       slot:not([name]) {
         flex: 1;
+        overflow: hidden;
       }
       slot:not([name]) {
         padding: 16px;
       }
       slot[name="top"],
-      slot[name="bottom"] {
-        flex-direction: column;
-      }
+      slot[name="bottom"],
       :host([flexDirection="column"]) slot:not([name]) {
         flex-direction: column;
       }

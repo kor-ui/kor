@@ -5,11 +5,12 @@ export class xinPane extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) flexDirection = "row";
+  @property({ type: String, reflect: true }) flexDirection = "column";
   @property({ type: String, reflect: true }) size = "l";
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
+  @property({ type: Boolean }) emptyFunctions = true;
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
@@ -17,85 +18,30 @@ export class xinPane extends LitElement {
       :host {
         background-color: rgb(var(--base-2));
         display: flex;
-        flex-direction: column;
-        flex: 1;
         box-shadow: var(--shadow-1);
         transition: .1s width ease-in-out;
       }
-      /* header */
-      slot,
-      .header-wrapper {
-        display: flex;
-      }
-      slot:not([name="functions"]) {
-        padding: 16px;
-      }
-      slot:not([name]):not(.emptyHeader) {
-        padding-top: 0;
-      }
-      slot:not([name]):not(.emptyFooter) {
-        padding-bottom: 0;
-      }
-      slot[name="footer"].emptyFooter,
-      slot[name="header"].emptyHeader {
-        padding: 0;
-      }
-      slot[name="footer"]::slotted(*), 
-      slot[name="functions"]::slotted(*) {
-        margin-left: 8px;
-      }
-      .label-wrapper {
-        flex: 1;
-        display: flex;
-        font: bold 16px/24px 'open-sans';
-        color: rgba(var(--neutral-1), .90);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .label-wrapper xin-icon {
-        margin-right: 8px;
-      }
-      /* content */
-      slot:not([name]) {
-        flex: 1;
-      }
-      :host([flexDirection="column"]) slot:not([name]) {
-        flex-direction: column;
-      }
-      /* footer */
-      slot[name="footer"] {
-        justify-content: flex-end;
-      }
-      slot[name="header"],
-      slot[name="functions"],
-      slot[name="footer"] {
-        align-items: center;
-      }
-      /* sizes */
       :host([size="l"]) {
-        width: 280px;
+        width: 320px;
       }
-      :host([size="s"]) {
-        width: 80px;
+      xin-card {
+        background-color: transparent;
+        box-shadow: none;
       }
     `
   }
 
   render() {
     return html`
-      <!-- header -->
-      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''}">
-        <div class="label-wrapper">
-          ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
-          ${this.label}
-        </div>
-        <slot name="functions"></slot>
-      </slot>
-      <!-- content -->
-      <slot class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
-      <!-- footer -->
-      <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
+      <xin-card
+        label="${this.label ? this.label : ''}"
+        icon="${this.icon ? this.icon : ''}"
+        flexDirection="${this.flexDirection}">
+        <slot></slot>
+        <slot name="header" slot="${this.emptyHeader ? '' : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }"></slot>
+        <slot name="functions" slot="${this.emptyFunctions ? '' : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0 }"></slot>
+        <slot name="footer" slot="${this.emptyFooter ? '' : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0 }"></slot>
+      </xin-card>
     `
-  }  
+  }
 }

@@ -2,9 +2,9 @@
 html, *[theme="light"] {
   --neutral-1: 0, 0, 0;
   --neutral-2: 255, 255, 255;
-  --accent-1: 80, 70, 120;
-  --accent-1b: 85, 75, 125;
-  --accent-1c: 75, 65, 115;
+  --accent-1: 180, 70, 120;
+  --accent-1b: 190, 80, 130;
+  --accent-1c: 170, 60, 110;
   --base-0: 80, 100, 120;
   --base-1: 235, 235, 235;
   --base-2: 245, 245, 245;
@@ -14,9 +14,9 @@ html, *[theme="light"] {
 *[theme="dark"] {
   --neutral-1: 255, 255, 255;
   --neutral-2: 0, 0, 0;
-  --accent-1: 80, 70, 120;
-  --accent-1b: 85, 75, 125;
-  --accent-1c: 75, 65, 115;
+  --accent-1: 180, 70, 120;
+  --accent-1b: 190, 80, 130;
+  --accent-1c: 170, 60, 110;
   --base-0: 80, 100, 120;
   --base-1: 20, 20, 20;
   --base-2: 30, 30, 30;
@@ -48,9 +48,17 @@ html, *[theme="light"] {
 }
 html, body {
   font-family: 'open-sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
   color: rgb(var(--neutral-1));
   height: 100%;
   width: 100%;
   margin: 0;
+  overflow: hidden;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
 }

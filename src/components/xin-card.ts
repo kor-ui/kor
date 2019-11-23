@@ -9,6 +9,7 @@ export class xinCard extends LitElement {
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
+  @property({ type: Boolean }) emptyFunctions = true;
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
@@ -20,28 +21,27 @@ export class xinCard extends LitElement {
         flex: 1;
         border-radius: 4px;
         box-shadow: var(--shadow-1);
+        padding: 16px;
+        box-sizing: border-box;
       }
       /* header */
       slot,
-      .header-wrapper {
+      .header-wrapper,
+      .top-wrapper {
         display: flex;
       }
-      slot:not([name="functions"]) {
-        padding: 16px;
+      .header-wrapper,
+      slot[name="functions"] {
+        height: fit-content;
       }
-      slot:not([name]):not(.emptyHeader) {
-        padding-top: 0;
+      .header-wrapper {
+        flex: 1;
       }
-      slot:not([name]):not(.emptyFooter) {
-        padding-bottom: 0;
+      .top-wrapper:not(.empty) {
+        padding-bottom: 16px;
       }
-      slot[name="footer"].emptyFooter,
-      slot[name="header"].emptyHeader {
-        padding: 0;
-      }
-      slot[name="footer"]::slotted(*), 
-      slot[name="functions"]::slotted(*) {
-        margin-left: 8px;
+      slot[name="footer"]:not(.empty) {
+        padding-top: 16px;
       }
       .label-wrapper {
         flex: 1;
@@ -55,11 +55,16 @@ export class xinCard extends LitElement {
       .label-wrapper xin-icon {
         margin-right: 8px;
       }
+      slot[name="footer"]::slotted(*), 
+      slot[name="functions"]::slotted(*) {
+        margin-left: 8px;
+      }
       /* content */
       slot:not([name]) {
         flex: 1;
       }
-      :host([flexDirection="column"]) slot:not([name]) {
+      :host([flexDirection="column"]) slot:not([name]),
+      .header-wrapper {
         flex-direction: column;
       }
       /* footer */
@@ -76,18 +81,25 @@ export class xinCard extends LitElement {
 
   render() {
     return html`
-      <!-- header -->
-      <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''}">
-        <div class="label-wrapper">
-          ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
-          ${this.label}
+      <div class="top-wrapper ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
+        <div class="header-wrapper">
+          ${this.label || this.icon ? html`
+            <div class="label-wrapper">
+              ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
+              ${this.label}
+            </div>
+            ${!this.emptyHeader && (this.label || this.icon) ? html` <div style="margin-top: 16px"></div> ` : ''}
+          ` : ''}
+          <!-- header -->
+          <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }" class="${this.emptyHeader ? 'empty' : ''}"></slot>
         </div>
-        <slot name="functions"></slot>
-      </slot>
+        <!-- functions -->
+        <slot name="functions" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0 }"></slot>
+      </div>
       <!-- content -->
-      <slot class="${this.emptyHeader && !this.label && !this.icon ? 'emptyHeader' : ''} ${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
+      <slot></slot>
       <!-- footer -->
-      <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'emptyFooter' : ''}"></slot>
+      <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'empty' : ''}"></slot>
     `
   }  
 }
