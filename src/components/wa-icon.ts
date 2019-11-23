@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-icon')
-export class xinIcon extends LitElement {
+@customElement('wa-icon')
+export class waIcon extends LitElement {
 
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) button;

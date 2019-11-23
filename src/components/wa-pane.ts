@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-pane')
-export class xinPane extends LitElement {
+@customElement('wa-pane')
+export class waPane extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -24,7 +24,7 @@ export class xinPane extends LitElement {
       :host([size="l"]) {
         width: 320px;
       }
-      xin-card {
+      wa-card {
         background-color: transparent;
         box-shadow: none;
       }
@@ -33,7 +33,7 @@ export class xinPane extends LitElement {
 
   render() {
     return html`
-      <xin-card
+      <wa-card
         label="${this.label ? this.label : ''}"
         icon="${this.icon ? this.icon : ''}"
         flexDirection="${this.flexDirection}">
@@ -41,7 +41,7 @@ export class xinPane extends LitElement {
         <slot name="header" slot="${this.emptyHeader ? '' : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0 }"></slot>
         <slot name="functions" slot="${this.emptyFunctions ? '' : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0 }"></slot>
         <slot name="footer" slot="${this.emptyFooter ? '' : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0 }"></slot>
-      </xin-card>
+      </wa-card>
     `
   }
 }

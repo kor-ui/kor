@@ -23,7 +23,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: "xin.js",
+    filename: "wa.js",
     path: dist
   },
   devServer: {
@@ -33,14 +33,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "xin",
+      title: "wa",
       filename: "index.html",
       template: "src/index.html",
       alwaysWriteToDisk: false,
       minify: true
     }),
     new CopyPlugin([
-      { from: path.resolve(__dirname, 'src/xin-styles.css'), to: dist },
+      { from: path.resolve(__dirname, 'src/wa-styles.css'), to: dist },
       {from: path.resolve(__dirname, 'src/fonts/'), to: 'fonts/[path][name].[ext]'}
     ]),
   ]

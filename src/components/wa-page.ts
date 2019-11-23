@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-page')
-export class xinPage extends LitElement {
+@customElement('wa-page')
+export class waPage extends LitElement {
 
   @property({ type: String, reflect: true }) theme = "dark";
   @property({ type: String, reflect: true }) flexDirection = "row";

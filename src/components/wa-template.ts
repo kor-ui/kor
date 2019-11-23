@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-template')
-export class xinTemplate extends LitElement {
+@customElement('wa-template')
+export class waTemplate extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
 

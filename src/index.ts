@@ -1,5 +1,5 @@
-import './components/xin-button';
-import './components/xin-card';
-import './components/xin-icon';
-import './components/xin-page';
-import './components/xin-pane';
+import './components/wa-button';
+import './components/wa-card';
+import './components/wa-icon';
+import './components/wa-page';
+import './components/wa-pane';

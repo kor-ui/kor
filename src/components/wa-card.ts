@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-card')
-export class xinCard extends LitElement {
+@customElement('wa-card')
+export class waCard extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -52,7 +52,7 @@ export class xinCard extends LitElement {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .label-wrapper xin-icon {
+      .label-wrapper wa-icon {
         margin-right: 8px;
       }
       slot[name="footer"]::slotted(*), 
@@ -85,7 +85,7 @@ export class xinCard extends LitElement {
         <div class="header-wrapper">
           ${this.label || this.icon ? html`
             <div class="label-wrapper">
-              ${this.icon ? html` <xin-icon icon="${this.icon}"></xin-icon> ` : ''}
+              ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
               ${this.label}
             </div>
             ${!this.emptyHeader && (this.label || this.icon) ? html` <div style="margin-top: 16px"></div> ` : ''}

@@ -5,33 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Component Playground</title>
-    <link rel="stylesheet" href="xin-styles.css">
-    <!-- <script src="xin.js"></script> -->
+    <link rel="stylesheet" href="wa-styles.css">
+    <!-- <script src="wa.js"></script> -->
   </head>
   <body>
     <!-- page -->
-    <xin-page theme="dark">
+    <wa-page theme="dark">
       <!-- panes -->
-      <xin-pane slot="left" label="Left Pane">
-        <xin-button slot="header"></xin-button>
-        <div style="background: darkslategray; flex: 1"></div>
-        <!-- <xin-button slot="footer" color="tertiary" icon="rowing"></xin-button>
-        <xin-button slot="footer" color="secondary" icon="rowing"></xin-button>
-        <xin-button slot="footer" icon="rowing"></xin-button> -->
-      </xin-pane>
-      <xin-pane slot="right">
-        <div style="background: darkslategray; flex: 1"></div>
-        <xin-button slot="footer" color="tertiary" label="Tert."></xin-button>
-        <xin-button slot="footer" color="secondary" label="Second."></xin-button>
-        <xin-button slot="footer" color="primary" label="Prim."></xin-button>
-      </xin-pane>
+      <wa-pane slot="left" label="Left Pane">
+        <wa-button slot="footer" color="tertiary" icon="rowing"></wa-button>
+        <wa-button slot="footer" color="secondary" icon="rowing"></wa-button>
+        <wa-button slot="footer" icon="rowing"></wa-button>
+      </wa-pane>
+      <wa-pane slot="right" icon="train" label="Right Pane">
+        <wa-icon slot="functions" button icon="save"></wa-icon>
+        <wa-button slot="footer" color="tertiary" label="Tert."></wa-button>
+        <wa-button slot="footer" color="secondary" label="Second."></wa-button>
+        <wa-button slot="footer" color="primary" label="Prim."></wa-button>
+      </wa-pane>
       <!-- cards -->
-      <xin-card label="All Components" icon="extension">
-        <xin-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('xin-page').setAttribute('theme', 'dark')"></xin-icon>
-        <xin-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('xin-page').setAttribute('theme', 'light')"></xin-icon>
-        <div style="background: darkslategray; flex: 1"></div>
-        <xin-button slot="footer"></xin-button>
-      </xin-card>
-    </xin-page>
+      <wa-card label="All Components" icon="extension">
+        <wa-icon slot="functions" button icon="brightness_3" onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
+        <wa-icon slot="functions" button icon="brightness_7" onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
+        <wa-button slot="footer"></wa-button>
+      </wa-card>
+    </wa-page>
   </body>
 </html>

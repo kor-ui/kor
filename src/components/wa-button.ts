@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('xin-button')
-export class xinButton extends LitElement {
+@customElement('wa-button')
+export class waButton extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) color = 'primary';
@@ -77,11 +77,11 @@ export class xinButton extends LitElement {
         text-overflow: ellipsis;
       }
       :host([color="primary"]) .label,
-      :host([color="primary"][icon]) xin-icon {
+      :host([color="primary"][icon]) wa-icon {
         color: white;
       }
       :host(:not([color="primary"])) .label,
-      :host(:not([color="primary"])[icon]) xin-icon {
+      :host(:not([color="primary"])[icon]) wa-icon {
         color: rgba(var(--neutral-1), .9);
       }
       :host([color="secondary"]) .label,
@@ -96,7 +96,7 @@ export class xinButton extends LitElement {
     ${!this.icon ? html`
       <div class="label">${this.label}</div>
     ` : html`
-      <xin-icon icon="${this.icon}"></xin-icon>
+      <wa-icon icon="${this.icon}"></wa-icon>
     `}
     `
   }
