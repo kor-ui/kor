@@ -5,6 +5,7 @@ export class waCard extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) image;
   @property({ type: String, reflect: true }) flexDirection = "column";
   @property({ type: Boolean, reflect: true }) flat = false;
 
@@ -79,11 +80,17 @@ export class waCard extends LitElement {
       slot[name="footer"] {
         align-items: center;
       }
+      /* image */
+      .image {
+        width: calc(100% + 32px);
+        margin: -16px -16px 16px -16px;
+      }
     `
   }
 
   render() {
     return html`
+      ${this.image ? html` <img class="image" src="${this.image}"> ` : ''}
       <div class="top ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
         <div class="header">
           ${this.label || this.icon ? html`

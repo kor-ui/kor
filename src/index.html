@@ -11,6 +11,16 @@
   <body>
     <!-- page -->
     <wa-page theme="dark">
+      <!-- app bar -->
+      <wa-app-bar slot="top" logo="http://pngimg.com/uploads/heart/heart_PNG51341.png" label="MyApp">
+        <wa-tabs>
+          <wa-tab-item label="Lorem ipsum dolor sit ipsum dolor sit" active></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+        </wa-tabs>
+        <wa-icon button slot="functions" icon="more"></wa-icon>
+        <wa-icon button slot="functions" icon="save"></wa-icon>
+      </wa-app-bar>
       <!-- panes -->
       <wa-pane slot="left" label="Left Pane">
         <!-- vertical tabs -->
@@ -30,9 +40,9 @@
           <wa-tab-item icon="train"></wa-tab-item>
         </wa-tabs>
         <!-- icon buttons -->
-        <wa-button slot="footer" color="tertiary" icon="rowing"></wa-button>
-        <wa-button slot="footer" color="secondary" icon="rowing"></wa-button>
-        <wa-button slot="footer" icon="rowing"></wa-button>
+        <wa-button slot="footer" color="tertiary" icon="face"></wa-button>
+        <wa-button slot="footer" color="secondary" icon="face"></wa-button>
+        <wa-button slot="footer" icon="face"></wa-button>
       </wa-pane>
       <wa-pane slot="right" icon="train" label="Right Pane">
         <wa-icon slot="functions" button icon="save"></wa-icon>
@@ -49,9 +59,9 @@
           <wa-button disabled slot="footer"></wa-button>
         </wa-card>
         <wa-card grid-cols="2"></wa-card>
-        <wa-card grid-cols="4">
+        <wa-card grid-cols="4" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg">
         </wa-card>
-        <wa-card grid-cols="6">
+        <wa-card grid-cols="6" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg">
           <!-- tabs -->
           <wa-tabs slot="header">
             <wa-tab-item label="Hi" active></wa-tab-item>

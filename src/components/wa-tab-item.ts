@@ -7,6 +7,7 @@ export class waTabItem extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: Boolean, reflect: true }) vertical;
 
   static get styles() {
     return css`
@@ -17,34 +18,42 @@ export class waTabItem extends LitElement {
         justify-content: center;
         width: fit-content;
         min-width: 72px;
-        max-width: 120px;
+        max-width: 240px;
         height: 56px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         padding: 8px 16px 6px 16px;
         box-sizing: border-box;
-        font: var(--body-1);
-        font-weight: bold;
         transition: .1s all ease-in-out;
         cursor: pointer;
-        line-height: 16px;
         border-width: 0px 0px 2px 0px;
         border-color: transparent;
         border-style: solid;
       }
-      :host-context(wa-tabs[vertical]) {
-        justify-content: flex-start;
+      .label {
+        width: 100%;
+        font: var(--body-1);
+        line-height: 16px;
+        text-align: center;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      /* vertical */
+      :host([vertical]) .label {
         line-height: 24px;
+        text-align: left;
+      }
+      :host([vertical]) {
+        justify-content: flex-start;
         flex-direction: row;
         width: 100%;
-        min-width: 0px;
+        min-width: unset;
         max-width: 100%;
         height: fit-content;
         padding: 8px 16px 8px 14px;
         border-width: 0px 0px 0px 2px;
       }
-      :host-context(wa-tabs[vertical]) wa-icon {
+      :host([vertical]) wa-icon {
         margin-right: 8px;
       }
       /* active */
@@ -72,7 +81,7 @@ export class waTabItem extends LitElement {
   render() {
     return html`
       ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
-      ${this.label}
+      ${this.label ? html` <div class="label">${this.label}</wa-icon> ` : ''}
     `
   }
 

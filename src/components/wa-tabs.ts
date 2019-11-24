@@ -27,7 +27,14 @@ export class waTabs extends LitElement {
 
   render() {
     return html`
-      <slot></slot>
+      <slot @slotchange="${this.handleVerticalItems()}"></slot>
     `
+  }
+
+  handleVerticalItems() {
+    (<any>this.childNodes).forEach(el => {
+      el.vertical = this.vertical
+    });
+
   }
 }
