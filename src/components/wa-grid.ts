@@ -114,6 +114,7 @@ export class waGrid extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="../wa-styles.css">
       <slot></slot>
     `
   }

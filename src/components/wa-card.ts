@@ -22,6 +22,7 @@ export class waCard extends LitElement {
         flex: 1;
         border-radius: 4px;
         box-sizing: border-box;
+        overflow: hidden;
       }
       :host(:not([flat])) {
         background-color: rgb(var(--base-3));
@@ -62,7 +63,7 @@ export class waCard extends LitElement {
       }
       slot[name="footer"]::slotted(*), 
       slot[name="functions"]::slotted(*) {
-        margin-left: 8px;
+        margin-left: 16px;
       }
       /* content */
       slot:not([name]) {
@@ -97,6 +98,7 @@ export class waCard extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="../wa-styles.css">
       ${this.image ? html` <img class="image" src="${this.image}"> ` : ''}
       <div class="top ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
         <div class="header">

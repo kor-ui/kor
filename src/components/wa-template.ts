@@ -13,6 +13,7 @@ export class waTemplate extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="../wa-styles.css">
       <!-- conditional dom rendering -->
       ${this.label === 'hi' ?
         html`<p>Render some HTML if hi</p>` :

@@ -977,6 +977,7 @@ export class waIcon extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="../wa-styles.css">
     `
   }
 }

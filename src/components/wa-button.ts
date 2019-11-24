@@ -93,6 +93,7 @@ export class waButton extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="../wa-styles.css">
       ${!this.icon ? html`
         ${this.label}
       ` : html`

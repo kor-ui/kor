@@ -20,8 +20,10 @@
         <wa-tab-item label="Hi"></wa-tab-item>
         <wa-tab-item label="Hi"></wa-tab-item>
       </wa-tabs>
-      <wa-icon button slot="functions" icon="more"></wa-icon>
-      <wa-icon button slot="functions" icon="save"></wa-icon>
+      <wa-icon slot="functions" button icon="brightness_3"
+        onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
+      <wa-icon slot="functions" button icon="brightness_7"
+        onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
     </wa-app-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
@@ -44,11 +46,9 @@
     </wa-pane>
     <wa-grid>
       <!-- cards -->
-      <wa-card label="All Components" icon="extension" grid-cols="6">
-        <wa-icon slot="functions" button icon="brightness_3"
-          onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
-        <wa-icon slot="functions" button icon="brightness_7"
-          onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
+      <wa-card label="Card Label" icon="extension" grid-cols="6">
+        <wa-icon button slot="functions" icon="more"></wa-icon>
+        <wa-icon button slot="functions" icon="save"></wa-icon>
         <wa-button disabled slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
