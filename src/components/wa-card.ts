@@ -33,6 +33,7 @@ export class waCard extends LitElement {
       .header,
       .top {
         display: flex;
+        overflow: overlay;
       }
       .header,
       slot[name="functions"] {

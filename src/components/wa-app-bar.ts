@@ -20,14 +20,14 @@ export class waAppBar extends LitElement {
         transition: .1s all ease-in-out;
       }
       .logo {
-        height: 32px;
-        margin-right: 24px;
+        height: 24px;
+        margin-right: 32px;
       }
       .label {
         font: var(--header-1);
         color: var(--text-1);
         max-width: 320px;
-        margin-right: 24px;
+        margin-right: 32px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
