@@ -9,10 +9,13 @@ html, *[theme="light"] {
   --base-1: 235, 235, 235;
   --base-2: 245, 245, 245;
   --base-3: 255, 255, 255;
-  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
+  --functional-red: 211, 47, 47;
+  --functional-yellow: 249, 168, 37;
+  --functional-green: 46, 123, 50;
   --text-1: rgba(0, 0, 0, .90);
   --text-2: rgba(0, 0, 0, .60);
   --text-3: rgba(0, 0, 0, .20);
+  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
 }
 *[theme="dark"] {
   --neutral-1: 255, 255, 255;
@@ -20,14 +23,17 @@ html, *[theme="light"] {
   --accent-1: 60, 100, 240;
   --accent-1b: 70, 110, 250;
   --accent-1c: 50, 90, 230;
-  --base-0: 0, 0, 0;
-  --base-1: 20, 20, 20;
-  --base-2: 30, 30, 30;
-  --base-3: 40, 40, 40;
-  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
+  --base-0: 0, 0, 2;
+  --base-1: 15, 15, 17;
+  --base-2: 25, 25, 27;
+  --base-3: 35, 35, 37;
+  --functional-red: 211, 47, 47;
+  --functional-yellow: 249, 168, 37;
+  --functional-green: 46, 123, 50;
   --text-1: rgba(255, 255, 255, .90);
   --text-2: rgba(255, 255, 255, .60);
   --text-3: rgba(255, 255, 255, .20);
+  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
 }
 /* typography */
 @font-face {

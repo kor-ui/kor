@@ -41,7 +41,7 @@ export class waAppBar extends LitElement {
         flex: 1;
       }
       slot[name="functions"]::slotted(*) {
-        margin-left: 16px;
+        margin-left: 12px;
       }
       ::slotted(wa-tabs) {
         border-bottom: unset;
@@ -52,13 +52,9 @@ export class waAppBar extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" href="../wa-styles.css">
-      <!-- logo -->
       ${this.logo ? html` <img class="logo" src="${this.logo}"> ` : ''}
-      <!-- label -->
       ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
-      <!-- unnamed -->
       <slot></slot>
-      <!-- functions -->
       <slot name="functions"></slot>
     `
   }

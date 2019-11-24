@@ -52,18 +52,21 @@ export class waCard extends LitElement {
       .label {
         flex: 1;
         display: flex;
+      }
+      .label p {
         font: var(--header-1);
         color: var(--text-1);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin: 0;
       }
       .label wa-icon {
         margin-right: 8px;
       }
       slot[name="footer"]::slotted(*), 
       slot[name="functions"]::slotted(*) {
-        margin-left: 16px;
+        margin-left: 12px;
       }
       /* content */
       slot:not([name]) {
@@ -74,10 +77,10 @@ export class waCard extends LitElement {
         flex-direction: column;
       }
       :host([flexDirection="column"]) slot:not([name])::slotted(*) {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
       :host([flexDirection="row"]) slot:not([name])::slotted(*) {
-        margin-right: 8px;
+        margin-right: 12px;
       }
       /* footer */
       slot[name="footer"] {
@@ -105,19 +108,15 @@ export class waCard extends LitElement {
           ${this.label || this.icon ? html`
             <div class="label">
               ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
-              ${this.label}
+              <p>${this.label}</p>
             </div>
             ${!this.emptyHeader && (this.label || this.icon) ? html` <div style="margin-top: 16px"></div> ` : ''}
           ` : ''}
-          <!-- header -->
           <slot name="header" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}" class="${this.emptyHeader ? 'empty' : ''}"></slot>
         </div>
-        <!-- functions -->
         <slot name="functions" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
       </div>
-      <!-- content -->
       <slot></slot>
-      <!-- footer -->
       <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'empty' : ''}"></slot>
     `
   }
