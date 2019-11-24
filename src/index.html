@@ -13,12 +13,30 @@
     <wa-page theme="dark">
       <!-- panes -->
       <wa-pane slot="left" label="Left Pane">
+        <!-- vertical tabs -->
+        <wa-tabs vertical>
+          <wa-tab-item label="Hi" active></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs vertical>
+          <wa-tab-item label="Train" icon="train" active></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs vertical>
+          <wa-tab-item icon="train" active></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+        </wa-tabs>
+        <!-- icon buttons -->
         <wa-button slot="footer" color="tertiary" icon="rowing"></wa-button>
         <wa-button slot="footer" color="secondary" icon="rowing"></wa-button>
         <wa-button slot="footer" icon="rowing"></wa-button>
       </wa-pane>
       <wa-pane slot="right" icon="train" label="Right Pane">
         <wa-icon slot="functions" button icon="save"></wa-icon>
+        <!-- buttons -->
         <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
         <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>
         <wa-button slot="footer" color="primary" label="Primary"></wa-button>
@@ -31,8 +49,26 @@
           <wa-button disabled slot="footer"></wa-button>
         </wa-card>
         <wa-card grid-cols="2"></wa-card>
-        <wa-card grid-cols="4"></wa-card>
-        <wa-card grid-cols="6"></wa-card>
+        <wa-card grid-cols="4">
+        </wa-card>
+        <wa-card grid-cols="6">
+          <!-- tabs -->
+          <wa-tabs slot="header">
+            <wa-tab-item label="Hi" active></wa-tab-item>
+            <wa-tab-item label="Hi"></wa-tab-item>
+            <wa-tab-item label="Hi"></wa-tab-item>
+          </wa-tabs>
+          <wa-tabs>
+            <wa-tab-item label="Train" icon="train" active></wa-tab-item>
+            <wa-tab-item label="Train" icon="train"></wa-tab-item>
+            <wa-tab-item label="Train" icon="train"></wa-tab-item>
+          </wa-tabs>
+          <wa-tabs>
+            <wa-tab-item icon="train" active></wa-tab-item>
+            <wa-tab-item icon="train"></wa-tab-item>
+            <wa-tab-item icon="train"></wa-tab-item>
+          </wa-tabs>
+          </wa-card>
       </wa-grid>
     </wa-page>
   </body>

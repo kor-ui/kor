@@ -10,6 +10,9 @@ html, *[theme="light"] {
   --base-2: 245, 245, 245;
   --base-3: 255, 255, 255;
   --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
+  --text-1: rgba(0, 0, 0, .90);
+  --text-2: rgba(0, 0, 0, .60);
+  --text-3: rgba(0, 0, 0, .20);
 }
 *[theme="dark"] {
   --neutral-1: 255, 255, 255;
@@ -22,6 +25,9 @@ html, *[theme="light"] {
   --base-2: 30, 30, 30;
   --base-3: 40, 40, 40;
   --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
+  --text-1: rgba(255, 255, 255, .90);
+  --text-2: rgba(255, 255, 255, .60);
+  --text-3: rgba(255, 255, 255, .20);
 }
 /* typography */
 @font-face {
@@ -47,12 +53,16 @@ html, *[theme="light"] {
   src: local('Open Sans Bold'), local('OpenSans-Bold'), url('./fonts/open-sans-bold.woff2') format('woff2'), url('./fonts/open-sans-bold.woff') format('woff');
 }
 html, body {
+  --body-1: normal 13px/24px 'open-sans';
+  --body-2: normal 12px/16px 'open-sans';
+  --header-1: bold 16px/24px 'open-sans';
+  --header-2: bold 15px/24px 'open-sans';
   font-family: 'open-sans', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: rgb(var(--neutral-1));
+  color: var(--text-1);
   height: 100%;
   width: 100%;
   margin: 0;
@@ -61,4 +71,25 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
+}
+/* scrollbar */
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  visibility: hidden;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(var(--neutral-1), .05);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--neutral-1), .10);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:active,
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--neutral-1), .20)
 }

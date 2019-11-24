@@ -15,17 +15,17 @@ export class waIcon extends LitElement {
         font-family: 'md-icons';
         font-size: 24px;
         line-height: 1;
-        -webkit-font-smoothing: antialiased;
+        -webkit-font-smoothing: auto;
         text-rendering: optimizeLegibility;
         -moz-osx-font-smoothing: grayscale;
         font-feature-settings: 'liga';
         opacity: .90;
-        color: rgb(var(--neutral-1))
+        color: var(--text-1);
+        transition: .1s all ease-in-out;
       }
       :host([button]) {
         opacity: .60;
         cursor: pointer;
-        transition: .1s opacity ease-in-out;
       }
       :host([button]:active) {
         opacity: .55;

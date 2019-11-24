@@ -17,6 +17,13 @@ export class waButton extends LitElement {
         border-radius: 4px;
         cursor: pointer;
         transition: .1s all ease-in-out;
+        justify-content: center;
+        font: var(--body-1);
+        font-weight: bold;
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       :host(:not([icon])) {
         min-width: 56px;
@@ -72,38 +79,25 @@ export class waButton extends LitElement {
         pointer-events: none;
         opacity: .20;
       }
-      /* label */
-      .label {
-        flex: 1;
-        text-align: center;
-        font: bold 13px/24px 'open-sans';
-        user-select: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      :host([color="primary"]) .label,
+      /* text and icon colors */
+      :host([color="primary"]),
       :host([color="primary"][icon]) wa-icon {
-        color: white;
+        color: rgba(255, 255, 255, .90);
       }
-      :host(:not([color="primary"])) .label,
+      :host(:not([color="primary"])),
       :host(:not([color="primary"])[icon]) wa-icon {
-        color: rgba(var(--neutral-1), .9);
-      }
-      :host([color="secondary"]) .label,
-      :host([color="tertiary"]) .label {
-        color: rgba(var(--neutral-1), .9);
+        color: var(--text-1);
       }
     `
   }
 
   render() {
     return html`
-    ${!this.icon ? html`
-      <div class="label">${this.label}</div>
-    ` : html`
-      <wa-icon icon="${this.icon}"></wa-icon>
-    `}
+      ${!this.icon ? html`
+        ${this.label}
+      ` : html`
+        <wa-icon icon="${this.icon}"></wa-icon>
+      `}
     `
   }
 }

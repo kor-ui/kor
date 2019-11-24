@@ -24,6 +24,12 @@ export class waPane extends LitElement {
       :host([size="l"]) {
         width: 320px;
       }
+      :host([size="m"]) {
+        width: 120px;
+      }
+      :host([size="s"]) {
+        width: 80px;
+      }
       wa-card {
         background-color: transparent;
         box-shadow: none;

@@ -49,8 +49,8 @@ export class waCard extends LitElement {
       .label {
         flex: 1;
         display: flex;
-        font: bold 16px/24px 'open-sans';
-        color: rgba(var(--neutral-1), .90);
+        font: var(--header-1);
+        color: var(--text-1);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
