@@ -2,9 +2,9 @@
 html, *[theme="light"] {
   --neutral-1: 0, 0, 0;
   --neutral-2: 255, 255, 255;
-  --accent-1: 180, 70, 120;
-  --accent-1b: 190, 80, 130;
-  --accent-1c: 170, 60, 110;
+  --accent-1: 60, 100, 240;
+  --accent-1b: 70, 110, 250;
+  --accent-1c: 50, 90, 230;
   --base-0: 80, 100, 120;
   --base-1: 235, 235, 235;
   --base-2: 245, 245, 245;
@@ -17,9 +17,9 @@ html, *[theme="light"] {
 *[theme="dark"] {
   --neutral-1: 255, 255, 255;
   --neutral-2: 0, 0, 0;
-  --accent-1: 180, 70, 120;
-  --accent-1b: 190, 80, 130;
-  --accent-1c: 170, 60, 110;
+  --accent-1: 60, 100, 240;
+  --accent-1b: 70, 110, 250;
+  --accent-1c: 50, 90, 230;
   --base-0: 80, 100, 120;
   --base-1: 20, 20, 20;
   --base-2: 30, 30, 30;
@@ -73,8 +73,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 /* scrollbar */
-
-/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
