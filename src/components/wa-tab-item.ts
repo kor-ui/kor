@@ -92,6 +92,5 @@ export class waTabItem extends LitElement {
       siblings.forEach(el => { el.active = false });
       (<any>this).active = true
     })
-    
   }
 }
