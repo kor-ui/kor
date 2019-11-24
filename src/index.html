@@ -31,6 +31,9 @@
       <wa-input condensed label="Text condensed empty"></wa-input>
       <wa-input label="Text filled" value="Hi"></wa-input>
       <wa-input label="Text icon" icon="text_format"></wa-input>
+      <wa-input label="Text icon">
+        <wa-icon button icon="text_format" slot="functions"></wa-icon>
+      </wa-input>
       <br>
       <!-- inputs number -->
       <wa-input condensed label="Number condensed empty" type="number"></wa-input>
@@ -42,6 +45,8 @@
       <wa-input label="Status success" status="success"></wa-input>
       <wa-input label="Status alert" status="alert"></wa-input>
       <br>
+      <wa-input disabled label="Status error" status="error"></wa-input>
+      <wa-input readonly label="Status error" status="error"></wa-input>
       <!-- icon buttons -->
       <wa-button slot="footer" color="tertiary" icon="face"></wa-button>
       <wa-button slot="footer" color="secondary" icon="face"></wa-button>

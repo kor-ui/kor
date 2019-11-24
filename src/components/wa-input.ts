@@ -65,16 +65,24 @@ export class waInput extends LitElement {
       :host([active]) .label {
         color: rgb(var(--accent-1));
       }
+      /* disabled */
+      :host([disabled]) {
+        opacity: .2;
+      }
+      :host([disabled]),
+      :host([readonly]) {
+        pointer-events: none;
+      }
+      /* readonly */
+      :host([readonly]) {
+        background: transparent;
+      }
       /* condensed */
       :host([condensed]) {
         height: 32px;
       }
       :host([condensed][value]) .label {
         display: none;
-      }
-      /* readonly */
-      :host([readonly]) {
-        background: transparent;
       }
       /* icon */
       :host([icon]) .icon {
@@ -100,7 +108,6 @@ export class waInput extends LitElement {
       }
       /* clear */
       .clear {
-        margin-left: 8px;
         transition: .1s all ease-in-out, .1s opacity ease-in-out .1s;
       }
       :host(:not(:hover):not([active])) .clear {
@@ -110,7 +117,10 @@ export class waInput extends LitElement {
         margin-left: 0;
       }
       /* status */
-      .status {
+      .clear,
+      .status,
+      .increment,
+      slot[name="functions"]::slotted(*) {
         margin-left: 8px;
       }
       .status[icon="cancel"] {
@@ -121,10 +131,6 @@ export class waInput extends LitElement {
       }
       .status[icon="check_circle"] {
         color: rgb(var(--functional-green));
-      }
-      /* increments */
-      .increment {
-        margin-left: 8px;
       }
     `
   }
@@ -157,6 +163,8 @@ export class waInput extends LitElement {
         <wa-icon button class="increment" icon="keyboard_arrow_left" @click="${() => this.handleIncrement('left')}"></wa-icon>
         <wa-icon button class="increment" icon="keyboard_arrow_right" @click="${() => this.handleIncrement('right')}"></wa-icon>
       ` : ''}
+      <!-- functions slot -->
+      <slot name="functions"></slot>
       <!-- select box -->
       ${this.type === "select" ? html` <slot></slot> ` : ''}
     `
