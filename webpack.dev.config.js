@@ -40,8 +40,9 @@ module.exports = {
       minify: true
     }),
     new CopyPlugin([
+      { from: path.resolve(__dirname, 'package.json'), to: dist },
       { from: path.resolve(__dirname, 'src/wa-styles.css'), to: dist },
-      {from: path.resolve(__dirname, 'src/fonts/'), to: 'fonts/[path][name].[ext]'}
+      { from: path.resolve(__dirname, 'src/fonts/'), to: 'fonts/[path][name].[ext]' }
     ]),
   ]
 };
