@@ -20,12 +20,14 @@ export class waPopover extends LitElement {
     return css`
       :host {
         background-color: rgb(var(--base-4));
+        border-radius: 4px;
         display: flex;
         box-shadow: var(--shadow-1);
         transition: .1s all ease-in-out, 0s top, 0s left;
         position: fixed;
         opacity: 1;
         z-index: 4;
+        width: 240px;
       }
       :host(:not([visible])) {
         opacity: 0;
@@ -45,7 +47,7 @@ export class waPopover extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" href="../wa-styles.css">
-      <wa-card
+      <wa-card @click="${(e) => e.stopPropagation()}"
         label="${this.label ? this.label : ''}"
         icon="${this.icon ? this.icon : ''}"
         flexDirection="${this.flexDirection}">

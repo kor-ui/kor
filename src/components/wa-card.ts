@@ -71,6 +71,9 @@ export class waCard extends LitElement {
       /* content */
       slot:not([name]) {
         flex: 1;
+        width: 100%;
+        padding-right: 16px;
+        margin-right: -16px;
       }
       :host([flexDirection="column"]) slot:not([name]),
       .header {

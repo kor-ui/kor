@@ -107,20 +107,22 @@
       <wa-card grid-cols="2"></wa-card>
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
+    <wa-popover target="#tar1" position="top" label="Top"></wa-popover>
+    <wa-popover target="#tar2">
+      <wa-tabs slot="header">
+        <wa-tab-item label="Tab 1" active></wa-tab-item>
+        <wa-tab-item label="Tab 2"></wa-tab-item>
+      </wa-tabs>
+      <wa-icon button icon="save" slot="footer"></wa-icon>
+    </wa-popover>
+    <wa-popover target="#tar3" position="left" label="Left">
+      <wa-button slot="footer"></wa-button>
+    </wa-popover>
+    <wa-popover target="#tar4" position="right" label="Right">
+      <wa-icon button icon="save" slot="footer"></wa-icon>
+      <wa-icon button icon="save" slot="footer"></wa-icon>
+    </wa-popover>
   </wa-page>
-
-  <wa-popover target="#tar1" position="top">
-    <wa-button color="secondary"></wa-button>
-  </wa-popover>
-  <wa-popover target="#tar2">
-    <wa-button></wa-button>
-  </wa-popover>
-  <wa-popover target="#tar3" position="left">
-    <wa-button></wa-button>
-  </wa-popover>
-  <wa-popover target="#tar4" position="right">
-    <wa-button></wa-button>
-  </wa-popover>
 </body>
 
 </html>
