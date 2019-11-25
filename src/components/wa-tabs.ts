@@ -5,6 +5,8 @@ export class waTabs extends LitElement {
 
   @property({ type: Boolean, reflect: true }) vertical;
 
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
   static get styles() {
     return css`
       :host {

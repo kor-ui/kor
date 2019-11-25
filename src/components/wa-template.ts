@@ -5,6 +5,8 @@ export class waTemplate extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
 
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
   static get styles() {
     return css`
       /* css goes here */

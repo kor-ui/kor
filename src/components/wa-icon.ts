@@ -7,6 +7,8 @@ export class waIcon extends LitElement {
   @property({ type: Boolean, reflect: true }) button;
   @property({ type: Boolean, reflect: true }) disabled;
 
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
   static get styles() {
     return css`
       :host {
