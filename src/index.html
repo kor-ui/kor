@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
 
 <body>
   <!-- page -->
-  <wa-page theme="dark">
+  <wa-page>
     <!-- app bar -->
     <wa-app-bar slot="top" logo="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" label="MyApp">
       <wa-tabs>
@@ -37,9 +37,11 @@
       <br>
       <!-- inputs number -->
       <wa-input condensed label="Number condensed empty" type="number"></wa-input>
-      <wa-input label="Number empty" type="number"></wa-input>
+      <wa-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></wa-input>
       <wa-input label="Number filled" type="number" value="150"></wa-input>
       <br>
+      <!-- select -->
+      <wa-input type="select" label="Select"></wa-input>
       <!-- status -->
       <wa-input label="Status error" status="error"></wa-input>
       <wa-input label="Status success" status="success"></wa-input>
@@ -62,8 +64,10 @@
     <wa-grid>
       <!-- cards -->
       <wa-card label="Card Label" icon="extension" grid-cols="6">
-        <wa-icon button slot="functions" icon="more"></wa-icon>
-        <wa-icon button slot="functions" icon="save"></wa-icon>
+        <wa-icon button slot="functions" icon="keyboard_arrow_up" id="tar1"></wa-icon>
+        <wa-icon button slot="functions" icon="keyboard_arrow_down" id="tar2"></wa-icon>
+        <wa-icon button slot="functions" icon="keyboard_arrow_left" id="tar3"></wa-icon>
+        <wa-icon button slot="functions" icon="keyboard_arrow_right" id="tar4"></wa-icon>
         <wa-button disabled slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
@@ -104,6 +108,19 @@
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
   </wa-page>
+
+  <wa-popover target="#tar1" position="top">
+    <wa-button color="secondary"></wa-button>
+  </wa-popover>
+  <wa-popover target="#tar2">
+    <wa-button></wa-button>
+  </wa-popover>
+  <wa-popover target="#tar3" position="left">
+    <wa-button></wa-button>
+  </wa-popover>
+  <wa-popover target="#tar4" position="right">
+    <wa-button></wa-button>
+  </wa-popover>
 </body>
 
 </html>

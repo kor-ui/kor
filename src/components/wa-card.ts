@@ -64,7 +64,7 @@ export class waCard extends LitElement {
       .label wa-icon {
         margin-right: 8px;
       }
-      slot[name="footer"]::slotted(*), 
+      slot[name="footer"]::slotted(*:not(:first-child)), 
       slot[name="functions"]::slotted(*) {
         margin-left: 12px;
       }
@@ -76,10 +76,10 @@ export class waCard extends LitElement {
       .header {
         flex-direction: column;
       }
-      :host([flexDirection="column"]) slot:not([name])::slotted(*) {
+      :host([flexDirection="column"]) slot:not([name])::slotted(*:not(:last-child)) {
         margin-bottom: 12px;
       }
-      :host([flexDirection="row"]) slot:not([name])::slotted(*) {
+      :host([flexDirection="row"]) slot:not([name])::slotted(*:not(:last-child)) {
         margin-right: 12px;
       }
       /* footer */

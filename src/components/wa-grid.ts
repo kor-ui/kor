@@ -22,8 +22,8 @@ export class waGrid extends LitElement {
         min-height: 0;
       }
       /* spacing */
-      :host([spacing="s"]) { grid-gap: 4px; }
-      :host([spacing="m"]) { grid-gap: 8px; }
+      :host([spacing="s"]) { grid-gap: 8px; }
+      :host([spacing="m"]) { grid-gap: 12px; }
       :host([spacing="l"]) { grid-gap: 16px; }
       /* columns and rows */
       ::slotted(*[grid-cols="0"]) { display: none; }
@@ -122,11 +122,11 @@ export class waGrid extends LitElement {
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
       // update columns
-      if (propName == "columns") {
+      if (propName === "columns") {
         this.style.gridTemplateColumns = `repeat(${this.columns}, 1fr)`
       } 
       // update rows
-      else if (propName == "rows") {
+      else if (propName === "rows") {
         this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`
       }
     });
