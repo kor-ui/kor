@@ -56,6 +56,14 @@
     </wa-pane>
     <wa-pane slot="right" icon="train" label="Right Pane">
       <wa-icon slot="functions" button icon="save"></wa-icon>
+      <!-- menu items -->
+      <wa-menu-item label="Idle Toggle" toggle></wa-menu-item>
+      <wa-menu-item label="With icon" icon="save"></wa-menu-item>
+      <wa-menu-item label="Icon slot">
+        <wa-icon button icon="save" slot="functions"></wa-icon>
+      </wa-menu-item>
+      <wa-menu-item label="Active" active></wa-menu-item>
+      <wa-menu-item label="Disabled" disabled></wa-menu-item>
       <!-- buttons -->
       <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
       <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>

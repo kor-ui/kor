@@ -161,7 +161,7 @@ export class waInput extends LitElement {
       <link rel="stylesheet" href="../wa-styles.css">
       ${this.icon ? html` <wa-icon class="icon" icon="${this.icon}"></wa-icon> ` : ''}
       <div class="center">
-        ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
+  ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input id="input"
           type="${this.type}" 
           ?readonly="${this.readonly || this.disabled || this.type === "select"}"
