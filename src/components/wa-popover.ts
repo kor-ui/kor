@@ -16,8 +16,6 @@ export class waPopover extends LitElement {
   @property({ type: Boolean }) emptyFunctions = true;
   @property({ type: Boolean }) emptyFooter = true;
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -112,5 +110,7 @@ export class waPopover extends LitElement {
     }
     document.addEventListener("click", closePopover)
   }
+
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
 
 }

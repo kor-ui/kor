@@ -6,8 +6,6 @@ export class waAppBar extends LitElement {
   @property({ type: String, reflect: true }) logo;
   @property({ type: String, reflect: true }) label;
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -60,4 +58,7 @@ export class waAppBar extends LitElement {
       <slot name="functions"></slot>
     `
   }
+  
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  
 }

@@ -8,8 +8,6 @@ export class waButton extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) disabled;
   
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -103,4 +101,7 @@ export class waButton extends LitElement {
       `}
     `
   }
+  
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
 }

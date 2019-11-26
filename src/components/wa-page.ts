@@ -7,8 +7,6 @@ export class waPage extends LitElement {
   @property({ type: String, reflect: true }) flexDirection = "row";
   @property({ type: Boolean, reflect: true }) flat = false;
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -54,4 +52,7 @@ export class waPage extends LitElement {
       <slot name="bottom"></slot>
     `
   }
+  
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
 }

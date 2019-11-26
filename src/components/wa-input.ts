@@ -18,8 +18,6 @@ export class waInput extends LitElement {
   @property({ type: Number, reflect: true }) max;
   @property({ type: Number, reflect: true }) step = 1;
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -227,4 +225,7 @@ export class waInput extends LitElement {
       else { this.value = val }
     }
   }
+
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
 }

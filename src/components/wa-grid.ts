@@ -6,8 +6,6 @@ export class waGrid extends LitElement {
   @property({ type: Number, reflect: true }) columns = 12;
   @property({ type: String, reflect: true }) spacing = "m";
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
-
   static get styles() {
     return css`
       :host {
@@ -133,4 +131,7 @@ export class waGrid extends LitElement {
       }
     });
   }
+
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
 }

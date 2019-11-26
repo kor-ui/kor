@@ -1,11 +1,9 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 
-@customElement('wa-template')
-export class waTemplate extends LitElement {
+@customElement('wa-menu-item')
+export class waMenuItem extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
-
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
 
   static get styles() {
     return css`
@@ -28,4 +26,7 @@ export class waTemplate extends LitElement {
       </div>
     `
   }
+  
+  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  
 }
