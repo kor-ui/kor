@@ -59,23 +59,6 @@ export class waPopover extends LitElement {
     `
   }
 
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      // add target to listener
-      if (propName === "target" && this.target) {
-        let tar = document.querySelector(this.target)
-        if (tar) {
-          tar.addEventListener("click", () => this.handlePosition(tar))
-        }
-      } 
-      // handle position if visibility changes
-      else if (propName === "visible" && this.visible) {
-        let tar = document.querySelector(this.target)
-        if (tar) { this.handlePosition(tar) }
-      }
-    });
-  }
-
   handlePosition(tar) {
     if (!tar) { return }
     let self = this
@@ -111,6 +94,21 @@ export class waPopover extends LitElement {
     document.addEventListener("click", closePopover)
   }
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`)) 
+    // add listener on target changed
+    if (name === "target" && this.target) {
+      let tar = document.querySelector(this.target)
+      if (tar) {
+        tar.addEventListener("click", () => this.handlePosition(tar))
+      }
+    } 
+    // handle position if visibility changes
+    else if (name === "visible" && this.visible) {
+      let tar = document.querySelector(this.target)
+      if (tar) { this.handlePosition(tar) }
+    }
+  }
 
 }

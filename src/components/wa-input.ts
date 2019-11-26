@@ -150,6 +150,9 @@ export class waInput extends LitElement {
       :host([type="select"][active]) .select-icon {
         transform: rotate(180deg)
       }
+      .select-popover {
+        transition: .1 all 1s;
+      }
     `
   }
 
@@ -185,7 +188,7 @@ export class waInput extends LitElement {
       <slot name="functions"></slot>
       <!-- select -->
       ${this.type === "select" ? html` <wa-icon button class="select-icon" icon="arrow_drop_down"></wa-icon> ` : ''}
-      ${this.type === "select" && this.active ? html` <wa-popover class="select-popover" visible @visiblechanged="${() => this.handlePopover()}"> <slot></slot> </wa-popover> ` : ''}
+      ${this.type === "select" && this.active ? html` <wa-popover class="select-popover" visible @visible-changed="${() => this.handlePopover()}"> <slot></slot> </wa-popover> ` : ''}
     `
   }  
   
@@ -210,12 +213,11 @@ export class waInput extends LitElement {
   }
 
   handlePopover() {
-    console.log("hi")
     let popover: any = this.shadowRoot.querySelector(".select-popover")
     let rect = this.getBoundingClientRect()
-    popover.style.top = rect.top + this.clientHeight
-    popover.style.left = rect.left
-    popover.style.width = this.clientWidth
+    popover.style.top = `${rect.top + this.clientHeight + 1}px`
+    popover.style.left = `${rect.left}px`
+    popover.style.width = `${this.clientWidth}px`
   }
 
   validateMinMax(val) {

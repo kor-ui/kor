@@ -119,19 +119,17 @@ export class waGrid extends LitElement {
     `
   }
 
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      // update columns
-      if (propName === "columns") {
-        this.style.gridTemplateColumns = `repeat(${this.columns}, 1fr)`
-      } 
-      // update rows
-      else if (propName === "rows") {
-        this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`
-      }
-    });
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval)
+    this.dispatchEvent(new Event(`${name}-changed`))       
+    // update columns
+    if (name === "columns") {
+      this.style.gridTemplateColumns = `repeat(${this.columns}, 1fr)`
+    } 
+    // update rows
+    else if (name === "rows") {
+      this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`
+    }
   }
-
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
 
 }
