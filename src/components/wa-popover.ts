@@ -80,7 +80,6 @@ export class waPopover extends LitElement {
     } else {
       self.style.left = `${rect.left + (rect.width / 2) - (self.clientWidth / 2)}px`
     }
-    !self.sticky ? self.addDocListener(tar) : ''
   }
 
   addDocListener(tar) {
@@ -108,6 +107,7 @@ export class waPopover extends LitElement {
     else if (name === "visible" && this.visible) {
       let tar = document.querySelector(this.target)
       if (tar) { this.handlePosition(tar) }
+      !this.sticky && this.target ? this.addDocListener(tar) : ''
     }
   }
 

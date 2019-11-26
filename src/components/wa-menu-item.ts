@@ -6,7 +6,7 @@ export class waMenuItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) toggle;
+  @property({ type: Boolean, reflect: true }) toggle = true;
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {

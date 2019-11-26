@@ -12,6 +12,7 @@ export class waInput extends LitElement {
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) readonly;
+  @property({ type: Boolean, reflect: true }) noClear;
   // input number properties
   @property({ type: String, reflect: true }) pattern;
   @property({ type: Number, reflect: true }) min;
@@ -28,11 +29,11 @@ export class waInput extends LitElement {
         border-width: 0px 0px 1px 0px;
         border-style: solid;
         border-color: rgba(var(--neutral-1), .2);
+        border-radius: 2px;
         box-sizing: border-box;
         padding: 0 8px;
         width: 100%;
-        overflow-x: hidden;
-        overflow-y: visible;
+        overflow: visible;
         background-color: rgba(var(--neutral-1), .05);
         position: relative;
       }
@@ -147,11 +148,17 @@ export class waInput extends LitElement {
       :host([type="select"]) * {
         cursor: pointer !important;
       }
-      :host([type="select"][active]) .select-icon {
+      :host([active]) .select-icon {
         transform: rotate(180deg)
       }
       .select-popover {
-        transition: .1 all 1s;
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        max-height: 240px;
+      }
+      slot:not([name])::slotted(*) {
+        margin-bottom: 0;
       }
     `
   }
@@ -161,7 +168,7 @@ export class waInput extends LitElement {
       <link rel="stylesheet" href="../wa-styles.css">
       ${this.icon ? html` <wa-icon class="icon" icon="${this.icon}"></wa-icon> ` : ''}
       <div class="center">
-  ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
+        ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input id="input"
           type="${this.type}" 
           ?readonly="${this.readonly || this.disabled || this.type === "select"}"
@@ -174,7 +181,9 @@ export class waInput extends LitElement {
         >
       </div>
       <!-- clear -->
-      ${!this.disabled && !this.readonly && this.value ? html` <wa-icon button class="clear-icon" icon="close" @click="${() => this.handleClear()}"></wa-icon> ` : ''}
+      ${!this.disabled && !this.readonly && this.value && !this.noClear && this.type !== 'select' ? html` 
+        <wa-icon button class="clear-icon" icon="close" @click="${() => this.handleClear()}"></wa-icon> 
+      ` : ''}
       <!-- status -->
       ${this.status === "error" ? html` <wa-icon class="status-icon" icon="cancel"></wa-icon> ` : ''}
       ${this.status === "alert" ? html` <wa-icon class="status-icon" icon="error"></wa-icon> ` : ''}
@@ -187,8 +196,12 @@ export class waInput extends LitElement {
       <!-- functions slot -->
       <slot name="functions"></slot>
       <!-- select -->
-      ${this.type === "select" ? html` <wa-icon button class="select-icon" icon="arrow_drop_down"></wa-icon> ` : ''}
-      ${this.type === "select" && this.active ? html` <wa-popover class="select-popover" visible @visible-changed="${() => this.handlePopover()}"> <slot></slot> </wa-popover> ` : ''}
+      ${this.type === "select" ? html` 
+        <wa-icon button class="select-icon" icon="arrow_drop_down"></wa-icon>
+        ${this.active ? html` 
+          <wa-popover class="select-popover" ?visible="${this.active}" @visible-changed="${() => this.handlePopover()}"> <slot></slot> </wa-popover> 
+        ` : ''}
+      ` : ''}
     `
   }  
   
@@ -204,7 +217,7 @@ export class waInput extends LitElement {
   
   handleBlur(e) {
     this.type === 'number' ? this.validateMinMax(e.target.value) : ''
-    this.active = false
+    this.type !== 'select' ? this.active = false : ''
   }
 
   handleIncrement(dir) {
@@ -213,11 +226,31 @@ export class waInput extends LitElement {
   }
 
   handlePopover() {
+    let self = this
     let popover: any = this.shadowRoot.querySelector(".select-popover")
     let rect = this.getBoundingClientRect()
-    popover.style.top = `${rect.top + this.clientHeight + 1}px`
-    popover.style.left = `${rect.left}px`
-    popover.style.width = `${this.clientWidth}px`
+    popover.style.top = `${this.clientHeight + 1}px`
+    let items: any = this.childNodes
+    items.forEach((el) => {
+      if (el.tagName === "WA-MENU-ITEM") { 
+        // pre-select items according to value
+        if (el.label === this.value) { el.active = true }
+        else { el.active = false }
+        // handle click on menu item
+        el.addEventListener("click", (e) => { 
+          this.value = el.label
+          this.active = false
+        })
+      }
+    })
+    // handle click outside of popover
+    let closePopover = function(e) {
+      if (e.target !== self) {
+        self.active = false
+        document.removeEventListener("click", closePopover)
+      }
+    }
+    document.addEventListener("click", closePopover)
   }
 
   validateMinMax(val) {
