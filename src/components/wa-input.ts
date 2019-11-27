@@ -24,7 +24,6 @@ export class waInput extends LitElement {
       :host {
         display: flex;
         align-items: center;
-        height: 40px;
         min-height: 40px;
         border-width: 0px 0px 1px 0px;
         border-style: solid;
@@ -86,7 +85,7 @@ export class waInput extends LitElement {
       }
       /* condensed */
       :host([condensed]) {
-        height: 32px;
+        min-height: 32px;
       }
       :host([condensed][value]) .label,
       :host([condensed][active]) .label {
@@ -151,11 +150,19 @@ export class waInput extends LitElement {
       :host([active]) .select-icon {
         transform: rotate(180deg)
       }
-      .select-popover {
+      .select-menu {
         position: absolute;
+        top: calc(100% + 1px);
         left: 0px;
         width: 100%;
         max-height: 240px;
+        z-index: 3;
+        padding: 0px 16px;
+        background-color: rgb(var(--base-4));
+      }
+      slot:not([name]) {
+        display: block;
+        margin: 0 -8px;
       }
       slot:not([name])::slotted(*) {
         margin-bottom: 0;
@@ -199,11 +206,11 @@ export class waInput extends LitElement {
       ${this.type === "select" ? html` 
         <wa-icon button class="select-icon" icon="arrow_drop_down"></wa-icon>
         ${this.active ? html` 
-          <wa-popover class="select-popover" ?visible="${this.active}" @visible-changed="${() => this.handlePopover()}"> <slot></slot> </wa-popover> 
+          <wa-card class="select-menu" @load="${this.handleMenu()}"> <slot @slotchange="${(e) => this.handleItems(e)}"></slot> </wa-card> 
         ` : ''}
       ` : ''}
     `
-  }  
+  } 
   
   constructor() {
     super()
@@ -225,28 +232,32 @@ export class waInput extends LitElement {
     else if (dir === "right") { this.validateMinMax(parseInt(this.value ? this.value : (this.min ? this.min : 0)) + this.step) }
   }
 
-  handlePopover() {
-    let self = this
-    let popover: any = this.shadowRoot.querySelector(".select-popover")
-    let rect = this.getBoundingClientRect()
-    popover.style.top = `${this.clientHeight + 1}px`
-    let items: any = this.childNodes
+  handleItems(e) {
+    let items: any = e.target.assignedNodes()
     items.forEach((el) => {
       if (el.tagName === "WA-MENU-ITEM") { 
-        // pre-select items according to value
-        if (el.label === this.value) { el.active = true }
-        else { el.active = false }
         // handle click on menu item
-        el.addEventListener("click", (e) => { 
-          this.value = el.label
-          this.active = false
+        el.addEventListener("active-changed", (e) => {
+          if (e.target.active) {
+            // unselect siblings
+            items.forEach(sib => { sib.active = false })
+            e.target.active = true
+            this.value = el.label
+            this.active = false
+          }
         })
       }
     })
+  }
+
+  handleMenu() {
+    let self = this
     // handle click outside of popover
     let closePopover = function(e) {
+      console.log("adding")
       if (e.target !== self) {
         self.active = false
+        console.log("removing")
         document.removeEventListener("click", closePopover)
       }
     }

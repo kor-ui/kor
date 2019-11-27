@@ -68,7 +68,6 @@ export class waMenuItem extends LitElement {
   attributeChangedCallback(name, oldval, newval) { 
     super.attributeChangedCallback(name, oldval, newval)
     this.dispatchEvent(new Event(`${name}-changed`)) 
-    let self = this
     // add toggle click listener
     if (name === "toggle" && this.toggle) { this.addEventListener("click", () => this.active = !this.active) }
   }
