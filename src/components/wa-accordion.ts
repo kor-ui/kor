@@ -29,6 +29,7 @@ export class waAccordion extends LitElement {
         margin-top: 0;
         max-height: 0px;
         opacity: 0;
+        overflow: hidden;
       }
       .header {
         overflow: hidden;

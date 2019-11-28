@@ -6,6 +6,7 @@ import './components/wa-grid';
 import './components/wa-icon';
 import './components/wa-input';
 import './components/wa-menu-item';
+import './components/wa-modal';
 import './components/wa-page';
 import './components/wa-pane';
 import './components/wa-popover';

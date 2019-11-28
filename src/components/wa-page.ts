@@ -3,7 +3,7 @@ import { LitElement, css, html, customElement, property } from 'lit-element'
 @customElement('wa-page')
 export class waPage extends LitElement {
 
-  @property({ type: String, reflect: true }) theme = "dark";
+  @property({ type: String, reflect: true }) theme;
   @property({ type: String, reflect: true }) flexDirection = "row";
   @property({ type: Boolean, reflect: true }) flat = false;
 

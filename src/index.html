@@ -21,9 +21,9 @@
         <wa-tab-item label="Hi"></wa-tab-item>
       </wa-tabs>
       <wa-icon slot="functions" button icon="brightness_3"
-        onclick="document.querySelector('wa-page').setAttribute('theme', 'dark')"></wa-icon>
+        onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
       <wa-icon slot="functions" button icon="brightness_7"
-        onclick="document.querySelector('wa-page').setAttribute('theme', 'light')"></wa-icon>
+        onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
     </wa-app-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
@@ -82,7 +82,7 @@
       <!-- buttons -->
       <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
       <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>
-      <wa-button slot="footer" color="primary" label="Primary"></wa-button>
+      <wa-button slot="footer" color="primary" label="Primary" onclick="document.querySelector('#modal').visible = true"></wa-button>
     </wa-pane>
     <wa-grid>
       <!-- cards -->
@@ -146,6 +146,9 @@
       <wa-icon button icon="save" slot="footer"></wa-icon>
     </wa-popover>
   </wa-page>
+  <wa-modal visible label="My Modal" icon="email" id="modal">
+    <!-- <wa-button slot="functions"></wa-button> -->
+  </wa-modal>
 </body>
 
 </html>
