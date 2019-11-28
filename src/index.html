@@ -34,7 +34,6 @@
       <wa-input label="Text icon">
         <wa-icon button icon="text_format" slot="functions"></wa-icon>
       </wa-input>
-      <br>
       <!-- inputs number -->
       <wa-input condensed label="Number condensed empty" type="number"></wa-input>
       <wa-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></wa-input>
@@ -69,13 +68,17 @@
     <wa-pane slot="right" icon="train" label="Right Pane">
       <wa-icon slot="functions" button icon="save"></wa-icon>
       <!-- menu items -->
-      <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
-      <wa-menu-item label="With icon" icon="save"></wa-menu-item>
-      <wa-menu-item label="Icon slot">
-        <wa-icon button icon="save" slot="functions"></wa-icon>
-      </wa-menu-item>
-      <wa-menu-item label="Active" active></wa-menu-item>
-      <wa-menu-item label="Disabled" disabled></wa-menu-item>
+      <wa-accordion label="Idle"></wa-accordion>
+      <wa-accordion label="Expanded, Icon" icon="message" expanded>
+        <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
+        <wa-menu-item label="With icon" icon="save"></wa-menu-item>
+        <wa-menu-item label="Icon slot">
+          <wa-icon button icon="save" slot="functions"></wa-icon>
+        </wa-menu-item>
+        <wa-menu-item label="Active" active></wa-menu-item>
+        <wa-menu-item label="Disabled" disabled></wa-menu-item>
+      </wa-accordion>
+      <wa-accordion label="Disabled" disabled></wa-accordion>
       <!-- buttons -->
       <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
       <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>

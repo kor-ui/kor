@@ -48,13 +48,13 @@ export class waPopover extends LitElement {
     return html`
       <link rel="stylesheet" href="../wa-styles.css">
       <wa-card @click="${(e) => e.stopPropagation()}"
-        label="${this.label ? this.label : ''}"
-        icon="${this.icon ? this.icon : ''}"
+        .label="${this.label}"
+        .icon="${this.icon}"
         flexDirection="${this.flexDirection}">
+        <slot name="header" slot="${this.emptyHeader ? undefined : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
+        <slot name="functions" slot="${this.emptyFunctions ? undefined : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
         <slot></slot>
-        <slot name="header" slot="${this.emptyHeader ? '' : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
-        <slot name="functions" slot="${this.emptyFunctions ? '' : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
-        <slot name="footer" slot="${this.emptyFooter ? '' : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}"></slot>
+        <slot name="footer" slot="${this.emptyFooter ? undefined : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}"></slot>
       </wa-card>
     `
   }

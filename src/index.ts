@@ -1,3 +1,4 @@
+import './components/wa-accordion';
 import './components/wa-app-bar';
 import './components/wa-button';
 import './components/wa-card';
