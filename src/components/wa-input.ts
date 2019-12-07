@@ -254,10 +254,8 @@ export class waInput extends LitElement {
     let self = this
     // handle click outside of popover
     let closePopover = function(e) {
-      console.log("adding")
       if (e.target !== self) {
         self.active = false
-        console.log("removing")
         document.removeEventListener("click", closePopover)
       }
     }
