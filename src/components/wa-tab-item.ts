@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-tab-item')
 export class waTabItem extends LitElement {
@@ -10,7 +11,7 @@ export class waTabItem extends LitElement {
   @property({ type: Boolean, reflect: true }) vertical;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: flex;
         flex-direction: column;
@@ -75,7 +76,7 @@ export class waTabItem extends LitElement {
       :host([active]) wa-icon {
         color: var(--text-1);
       }
-    `
+    `]
   }
 
   render() {
@@ -86,15 +87,18 @@ export class waTabItem extends LitElement {
     `
   }
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
     this.addEventListener("click", function() {
-      let siblings: any = this.parentElement.childNodes
+      let siblings: any = this.parentElement.childNodes;
       siblings.forEach(el => { el.active = false });
-      (<any>this).active = true
+      (<any>this).active = true;
     })
   }
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

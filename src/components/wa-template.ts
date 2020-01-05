@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-template')
 export class waTemplate extends LitElement {
@@ -6,9 +7,9 @@ export class waTemplate extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       /* css goes here */
-    `
+    `]
   }
 
   render() {
@@ -26,7 +27,10 @@ export class waTemplate extends LitElement {
       </div>
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
   
 }

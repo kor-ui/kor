@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-popover')
 export class waPopover extends LitElement {
@@ -17,7 +18,7 @@ export class waPopover extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         background-color: rgb(var(--base-4));
         border-radius: 4px;
@@ -41,7 +42,7 @@ export class waPopover extends LitElement {
         background-color: transparent;
         box-shadow: none;
       }
-    `
+    `]
   }
 
   render() {
@@ -59,56 +60,56 @@ export class waPopover extends LitElement {
     `
   }
 
-  handlePosition(tar) {
-    if (!tar) { return }
-    let self = this
-    let rect = tar.getBoundingClientRect()
-    self.visible = true
-    // get y axis
-    if (self.position.startsWith("bottom")) {
-      self.style.top = `${rect.top + rect.height + 8}px`
-    } else if (self.position.startsWith("top")) {
-      self.style.top = `${rect.top - self.clientHeight - 8}px`
-    } else {
-      self.style.top = `${rect.top + (rect.height / 2) - (self.clientHeight / 2)}px`
-    }
-    // get x axis
-    if (self.position.startsWith("right")) {
-      self.style.left = `${rect.left + rect.width + 8}px`
-    } else if (self.position.startsWith("left")) {
-      self.style.left = `${rect.left - self.clientWidth - 8}px`
-    } else {
-      self.style.left = `${rect.left + (rect.width / 2) - (self.clientWidth / 2)}px`
-    }
-  }
-
-  addDocListener(tar) {
-    let self = this
-    let closePopover = function(e) {
-      if (e.target !== tar) {
-        self.visible = false
-        document.removeEventListener("click", closePopover)
-      }
-    }
-    document.addEventListener("click", closePopover)
-  }
-
   attributeChangedCallback(name, oldval, newval) { 
     super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`)) 
+    this.dispatchEvent(new Event(`${name}-changed`));
     // add listener on target changed
     if (name === "target" && this.target) {
-      let tar = document.querySelector(this.target)
+      let tar = document.querySelector(this.target);
       if (tar) {
-        tar.addEventListener("click", () => this.handlePosition(tar))
+        tar.addEventListener("click", () => this.handlePosition(tar));
       }
     } 
     // handle position if visibility changes
     else if (name === "visible" && this.visible) {
-      let tar = document.querySelector(this.target)
+      let tar = document.querySelector(this.target);
       if (tar) { this.handlePosition(tar) }
-      !this.sticky && this.target ? this.addDocListener(tar) : ''
+      !this.sticky && this.target ? this.addDocListener(tar) : '';
     }
+  }
+
+  handlePosition(tar) {
+    if (!tar) { return }
+    let self = this;
+    let rect = tar.getBoundingClientRect();
+    self.visible = true;
+    // get y axis
+    if (self.position.startsWith("bottom")) {
+      self.style.top = `${rect.top + rect.height + 8}px`;
+    } else if (self.position.startsWith("top")) {
+      self.style.top = `${rect.top - self.clientHeight - 8}px`;
+    } else {
+      self.style.top = `${rect.top + (rect.height / 2) - (self.clientHeight / 2)}px`;
+    }
+    // get x axis
+    if (self.position.startsWith("right")) {
+      self.style.left = `${rect.left + rect.width + 8}px`;
+    } else if (self.position.startsWith("left")) {
+      self.style.left = `${rect.left - self.clientWidth - 8}px`;
+    } else {
+      self.style.left = `${rect.left + (rect.width / 2) - (self.clientWidth / 2)}px`;
+    }
+  }
+
+  addDocListener(tar) {
+    let self = this;
+    let closePopover = function(e) {
+      if (e.target !== tar) {
+        self.visible = false;
+        document.removeEventListener("click", closePopover);
+      }
+    }
+    document.addEventListener("click", closePopover);
   }
 
 }

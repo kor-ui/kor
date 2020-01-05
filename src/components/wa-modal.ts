@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-modal')
 export class waModal extends LitElement {
@@ -17,7 +18,7 @@ export class waModal extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         transition: .1s all ease-in-out, 0s top, 0s left;
         position: fixed;
@@ -42,9 +43,9 @@ export class waModal extends LitElement {
       wa-card {
         background-color: rgb(var(--base-4));
         box-shadow: var(--shadow-1);
-        transition: .1s all ease-in-out, 0s top, 0s left;
+        transition: .2s all ease-in-out, 0s top, 0s left;
       }
-    `
+    `]
   }
 
   render() {
@@ -67,9 +68,9 @@ export class waModal extends LitElement {
 
   attributeChangedCallback(name, oldval, newval) { 
     super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`))
+    this.dispatchEvent(new Event(`${name}-changed`));
     if (name === "visible" && this.visible) {
-      this.addEventListener("click", () => !this.sticky ? this.visible = false : '')
+      this.addEventListener("click", () => !this.sticky ? this.visible = false : '');
     }
   }
 

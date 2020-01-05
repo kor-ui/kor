@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-card')
 export class waCard extends LitElement {
@@ -15,7 +16,7 @@ export class waCard extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: flex;
         flex-direction: column;
@@ -100,7 +101,7 @@ export class waCard extends LitElement {
         width: calc(100% + 32px);
         margin: -16px -16px 16px -16px;
       }
-    `
+    `]
   }
 
   render() {
@@ -124,7 +125,10 @@ export class waCard extends LitElement {
       <slot name="footer" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}" class="${this.emptyFooter ? 'empty' : ''}"></slot>
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

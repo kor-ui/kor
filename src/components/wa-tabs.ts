@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-tabs')
 export class waTabs extends LitElement {
@@ -6,7 +7,7 @@ export class waTabs extends LitElement {
   @property({ type: Boolean, reflect: true }) vertical;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: flex;
         width: 100%;
@@ -22,7 +23,7 @@ export class waTabs extends LitElement {
       :host([vertical]) {
         flex-direction: column;
       }
-    `
+    `]
   }
 
   render() {
@@ -34,10 +35,13 @@ export class waTabs extends LitElement {
 
   handleVerticalItems() {
     (<any>this.childNodes).forEach(el => {
-      el.vertical = this.vertical
+      el.vertical = this.vertical;
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`)) ;
+  }
   
 }

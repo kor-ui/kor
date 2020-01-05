@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-menu-item')
 export class waMenuItem extends LitElement {
@@ -10,7 +11,7 @@ export class waMenuItem extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         padding: 8px 0;
         display: flex;
@@ -53,7 +54,7 @@ export class waMenuItem extends LitElement {
         opacity: .2;
         pointer-events: none;
       }
-    `
+    `]
   }
 
   render() {
@@ -66,8 +67,8 @@ export class waMenuItem extends LitElement {
   }
   
   attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval)
-    this.dispatchEvent(new Event(`${name}-changed`)) 
+    super.attributeChangedCallback(name, oldval, newval);
+    this.dispatchEvent(new Event(`${name}-changed`)) ;
     // add toggle click listener
     if (name === "toggle" && this.toggle) { this.addEventListener("click", () => this.active = !this.active) }
   }

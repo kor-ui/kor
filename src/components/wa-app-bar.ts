@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-app-bar')
 export class waAppBar extends LitElement {
@@ -7,7 +8,7 @@ export class waAppBar extends LitElement {
   @property({ type: String, reflect: true }) label;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         z-index: 3;
         height: 56px;
@@ -46,7 +47,7 @@ export class waAppBar extends LitElement {
       ::slotted(wa-tabs) {
         border-bottom: unset;
       }
-    `
+    `]
   }
 
   render() {
@@ -58,7 +59,10 @@ export class waAppBar extends LitElement {
       <slot name="functions"></slot>
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
   
 }

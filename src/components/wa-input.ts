@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-input')
 export class waInput extends LitElement {
@@ -20,7 +21,7 @@ export class waInput extends LitElement {
   @property({ type: Number, reflect: true }) step = 1;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: flex;
         align-items: center;
@@ -167,7 +168,7 @@ export class waInput extends LitElement {
       slot:not([name])::slotted(*) {
         margin-bottom: 0;
       }
-    `
+    `]
   }
 
   render() {
@@ -214,17 +215,17 @@ export class waInput extends LitElement {
   
   constructor() {
     super()
-    this.addEventListener("click", () => this.shadowRoot.querySelector("input").focus())
+    this.addEventListener("click", () => this.shadowRoot.querySelector("input").focus());
   }
 
   handleClear() {
-    this.value = undefined
-    this.removeAttribute('value')
+    this.value = undefined;
+    this.removeAttribute('value');
   }
   
   handleBlur(e) {
-    this.type === 'number' ? this.validateMinMax(e.target.value) : ''
-    this.type !== 'select' ? this.active = false : ''
+    this.type === 'number' ? this.validateMinMax(e.target.value) : '';
+    this.type !== 'select' ? this.active = false : '';
   }
 
   handleIncrement(dir) {
@@ -233,7 +234,7 @@ export class waInput extends LitElement {
   }
 
   handleItems(e) {
-    let items: any = e.target.assignedNodes()
+    let items: any = e.target.assignedNodes();
     items.forEach((el) => {
       if (el.tagName === "WA-MENU-ITEM") { 
         // handle click on menu item
@@ -241,25 +242,30 @@ export class waInput extends LitElement {
           if (e.target.active) {
             // unselect siblings
             items.forEach(sib => { sib.active = false })
-            e.target.active = true
-            this.value = el.label
-            this.active = false
+            e.target.active = true;
+            this.value = el.label;
+            this.active = false;
           }
         })
       }
     })
   }
 
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
+
   handleMenu() {
-    let self = this
+    let self = this;
     // handle click outside of popover
     let closePopover = function(e) {
       if (e.target !== self) {
-        self.active = false
-        document.removeEventListener("click", closePopover)
+        self.active = false;
+        document.removeEventListener("click", closePopover);
       }
     }
-    document.addEventListener("click", closePopover)
+    document.addEventListener("click", closePopover);
   }
 
   validateMinMax(val) {
@@ -269,7 +275,5 @@ export class waInput extends LitElement {
       else { this.value = val }
     }
   }
-
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
 
 }

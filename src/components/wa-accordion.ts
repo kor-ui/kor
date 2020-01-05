@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-accordion')
 export class waAccordion extends LitElement {
@@ -14,7 +15,7 @@ export class waAccordion extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       wa-card {
         padding: 8px 16px;
       }
@@ -58,7 +59,7 @@ export class waAccordion extends LitElement {
         opacity: .2;
         pointer-events: none;
       }
-    `
+    `]
   }
 
   render() {
@@ -79,12 +80,15 @@ export class waAccordion extends LitElement {
     `
   }
   
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`)) ;
+  }
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
     // remove card padding
-    setTimeout(() => (<any>this.shadowRoot.querySelector("wa-card").shadowRoot.querySelector(".top")).style.padding = "0", 0)
+    setTimeout(() => (<any>this.shadowRoot.querySelector("wa-card").shadowRoot.querySelector(".top")).style.padding = "0", 0);
   }
 
 }

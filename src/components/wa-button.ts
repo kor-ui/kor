@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-button')
 export class waButton extends LitElement {
@@ -9,7 +10,7 @@ export class waButton extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
   
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: flex;
         height: fit-content;
@@ -88,7 +89,7 @@ export class waButton extends LitElement {
       :host(:not([color="primary"])[icon]) wa-icon {
         color: var(--text-1);
       }
-    `
+    `]
   }
 
   render() {
@@ -101,7 +102,10 @@ export class waButton extends LitElement {
       `}
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-page')
 export class waPage extends LitElement {
@@ -8,7 +9,7 @@ export class waPage extends LitElement {
   @property({ type: Boolean, reflect: true }) flat = false;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         height: 100%;
         width: 100%;
@@ -37,7 +38,7 @@ export class waPage extends LitElement {
       :host([flexDirection="column"]) slot:not([name]) {
         flex-direction: column;
       }
-    `
+    `]
   }
 
   render() {
@@ -52,7 +53,10 @@ export class waPage extends LitElement {
       <slot name="bottom"></slot>
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

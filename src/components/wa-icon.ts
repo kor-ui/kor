@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-icon')
 export class waIcon extends LitElement {
@@ -8,7 +9,7 @@ export class waIcon extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         height: 24px;
         width: 24px;
@@ -972,7 +973,7 @@ export class waIcon extends LitElement {
       :host([icon="zoom_in"]):before { content: "\\e8ff" } 
       :host([icon="zoom_out"]):before { content: "\\e900" } 
       :host([icon="zoom_out_map"]):before { content: "\\e56b" } 
-    `
+    `]
   }
 
   render() {
@@ -981,6 +982,9 @@ export class waIcon extends LitElement {
     `
   }
   
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

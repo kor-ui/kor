@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-pane')
 export class waPane extends LitElement {
@@ -14,7 +15,7 @@ export class waPane extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         background-color: rgb(var(--base-2));
         display: flex;
@@ -34,7 +35,7 @@ export class waPane extends LitElement {
         background-color: transparent;
         box-shadow: none;
       }
-    `
+    `]
   }
 
   render() {
@@ -51,7 +52,10 @@ export class waPane extends LitElement {
       </wa-card>
     `
   }
-  
-  attributeChangedCallback(name, oldval, newval) { super.attributeChangedCallback(name, oldval, newval); this.dispatchEvent(new Event(`${name}-changed`)) }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
+  }
 
 }

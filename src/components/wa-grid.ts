@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
+import { sharedStyles } from './shared-styles'
 
 @customElement('wa-grid')
 export class waGrid extends LitElement {
@@ -7,7 +8,7 @@ export class waGrid extends LitElement {
   @property({ type: String, reflect: true }) spacing = "m";
 
   static get styles() {
-    return css`
+    return [sharedStyles, css`
       :host {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -109,7 +110,7 @@ export class waGrid extends LitElement {
         ::slotted(*[grid-rows-s="11"]) { grid-row: span 11; }
         ::slotted(*[grid-rows-s="12"]) { grid-row: span 12; }
       }
-    `
+    `]
   }
 
   render() {
@@ -120,15 +121,15 @@ export class waGrid extends LitElement {
   }
 
   attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval)
-    this.dispatchEvent(new Event(`${name}-changed`))       
+    super.attributeChangedCallback(name, oldval, newval);
+    this.dispatchEvent(new Event(`${name}-changed`));
     // update columns
     if (name === "columns") {
-      this.style.gridTemplateColumns = `repeat(${this.columns}, 1fr)`
+      this.style.gridTemplateColumns = `repeat(${this.columns}, 1fr)`;
     } 
     // update rows
     else if (name === "rows") {
-      this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`
+      this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`;
     }
   }
 
