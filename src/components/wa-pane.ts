@@ -40,7 +40,6 @@ export class waPane extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <wa-card
         label="${this.label ? this.label : ''}"
         icon="${this.icon ? this.icon : ''}"

@@ -81,9 +81,8 @@ export class waTabItem extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
-      ${this.label ? html` <div class="label">${this.label}</wa-icon> ` : ''}
+      ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
     `
   }
 

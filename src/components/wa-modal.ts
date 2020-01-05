@@ -50,7 +50,6 @@ export class waModal extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <wa-card @click="${(e) => e.stopPropagation()}"
         style="height: ${this.height}; width: ${this.width}; max-height: ${this.height}; max-width: ${this.width}"
         .label="${this.label}"

@@ -52,7 +52,6 @@ export class waAppBar extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       ${this.logo ? html` <img class="logo" src="${this.logo}"> ` : ''}
       ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
       <slot></slot>

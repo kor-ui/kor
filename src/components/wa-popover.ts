@@ -47,7 +47,6 @@ export class waPopover extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <wa-card @click="${(e) => e.stopPropagation()}"
         .label="${this.label}"
         .icon="${this.icon}"

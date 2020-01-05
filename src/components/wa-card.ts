@@ -106,7 +106,6 @@ export class waCard extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       ${this.image ? html` <img class="image" src="${this.image}"> ` : ''}
       <div class="top ${this.emptyHeader && this.emptyFunctions && !this.label && !this.icon ? 'empty' : ''}">
         <div class="header">

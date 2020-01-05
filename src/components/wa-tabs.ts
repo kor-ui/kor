@@ -28,7 +28,6 @@ export class waTabs extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <slot @slotchange="${(e) => this.handleVerticalItems()}"></slot>
     `
   }

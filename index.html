@@ -2,12 +2,12 @@
 <html lang="en" theme="dark">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Component Playground</title>
   <link rel="stylesheet" href="wa-styles.css">
-  <!-- <script src="wa.js"></script> -->
+  <script src="wa.js"></script>
 </head>
 
 <body>
@@ -20,10 +20,8 @@
         <wa-tab-item label="Hi"></wa-tab-item>
         <wa-tab-item label="Hi"></wa-tab-item>
       </wa-tabs>
-      <wa-icon slot="functions" button icon="brightness_3"
-        onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
-      <wa-icon slot="functions" button icon="brightness_7"
-        onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
+      <wa-icon slot="functions" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
+      <wa-icon slot="functions" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
     </wa-app-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
@@ -58,8 +56,8 @@
       <wa-input label="Status success" status="success"></wa-input>
       <wa-input label="Status alert" status="alert"></wa-input>
       <br>
-      <wa-input disabled label="Disabled" status="error"></wa-input>
-      <wa-input readonly label="Readonly" status="error"></wa-input>
+      <wa-input disabled="disabled" label="Disabled" status="error"></wa-input>
+      <wa-input readonly="readonly" label="Readonly" status="error"></wa-input>
       <!-- icon buttons -->
       <wa-button slot="footer" color="tertiary" icon="face"></wa-button>
       <wa-button slot="footer" color="secondary" icon="face"></wa-button>
@@ -76,9 +74,9 @@
           <wa-icon button icon="save" slot="functions"></wa-icon>
         </wa-menu-item>
         <wa-menu-item label="Active" active></wa-menu-item>
-        <wa-menu-item label="Disabled" disabled></wa-menu-item>
+        <wa-menu-item label="Disabled" disabled="disabled"></wa-menu-item>
       </wa-accordion>
-      <wa-accordion label="Disabled" disabled></wa-accordion>
+      <wa-accordion label="Disabled" disabled="disabled"></wa-accordion>
       <!-- buttons -->
       <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
       <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>
@@ -91,7 +89,7 @@
         <wa-icon button slot="functions" icon="keyboard_arrow_down" id="tar2"></wa-icon>
         <wa-icon button slot="functions" icon="keyboard_arrow_left" id="tar3"></wa-icon>
         <wa-icon button slot="functions" icon="keyboard_arrow_right" id="tar4"></wa-icon>
-        <wa-button disabled slot="footer"></wa-button>
+        <wa-button disabled="disabled" slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
         <!-- tabs -->
@@ -149,6 +147,5 @@
   <wa-modal visible label="My Modal" icon="email" id="modal">
     <!-- <wa-button slot="functions"></wa-button> -->
   </wa-modal>
-</body>
 
 </html>

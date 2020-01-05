@@ -43,7 +43,6 @@ export class waPage extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <slot name="top"></slot>
       <div class="center-wrapper">
         <slot name="left"></slot>

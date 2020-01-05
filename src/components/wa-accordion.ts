@@ -64,7 +64,6 @@ export class waAccordion extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="../wa-styles.css">
       <wa-card>
         <slot name="header" slot="header" @click="${() => this.expanded = !this.expanded}">
           <div class="header">
