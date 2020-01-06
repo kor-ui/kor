@@ -6,6 +6,7 @@ export class waAppBar extends LitElement {
 
   @property({ type: String, reflect: true }) logo;
   @property({ type: String, reflect: true }) label;
+  @property({ type: Boolean, reflect: true }) mobile;
 
   static get styles() {
     return [sharedStyles, css`
@@ -33,6 +34,12 @@ export class waAppBar extends LitElement {
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      :host([mobile]) .label {
+        flex: 1;
+        max-width: unset;
+        margin: 0 16px;
+        text-align: center;
+      }
       /* slots */
       slot {
         display: flex;
@@ -47,15 +54,25 @@ export class waAppBar extends LitElement {
       ::slotted(wa-tabs) {
         border-bottom: unset;
       }
+      slot[name="right"],
+      slot[name="left"] {
+        min-width: 24px;
+      }
     `]
   }
 
   render() {
     return html`
-      ${this.logo ? html` <img class="logo" src="${this.logo}"> ` : ''}
-      ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
-      <slot></slot>
-      <slot name="functions"></slot>
+      ${!this.mobile ? html` 
+        ${this.logo ? html` <img class="logo" src="${this.logo}"> ` : ''}
+        ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
+        <slot></slot> 
+        <slot name="functions"></slot>
+      ` : html `
+        <slot name="left"></slot>
+        ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
+        <slot name="right"></slot>
+      `}
     `
   }
 

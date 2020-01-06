@@ -22,42 +22,58 @@
       </wa-tabs>
       <wa-icon slot="functions" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
       <wa-icon slot="functions" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
+      <wa-icon slot="left" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
+      <wa-icon slot="right" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
     </wa-app-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
       <!-- inputs text -->
-      <wa-input condensed label="Text condensed empty"></wa-input>
-      <wa-input label="Text filled" value="Hi"></wa-input>
-      <wa-input label="Text icon" icon="text_format"></wa-input>
-      <wa-input label="Text icon">
-        <wa-icon button icon="text_format" slot="functions"></wa-icon>
-      </wa-input>
-      <!-- inputs number -->
-      <wa-input condensed label="Number condensed empty" type="number"></wa-input>
-      <wa-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></wa-input>
-      <wa-input label="Number filled" type="number" value="150"></wa-input>
-      <br>
-      <!-- select -->
-      <wa-input type="select" label="Select">
-        <wa-menu-item label="Option 1"></wa-menu-item>
-        <wa-menu-item label="Option 2"></wa-menu-item>
-        <wa-menu-item label="Option 3" active></wa-menu-item>
-        <wa-menu-item label="Option 4"></wa-menu-item>
-        <wa-menu-item label="Option 5"></wa-menu-item>
-        <wa-menu-item label="Option 6"></wa-menu-item>
-        <wa-menu-item label="Option 7"></wa-menu-item>
-        <wa-menu-item label="Option 8"></wa-menu-item>
-        <wa-menu-item label="Option 9"></wa-menu-item>
-        <wa-menu-item label="Option 10"></wa-menu-item>
-        <wa-menu-item label="Option 11"></wa-menu-item>
-      </wa-input>
-      <!-- status -->
-      <wa-input label="Status error" status="error"></wa-input>
-      <wa-input label="Status success" status="success"></wa-input>
-      <wa-input label="Status alert" status="alert"></wa-input>
-      <br>
-      <wa-input disabled="disabled" label="Disabled" status="error"></wa-input>
-      <wa-input readonly="readonly" label="Readonly" status="error"></wa-input>
+      <wa-accordion label="Inputs">      <wa-input condensed label="Text condensed empty"></wa-input>
+        <wa-input label="Text filled" value="Hi"></wa-input>
+        <wa-input label="Text icon" icon="text_format"></wa-input>
+        <wa-input label="Text icon">
+          <wa-icon button icon="text_format" slot="functions"></wa-icon>
+        </wa-input>
+        <!-- inputs number -->
+        <wa-input condensed label="Number condensed empty" type="number"></wa-input>
+        <wa-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></wa-input>
+        <wa-input label="Number filled" type="number" value="150"></wa-input>
+        <br>
+        <!-- select -->
+        <wa-input type="select" label="Select">
+          <wa-menu-item label="Option 1"></wa-menu-item>
+          <wa-menu-item label="Option 2"></wa-menu-item>
+          <wa-menu-item label="Option 3" active></wa-menu-item>
+          <wa-menu-item label="Option 4"></wa-menu-item>
+          <wa-menu-item label="Option 5"></wa-menu-item>
+          <wa-menu-item label="Option 6"></wa-menu-item>
+          <wa-menu-item label="Option 7"></wa-menu-item>
+          <wa-menu-item label="Option 8"></wa-menu-item>
+          <wa-menu-item label="Option 9"></wa-menu-item>
+          <wa-menu-item label="Option 10"></wa-menu-item>
+          <wa-menu-item label="Option 11"></wa-menu-item>
+        </wa-input>
+        <!-- status -->
+        <wa-input label="Status error" status="error"></wa-input>
+        <wa-input label="Status success" status="success"></wa-input>
+        <wa-input label="Status alert" status="alert"></wa-input>
+        <br>
+        <wa-input disabled="disabled" label="Disabled" status="error"></wa-input>
+        <wa-input readonly="readonly" label="Readonly" status="error"></wa-input>
+      </wa-accordion>
+      <wa-accordion label="text">
+        <wa-text>Body 1, Text 1</wa-text>
+        <wa-text size="body-1" color="text-2">Body 1, Text 2</wa-text>
+        <wa-text size="body-1" color="text-3">Body 1, Text 3</wa-text>
+        <wa-text size="body-2" color="text-1">Body 2, Text 1</wa-text>
+        <wa-text size="body-2" color="text-2">Body 2, Text 2</wa-text>
+        <wa-text size="body-2" color="text-3">Body 2, Text 3</wa-text>
+        <wa-text size="header-1" color="text-2">Header 1, Text 2</wa-text>
+        <wa-text size="header-1" color="text-3">Header 1, Text 3</wa-text>
+        <wa-text size="header-2" color="text-1">Header 2, Text 1</wa-text>
+        <wa-text size="header-2" color="text-2">Header 2, Text 2</wa-text>
+        <wa-text size="header-2" color="text-3">Header 2, Text 3</wa-text>
+      </wa-accordion>
       <!-- icon buttons -->
       <wa-button slot="footer" color="tertiary" icon="face"></wa-button>
       <wa-button slot="footer" color="secondary" icon="face"></wa-button>

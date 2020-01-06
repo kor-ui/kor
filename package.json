@@ -1,6 +1,6 @@
 {
   "name": "wa-baukasten",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "Library of user interface components based on LitElement / lit-html",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",

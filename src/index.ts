@@ -12,3 +12,4 @@ import './components/wa-pane';
 import './components/wa-popover';
 import './components/wa-tab-item';
 import './components/wa-tabs';
+import './components/wa-text';
