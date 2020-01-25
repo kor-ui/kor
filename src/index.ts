@@ -10,6 +10,7 @@ import './components/wa-modal';
 import './components/wa-page';
 import './components/wa-pane';
 import './components/wa-popover';
+import './components/wa-spinner';
 import './components/wa-tab-item';
 import './components/wa-tabs';
 import './components/wa-text';
