@@ -63,7 +63,23 @@
         <wa-input disabled label="Disabled" status="error"></wa-input>
         <wa-input readonly label="Readonly" status="error"></wa-input>
       </wa-accordion>
-      <wa-accordion label="text">
+      <!-- buttons -->
+      <wa-accordion label="Buttons">
+        <wa-button label="Primary"></wa-button>
+        <wa-button label="Secondary" color="secondary"></wa-button>
+        <wa-button label="Tertiary" color="tertiary"></wa-button>
+        <wa-button label="Primary" disabled></wa-button>
+        <wa-button label="Secondary" color="secondary" disabled></wa-button>
+        <wa-button label="Tertiary" color="tertiary" disabled></wa-button>
+        <wa-button icon="save"></wa-button>
+        <wa-button icon="save" color="secondary"></wa-button>
+        <wa-button icon="save" color="tertiary"></wa-button>
+        <wa-button icon="save" disabled></wa-button>
+        <wa-button icon="save" color="secondary" disabled></wa-button>
+        <wa-button icon="save" color="tertiary" disabled></wa-button>
+      </wa-accordion>
+      <!-- text -->
+      <wa-accordion label="Text">
         <wa-text>Body 1, Text 1</wa-text>
         <wa-text size="body-1" color="text-2">Body 1, Text 2</wa-text>
         <wa-text size="body-1" color="text-3">Body 1, Text 3</wa-text>
@@ -76,12 +92,8 @@
         <wa-text size="header-2" color="text-2">Header 2, Text 2</wa-text>
         <wa-text size="header-2" color="text-3">Header 2, Text 3</wa-text>
       </wa-accordion>
-      <!-- icon buttons -->
-      <wa-button slot="footer" color="tertiary" icon="face"></wa-button>
-      <wa-button slot="footer" color="secondary" icon="face"></wa-button>
-      <wa-button slot="footer" icon="face"></wa-button>
     </wa-pane>
-    <wa-pane slot="right" icon="train" label="Right Pane">
+    <wa-pane slot="right" icon="train" label="Pane with icon, slots">
       <wa-icon slot="functions" button icon="save"></wa-icon>
       <!-- menu items -->
       <wa-accordion label="Idle"></wa-accordion>
@@ -162,8 +174,8 @@
       <wa-icon button icon="save" slot="footer"></wa-icon>
     </wa-popover>
   </wa-page>
-  <wa-modal visible label="My Modal" icon="email" id="modal">
-    <!-- <wa-button slot="functions"></wa-button> -->
+  <wa-modal label="My Modal" icon="email" id="modal">
+    <wa-icon icon="save" slot="functions"></wa-icon>
   </wa-modal>
 
 </html>

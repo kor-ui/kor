@@ -206,12 +206,14 @@ export class waInput extends LitElement {
       ${this.type === "select" ? html` 
         <wa-icon button class="select-icon" icon="arrow_drop_down"></wa-icon>
         ${this.active ? html` 
-          <wa-card class="select-menu" @load="${this.handleMenu()}"> <slot @slotchange="${(e) => this.handleItems(e)}"></slot> </wa-card> 
+          <wa-card class="select-menu">
+            <slot @slotchange="${(e) => this.handleItems(e)}"></slot> 
+          </wa-card> 
         ` : ''}
       ` : ''}
     `
-  } 
-  
+  }
+
   constructor() {
     super()
     this.addEventListener("click", () => this.shadowRoot.querySelector("input").focus());
@@ -221,7 +223,7 @@ export class waInput extends LitElement {
     this.value = undefined;
     this.removeAttribute('value');
   }
-  
+
   handleBlur(e) {
     this.type === 'number' ? this.validateMinMax(e.target.value) : '';
     this.type !== 'select' ? this.active = false : '';
@@ -235,7 +237,7 @@ export class waInput extends LitElement {
   handleItems(e) {
     let items: any = e.target.assignedNodes();
     items.forEach((el) => {
-      if (el.tagName === "WA-MENU-ITEM") { 
+      if (el.tagName === "WA-MENU-ITEM") {
         // handle click on menu item
         el.addEventListener("active-changed", (e) => {
           if (e.target.active) {
@@ -250,9 +252,12 @@ export class waInput extends LitElement {
     })
   }
 
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
+  attributeChangedCallback(name, oldval, newval) {
+    super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
+    if (name == 'active' && this.active) {
+      this.handleMenu();
+    }
   }
 
   handleMenu() {
@@ -269,8 +274,8 @@ export class waInput extends LitElement {
 
   validateMinMax(val) {
     if (val) {
-      if (this.min && val < this.min) { this.value = this.min } 
-      else if (val > this.max) { this.value = this.max } 
+      if (this.min && val < this.min) { this.value = this.min }
+      else if (val > this.max) { this.value = this.max }
       else { this.value = val }
     }
   }
