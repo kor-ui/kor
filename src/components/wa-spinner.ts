@@ -5,11 +5,18 @@ import { sharedStyles } from './shared-styles'
 export class waSpinner extends LitElement {
 
   @property({ type: String, reflect: true }) size = 'm';
+  @property({ type: String, reflect: true }) label;
 
   static get styles() {
     return [sharedStyles, css`
       :host {
+        width: 100%;
+        height: 100%;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
       svg {
         animation: 1s linear infinite svg-animation;
@@ -43,6 +50,10 @@ export class waSpinner extends LitElement {
         stroke-dasharray: 24;
         stroke-dashoffset: 24;
       }
+      /* label */
+      wa-text {
+        margin-top: 8px;
+      }
     `]
   }
 
@@ -54,6 +65,9 @@ export class waSpinner extends LitElement {
           cx="${this.size == 's' ? '12' : '16'}"
           cy="${this.size == 's' ? '12' : '16'}"/>
       </svg>
+      ${this.label ? html` 
+        <wa-text>${this.label}</wa-text> 
+      ` : ''}
     `
   }
 
