@@ -1,8 +1,8 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
 
-@customElement('wa-checkbox')
-export class waCheckbox extends LitElement {
+@customElement('wa-radio-button')
+export class waRadioButton extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: Boolean, reflect: true }) active;
@@ -18,21 +18,21 @@ export class waCheckbox extends LitElement {
         display: none;
       }
       /* box */
-      .box {
+      .circle {
+        transition: .1s all ease-in-out;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 16px;
         height: 16px;
         margin: 4px;
-        border-radius: 2px;
+        border-radius: 50%;
         box-sizing: border-box;
         border: 2px solid rgba(var(--neutral-1), .25);
-        transition: .1s all ease-in-out;
       }
-      :host([active]) .box {
+      :host([active]) .circle {
         border-color: transparent;
-        background: rgb(var(--accent-1));
+        border: 5px solid rgb(var(--accent-1));
       }
       /* label */
       wa-text {
@@ -53,12 +53,8 @@ export class waCheckbox extends LitElement {
 
   render() {
     return html`
-      <input type="checkbox" ?checked="${this.active}" ?readonly="${this.disabled}" value="${this.label}" name="${this.label}">
-      <div class="box">
-        ${this.active ? html`
-          <wa-icon icon="check" size="s" color="white"></wa-icon>
-        ` : ''}
-      </div>
+      <input type="radio" ?checked="${this.active}" value="${this.label}" name="${this.label}">
+      <div class="circle"></div>
       ${this.label ? html` 
         <wa-text>${this.label}</wa-text> 
       ` : ''}
@@ -72,9 +68,17 @@ export class waCheckbox extends LitElement {
 
   constructor() {
     super();
-    this.addEventListener("click", () => {
-      this.active = !this.active;
-    })
+    this.addEventListener("click", () => this.handleActive())
+  }
+
+  handleActive() {
+    if (!this.active) {
+      let rb = this.parentElement.querySelectorAll("wa-radio-button");
+      rb.forEach((el: any) => {
+        el.active = false;
+      });
+      this.active = true;
+    }
   }
   
 }
