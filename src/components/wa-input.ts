@@ -191,10 +191,8 @@ export class waInput extends LitElement {
       ${!this.disabled && !this.readonly && this.value && !this.noClear && this.type !== 'select' ? html` 
         <wa-icon button class="clear-icon" icon="close" @click="${() => this.handleClear()}"></wa-icon> 
       ` : ''}
-      <!-- status -->
-      ${this.status === "error" ? html` <wa-icon class="status-icon" icon="cancel"></wa-icon> ` : ''}
-      ${this.status === "alert" ? html` <wa-icon class="status-icon" icon="error"></wa-icon> ` : ''}
-      ${this.status === "success" ? html` <wa-icon class="status-icon" icon="check_circle" color="rgb(var(--functional-green))"></wa-icon> ` : ''}
+          <!-- status -->
+          ${this.status ? html` <wa-icon class="status-icon" icon="${this.getStatusIcon()}"></wa-icon> ` : ''}
       <!-- number increment -->
       ${this.type === "number" && !this.readonly ? html` 
         <wa-icon button class="increment-icon" icon="keyboard_arrow_left" @click="${() => this.handleIncrement('left')}"></wa-icon>
@@ -278,6 +276,22 @@ export class waInput extends LitElement {
       else if (val > this.max) { this.value = this.max }
       else { this.value = val }
     }
+  }
+
+  getStatusIcon(): string {
+    let icon;
+    switch (this.status) {
+      case 'error':
+        icon = "cancel";
+        break;
+      case 'warning':
+        icon = "error";
+        break;
+      case 'success':
+        icon = "check_circle";
+        break;
+    }
+    return icon;
   }
 
 }

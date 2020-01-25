@@ -58,7 +58,7 @@
         <!-- status -->
         <wa-input label="Status error" status="error"></wa-input>
         <wa-input label="Status success" status="success"></wa-input>
-        <wa-input label="Status alert" status="alert"></wa-input>
+        <wa-input label="Status warning" status="warning"></wa-input>
         <br>
         <wa-input disabled label="Disabled" status="error"></wa-input>
         <wa-input readonly label="Readonly" status="error"></wa-input>
@@ -94,6 +94,25 @@
         <wa-button icon="save" color="secondary" disabled></wa-button>
         <wa-button icon="save" color="tertiary" disabled></wa-button>
       </wa-accordion>
+      <!-- icons -->
+      <wa-accordion label="Icons">
+        <wa-icon icon="save"></wa-icon>
+        <wa-icon icon="save" button></wa-icon>
+        <wa-icon icon="save" disabled></wa-icon>
+        <wa-icon icon="save" color="rgb(var(--accent-1))"></wa-icon>
+        <wa-icon icon="save" size="s"></wa-icon>
+        <wa-icon icon="save" size="l"></wa-icon>
+        <wa-icon icon="save" size="xl"></wa-icon>
+      </wa-accordion>
+      <!-- progress bar -->
+      <wa-accordion label="Progress Bar">
+        <wa-progress-bar value="20"></wa-progress-bar>
+        <wa-progress-bar value="20" label="With label"></wa-progress-bar>
+        <wa-progress-bar value="20" label="Show progress" show-progress></wa-progress-bar>
+        <wa-progress-bar value="20" label="With info" info="Slow connection detected"></wa-progress-bar>
+        <wa-progress-bar value="20" label="With info, status" status="warning" info="Slow connection detected"></wa-progress-bar>
+        <wa-progress-bar value="20" label="Color" color="red"></wa-progress-bar>
+      </wa-accordion>
       <!-- spinner -->
       <wa-accordion label="Spinner">
         <wa-spinner></wa-spinner>
@@ -110,6 +129,30 @@
         </wa-menu-item>
         <wa-menu-item label="Active" active></wa-menu-item>
         <wa-menu-item label="Disabled" disabled="disabled"></wa-menu-item>
+      </wa-accordion>
+      <!-- popover -->
+      <wa-accordion label="Popover">
+        <!-- targets -->
+        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="tar1"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="tar2"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="tar3"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="tar4"></wa-icon>
+        <!-- popovers -->
+        <wa-popover target="#tar1" position="top" label="Top"></wa-popover>
+        <wa-popover target="#tar2">
+          <wa-tabs slot="header">
+            <wa-tab-item label="Tab 1" active></wa-tab-item>
+            <wa-tab-item label="Tab 2"></wa-tab-item>
+          </wa-tabs>
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+        </wa-popover>
+        <wa-popover target="#tar3" position="left" label="Left">
+          <wa-button slot="footer"></wa-button>
+        </wa-popover>
+        <wa-popover target="#tar4" position="right" label="Right">
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+        </wa-popover>
       </wa-accordion>
       <!-- tabs -->
       <wa-accordion label="Tabs">
@@ -154,6 +197,7 @@
         <wa-text size="body-2" color="text-1">Body 2, Text 1</wa-text>
         <wa-text size="body-2" color="text-2">Body 2, Text 2</wa-text>
         <wa-text size="body-2" color="text-3">Body 2, Text 3</wa-text>
+        <wa-text size="header-1" color="text-1">Header 1, Text 1</wa-text>
         <wa-text size="header-1" color="text-2">Header 1, Text 2</wa-text>
         <wa-text size="header-1" color="text-3">Header 1, Text 3</wa-text>
         <wa-text size="header-2" color="text-1">Header 2, Text 1</wa-text>
@@ -175,10 +219,7 @@
     <wa-grid>
       <!-- cards -->
       <wa-card label="Card Label" icon="extension" grid-cols="6">
-        <wa-icon button slot="functions" icon="keyboard_arrow_up" id="tar1"></wa-icon>
-        <wa-icon button slot="functions" icon="keyboard_arrow_down" id="tar2"></wa-icon>
-        <wa-icon button slot="functions" icon="keyboard_arrow_left" id="tar3"></wa-icon>
-        <wa-icon button slot="functions" icon="keyboard_arrow_right" id="tar4"></wa-icon>
+        <wa-icon button slot="functions" icon="save"></wa-icon>
         <wa-button disabled="disabled" slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
@@ -186,21 +227,6 @@
       <wa-card grid-cols="2"></wa-card>
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
-    <wa-popover target="#tar1" position="top" label="Top"></wa-popover>
-    <wa-popover target="#tar2">
-      <wa-tabs slot="header">
-        <wa-tab-item label="Tab 1" active></wa-tab-item>
-        <wa-tab-item label="Tab 2"></wa-tab-item>
-      </wa-tabs>
-      <wa-icon button icon="save" slot="footer"></wa-icon>
-    </wa-popover>
-    <wa-popover target="#tar3" position="left" label="Left">
-      <wa-button slot="footer"></wa-button>
-    </wa-popover>
-    <wa-popover target="#tar4" position="right" label="Right">
-      <wa-icon button icon="save" slot="footer"></wa-icon>
-      <wa-icon button icon="save" slot="footer"></wa-icon>
-    </wa-popover>
   </wa-page>
   <wa-modal label="My Modal" icon="email" id="modal">
     <wa-icon icon="save" slot="functions"></wa-icon>

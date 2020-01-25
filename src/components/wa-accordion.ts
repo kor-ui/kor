@@ -74,7 +74,9 @@ export class waAccordion extends LitElement {
         </slot>
         <slot></slot>
         <slot name="functions" slot="functions"></slot>
-        <slot name="footer" slot="${this.emptyFooter ? undefined : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}"></slot>
+        ${this.expanded ? html` 
+          <slot name="footer" slot="${this.emptyFooter ? undefined : 'footer'}" @slotchange="${(e) => this.emptyFooter = e.target.assignedNodes().length === 0}"></slot>
+        `: ''}
       </wa-card>
     `
   }

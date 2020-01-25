@@ -35,10 +35,15 @@ export class waIcon extends LitElement {
         opacity: .20;
       }
       /* size */
-      :host([size="l"]) {
+      :host([size="xl"]) {
         height: 48px;
         width: 48px;
         font-size: 48px;
+      }
+      :host([size="l"]) {
+        height: 32px;
+        width: 32px;
+        font-size: 32px;
       }
       :host([size="m"]) {
         height: 24px;

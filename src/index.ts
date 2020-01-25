@@ -11,6 +11,7 @@ import './components/wa-modal.ts';
 import './components/wa-page.ts';
 import './components/wa-pane.ts';
 import './components/wa-popover.ts';
+import './components/wa-progress-bar.ts';
 import './components/wa-radio-button.ts';
 import './components/wa-spinner.ts';
 import './components/wa-tab-item.ts';

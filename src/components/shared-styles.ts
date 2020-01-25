@@ -64,10 +64,10 @@ export const sharedStyles = css`
     src: local('Open Sans Bold'), local('OpenSans-Bold'), url('./fonts/open-sans-bold.woff2') format('woff2'), url('./fonts/open-sans-bold.woff') format('woff');
   }
   html, body {
-    --body-1: normal 13px/24px 'open-sans';
+    --body-1: normal 14px/24px 'open-sans';
     --body-2: normal 12px/16px 'open-sans';
     --header-1: bold 16px/24px 'open-sans';
-    --header-2: bold 15px/24px 'open-sans';
+    --header-2: bold 14px/24px 'open-sans';
     font-family: 'open-sans', sans-serif;
     font-style: normal;
     font-weight: 400;
