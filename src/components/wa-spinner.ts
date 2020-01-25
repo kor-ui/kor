@@ -8,9 +8,11 @@ export class waSpinner extends LitElement {
 
   static get styles() {
     return [sharedStyles, css`
+      :host {
+        overflow: hidden;
+      }
       svg {
-        animation: 2s linear infinite svg-animation;
-        max-width: 100px;
+        animation: 1s linear infinite svg-animation;
       }
       @keyframes svg-animation {
         0% {
@@ -21,39 +23,36 @@ export class waSpinner extends LitElement {
         }
       }
       circle {
-        animation: 1.4s ease-in-out infinite both circle-animation;
-        display: block;
         fill: transparent;
-        stroke: #2f3d4c;
+        stroke: rgb(var(--accent-1));
         stroke-linecap: round;
-        stroke-dasharray: 283;
-        stroke-dashoffset: 280;
-        stroke-width: 10px;
-        transform-origin: 50% 50%;
+        stroke-width: 4px;
       }
-      @keyframes circle-animation {
-        0%,
-        25% {
-          stroke-dashoffset: 280;
-          transform: rotate(0);
-        }
-        50%,
-        75% {
-          stroke-dashoffset: 75;
-          transform: rotate(45deg);
-        }
-        100% {
-          stroke-dashoffset: 280;
-          transform: rotate(360deg);
-        }
+      /* size */
+      :host([size="m"]) svg {
+        width: 32px;
+      }
+      :host([size="s"]) svg {
+        width: 24px;
+      }
+      :host([size="m"]) circle {
+        stroke-dasharray: 32;
+        stroke-dashoffset: 32;
+      }
+      :host([size="s"]) circle {
+        stroke-dasharray: 24;
+        stroke-dashoffset: 24;
       }
     `]
   }
 
   render() {
     return html`
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="45"/>
+      <svg xmlns="http://www.w3.org/2000/svg" 
+        viewBox="${this.size == 's' ? '0 0 24 24' : '0 0 32 32'}">
+        <circle r="${this.size == 's' ? '10' : '14'}"
+          cx="${this.size == 's' ? '12' : '16'}"
+          cy="${this.size == 's' ? '12' : '16'}"/>
       </svg>
     `
   }

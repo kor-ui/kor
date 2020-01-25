@@ -78,6 +78,56 @@
         <wa-button icon="save" color="secondary" disabled></wa-button>
         <wa-button icon="save" color="tertiary" disabled></wa-button>
       </wa-accordion>
+      <!-- spinner -->
+      <wa-accordion label="Spinner">
+        <wa-spinner></wa-spinner>
+        <wa-spinner size="s"></wa-spinner>
+      </wa-accordion>
+      <!-- menu item -->
+      <wa-accordion label="Menu Items">
+        <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
+        <wa-menu-item label="With icon" icon="save"></wa-menu-item>
+        <wa-menu-item label="Icon slot">
+          <wa-icon button icon="save" slot="functions"></wa-icon>
+        </wa-menu-item>
+        <wa-menu-item label="Active" active></wa-menu-item>
+        <wa-menu-item label="Disabled" disabled="disabled"></wa-menu-item>
+      </wa-accordion>
+      <!-- tabs -->
+      <wa-accordion label="Tabs">
+        <!-- horizontal -->
+        <wa-tabs>
+          <wa-tab-item label="Hi" active></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs>
+          <wa-tab-item label="Train" icon="train" active></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs>
+          <wa-tab-item icon="train" active></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+        </wa-tabs>
+        <!-- vertical -->
+        <wa-tabs vertical>
+          <wa-tab-item label="Hi" active></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+          <wa-tab-item label="Hi"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs vertical>
+          <wa-tab-item label="Train" icon="train" active></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+          <wa-tab-item label="Train" icon="train"></wa-tab-item>
+        </wa-tabs>
+        <wa-tabs vertical>
+          <wa-tab-item icon="train" active></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+          <wa-tab-item icon="train"></wa-tab-item>
+        </wa-tabs>
+      </wa-accordion>
       <!-- text -->
       <wa-accordion label="Text">
         <wa-text>Body 1, Text 1</wa-text>
@@ -97,15 +147,7 @@
       <wa-icon slot="functions" button icon="save"></wa-icon>
       <!-- menu items -->
       <wa-accordion label="Idle"></wa-accordion>
-      <wa-accordion label="Expanded, Icon" icon="message" expanded>
-        <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
-        <wa-menu-item label="With icon" icon="save"></wa-menu-item>
-        <wa-menu-item label="Icon slot">
-          <wa-icon button icon="save" slot="functions"></wa-icon>
-        </wa-menu-item>
-        <wa-menu-item label="Active" active></wa-menu-item>
-        <wa-menu-item label="Disabled" disabled="disabled"></wa-menu-item>
-      </wa-accordion>
+      <wa-accordion label="Expanded, Icon" icon="message" expanded></wa-accordion>
       <wa-accordion label="Disabled" disabled="disabled"></wa-accordion>
       <!-- buttons -->
       <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
@@ -122,38 +164,6 @@
         <wa-button disabled="disabled" slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
-        <!-- tabs -->
-        <wa-tabs slot="header">
-          <wa-tab-item label="Hi" active></wa-tab-item>
-          <wa-tab-item label="Hi"></wa-tab-item>
-          <wa-tab-item label="Hi"></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs>
-          <wa-tab-item label="Train" icon="train" active></wa-tab-item>
-          <wa-tab-item label="Train" icon="train"></wa-tab-item>
-          <wa-tab-item label="Train" icon="train"></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs>
-          <wa-tab-item icon="train" active></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-        </wa-tabs>
-        <!-- vertical tabs -->
-        <wa-tabs vertical>
-          <wa-tab-item label="Hi" active></wa-tab-item>
-          <wa-tab-item label="Hi"></wa-tab-item>
-          <wa-tab-item label="Hi"></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs vertical>
-          <wa-tab-item label="Train" icon="train" active></wa-tab-item>
-          <wa-tab-item label="Train" icon="train"></wa-tab-item>
-          <wa-tab-item label="Train" icon="train"></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs vertical>
-          <wa-tab-item icon="train" active></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-        </wa-tabs>
       </wa-card>
       <wa-card grid-cols="2"></wa-card>
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
