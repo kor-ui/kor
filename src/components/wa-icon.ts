@@ -5,16 +5,15 @@ import { sharedStyles } from './shared-styles'
 export class waIcon extends LitElement {
 
   @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) size = "m";
+  @property({ type: String, reflect: true }) color;
   @property({ type: Boolean, reflect: true }) button;
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
     return [sharedStyles, css`
       :host {
-        height: 24px;
-        width: 24px;
         font-family: 'md-icons';
-        font-size: 24px;
         line-height: 1;
         -webkit-font-smoothing: auto;
         text-rendering: optimizeLegibility;
@@ -34,6 +33,22 @@ export class waIcon extends LitElement {
       :host([disabled]) {
         pointer-events: none;
         opacity: .20;
+      }
+      /* size */
+      :host([size="l"]) {
+        height: 48px;
+        width: 48px;
+        font-size: 48px;
+      }
+      :host([size="m"]) {
+        height: 24px;
+        width: 24px;
+        font-size: 24px;
+      }
+      :host([size="s"]) {
+        height: 16px;
+        width: 16px;
+        font-size: 16px;
       }
       /* hover inputs */
       @media (hover: hover) {
@@ -984,6 +999,9 @@ export class waIcon extends LitElement {
   attributeChangedCallback(name, oldval, newval) { 
     super.attributeChangedCallback(name, oldval, newval); 
     this.dispatchEvent(new Event(`${name}-changed`));
+    if (name == "color") {
+      this.style.color = this.color;
+    }
   }
 
 }

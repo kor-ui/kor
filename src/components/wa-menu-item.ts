@@ -19,19 +19,18 @@ export class waMenuItem extends LitElement {
         transition: .1s all ease-in-out;
         overflow: visible;
       }
-      .icon {
+      wa-icon {
         margin-right: 8px;
       }
       .label {
         flex: 1;
       }
       /* label */
-      .label {
+      wa-text {
+        flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font: var(--body-1);
-        color: var(--text-1);
         pointer-events: none;
       }
       slot[name="functions"]::slotted(*) {
@@ -59,8 +58,10 @@ export class waMenuItem extends LitElement {
 
   render() {
     return html`
-      ${this.icon ? html` <wa-icon class="icon" icon="${this.icon}"></wa-icon> ` : ''}
-      ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
+      ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
+      ${this.label ? html` 
+        <wa-text>${this.label}</wa-text> 
+      ` : ''}
       <!-- functions slot -->
       <slot name="functions"></slot>
     `
