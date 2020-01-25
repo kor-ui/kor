@@ -27,7 +27,7 @@ export class waCheckbox extends LitElement {
         margin: 4px;
         border-radius: 2px;
         box-sizing: border-box;
-        border: 2px solid rgba(var(--neutral-1), .1);
+        border: 2px solid rgba(var(--neutral-1), .25);
       }
       :host([active]) .box {
         border-color: transparent;
