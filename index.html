@@ -234,6 +234,12 @@
           <wa-button slot="footer" label="Close Modal" onclick="event.target.parentElement.visible = false"></wa-button>
         </wa-modal>
       </wa-accordion>
+      <!-- notifications -->
+      <wa-accordion label="Notifications">
+        <!-- targets -->
+        <wa-button label="With label, icon" onclick="document.querySelector('#modal').visible = true"></wa-button>
+        <wa-button label="With slots, sticky, size" onclick="document.querySelector('#modal-2').visible = true"></wa-button>
+      </wa-accordion>
       <!-- drawer -->
       <wa-accordion label="Drawer">
         <!-- targets -->
@@ -291,6 +297,31 @@
       <wa-card grid-cols="2"></wa-card>
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
+    <!-- notifications -->
+    <wa-notifications position="top-right">
+      <wa-notification-item visible label="1"></wa-notification-item>
+      <wa-notification-item visible label="2"></wa-notification-item>
+      <wa-notification-item visible label="3"></wa-notification-item>
+      <wa-notification-item visible label="4"></wa-notification-item>
+    </wa-notifications>
+    <wa-notifications position="top-left">
+      <wa-notification-item visible label="1"></wa-notification-item>
+      <wa-notification-item visible label="2"></wa-notification-item>
+      <wa-notification-item visible label="3"></wa-notification-item>
+      <wa-notification-item visible label="4"></wa-notification-item>
+    </wa-notifications>
+    <wa-notifications position="bottom-right">
+      <wa-notification-item visible label="1"></wa-notification-item>
+      <wa-notification-item visible label="2"></wa-notification-item>
+      <wa-notification-item visible label="3"></wa-notification-item>
+      <wa-notification-item visible label="4"></wa-notification-item>
+    </wa-notifications>
+    <wa-notifications position="bottom-left">
+      <wa-notification-item visible label="1"></wa-notification-item>
+      <wa-notification-item visible label="2"></wa-notification-item>
+      <wa-notification-item visible sticky label="3"></wa-notification-item>
+      <wa-notification-item visible sticky label="4"></wa-notification-item>
+    </wa-notifications>
   </wa-page>
 
 </html>
