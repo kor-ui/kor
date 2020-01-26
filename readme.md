@@ -1,6 +1,6 @@
 # wa
 
-*wa (和)* is a library of user interface components built using LitElement / lit-html library. It is based on the web components standards which makes it browser-, framework- and OS- agnostic.
+*wa (和)* is a UI component library built with LitElement / lit-html. It is based on the web components standards which makes it browser-, framework- and OS-agnostic.
 
 ## Integrating the library
 
@@ -18,9 +18,7 @@ npm install wa-baukasten
 If you are using angular, you can alternatively include the assets in your `angular.json` file:
 
 ```json
-...
 "styles": [
-    "src/styles.css",
     ...    
     "node_modules/wa-baukasten/wa-styles.css"
 ],
@@ -28,7 +26,6 @@ If you are using angular, you can alternatively include the assets in your `angu
     ...
     "node_modules/wa-baukasten/wa.js"
 ]
-...
 ```
 
 3. Start using the components in your HTML templates:

@@ -198,6 +198,44 @@
           <wa-tab-item icon="train" disabled></wa-tab-item>
         </wa-tabs>
       </wa-accordion>
+      <!-- modal -->
+      <wa-accordion label="Modal">
+        <!-- targets -->
+        <wa-button label="With label, icon" onclick="document.querySelector('#modal').visible = true"></wa-button>
+        <wa-button label="With slots, sticky, size" onclick="document.querySelector('#modal-2').visible = true"></wa-button>
+        <!-- modals -->
+        <wa-modal label="My Modal" icon="email" id="modal"></wa-modal>
+        <wa-modal height="400px" width="400px" sticky id="modal-2">
+          <wa-tabs slot="header">
+            <wa-tab-item label="Active" active></wa-tab-item>
+            <wa-tab-item label="Idle"></wa-tab-item>
+            <wa-tab-item label="Disabled" disabled></wa-tab-item>
+          </wa-tabs>
+          <wa-icon button icon="save" slot="functions"></wa-icon>
+          <wa-button slot="footer" label="Close Modal" onclick="event.target.parentElement.visible = false"></wa-button>
+        </wa-modal>
+      </wa-accordion>
+      <!-- drawer -->
+      <wa-accordion label="Drawer">
+        <!-- targets -->
+        <wa-button label="Left with label, icon" onclick="document.querySelector('#drawer-left').visible = true"></wa-button>
+        <wa-button label="Right, with slots, sticky" onclick="document.querySelector('#drawer-right').visible = true"></wa-button>
+        <wa-button label="top" onclick="document.querySelector('#drawer-top').visible = true"></wa-button>
+        <wa-button label="bottom" onclick="document.querySelector('#drawer-bottom').visible = true"></wa-button>
+        <!-- drawers -->
+        <wa-drawer position="left" label="Left Drawer" icon="email" id="drawer-left"></wa-drawer>
+        <wa-drawer position="right" sticky id="drawer-right" >
+          <wa-tabs slot="header">
+            <wa-tab-item label="Active" active></wa-tab-item>
+            <wa-tab-item label="Idle"></wa-tab-item>
+            <wa-tab-item label="Disabled" disabled></wa-tab-item>
+          </wa-tabs>
+          <wa-icon button icon="save" slot="functions"></wa-icon>
+          <wa-button slot="footer" label="Close Drawer" onclick="event.target.parentElement.visible = false"></wa-button>
+        </wa-drawer>
+        <wa-drawer position="Top" label="Top Drawer" id="drawer-top"></wa-drawer>
+        <wa-drawer position="Bottom" label="Top Drawer" id="drawer-bottom"></wa-drawer>
+      </wa-accordion>
       <!-- text -->
       <wa-accordion label="Text">
         <wa-text>Body 1, Text 1</wa-text>
@@ -221,9 +259,7 @@
       <wa-accordion label="Expanded, Icon" icon="message" expanded></wa-accordion>
       <wa-accordion label="Disabled" disabled="disabled"></wa-accordion>
       <!-- buttons -->
-      <wa-button slot="footer" color="tertiary" label="Tertiary"></wa-button>
-      <wa-button slot="footer" color="secondary" label="Secondary"></wa-button>
-      <wa-button slot="footer" color="primary" label="Primary" onclick="document.querySelector('#modal').visible = true"></wa-button>
+      <wa-button slot="footer" label="Button on Footer"></wa-button>
     </wa-pane>
     <wa-grid>
       <!-- cards -->
@@ -237,8 +273,5 @@
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
   </wa-page>
-  <wa-modal label="My Modal" icon="email" id="modal">
-    <wa-icon icon="save" slot="functions"></wa-icon>
-  </wa-modal>
 
 </html>

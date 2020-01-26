@@ -3,6 +3,7 @@ import './components/wa-app-bar.ts';
 import './components/wa-button.ts';
 import './components/wa-card.ts';
 import './components/wa-checkbox.ts';
+import './components/wa-drawer.ts';
 import './components/wa-grid.ts';
 import './components/wa-icon.ts';
 import './components/wa-input.ts';

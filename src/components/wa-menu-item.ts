@@ -14,6 +14,7 @@ export class waMenuItem extends LitElement {
     return [sharedStyles, css`
       :host {
         padding: 8px 0;
+        border-radius: 4px;
         display: flex;
         cursor: pointer;
         transition: .1s all ease-in-out;
