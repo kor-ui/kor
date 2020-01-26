@@ -1,8 +1,8 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
 
-@customElement('wa-checkbox')
-export class waCheckbox extends LitElement {
+@customElement('wa-toggle')
+export class waToggle extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: Boolean, reflect: true }) active;
@@ -17,22 +17,32 @@ export class waCheckbox extends LitElement {
       input {
         display: none;
       }
-      /* box */
-      .box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 16px;
-        height: 16px;
-        margin: 4px;
-        border-radius: 2px;
+      /* toggle */
+      .bg {
+        width: 32px;
+        height: 20px;
+        margin: 2px;
+        padding: 2px;
+        border-radius: 12px;
         box-sizing: border-box;
         border: 2px solid rgba(var(--neutral-1), .25);
         transition: .1s all ease-in-out;
       }
-      :host([active]) .box {
+      :host([active]) .bg {
         border-color: transparent;
         background: rgb(var(--accent-1));
+      }
+      .dot {
+        display: flex;
+        transition: .1s all ease-in-out;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background: rgba(var(--neutral-1), .60);
+      }
+      :host([active]) .dot {
+        transform: translateX(12px);
+        background: white;
       }
       /* label */
       wa-text {
@@ -50,8 +60,11 @@ export class waCheckbox extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover:not([active])) .box {
+        :host(:hover:not([active])) .bg {
           border-color: rgba(var(--neutral-1), .30);
+        }
+        :host(:hover:not([active])) .dot {
+          background: rgba(var(--neutral-1), .90);
         }
       }
     `]
@@ -60,10 +73,8 @@ export class waCheckbox extends LitElement {
   render() {
     return html`
       <input type="checkbox" ?checked="${this.active}" ?readonly="${this.disabled}" value="${this.label}" name="${this.label}">
-      <div class="box">
-        ${this.active ? html`
-          <wa-icon icon="check" size="s" color="white"></wa-icon>
-        ` : ''}
+      <div class="bg">
+        <div class="dot"></div>
       </div>
       ${this.label ? html` 
         <wa-text>${this.label}</wa-text> 

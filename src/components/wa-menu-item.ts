@@ -37,14 +37,10 @@ export class waMenuItem extends LitElement {
       slot[name="functions"]::slotted(*) {
         margin-left: 8px;
       }
-      :host(:hover),
       :host([active]) {
         padding: 8px;
         margin-left: -8px;
         margin-right: -8px;
-      }
-      :host(:hover) {
-        background: rgba(var(--neutral-1), .05);
       }
       :host([active]){
         background: rgba(var(--neutral-1), .10);
@@ -54,6 +50,16 @@ export class waMenuItem extends LitElement {
         opacity: .2;
         pointer-events: none;
       }
+      /* hover inputs */
+      @media (hover: hover) {
+        :host(:hover) {
+          padding: 8px;
+          margin-left: -8px;
+          margin-right: -8px;
+        }
+        :host(:hover) {
+          background: rgba(var(--neutral-1), .05);
+        }
     `]
   }
 

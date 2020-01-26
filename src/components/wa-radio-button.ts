@@ -48,6 +48,12 @@ export class waRadioButton extends LitElement {
         pointer-events: none;
         opacity: .2;
       }
+      /* hover inputs */
+      @media (hover: hover) {
+        :host(:hover:not([active])) .circle {
+          border-color: rgba(var(--neutral-1), .30);
+        }
+      }
     `]
   }
 

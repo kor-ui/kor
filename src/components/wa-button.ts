@@ -52,19 +52,6 @@ export class waButton extends LitElement {
         border-style: solid;
         border-color: rgba(var(--neutral-1), .25);
       }
-      /* hover inputs */
-      @media (hover: hover) {
-        :host([color="primary"]:not(:active):hover) {
-          background-color: rgb(var(--accent-1b));
-        }
-        :host([color="secondary"]:not(:active):hover) {
-          background-color: rgba(var(--neutral-1), .15);
-        }
-        :host([color="tertiary"]:not(:active):hover) {
-          border-color: rgba(var(--neutral-1), .30);
-          background-color: rgba(var(--neutral-1), .05);
-        }
-      }
       /* active */
       :host([color="primary"]:active) {
         background-color: rgb(var(--accent-1c));
@@ -88,6 +75,19 @@ export class waButton extends LitElement {
       :host(:not([color="primary"])),
       :host(:not([color="primary"])[icon]) wa-icon {
         color: var(--text-1);
+      }
+      /* hover inputs */
+      @media (hover: hover) {
+        :host([color="primary"]:not(:active):hover) {
+          background-color: rgb(var(--accent-1b));
+        }
+        :host([color="secondary"]:not(:active):hover) {
+          background-color: rgba(var(--neutral-1), .15);
+        }
+        :host([color="tertiary"]:not(:active):hover) {
+          border-color: rgba(var(--neutral-1), .30);
+          background-color: rgba(var(--neutral-1), .05);
+        }
       }
     `]
   }
