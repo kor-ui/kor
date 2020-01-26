@@ -37,5 +37,5 @@ import './components/wa-text.ts';
 import './components/wa-toggle.ts';
 // import './components/wa-tool.ts';
 // import './components/wa-tooltip.ts';
-// import './components/wa-user-identifier.ts';
+import './components/wa-avatar.ts';
 import './components/shared-styles.ts';

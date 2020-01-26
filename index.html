@@ -24,9 +24,17 @@
       <wa-icon slot="functions" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
       <wa-icon slot="left" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
       <wa-icon slot="right" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
+      <!-- avatar -->
+      <wa-avatar slot="functions" label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></wa-avatar>
     </wa-app-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
+      <!-- avatar -->
+      <wa-accordion label="Avatar">
+        <wa-avatar></wa-avatar>
+        <wa-avatar label="First Last"></wa-avatar>
+        <wa-avatar label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></wa-avatar>  
+      </wa-accordion>
       <!-- inputs -->
       <wa-accordion label="Input">
         <!-- text -->
@@ -312,6 +320,7 @@
       <!-- buttons -->
       <wa-button slot="footer"></wa-button>
     </wa-pane>
+    <!-- grid -->
     <wa-grid>
       <!-- cards -->
       <wa-card label="With label, icon, slots" icon="extension" grid-cols="6">
