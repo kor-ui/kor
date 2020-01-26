@@ -18,7 +18,8 @@ export class waNotificationItem extends LitElement {
   static get styles() {
     return [sharedStyles, css`
       :host {
-        transition: .2s all ease-in-out;
+        transition: .1s all ease-in-out;
+        opacity: 1;
       }
       :host(:not([visible])) {
         opacity: 0;
@@ -30,6 +31,14 @@ export class waNotificationItem extends LitElement {
       }
       wa-card {
         background: rgb(var(--base-4));
+      }
+      :host(:not([visible]):host-context([position$="right"])) { 
+        margin-left: 8px; 
+        margin-right: -8px; 
+      }
+      :host(:not([visible]):host-context([position$="left"])) { 
+        margin-left: -8px; 
+        margin-right: 8px; 
       }
     `]
   }

@@ -18,6 +18,10 @@ export class waNotifications extends LitElement {
         margin: 0;
         width: 320px;
         z-index: 6;
+        pointer-events: none;
+      }
+      ::slotted(*) {
+        pointer-events: all;
       }
       :host([position^="top"]) {
         top: 0px;

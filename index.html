@@ -325,13 +325,12 @@
     </wa-grid>
     <!-- notifications -->
     <wa-notifications position="top-left">
-      <wa-notification-item label="Top left with label, icon" icon="directions_car" id="notification-1" sticky>
-        <wa-icon button slot="functions" icon="save"></wa-icon>
-      </wa-notification-item>
+      <wa-notification-item label="Top left with icon" icon="directions_car" id="notification-1"></wa-notification-item>
     </wa-notifications>
     <wa-notifications position="top-right">
-      <wa-notification-item id="notification-2" sticky>
-        This is a top-right notification without label.
+      <wa-notification-item id="notification-2" label="Top right, sticky with slots" sticky>
+        <wa-icon button slot="functions" icon="save"></wa-icon>
+        This is the notification with content.
         <wa-button slot="footer" onclick="event.target.parentElement.visible = false"></wa-button>
       </wa-notification-item>
     </wa-notifications>
