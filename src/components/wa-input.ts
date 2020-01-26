@@ -191,8 +191,8 @@ export class waInput extends LitElement {
       ${!this.disabled && !this.readonly && this.value && !this.noClear && this.type !== 'select' ? html` 
         <wa-icon button class="clear-icon" icon="close" @click="${() => this.handleClear()}"></wa-icon> 
       ` : ''}
-          <!-- status -->
-          ${this.status ? html` <wa-icon class="status-icon" icon="${this.getStatusIcon()}"></wa-icon> ` : ''}
+      <!-- status -->
+      ${this.status ? html` <wa-icon class="status-icon" icon="${this.getStatusIcon()}"></wa-icon> ` : ''}
       <!-- number increment -->
       ${this.type === "number" && !this.readonly ? html` 
         <wa-icon button class="increment-icon" icon="keyboard_arrow_left" @click="${() => this.handleIncrement('left')}"></wa-icon>

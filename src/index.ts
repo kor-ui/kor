@@ -1,6 +1,6 @@
 import './components/wa-accordion.ts';
 import './components/wa-app-bar.ts';
-// import './components/wa-badge.ts';
+import './components/wa-badge.ts';
 // import './components/wa-breadcrumbs.ts';
 // import './components/wa-breadcrumb-item.ts';
 import './components/wa-button.ts';
