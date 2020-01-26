@@ -1,10 +1,11 @@
-const path = require("path");
-const dist = path.resolve(__dirname, "./");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const dist = path.resolve(__dirname, './');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.ts",
+  mode: "production",
   output: {
     filename: "wa.js",
     path: dist
