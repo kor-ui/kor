@@ -63,9 +63,6 @@ export class waInput extends LitElement {
         -webkit-appearance: none; 
       }
       /* active */
-      :host(:hover) {
-        border-color: rgba(var(--neutral-1), .4);
-      }
       :host([active]) {
         border-color: rgba(var(--neutral-1), .6);
       }
@@ -167,6 +164,12 @@ export class waInput extends LitElement {
       }
       slot:not([name])::slotted(*) {
         margin-bottom: 0;
+      }
+      /* hover inputs */
+      @media (hover: hover) {
+        :host(:hover) {
+          border-color: rgba(var(--neutral-1), .4);
+        }
       }
     `]
   }

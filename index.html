@@ -123,6 +123,13 @@
         <wa-badge status="warning"></wa-badge>
         <wa-badge status="success"></wa-badge>
       </wa-accordion>
+      <!-- tag -->
+      <wa-accordion label="Tag">
+        <wa-tag label="With label"></wa-tag>
+        <wa-tag label="Button" button></wa-tag>
+        <wa-tag icon="train" label="With label, icon"></wa-tag>
+        <wa-tag icon="train" label="With label, icon" removable></wa-tag>
+      </wa-accordion>
       <!-- progress bar -->
       <wa-accordion label="Progress Bar">
         <wa-progress-bar value="20"></wa-progress-bar>
@@ -156,7 +163,7 @@
           <wa-icon button icon="save" slot="functions"></wa-icon>
         </wa-menu-item>
         <wa-menu-item label="Active" active></wa-menu-item>
-        <wa-menu-item label="Disabled" disabled="disabled"></wa-menu-item>
+        <wa-menu-item label="Disabled" disabled></wa-menu-item>
       </wa-accordion>
       <!-- popover -->
       <wa-accordion label="Popover">
@@ -237,8 +244,10 @@
       <!-- notifications -->
       <wa-accordion label="Notifications">
         <!-- targets -->
-        <wa-button label="With label, icon" onclick="document.querySelector('#modal').visible = true"></wa-button>
-        <wa-button label="With slots, sticky, size" onclick="document.querySelector('#modal-2').visible = true"></wa-button>
+        <wa-button label="Top Left" onclick="document.querySelector('#notification-1').visible = true"></wa-button>
+        <wa-button label="Top Right" onclick="document.querySelector('#notification-2').visible = true"></wa-button>
+        <wa-button label="Bottom Left" onclick="document.querySelector('#notification-3').visible = true"></wa-button>
+        <wa-button label="Bottom Right" onclick="document.querySelector('#notification-4').visible = true"></wa-button>
       </wa-accordion>
       <!-- drawer -->
       <wa-accordion label="Drawer">
@@ -282,7 +291,7 @@
       <!-- menu items -->
       <wa-accordion label="Idle"></wa-accordion>
       <wa-accordion label="Expanded, Icon" icon="message" expanded></wa-accordion>
-      <wa-accordion label="Disabled" disabled="disabled"></wa-accordion>
+      <wa-accordion label="Disabled" disabled></wa-accordion>
       <!-- buttons -->
       <wa-button slot="footer"></wa-button>
     </wa-pane>
@@ -290,7 +299,7 @@
       <!-- cards -->
       <wa-card label="With label, icon, slots" icon="extension" grid-cols="6">
         <wa-icon button slot="functions" icon="save"></wa-icon>
-        <wa-button disabled="disabled" slot="footer"></wa-button>
+        <wa-button disabled slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
       </wa-card>
@@ -298,29 +307,22 @@
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
     </wa-grid>
     <!-- notifications -->
-    <wa-notifications position="top-right">
-      <wa-notification-item visible label="1"></wa-notification-item>
-      <wa-notification-item visible label="2"></wa-notification-item>
-      <wa-notification-item visible label="3"></wa-notification-item>
-      <wa-notification-item visible label="4"></wa-notification-item>
-    </wa-notifications>
     <wa-notifications position="top-left">
-      <wa-notification-item visible label="1"></wa-notification-item>
-      <wa-notification-item visible label="2"></wa-notification-item>
-      <wa-notification-item visible label="3"></wa-notification-item>
-      <wa-notification-item visible label="4"></wa-notification-item>
+      <wa-notification-item label="Top left with label, icon" icon="directions_car" id="notification-1" sticky>
+        <wa-icon button slot="functions" icon="save"></wa-icon>
+      </wa-notification-item>
     </wa-notifications>
-    <wa-notifications position="bottom-right">
-      <wa-notification-item visible label="1"></wa-notification-item>
-      <wa-notification-item visible label="2"></wa-notification-item>
-      <wa-notification-item visible label="3"></wa-notification-item>
-      <wa-notification-item visible label="4"></wa-notification-item>
+    <wa-notifications position="top-right">
+      <wa-notification-item id="notification-2" sticky>
+        This is a top-right notification without label.
+        <wa-button slot="footer" onclick="event.target.parentElement.visible = false"></wa-button>
+      </wa-notification-item>
     </wa-notifications>
     <wa-notifications position="bottom-left">
-      <wa-notification-item visible label="1"></wa-notification-item>
-      <wa-notification-item visible label="2"></wa-notification-item>
-      <wa-notification-item visible sticky label="3"></wa-notification-item>
-      <wa-notification-item visible sticky label="4"></wa-notification-item>
+      <wa-notification-item label="Bottom left" id="notification-3"></wa-notification-item>
+    </wa-notifications>
+    <wa-notifications position="bottom-right">
+      <wa-notification-item label="Bottom right" id="notification-4"></wa-notification-item>
     </wa-notifications>
   </wa-page>
 

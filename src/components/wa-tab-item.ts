@@ -70,11 +70,16 @@ export class waTabItem extends LitElement {
       :host(:not([active]):not(:hover)) wa-icon {
         color: var(--text-2);
       }
-      :host(:hover),
-      :host(:hover) wa-icon,
       :host([active]),
       :host([active]) wa-icon {
         color: var(--text-1);
+      }
+      /* hover inputs */
+      @media (hover: hover) {
+        :host(:hover),
+        :host(:hover) wa-icon {
+          color: var(--text-1);
+        }
       }
     `]
   }
