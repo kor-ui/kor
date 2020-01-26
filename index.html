@@ -28,7 +28,7 @@
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
       <!-- inputs -->
-      <wa-accordion label="Inputs">
+      <wa-accordion label="Input">
         <!-- text -->
         <wa-input condensed label="Text condensed empty"></wa-input>
         <wa-input label="Text filled" value="Hi"></wa-input>
@@ -80,7 +80,7 @@
         <wa-radio-button label="Active Disabled" active disabled></wa-radio-button>
       </wa-accordion>
       <!-- buttons -->
-      <wa-accordion label="Buttons">
+      <wa-accordion label="Button">
         <wa-button label="Primary"></wa-button>
         <wa-button label="Secondary" color="secondary"></wa-button>
         <wa-button label="Tertiary" color="tertiary"></wa-button>
@@ -95,7 +95,7 @@
         <wa-button icon="save" color="tertiary" disabled></wa-button>
       </wa-accordion>
       <!-- icons -->
-      <wa-accordion label="Icons">
+      <wa-accordion label="Icon">
         <wa-icon icon="save"></wa-icon>
         <wa-icon icon="save" button></wa-icon>
         <wa-icon icon="save" disabled></wa-icon>
@@ -130,7 +130,7 @@
         <wa-spinner size="s" label="Size s, with label"></wa-spinner>
       </wa-accordion>
       <!-- menu item -->
-      <wa-accordion label="Menu Items">
+      <wa-accordion label="Menu Item">
         <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
         <wa-menu-item label="With icon" icon="save"></wa-menu-item>
         <wa-menu-item label="Icon slot">
@@ -220,8 +220,8 @@
         <!-- targets -->
         <wa-button label="Left with label, icon" onclick="document.querySelector('#drawer-left').visible = true"></wa-button>
         <wa-button label="Right, with slots, sticky" onclick="document.querySelector('#drawer-right').visible = true"></wa-button>
-        <wa-button label="top" onclick="document.querySelector('#drawer-top').visible = true"></wa-button>
-        <wa-button label="bottom" onclick="document.querySelector('#drawer-bottom').visible = true"></wa-button>
+        <wa-button label="Top" onclick="document.querySelector('#drawer-top').visible = true"></wa-button>
+        <wa-button label="Bottom" onclick="document.querySelector('#drawer-bottom').visible = true"></wa-button>
         <!-- drawers -->
         <wa-drawer position="left" label="Left Drawer" icon="email" id="drawer-left"></wa-drawer>
         <wa-drawer position="right" sticky id="drawer-right" >
@@ -233,8 +233,8 @@
           <wa-icon button icon="save" slot="functions"></wa-icon>
           <wa-button slot="footer" label="Close Drawer" onclick="event.target.parentElement.visible = false"></wa-button>
         </wa-drawer>
-        <wa-drawer position="Top" label="Top Drawer" id="drawer-top"></wa-drawer>
-        <wa-drawer position="Bottom" label="Top Drawer" id="drawer-bottom"></wa-drawer>
+        <wa-drawer position="top" label="Top Drawer" id="drawer-top"></wa-drawer>
+        <wa-drawer position="bottom" label="Top Drawer" id="drawer-bottom"></wa-drawer>
       </wa-accordion>
       <!-- text -->
       <wa-accordion label="Text">
@@ -252,18 +252,18 @@
         <wa-text size="header-2" color="text-3">Header 2, Text 3</wa-text>
       </wa-accordion>
     </wa-pane>
-    <wa-pane slot="right" icon="train" label="Pane with icon, slots">
+    <wa-pane slot="right" icon="train" label="With label, icon, slots">
       <wa-icon slot="functions" button icon="save"></wa-icon>
       <!-- menu items -->
       <wa-accordion label="Idle"></wa-accordion>
       <wa-accordion label="Expanded, Icon" icon="message" expanded></wa-accordion>
       <wa-accordion label="Disabled" disabled="disabled"></wa-accordion>
       <!-- buttons -->
-      <wa-button slot="footer" label="Button on Footer"></wa-button>
+      <wa-button slot="footer"></wa-button>
     </wa-pane>
     <wa-grid>
       <!-- cards -->
-      <wa-card label="Card Label" icon="extension" grid-cols="6">
+      <wa-card label="With label, icon, slots" icon="extension" grid-cols="6">
         <wa-icon button slot="functions" icon="save"></wa-icon>
         <wa-button disabled="disabled" slot="footer"></wa-button>
       </wa-card>
