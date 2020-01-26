@@ -8,6 +8,7 @@ export class waProgressBar extends LitElement {
   @property({ type: String, reflect: true }) info;
   @property({ type: String, reflect: true }) status;
   @property({ type: String, reflect: true }) color;
+  @property({ type: String, reflect: true }) size = 'm';
   @property({ type: Number, reflect: true }) value;
   @property({ type: Boolean, reflect: true }) radial = false;
   @property({ type: Boolean, reflect: true, attribute: 'show-progress' }) showProgress = false;
@@ -36,6 +37,29 @@ export class waProgressBar extends LitElement {
       }
       .footer {
         margin-top: 8px;
+      }
+      /* radial */
+      :host([radial]) {
+        align-items: center;
+        justify-content: center;
+      }
+      .radial-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .radial-wrapper wa-text {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+      }
+      .radial {
+        transform: rotate(-90deg);
+      }
+      circle {
+        fill: transparent;
+        stroke-width: 8px;
       }
       /* status */
       .status-icon {
@@ -72,11 +96,32 @@ export class waProgressBar extends LitElement {
               <rect width="100%" height="8px" rx="4px"/>
             </clipPath>
           </defs>
-          <rect class="bg" fill="rgba(var(--neutral-1), .1)" width="100%" rx="4px"></rect>
-          <rect class="bar" fill="${this.color ? this.color : 'rgb(var(--accent-1))'}" width="${this.value}%" clip-path="url(#clip-path)"></rect>
+          <rect fill="rgba(var(--neutral-1), .1)" width="100%" rx="4px"/>
+          <rect fill="${this.color ? this.color : 'rgb(var(--accent-1))'}" 
+            width="${this.value}%" clip-path="url(#clip-path)"/>
         </svg>
       ` : html`
-        <!-- radial placeholder -->
+        <div class="radial-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" class="radial"
+            width="${this.getSize()}"
+            viewBox="0 0 ${this.getSize()} ${this.getSize()}">
+            <circle 
+              stroke="rgba(var(--neutral-1), .1)"
+              r="${(this.getSize() / 2) - 4}" 
+              cx="${this.getSize() / 2}" 
+              cy="${this.getSize() / 2}"/>
+            <circle
+              stroke="${this.color ? this.color : 'rgb(var(--accent-1))'}"
+              stroke-dasharray="${2 * Math.PI * (this.getSize() / 2 - 4)}"
+              stroke-dashoffset="${(2 * Math.PI * (this.getSize() / 2 - 4)) * (1 - (this.value / 100))}"
+              r="${(this.getSize() / 2) - 4}" 
+              cx="${this.getSize() / 2}" 
+              cy="${this.getSize() / 2}"/>
+          </svg>
+          ${this.showProgress ? html` 
+            <wa-text size="header-2">${this.value}%</wa-text> 
+          ` : ''}
+        </div>
       `}
       ${this.info || this.status ? html` 
         <div class="footer">
@@ -99,17 +144,21 @@ export class waProgressBar extends LitElement {
   getStatusIcon(): string {
     let icon;
     switch (this.status) {
-      case 'error':
-        icon = "cancel";
-        break;
-      case 'warning':
-        icon = "error";
-        break;
-      case 'success':
-        icon = "check_circle";
-        break;
+      case 'error': icon = "cancel"; break;
+      case 'warning': icon = "error"; break;
+      case 'success': icon = "check_circle"; break;
     }
     return icon;
+  }
+
+  getSize(): number {
+    let size;
+    switch (this.size) {
+      case 's': size = 48; break;
+      case 'm': size = 64; break;
+      case 'l': size = 80; break;
+    }
+    return size;
   }
   
 }

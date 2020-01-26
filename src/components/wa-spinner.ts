@@ -35,21 +35,6 @@ export class waSpinner extends LitElement {
         stroke-linecap: round;
         stroke-width: 4px;
       }
-      /* size */
-      :host([size="m"]) svg {
-        width: 32px;
-      }
-      :host([size="s"]) svg {
-        width: 24px;
-      }
-      :host([size="m"]) circle {
-        stroke-dasharray: 32;
-        stroke-dashoffset: 32;
-      }
-      :host([size="s"]) circle {
-        stroke-dasharray: 24;
-        stroke-dashoffset: 24;
-      }
       /* label */
       wa-text {
         margin-top: 8px;
@@ -60,10 +45,13 @@ export class waSpinner extends LitElement {
   render() {
     return html`
       <svg xmlns="http://www.w3.org/2000/svg" 
-        viewBox="${this.size == 's' ? '0 0 24 24' : '0 0 32 32'}">
-        <circle r="${this.size == 's' ? '10' : '14'}"
-          cx="${this.size == 's' ? '12' : '16'}"
-          cy="${this.size == 's' ? '12' : '16'}"/>
+        width="${this.getSize()}"
+        viewBox="0 0 ${this.getSize()} ${this.getSize()}">
+        <circle 
+          stroke-dasharray="${this.getSize()}"
+          r="${(this.getSize() / 2) - 4}" 
+          cx="${this.getSize() / 2}" 
+          cy="${this.getSize() / 2}"/>
       </svg>
       ${this.label ? html` 
         <wa-text>${this.label}</wa-text> 
@@ -74,6 +62,16 @@ export class waSpinner extends LitElement {
   attributeChangedCallback(name, oldval, newval) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
+  }
+
+  getSize(): number {
+    let size;
+    switch (this.size) {
+      case 's': size = 24; break;
+      case 'm': size = 32; break;
+      case 'l': size = 40; break;
+    }
+    return size;
   }
 
 }

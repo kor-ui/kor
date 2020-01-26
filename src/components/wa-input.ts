@@ -281,15 +281,9 @@ export class waInput extends LitElement {
   getStatusIcon(): string {
     let icon;
     switch (this.status) {
-      case 'error':
-        icon = "cancel";
-        break;
-      case 'warning':
-        icon = "error";
-        break;
-      case 'success':
-        icon = "check_circle";
-        break;
+      case 'error': icon = "cancel"; break;
+      case 'warning': icon = "error"; break;
+      case 'success': icon = "check_circle"; break;
     }
     return icon;
   }
