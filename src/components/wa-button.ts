@@ -19,7 +19,8 @@ export class waButton extends LitElement {
         cursor: pointer;
         transition: .1s all ease-in-out;
         justify-content: center;
-        font: var(--body-1);
+      }
+      .label {
         font-weight: bold;
         user-select: none;
         white-space: nowrap;
@@ -95,7 +96,7 @@ export class waButton extends LitElement {
   render() {
     return html`
       ${!this.icon ? html`
-        ${this.label}
+        <wa-text class="label">${this.label}</wa-text>
       ` : html`
         <wa-icon icon="${this.icon}"></wa-icon>
       `}
