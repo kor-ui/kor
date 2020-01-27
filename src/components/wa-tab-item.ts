@@ -93,7 +93,7 @@ export class waTabItem extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("click", function() {
+    this.addEventListener("click", () => {
       let siblings: any = this.parentElement.childNodes;
       siblings.forEach(el => { el.active = false });
       (<any>this).active = true;

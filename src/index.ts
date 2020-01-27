@@ -35,7 +35,7 @@ import './components/wa-tabs.ts';
 import './components/wa-tag.ts';
 import './components/wa-text.ts';
 import './components/wa-toggle.ts';
-// import './components/wa-tool.ts';
+import './components/wa-tool.ts';
 // import './components/wa-tooltip.ts';
 import './components/wa-avatar.ts';
 import './components/shared-styles.ts';

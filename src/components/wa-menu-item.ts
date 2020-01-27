@@ -50,18 +50,21 @@ export class waMenuItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover) {
+        :host(:not([active]):hover) {
           padding: 8px;
           margin-left: -8px;
           margin-right: -8px;
           background: rgba(var(--neutral-1), .05);
         }
+      }
     `]
   }
 
   render() {
     return html`
-      ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
+      ${this.icon ? html` 
+        <wa-icon icon="${this.icon}"></wa-icon> 
+      ` : ''}
       ${this.label ? html` 
         <wa-text>${this.label}</wa-text> 
       ` : ''}
@@ -74,7 +77,11 @@ export class waMenuItem extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`)) ;
     // add toggle click listener
-    if (name === "toggle" && this.toggle) { this.addEventListener("click", () => this.active = !this.active) }
+    if (name == "toggle" && this.toggle) {
+      this.addEventListener("click", () => { 
+        this.active = !this.active 
+      })
+    }
   }
 
 }
