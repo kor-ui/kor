@@ -27,6 +27,14 @@
       <!-- avatar -->
       <wa-avatar slot="functions" label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></wa-avatar>
     </wa-app-bar>
+    <wa-nav-bar slot="top">
+      <wa-tabs>
+        <wa-tab-item label="Active" active></wa-tab-item>
+        <wa-tab-item label="Idle"></wa-tab-item>
+        <wa-tab-item label="Disabled" disabled></wa-tab-item>
+      </wa-tabs>
+      <wa-icon slot="functions" button icon="save"></wa-icon>
+    </wa-nav-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
       <!-- breadcrumbs -->

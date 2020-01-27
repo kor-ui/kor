@@ -41,8 +41,6 @@ export class waMenuItem extends LitElement {
         padding: 8px;
         margin-left: -8px;
         margin-right: -8px;
-      }
-      :host([active]){
         background: rgba(var(--neutral-1), .10);
       }
       /* disabled */
@@ -56,8 +54,6 @@ export class waMenuItem extends LitElement {
           padding: 8px;
           margin-left: -8px;
           margin-right: -8px;
-        }
-        :host(:hover) {
           background: rgba(var(--neutral-1), .05);
         }
     `]

@@ -14,7 +14,7 @@ import './components/wa-icon.ts';
 import './components/wa-input.ts';
 import './components/wa-menu-item.ts';
 import './components/wa-modal.ts';
-// import './components/wa-nav-bar.ts';
+import './components/wa-nav-bar.ts';
 import './components/wa-notifications.ts';
 import './components/wa-notification-item.ts';
 import './components/wa-page.ts';

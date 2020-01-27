@@ -19,10 +19,5 @@ export class waBreadcrumbs extends LitElement {
       <slot></slot>
     `
   }
-
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`)) ;
-  }
   
 }
