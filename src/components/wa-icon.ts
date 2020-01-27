@@ -27,9 +27,6 @@ export class waIcon extends LitElement {
         opacity: .60;
         cursor: pointer;
       }
-      :host([button]:active) {
-        opacity: .55;
-      }
       :host([disabled]) {
         pointer-events: none;
         opacity: .20;

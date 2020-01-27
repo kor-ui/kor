@@ -50,7 +50,7 @@ export class waCheckbox extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover:not([active])) .box {
+        :host(:hover:not([active]):not(:active)) .box {
           border-color: rgba(var(--neutral-1), .30);
         }
       }

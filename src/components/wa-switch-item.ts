@@ -40,10 +40,6 @@ export class waSwitchItem extends LitElement {
       :host([active]) {
         background: rgba(var(--neutral-1), .10);
       }
-      /* on press */
-      :host([active]:active) {
-        background: rgba(var(--neutral-1), .05);
-      }
       /* disabled */
       :host([disabled]) {
         pointer-events: none;

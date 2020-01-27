@@ -118,10 +118,12 @@ export class waStepperItem extends LitElement {
       :host([active]) .circle {
         background-color: rgb(var(--accent-1));
       }
-      :host([active]) .label,
+      :host([active]) .label {
+        color: var(--text-1);
+      }
       :host([active]) .number,
       :host([active]) wa-icon {
-        color: var(--text-1);
+        color: rgba(255, 255, 255, .90);
       }
       /* disabled */
       :host([disabled]) {
@@ -130,13 +132,6 @@ export class waStepperItem extends LitElement {
       :host([disabled]) .circle,
       :host([disabled]) .text {
         opacity: .20;
-      }
-      /* on press */ 
-      :host(:not([active]):active) .circle {
-        background-color: rgba(var(--neutral-1), .05);
-      }
-      :host([active]:active) .circle {
-        background-color: rgb(var(--accent-1c));
       }
       /* hover inputs */
       @media (hover: hover) {

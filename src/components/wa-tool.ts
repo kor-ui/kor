@@ -55,7 +55,7 @@ export class waTool extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:not([active]):not(:active):hover) {
+        :host(:not(:active):not([active]):hover) {
           background-color: rgba(var(--neutral-1), .05);
         }
       }

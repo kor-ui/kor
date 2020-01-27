@@ -27,9 +27,6 @@ export class waTag extends LitElement {
       :host([button]) {
         cursor: pointer;
       }
-      :host([button]:active) {
-        border-color: rgba(var(--neutral-1), .20);
-      }
       /* hover inputs */
       @media (hover: hover) {
         :host([button]:not(:active):hover) {

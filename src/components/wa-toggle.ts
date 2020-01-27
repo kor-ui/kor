@@ -60,10 +60,10 @@ export class waToggle extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover:not([active])) .bg {
+        :host(:hover:not(:active):not([active])) .bg {
           border-color: rgba(var(--neutral-1), .30);
         }
-        :host(:hover:not([active])) .dot {
+        :host(:hover:not(:active):not([active])) .dot {
           background: rgba(var(--neutral-1), .90);
         }
       }

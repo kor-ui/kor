@@ -27,7 +27,7 @@ export class waBreadcrumbItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        wa-text:hover {
+        wa-text:hover:not(:active) {
           color: var(--text-1);
         }
       }
