@@ -310,6 +310,14 @@
           <wa-divider spacing="l" orientation="vertical"></wa-divider>
         </div>
       </wa-accordion>
+      <!-- empty state -->
+      <wa-accordion label="Empty State">
+        <wa-empty-state style="height: 160px" label="With label"></wa-empty-state>
+        <wa-empty-state style="height: 160px" label="With label, icon" icon="train"></wa-empty-state>
+        <wa-empty-state style="height: 160px" label="With label, icon, footer" icon="train">
+          <wa-button slot="footer"></wa-button>
+        </wa-empty-state>
+      </wa-accordion>
     </wa-pane>
     <wa-pane slot="right" icon="train" label="With label, icon, slots">
       <wa-icon slot="functions" button icon="save"></wa-icon>

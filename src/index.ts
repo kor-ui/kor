@@ -8,7 +8,7 @@ import './components/wa-card.ts';
 import './components/wa-checkbox.ts';
 import './components/wa-divider.ts';
 import './components/wa-drawer.ts';
-// import './components/wa-empty-state.ts';
+import './components/wa-empty-state.ts';
 import './components/wa-grid.ts';
 import './components/wa-icon.ts';
 import './components/wa-input.ts';
