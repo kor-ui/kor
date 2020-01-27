@@ -21,6 +21,13 @@ export class waAvatar extends LitElement {
         justify-content: center;
         flex: 1;
         margin-left: 8px;
+        overflow: hidden;
+      }
+      .label,
+      .info {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .label {
         font-weight: bold;
@@ -35,7 +42,7 @@ export class waAvatar extends LitElement {
         background: rgba(var(--neutral-1), .10);
       }
       :host-context(wa-app-bar) {
-        max-width: 320px;
+        max-width: 288px;
       }
     `]
   }
@@ -57,7 +64,7 @@ export class waAvatar extends LitElement {
       ${this.label || this.info ? html`
         <div class="text">
           ${this.label ? html`<wa-text size="body-2" class="label">${this.label}</wa-text>` : ''}
-          ${this.info ? html`<wa-text size="body-2" color="text-2">${this.info}</wa-text>` : ''}
+          ${this.info ? html`<wa-text size="body-2" class="info" color="text-2">${this.info}</wa-text>` : ''}
         </div>
       ` : ''}
     `
