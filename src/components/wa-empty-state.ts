@@ -30,7 +30,7 @@ export class waEmptyState extends LitElement {
   render() {
     return html`
       ${this.icon ? html`
-        <wa-icon icon="${this.icon}" size="l" color="rgb(var(--text-2))"></wa-icon>
+        <wa-icon icon="${this.icon}" size="xl" color="var(--text-2)"></wa-icon>
       ` : ''}
       ${this.label ? html`
         <wa-text color="text-2">${this.label}</wa-text>

@@ -69,13 +69,9 @@ export class waButton extends LitElement {
         opacity: .20;
       }
       /* text and icon colors */
-      :host([color="primary"]),
+      :host([color="primary"]) .label,
       :host([color="primary"][icon]) wa-icon {
         color: rgba(255, 255, 255, .90);
-      }
-      :host(:not([color="primary"])),
-      :host(:not([color="primary"])[icon]) wa-icon {
-        color: var(--text-1);
       }
       /* hover inputs */
       @media (hover: hover) {

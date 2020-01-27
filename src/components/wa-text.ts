@@ -9,6 +9,9 @@ export class waText extends LitElement {
 
   static get styles() {
     return [sharedStyles, css`
+      :host {
+        transition: .1s all ease-in-out;
+      }
       :host([color="text-1"]) {
         color: var(--text-1);
       }

@@ -71,7 +71,6 @@ export class waAvatar extends LitElement {
   getInitials(label) {
     var initials = label.match(/\b\w/g) || [];
     initials = ((initials.shift() || '') + (initials.pop() || '')).toUpperCase();
-    console.log(initials);
     return initials
   }
   

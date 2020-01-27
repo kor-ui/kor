@@ -1,8 +1,8 @@
 import './components/wa-accordion.ts';
 import './components/wa-app-bar.ts';
 import './components/wa-badge.ts';
-// import './components/wa-breadcrumbs.ts';
-// import './components/wa-breadcrumb-item.ts';
+import './components/wa-breadcrumbs.ts';
+import './components/wa-breadcrumb-item.ts';
 import './components/wa-button.ts';
 import './components/wa-card.ts';
 import './components/wa-checkbox.ts';
