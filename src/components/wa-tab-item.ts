@@ -8,75 +8,81 @@ export class waTabItem extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: Boolean, reflect: true }) vertical;
+  @property({ type: String, reflect: true }) orientation = "horizontal";
 
   static get styles() {
     return [sharedStyles, css`
       :host {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: fit-content;
-        min-width: 72px;
-        max-width: 240px;
-        height: 56px;
-        padding: 8px 16px 6px 16px;
         box-sizing: border-box;
         transition: .1s all ease-in-out;
         cursor: pointer;
-        border-width: 0px 0px 2px 0px;
         border-color: transparent;
         border-style: solid;
       }
       .label {
-        width: 100%;
-        font: var(--body-1);
-        line-height: 16px;
-        text-align: center;
         font-weight: bold;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .label,
+      wa-icon {
+        color: var(--text-2);
+      }
+      /* horizontal */
+      :host([orientation="horizontal"]) {
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+        min-width: 72px;
+        max-width: 240px;
+        height: 56px;
+        padding: 0px 16px;
+        border-width: 0px 0px 2px 0px;
+      }
+      :host([orientation="horizontal"]) .label {
+        line-height: 16px;
+        text-align: center;
+      }
+      :host([orientation="horizontal"]) wa-icon + .label {
+        margin-top: 4px;
+      }
       /* vertical */
-      :host([vertical]) .label {
+      :host([orientation="vertical"]) .label {
         line-height: 24px;
         text-align: left;
       }
-      :host([vertical]) {
+      :host([orientation="vertical"]) {
         justify-content: flex-start;
         flex-direction: row;
         width: 100%;
         min-width: unset;
         max-width: 100%;
         height: fit-content;
-        padding: 8px 16px 8px 14px;
+        padding: 8px 8px 8px 14px;
         border-width: 0px 0px 0px 2px;
       }
-      :host([vertical]) wa-icon {
-        margin-right: 8px;
+      :host([orientation="vertical"]) wa-icon + .label {
+        margin-left: 8px;
       }
       /* active */
       :host([active]) {
         border-color: rgb(var(--accent-1));
+      }
+      :host([active]) .label,
+      :host([active]) wa-icon {
+        color: var(--text-1);
       }
       /* disabled */
       :host([disabled]) {
         pointer-events: none;
         opacity: .20;
       }
-      :host(:not([active]):not(:hover)),
-      :host(:not([active]):not(:hover)) wa-icon {
-        color: var(--text-2);
-      }
-      :host([active]),
-      :host([active]) wa-icon {
-        color: var(--text-1);
-      }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover),
+        :host(:hover) .label,
         :host(:hover) wa-icon {
           color: var(--text-1);
         }
@@ -86,9 +92,18 @@ export class waTabItem extends LitElement {
 
   render() {
     return html`
-      ${this.icon ? html` <wa-icon icon="${this.icon}"></wa-icon> ` : ''}
-      ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
+      ${this.icon ? html` 
+        <wa-icon icon="${this.icon}"></wa-icon> 
+      ` : ''}
+      ${this.label ? html` 
+        <wa-text class="label">${this.label}</wa-text> 
+      ` : ''}
     `
+  }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   connectedCallback() {
@@ -99,10 +114,5 @@ export class waTabItem extends LitElement {
       (<any>this).active = true;
     })
   }
-
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`));
-  }
-
+  
 }

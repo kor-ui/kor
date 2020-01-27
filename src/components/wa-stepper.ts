@@ -1,8 +1,8 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
 
-@customElement('wa-tabs')
-export class waTabs extends LitElement {
+@customElement('wa-stepper')
+export class waStepper extends LitElement {
 
   @property({ type: String, reflect: true }) orientation = "horizontal";
 
@@ -12,12 +12,7 @@ export class waTabs extends LitElement {
         display: flex;
         width: 100%;
         height: fit-content;
-      }
-      :host([slot="header"]) {
-        margin-top: -16px;
-      }
-      :host(:not([orientation="vertical"])) {
-        border-bottom: 1px solid rgba(var(--neutral-1), .10);
+        overflow: auto;
       }
       /* vertical */
       :host([orientation="vertical"]) {
@@ -28,8 +23,13 @@ export class waTabs extends LitElement {
 
   render() {
     return html`
-      <slot @slotchange="${() => this.handleOrientation()}"></slot>
+      <slot @slotchange="${() => { this.handleOrientation(); this.handleItems()} }"></slot>
     `
+  }
+
+  attributeChangedCallback(name, oldval, newval) { 
+    super.attributeChangedCallback(name, oldval, newval); 
+    this.dispatchEvent(new Event(`${name}-changed`)) ;
   }
 
   handleOrientation() {
@@ -38,9 +38,14 @@ export class waTabs extends LitElement {
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`)) ;
+  handleItems() {
+    let items: any, length: number;
+    items = Array.prototype.slice.call(this.children);
+    length = this.children.length;
+    items.forEach((el: any) => {
+      el.first = el.index == 1;
+      el.last = el.index == length;
+    });
   }
   
 }

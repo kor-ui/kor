@@ -40,14 +40,13 @@ export class waTool extends LitElement {
         height: 56px;
         width: 56px;
       }
-      /* size */ 
       :host([size="s"]) {
         height: 32px;
         width: 32px;
       }
       /* active */
       :host([active]) {
-        background: rgba(var(--neutral-1), .10);
+        background-color: rgba(var(--neutral-1), .10);
       }
       /* disabled */
       :host([disabled]) {
@@ -56,8 +55,8 @@ export class waTool extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:not([active]):hover) {
-          background: rgba(var(--neutral-1), .05);
+        :host(:not([active]):not(:active):hover) {
+          background-color: rgba(var(--neutral-1), .05);
         }
       }
     `]

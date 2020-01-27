@@ -37,6 +37,41 @@
     </wa-nav-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
+      <!-- stepper -->
+      <wa-accordion label="Stepper">
+        <!-- horizontal -->
+        <wa-stepper>
+          <wa-stepper-item label="First" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second"></wa-stepper-item>
+          <wa-stepper-item label="Active" active></wa-stepper-item>
+        </wa-stepper>
+        <wa-stepper>
+          <wa-stepper-item label="First" info="Information text" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second" info="Information text"></wa-stepper-item>
+          <wa-stepper-item label="Active" info="Information text" active></wa-stepper-item>
+        </wa-stepper>
+        <wa-stepper>
+          <wa-stepper-item label="First" icon="train" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second" icon="directions_car"></wa-stepper-item>
+          <wa-stepper-item label="Active" icon="directions_bike" active></wa-stepper-item>
+        </wa-stepper>
+        <!-- vertical -->
+        <wa-stepper orientation="vertical">
+          <wa-stepper-item label="First" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second"></wa-stepper-item>
+          <wa-stepper-item label="Active" active></wa-stepper-item>
+        </wa-stepper>
+        <wa-stepper orientation="vertical">
+          <wa-stepper-item label="First" info="Information text" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second" info="Information text"></wa-stepper-item>
+          <wa-stepper-item label="Active" info="Information text" active></wa-stepper-item>
+        </wa-stepper>
+        <wa-stepper orientation="vertical">
+          <wa-stepper-item label="First" icon="train" disabled></wa-stepper-item>
+          <wa-stepper-item label="Second" icon="directions_car"></wa-stepper-item>
+          <wa-stepper-item label="Active" icon="directions_bike" active></wa-stepper-item>
+        </wa-stepper>
+      </wa-accordion>
       <!-- breadcrumbs -->
       <wa-accordion label="Breadcrumbs">
         <wa-breadcrumbs>
@@ -259,17 +294,17 @@
           <wa-tab-item icon="train" disabled></wa-tab-item>
         </wa-tabs>
         <!-- vertical -->
-        <wa-tabs vertical>
+        <wa-tabs orientation="vertical">
           <wa-tab-item label="Active" active></wa-tab-item>
           <wa-tab-item label="Idle"></wa-tab-item>
           <wa-tab-item label="Disabled" disabled></wa-tab-item>
         </wa-tabs>
-        <wa-tabs vertical>
+        <wa-tabs orientation="vertical">
           <wa-tab-item label="Active" icon="train" active></wa-tab-item>
           <wa-tab-item label="Idle" icon="train"></wa-tab-item>
           <wa-tab-item label="Disabled" icon="train" disabled></wa-tab-item>
         </wa-tabs>
-        <wa-tabs vertical>
+        <wa-tabs orientation="vertical">
           <wa-tab-item icon="train" active></wa-tab-item>
           <wa-tab-item icon="train"></wa-tab-item>
           <wa-tab-item icon="train" disabled></wa-tab-item>
@@ -324,17 +359,17 @@
       <!-- text -->
       <wa-accordion label="Text">
         <wa-text>Body 1, Text 1</wa-text>
-        <wa-text size="body-1" color="text-2">Body 1, Text 2</wa-text>
-        <wa-text size="body-1" color="text-3">Body 1, Text 3</wa-text>
-        <wa-text size="body-2" color="text-1">Body 2, Text 1</wa-text>
-        <wa-text size="body-2" color="text-2">Body 2, Text 2</wa-text>
-        <wa-text size="body-2" color="text-3">Body 2, Text 3</wa-text>
-        <wa-text size="header-1" color="text-1">Header 1, Text 1</wa-text>
-        <wa-text size="header-1" color="text-2">Header 1, Text 2</wa-text>
-        <wa-text size="header-1" color="text-3">Header 1, Text 3</wa-text>
-        <wa-text size="header-2" color="text-1">Header 2, Text 1</wa-text>
-        <wa-text size="header-2" color="text-2">Header 2, Text 2</wa-text>
-        <wa-text size="header-2" color="text-3">Header 2, Text 3</wa-text>
+        <wa-text size="body-1" color="var(--text-2)">Body 1, Text 2</wa-text>
+        <wa-text size="body-1" color="var(--text-3)">Body 1, Text 3</wa-text>
+        <wa-text size="body-2" color="var(--text-1)">Body 2, Text 1</wa-text>
+        <wa-text size="body-2" color="var(--text-2)">Body 2, Text 2</wa-text>
+        <wa-text size="body-2" color="var(--text-3)">Body 2, Text 3</wa-text>
+        <wa-text size="header-1" color="var(--text-1)">Header 1, Text 1</wa-text>
+        <wa-text size="header-1" color="var(--text-2)">Header 1, Text 2</wa-text>
+        <wa-text size="header-1" color="var(--text-3)">Header 1, Text 3</wa-text>
+        <wa-text size="header-2" color="var(--text-1)">Header 2, Text 1</wa-text>
+        <wa-text size="header-2" color="var(--text-2)">Header 2, Text 2</wa-text>
+        <wa-text size="header-2" color="var(--text-3)">Header 2, Text 3</wa-text>
       </wa-accordion>
       <!-- text -->
       <wa-accordion label="Divider">

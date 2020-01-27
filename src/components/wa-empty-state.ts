@@ -33,7 +33,7 @@ export class waEmptyState extends LitElement {
         <wa-icon icon="${this.icon}" size="xl" color="var(--text-2)"></wa-icon>
       ` : ''}
       ${this.label ? html`
-        <wa-text color="text-2">${this.label}</wa-text>
+        <wa-text color="var(--text-2)">${this.label}</wa-text>
       ` : ''}
       <slot name="footer"></slot>
     `

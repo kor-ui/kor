@@ -33,13 +33,18 @@ export class waAvatar extends LitElement {
         font-weight: bold;
       }
       .image {
+        overflow: hidden;
         justify-content: center;
         font: var(--header-2);
         height: 32px;
         width: 32px;
         border-radius: 50%;
-        object-fit: cover;
         background: rgba(var(--neutral-1), .10);
+      }
+      .image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       :host-context(wa-app-bar) {
         max-width: 288px;
@@ -51,10 +56,11 @@ export class waAvatar extends LitElement {
     return html`
       <!-- image -->
       <div class="image">
-        ${this.image ? html` <img class="image" src="${this.image}"> ` : 
-        html`
-          ${this.label ? html` ${
-            this.getInitials(this.label)}
+        ${this.image ? html` 
+          <img src="${this.image}"> 
+        ` : html`
+          ${this.label ? html` 
+            ${this.getInitials(this.label)}
           ` : html`
             <wa-icon icon="person"></wa-icon>
           `}
@@ -64,7 +70,7 @@ export class waAvatar extends LitElement {
       ${this.label || this.info ? html`
         <div class="text">
           ${this.label ? html`<wa-text size="body-2" class="label">${this.label}</wa-text>` : ''}
-          ${this.info ? html`<wa-text size="body-2" class="info" color="text-2">${this.info}</wa-text>` : ''}
+          ${this.info ? html`<wa-text size="body-2" class="info" color="var(--text-2)">${this.info}</wa-text>` : ''}
         </div>
       ` : ''}
     `

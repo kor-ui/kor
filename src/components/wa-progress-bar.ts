@@ -129,7 +129,7 @@ export class waProgressBar extends LitElement {
           ${this.status ? html` <wa-icon class="status-icon" icon="${this.getStatusIcon()}"></wa-icon> ` : ''}
           <!-- info -->
           ${this.info ? html` 
-            <wa-text color="text-2" class="info">${this.info}</wa-text> 
+            <wa-text color="var(--text-2)" class="info">${this.info}</wa-text> 
           ` : ''}
         </div>
       ` : ''}

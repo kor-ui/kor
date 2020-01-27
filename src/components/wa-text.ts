@@ -12,15 +12,6 @@ export class waText extends LitElement {
       :host {
         transition: .1s all ease-in-out;
       }
-      :host([color="text-1"]) {
-        color: var(--text-1);
-      }
-      :host([color="text-2"]) {
-        color: var(--text-2);
-      }
-      :host([color="text-3"]) {
-        color: var(--text-3);
-      }
       :host([size="body-1"]) {
         font: var(--body-1);
       }
@@ -45,6 +36,9 @@ export class waText extends LitElement {
   attributeChangedCallback(name, oldval, newval) { 
     super.attributeChangedCallback(name, oldval, newval); 
     this.dispatchEvent(new Event(`${name}-changed`));
+    if (name == "color") {
+      this.style.color = this.color;
+    }
   }
   
 }

@@ -53,7 +53,7 @@ export class waButton extends LitElement {
         border-style: solid;
         border-color: rgba(var(--neutral-1), .25);
       }
-      /* active */
+      /* on press */
       :host([color="primary"]:active) {
         background-color: rgb(var(--accent-1c));
       }
