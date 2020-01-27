@@ -20,6 +20,7 @@ export class waBreadcrumbItem extends LitElement {
       wa-text {
         color: var(--text-2);
         cursor: pointer;
+        font-weight: bold;
       }
       :host([active]) wa-text {
         color: var(--text-1);
