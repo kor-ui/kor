@@ -37,6 +37,19 @@
     </wa-nav-bar>
     <!-- panes -->
     <wa-pane slot="left" label="Left Pane">
+      <!-- switch -->
+      <wa-accordion label="Switch">
+        <wa-switch>
+          <wa-switch-item label="First" disabled></wa-switch-item>
+          <wa-switch-item label="Second"></wa-switch-item>
+          <wa-switch-item label="Active" active></wa-switch-item>
+        </wa-switch>
+        <wa-switch>
+          <wa-switch-item icon="train" disabled></wa-switch-item>
+          <wa-switch-item icon="directions_car"></wa-switch-item>
+          <wa-switch-item icon="directions_bike" active></wa-switch-item>
+        </wa-switch>
+      </wa-accordion>
       <!-- stepper -->
       <wa-accordion label="Stepper">
         <!-- horizontal -->
@@ -46,7 +59,6 @@
           <wa-stepper-item label="Active" active></wa-stepper-item>
         </wa-stepper>
         <wa-stepper>
-          <wa-stepper-item label="First" info="Information text" disabled></wa-stepper-item>
           <wa-stepper-item label="Second" info="Information text"></wa-stepper-item>
           <wa-stepper-item label="Active" info="Information text" active></wa-stepper-item>
         </wa-stepper>

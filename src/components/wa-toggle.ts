@@ -87,8 +87,8 @@ export class waToggle extends LitElement {
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
     this.addEventListener("click", () => {
       this.active = !this.active;
     })

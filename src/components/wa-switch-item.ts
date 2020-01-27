@@ -1,29 +1,29 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
 
-@customElement('wa-tab-item')
-export class waTabItem extends LitElement {
+@customElement('wa-switch-item')
+export class waSwitchItem extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: String, reflect: true }) orientation = "horizontal";
 
   static get styles() {
     return [sharedStyles, css`
       :host {
         display: flex;
-        align-items: center;
-        box-sizing: border-box;
-        transition: .1s all ease-in-out;
+        width: fit-content;
+        min-width: 40px;
+        max-width: 120px;
+        padding: 4px 12px;
+        border-radius: 4px;
         cursor: pointer;
-        border-color: transparent;
-        border-style: solid;
+        align-items: center;
+        justify-content: center;
+        transition: .1s all ease-in-out;
       }
       .label {
-        line-height: 24px;
-        font-weight: bold;
+        user-select: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -32,44 +32,17 @@ export class waTabItem extends LitElement {
       wa-icon {
         color: var(--text-2);
       }
-      /* horizontal */
-      :host([orientation="horizontal"]) {
-        flex-direction: column;
-        justify-content: center;
-        width: fit-content;
-        min-width: 72px;
-        max-width: 240px;
-        height: 56px;
-        padding: 0px 16px;
-        border-width: 0px 0px 2px 0px;
-      }
-      :host([orientation="horizontal"]) .label {
-        text-align: center;
-      }
-      /* vertical */
-      :host([orientation="vertical"]) .label {
-        text-align: left;
-      }
-      :host([orientation="vertical"]) {
-        justify-content: flex-start;
-        flex-direction: row;
-        width: 100%;
-        min-width: unset;
-        max-width: 100%;
-        height: fit-content;
-        padding: 8px 8px 8px 14px;
-        border-width: 0px 0px 0px 2px;
-      }
-      :host([orientation="vertical"]) wa-icon + .label {
-        margin-left: 8px;
-      }
       /* active */
-      :host([active]) {
-        border-color: rgb(var(--accent-1));
-      }
       :host([active]) .label,
       :host([active]) wa-icon {
         color: var(--text-1);
+      }
+      :host([active]) {
+        background: rgba(var(--neutral-1), .10);
+      }
+      /* on press */
+      :host([active]:active) {
+        background: rgba(var(--neutral-1), .05);
       }
       /* disabled */
       :host([disabled]) {
@@ -78,9 +51,11 @@ export class waTabItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover) .label,
-        :host(:hover) wa-icon {
-          color: var(--text-1);
+        :host(:not([active]):not(:active):hover) {
+          background: rgba(var(--neutral-1), .05);
+        }
+        :host([active]:not(:active):hover) {
+          background: rgba(var(--neutral-1), .15);
         }
       }
     `]
@@ -91,7 +66,7 @@ export class waTabItem extends LitElement {
       ${this.icon ? html` 
         <wa-icon icon="${this.icon}"></wa-icon> 
       ` : ''}
-      ${this.label ? html` 
+      ${this.label && !this.icon ? html` 
         <wa-text class="label">${this.label}</wa-text> 
       ` : ''}
     `
@@ -104,7 +79,7 @@ export class waTabItem extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("click", () => this.handleActive());
+    this.addEventListener("click", () => this.handleActive())
   }
 
   handleActive() {

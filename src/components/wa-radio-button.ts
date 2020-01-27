@@ -72,19 +72,15 @@ export class waRadioButton extends LitElement {
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
     this.addEventListener("click", () => this.handleActive())
   }
 
   handleActive() {
-    if (!this.active) {
-      let rb = this.parentElement.querySelectorAll("wa-radio-button");
-      rb.forEach((el: any) => {
-        el.active = false;
-      });
-      this.active = true;
-    }
+    let siblings: any = this.parentElement.childNodes;
+    siblings.forEach(el => { el.active = false });
+    (<any>this).active = true;
   }
   
 }
