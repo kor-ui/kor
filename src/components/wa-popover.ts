@@ -47,10 +47,7 @@ export class waPopover extends LitElement {
 
   render() {
     return html`
-      <wa-card @click="${(e) => e.stopPropagation()}"
-        .label="${this.label}"
-        .icon="${this.icon}"
-        flexDirection="${this.flexDirection}">
+      <wa-card @click="${(e) => e.stopPropagation()}" .label="${this.label}" .icon="${this.icon}" flexDirection="${this.flexDirection}">
         <slot name="header" slot="${this.emptyHeader ? undefined : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
         <slot name="functions" slot="${this.emptyFunctions ? undefined : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
         <slot></slot>
@@ -63,18 +60,22 @@ export class waPopover extends LitElement {
     super.attributeChangedCallback(name, oldval, newval); 
     this.dispatchEvent(new Event(`${name}-changed`));
     // add listener on target changed
-    if (name === "target" && this.target) {
-      let tar = document.querySelector(this.target);
-      if (tar) {
-        tar.addEventListener("click", () => this.handlePosition(tar));
-      }
-    } 
+    if (name === "target" && this.target) { this.targetObserver() } 
     // handle position if visibility changes
-    else if (name === "visible" && this.visible) {
-      let tar = document.querySelector(this.target);
-      if (tar) { this.handlePosition(tar) }
-      !this.sticky && this.target ? this.addDocListener(tar) : '';
+    else if (name === "visible" && this.visible) { this.visibleObserver() }
+  }
+
+  targetObserver() {
+    let tar = document.querySelector(this.target);
+    if (tar) {
+      tar.addEventListener("click", () => this.handlePosition(tar));
     }
+  }
+
+  visibleObserver() {
+    let tar = document.querySelector(this.target);
+    if (tar) { this.handlePosition(tar) }
+    !this.sticky && this.target ? this.addDocListener(tar) : '';
   }
 
   handlePosition(tar) {

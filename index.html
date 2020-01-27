@@ -266,26 +266,50 @@
       <!-- popover -->
       <wa-accordion label="Popover">
         <!-- targets -->
-        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="tar1"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="tar2"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="tar3"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="tar4"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="popover-tar-1"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="popover-tar-2"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="popover-tar-3"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="popover-tar-4"></wa-icon>
         <!-- popovers -->
-        <wa-popover target="#tar1" position="top" label="Top"></wa-popover>
-        <wa-popover target="#tar2">
+        <wa-popover target="#popover-tar-1" position="top" label="Top"></wa-popover>
+        <wa-popover target="#popover-tar-2">
           <wa-tabs slot="header">
             <wa-tab-item label="Tab 1" active></wa-tab-item>
             <wa-tab-item label="Tab 2"></wa-tab-item>
           </wa-tabs>
           <wa-icon button icon="save" slot="footer"></wa-icon>
         </wa-popover>
-        <wa-popover target="#tar3" position="left" label="Left">
+        <wa-popover target="#popover-tar-3" position="left" label="Left">
           <wa-button slot="footer"></wa-button>
         </wa-popover>
-        <wa-popover target="#tar4" position="right" label="Right">
+        <wa-popover target="#popover-tar-4" position="right" label="Right">
           <wa-icon button icon="save" slot="footer"></wa-icon>
           <wa-icon button icon="save" slot="footer"></wa-icon>
         </wa-popover>
+      </wa-accordion>
+      <!-- popover -->
+      <wa-accordion label="Tooltip">
+        <!-- targets -->
+        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="tooltip-tar-1"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="tooltip-tar-2"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="tooltip-tar-3"></wa-icon>
+        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="tooltip-tar-4"></wa-icon>
+        <!-- popovers -->
+        <wa-tooltip target="#tooltip-tar-1" position="top" label="Top"></wa-tooltip>
+        <wa-tooltip target="#tooltip-tar-2">
+          <wa-tabs slot="header">
+            <wa-tab-item label="Tab 1" active></wa-tab-item>
+            <wa-tab-item label="Tab 2"></wa-tab-item>
+          </wa-tabs>
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+        </wa-tooltip>
+        <wa-tooltip target="#tooltip-tar-3" position="left" label="Left">
+          <wa-button slot="footer"></wa-button>
+        </wa-tooltip>
+        <wa-tooltip target="#tooltip-tar-4" position="right" label="Right">
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+          <wa-icon button icon="save" slot="footer"></wa-icon>
+        </wa-tooltip>
       </wa-accordion>
       <!-- tabs -->
       <wa-accordion label="Tabs">
