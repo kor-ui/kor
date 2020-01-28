@@ -135,9 +135,9 @@ export class waStepperItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover) .label,
-        :host(:hover) .number,
-        :host(:hover) wa-icon {
+        :host(:hover:not([active])) .label,
+        :host(:hover:not([active])) .number,
+        :host(:hover:not([active])) wa-icon {
           color: var(--text-1);
         }
         :host(:not([active]):not(:active):hover) .circle {
