@@ -28,7 +28,7 @@ export class waTableCell extends LitElement {
       }
       /* condensed */
       :host:host-context(wa-table[condensed]) {
-        padding: 4px 8px;
+        padding: 8px 8px;
       }
       /* head */
       :host([head]) wa-text {
