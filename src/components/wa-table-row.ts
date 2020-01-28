@@ -15,7 +15,7 @@ export class waTableRow extends LitElement {
       }
       /* header */
       :host([slot="header"]) {
-        border-color: rgba(var(--neutral-1), .40)
+        border-color: rgba(var(--neutral-1), .40);
       }
       /* active */
       :host([active]) {

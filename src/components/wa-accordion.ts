@@ -7,6 +7,7 @@ export class waAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) expanded;
+  @property({ type: Boolean, reflect: true }) disabled;
 
   // readonly properties
   @property({ type: Boolean }) emptyHeader = true;
