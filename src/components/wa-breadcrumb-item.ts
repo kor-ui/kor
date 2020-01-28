@@ -50,7 +50,7 @@ export class waBreadcrumbItem extends LitElement {
 
   firstItem(): boolean {
     let firstItem: boolean, children: any;
-    children = Array.prototype.slice.call(<any>this.parentElement.children);
+    children = Array.prototype.slice.call(this.parentElement.children);
     firstItem = children.indexOf(this) == 0;
     return firstItem;
   }

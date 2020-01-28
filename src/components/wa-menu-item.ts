@@ -50,7 +50,7 @@ export class waMenuItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:not([active]):hover:not(:active)) {
+        :host(:not([active]):hover) {
           padding: 8px;
           margin-left: -8px;
           margin-right: -8px;

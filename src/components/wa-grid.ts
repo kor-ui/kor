@@ -5,6 +5,7 @@ import { sharedStyles } from './shared-styles'
 export class waGrid extends LitElement {
 
   @property({ type: Number, reflect: true }) columns = 12;
+  @property({ type: Number, reflect: true }) rows;
   @property({ type: String, reflect: true }) spacing = "m";
 
   static get styles() {

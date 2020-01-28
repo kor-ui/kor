@@ -196,7 +196,7 @@ export class waStepperItem extends LitElement {
 
   getIndex() {
     let children;
-    children = Array.prototype.slice.call(<any>this.parentElement.children);
+    children = Array.prototype.slice.call(this.parentElement.children);
     this.index = children.indexOf(this) + 1;
   }
 

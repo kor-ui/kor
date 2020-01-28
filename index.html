@@ -447,9 +447,113 @@
       <!-- cards -->
       <wa-card label="With label, icon, slots" icon="extension" grid-cols="6">
         <wa-icon button slot="functions" icon="save"></wa-icon>
+        <wa-table columns="2fr 1fr 1fr">
+          <wa-table-row slot="header">
+            <wa-table-cell head sortable sorted sort-direction="desc">Sortable A</wa-table-cell>
+            <wa-table-cell head sortable>Sortable B</wa-table-cell>
+            <wa-table-cell head sortable>Sortable C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 1A</wa-table-cell>
+            <wa-table-cell>Cell 1B</wa-table-cell>
+            <wa-table-cell>Cell 1C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 2A</wa-table-cell>
+            <wa-table-cell>Cell 2B</wa-table-cell>
+            <wa-table-cell>Cell 2C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 3A</wa-table-cell>
+            <wa-table-cell>Cell 3B</wa-table-cell>
+            <wa-table-cell>Cell 3C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 4A</wa-table-cell>
+            <wa-table-cell>Cell 4B</wa-table-cell>
+            <wa-table-cell>Cell 4C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 5A</wa-table-cell>
+            <wa-table-cell>Cell 5B</wa-table-cell>
+            <wa-table-cell>Cell 5C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 6A</wa-table-cell>
+            <wa-table-cell>Cell 6B</wa-table-cell>
+            <wa-table-cell>Cell 6C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 6A</wa-table-cell>
+            <wa-table-cell>Cell 6B</wa-table-cell>
+            <wa-table-cell>Cell 6C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 7A</wa-table-cell>
+            <wa-table-cell>Cell 7B</wa-table-cell>
+            <wa-table-cell>Cell 7C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 8A</wa-table-cell>
+            <wa-table-cell>Cell 8B</wa-table-cell>
+            <wa-table-cell>Cell 8C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell>Cell 9A</wa-table-cell>
+            <wa-table-cell>Cell 9B</wa-table-cell>
+            <wa-table-cell>Cell 9C</wa-table-cell>
+          </wa-table-row>
+        </wa-table>
         <wa-button disabled slot="footer"></wa-button>
       </wa-card>
       <wa-card grid-cols="6" grid-rows="2">
+        <wa-table readonly condensed>
+          <wa-table-row slot="header">
+            <wa-table-cell head grid-cols="8">Head A</wa-table-cell>
+            <wa-table-cell head grid-cols="8" alignment="center">Head B</wa-table-cell>
+            <wa-table-cell head grid-cols="8" alignment="right">Head C</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+          <wa-table-row>
+            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
+            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
+          </wa-table-row>
+        </wa-table>
       </wa-card>
       <wa-card grid-cols="2"></wa-card>
       <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
