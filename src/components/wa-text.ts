@@ -5,7 +5,7 @@ import { sharedStyles } from './shared-styles'
 export class waText extends LitElement {
 
   @property({ type: String, reflect: true }) size = 'body-1';
-  @property({ type: String, reflect: true }) color = 'text-1';
+  @property({ type: String, reflect: true }) color = 'var(--text-1)';
 
   static get styles() {
     return [sharedStyles, css`
