@@ -5,8 +5,8 @@ import { sharedStyles } from './shared-styles'
 export class waButton extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) color = 'primary';
   @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) color = 'primary';
   @property({ type: Boolean, reflect: true }) disabled;
   
   static get styles() {

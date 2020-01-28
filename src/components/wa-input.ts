@@ -167,7 +167,7 @@ export class waInput extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:hover) {
+        :host(:hover:not([active])) {
           border-color: rgba(var(--neutral-1), .4);
         }
       }
