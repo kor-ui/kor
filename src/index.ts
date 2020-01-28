@@ -1,5 +1,6 @@
 import './components/wa-accordion.ts';
 import './components/wa-app-bar.ts';
+import './components/wa-avatar.ts';
 import './components/wa-badge.ts';
 import './components/wa-breadcrumbs.ts';
 import './components/wa-breadcrumb-item.ts';
@@ -37,5 +38,4 @@ import './components/wa-text.ts';
 import './components/wa-toggle.ts';
 import './components/wa-tool.ts';
 import './components/wa-tooltip.ts';
-import './components/wa-avatar.ts';
 import './components/shared-styles.ts';

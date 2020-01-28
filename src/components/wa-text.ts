@@ -5,11 +5,12 @@ import { sharedStyles } from './shared-styles'
 export class waText extends LitElement {
 
   @property({ type: String, reflect: true }) size = 'body-1';
-  @property({ type: String, reflect: true }) color = 'var(--text-1)';
+  @property({ type: String, reflect: true }) color;
 
   static get styles() {
     return [sharedStyles, css`
       :host {
+        color: var(--text-1);
         transition: .1s all ease-in-out;
       }
       :host([size="body-1"]) {
