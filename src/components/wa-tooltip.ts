@@ -20,6 +20,7 @@ export class waTooltip extends LitElement {
     return [sharedStyles, css`
       :host {
         position: fixed;
+        z-index: 4;
       }
     `]
   }
