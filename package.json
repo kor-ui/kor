@@ -1,7 +1,7 @@
 {
   "name": "wa-baukasten",
-  "version": "0.0.13",
-  "description": "UI Component Library based on the web-components standard",
+  "version": "0.0.14",
+  "description": "Web components library with light, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "webpack --config webpack.dev.config.js"

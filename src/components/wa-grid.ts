@@ -129,7 +129,7 @@ export class waGrid extends LitElement {
     } 
     // update rows
     else if (name === "rows") {
-      this.style.gridTemplateRows = `repeat(${this.columns}, 1fr)`;
+      this.style.gridTemplateRows = `repeat(${this.rows}, 1fr)`;
     }
   }
 
