@@ -1,7 +1,6 @@
 const path = require('path');
 const dist = path.resolve(__dirname, './');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.ts",
@@ -33,9 +32,5 @@ module.exports = {
       template: "index.html",
       inject: false
     }),
-    new CopyPlugin([
-      { from: path.resolve(__dirname, 'src/wa-styles.css'), to: dist },
-      { from: path.resolve(__dirname, 'src/fonts/'), to: 'fonts/[path][name].[ext]' }
-    ]),
   ]
 };
