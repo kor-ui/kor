@@ -10,7 +10,7 @@ html, *[theme="light"] {
   --base-2: 245, 245, 245;
   --base-3: 255, 255, 255;
   --base-4: 255, 255, 255;
-  --functional-blue: 40, 168, 220;
+  --functional-blue: 20, 120, 220;
   --functional-red: 220, 40, 40;
   --functional-yellow: 220, 168, 40;
   --functional-green: 50, 168, 40;
@@ -30,14 +30,14 @@ html, *[theme="light"] {
   --base-2: 25, 25, 25;
   --base-3: 35, 35, 35;
   --base-4: 45, 45, 45;
-  --functional-blue: 40, 160, 220;
+  --functional-blue: 20, 120, 220;
   --functional-red: 220, 40, 40;
   --functional-yellow: 220, 160, 40;
   --functional-green: 40, 160, 40;
   --text-1: rgba(255, 255, 255, .90);
   --text-2: rgba(255, 255, 255, .60);
   --text-3: rgba(255, 255, 255, .20);
-  --shadow-1: 0 2px 8px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.05);
+  --shadow-1: 0 2px 8px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.15);
 }
 /* typography */
 @font-face {
