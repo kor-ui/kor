@@ -47,10 +47,10 @@ export class waSwitchItem extends LitElement {
       }
       /* hover inputs */
       @media (hover: hover) {
-        :host(:not([active]):not(:active):hover) {
+        :host(:not([active]):hover) {
           background: rgba(var(--neutral-1), .05);
         }
-        :host([active]:not(:active):hover) {
+        :host([active]:hover) {
           background: rgba(var(--neutral-1), .15);
         }
       }
