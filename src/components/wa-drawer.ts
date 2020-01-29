@@ -9,7 +9,7 @@ export class waDrawer extends LitElement {
   @property({ type: String, reflect: true }) position = "left";
   @property({ type: String, reflect: true }) height = "320px";
   @property({ type: String, reflect: true }) width = "320px";
-  @property({ type: String, reflect: true }) flexDirection = "column";
+  @property({ type: String, reflect: true, attribute: "flex-direction" }) flexDirection = "column";
   @property({ type: Boolean, reflect: true }) visible = false;
   @property({ type: Boolean, reflect: true }) sticky;
 

@@ -1,6 +1,6 @@
 {
   "name": "wa-baukasten",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Web components library with light, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",

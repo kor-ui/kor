@@ -7,7 +7,7 @@ export class waCard extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) image;
-  @property({ type: String, reflect: true }) flexDirection = "column";
+  @property({ type: String, reflect: true, attribute: "flex-direction" }) flexDirection = "column";
   @property({ type: Boolean, reflect: true }) flat = false;
 
   // readonly properties

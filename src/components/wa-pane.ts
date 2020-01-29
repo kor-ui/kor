@@ -6,7 +6,7 @@ export class waPane extends LitElement {
 
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) flexDirection = "column";
+  @property({ type: String, reflect: true, attribute: "flex-direction" }) flexDirection = "column";
   @property({ type: String, reflect: true }) size = "l";
 
   // readonly properties
