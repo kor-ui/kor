@@ -14,6 +14,7 @@ export class waTag extends LitElement {
       :host {
         padding: 4px;
         display: flex;
+        height: fit-content;
         width: fit-content;
         max-width: 160px;
         border-radius: 4px;

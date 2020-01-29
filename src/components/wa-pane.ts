@@ -43,7 +43,7 @@ export class waPane extends LitElement {
       <wa-card
         label="${this.label ? this.label : ''}"
         icon="${this.icon ? this.icon : ''}"
-        flexDirection="${this.flexDirection}">
+        flex-direction="${this.flexDirection}">
         <slot></slot>
         <slot name="header" slot="${this.emptyHeader ? '' : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
         <slot name="functions" slot="${this.emptyFunctions ? '' : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>

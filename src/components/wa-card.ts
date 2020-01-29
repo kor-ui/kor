@@ -77,14 +77,14 @@ export class waCard extends LitElement {
         margin-right: -16px;
         margin-left: -16px;
       }
-      :host([flexDirection="column"]) slot:not([name]),
+      :host([flex-direction="column"]) slot:not([name]),
       .header {
         flex-direction: column;
       }
-      :host([flexDirection="column"]) slot:not([name])::slotted(*:not(:last-child)) {
+      :host([flex-direction="column"]) slot:not([name])::slotted(*:not(:last-child)) {
         margin-bottom: 12px;
       }
-      :host([flexDirection="row"]) slot:not([name])::slotted(*:not(:last-child)) {
+      :host([flex-direction="row"]) slot:not([name])::slotted(*:not(:last-child)) {
         margin-right: 12px;
       }
       /* footer */

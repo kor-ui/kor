@@ -77,7 +77,7 @@ export class waDrawer extends LitElement {
         style="height: ${this.getCardSize().height}; width: ${this.getCardSize().width}; max-height: ${this.getCardSize().height}; max-width: ${this.getCardSize().width}"
         .label="${this.label}"
         .icon="${this.icon}"
-        flexDirection="${this.flexDirection}">
+        flex-direction="${this.flexDirection}">
         <slot name="header" slot="${this.emptyHeader ? undefined : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky ? html` <wa-icon button icon="close" @click="${() => this.visible = false}"></wa-icon> `: ''}

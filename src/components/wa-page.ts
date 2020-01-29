@@ -5,7 +5,7 @@ import { sharedStyles } from './shared-styles'
 export class waPage extends LitElement {
 
   @property({ type: String, reflect: true }) theme;
-  @property({ type: String, reflect: true }) flexDirection = "row";
+  @property({ type: String, reflect: true, attribute: "flex-direction" }) flexDirection = "row";
   @property({ type: Boolean, reflect: true }) flat = false;
 
   static get styles() {
@@ -35,7 +35,7 @@ export class waPage extends LitElement {
       }
       slot[name="top"],
       slot[name="bottom"],
-      :host([flexDirection="column"]) slot:not([name]) {
+      :host([flex-direction="column"]) slot:not([name]) {
         flex-direction: column;
       }
     `]

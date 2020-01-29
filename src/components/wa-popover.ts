@@ -47,7 +47,7 @@ export class waPopover extends LitElement {
 
   render() {
     return html`
-      <wa-card @click="${(e) => e.stopPropagation()}" .label="${this.label}" .icon="${this.icon}" flexDirection="${this.flexDirection}">
+      <wa-card @click="${(e) => e.stopPropagation()}" .label="${this.label}" .icon="${this.icon}" flex-direction="${this.flexDirection}">
         <slot name="header" slot="${this.emptyHeader ? undefined : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
         <slot name="functions" slot="${this.emptyFunctions ? undefined : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
         <slot></slot>

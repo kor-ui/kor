@@ -27,7 +27,7 @@ export class waTooltip extends LitElement {
 
   render() {
     return html`
-      <wa-popover .label="${this.label}" .icon="${this.icon}" flexDirection="${this.flexDirection}" .target="${this.target}" .position="${this.position}" ?visible="${this.visible}">
+      <wa-popover .label="${this.label}" .icon="${this.icon}" flex-direction="${this.flexDirection}" .target="${this.target}" .position="${this.position}" ?visible="${this.visible}">
         <slot name="header" slot="${this.emptyHeader ? undefined : 'header'}" @slotchange="${(e) => this.emptyHeader = e.target.assignedNodes().length === 0}"></slot>
         <slot name="functions" slot="${this.emptyFunctions ? undefined : 'functions'}" @slotchange="${(e) => this.emptyFunctions = e.target.assignedNodes().length === 0}"></slot>
         <slot></slot>
