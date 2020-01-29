@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/index.ts",
   mode: "production",
   output: {
-    filename: "wa.js",
+    filename: "kor.js",
     path: dist
   },
   module: {

@@ -1,12 +1,12 @@
-# wa
+# kor
 
-*wa (和)* is a UI component library built with LitElement / lit-html. It is based on the web components standards which makes it browser-, framework- and OS-agnostic.
+**kor** is a UI component library built with LitElement / lit-html. It is based on the web components standards which makes it browser-, framework- and OS-agnostic.
 
 ## Installation
 
 Install the library in your project's folder:
 ```
-npm install wa-baukasten
+npm install kor-ui
 ```
 
 ## Integration of Components
@@ -16,8 +16,8 @@ There are three main ways of integrating the components into your app.
 1. You can include the JS bundle and CSS styles in your `index.html` file:
 
 ```html
-<script type="text/javascript" charset="utf-8" src="node_modules/wa-baukasten/wa.js"></script>
-<link rel="stylesheet" type="text/css" href="node_modules/wa-baukasten/wa-styles.css">
+<script type="text/javascript" charset="utf-8" src="node_modules/kor-ui/kor.js"></script>
+<link rel="stylesheet" type="text/css" href="node_modules/kor-ui/kor-styles.css">
 ```
 
 2. If you are using Angular, you can alternatively include the assets in your `angular.json` file:
@@ -25,18 +25,18 @@ There are three main ways of integrating the components into your app.
 ```json
 "styles": [
     // ...    
-    "node_modules/wa-baukasten/wa-styles.css"
+    "node_modules/kor-ui/kor-styles.css"
 ],
 "scripts": [
     // ...
-    "node_modules/wa-baukasten/wa.js"
+    "node_modules/kor-ui/kor.js"
 ]
 ```
 
 3. Importing the ES module directly:
 
 ```js
-import { wa } from 'wa-baukasten/wa.js' 
+import { kor } from 'kor-ui/kor.js' 
 ```
 
 ## Happy coding 😄
@@ -44,8 +44,8 @@ import { wa } from 'wa-baukasten/wa.js'
 Start using the components in your HTML templates:
 
 ```html
-<wa-button label="Hello World" color="secondary" disabled></wa-button>
+<kor-button label="Hello World" color="secondary" disabled></kor-button>
 <!-- data binding -->
-<wa-accordion [label]="myVar" (expanded-changed)="myFunction()"></wa-accordion>
+<kor-accordion [label]="myVar" (expanded-changed)="myFunction()"></kor-accordion>
 ```
 

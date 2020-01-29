@@ -1,29 +1,26 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
 
-@customElement('kor-template')
-export class korTemplate extends LitElement {
+@customElement('kor-switch')
+export class korSwitch extends LitElement {
 
   @property({ type: String, reflect: true }) label = 'Label';
 
   static get styles() {
     return [sharedStyles, css`
-      /* css goes here */
+      :host {
+        background-color: rgba(var(--neutral-1), .10);
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 4px;
+      }
     `]
   }
 
   render() {
     return html`
-      <!-- conditional dom rendering -->
-      ${this.label === 'hi' ?
-        html`<p>Render some HTML if hi</p>` :
-        html`<p>Render some other HTML if not</p>
-      `}
-      <!-- class-prop binding (ternary equation) -->
-      <div class="${this.label ? 'label' : 'icon'}">
-        <!-- content-prop binding -->
-        ${this.label}
-      </div>
+      <slot></slot>
     `
   }
 

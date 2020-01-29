@@ -6,575 +6,575 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Component Playground</title>
-  <link rel="stylesheet" href="wa-styles.css">
-  <script src="wa.js"></script>
+  <link rel="stylesheet" href="kor-styles.css">
+  <script src="kor.js"></script>
 </head>
 
 <body>
   <!-- page -->
-  <wa-page>
+  <kor-page>
     <!-- app bar -->
-    <wa-app-bar slot="top" logo="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" label="MyApp">
-      <wa-tabs>
-        <wa-tab-item label="Active" active></wa-tab-item>
-        <wa-tab-item label="Idle"></wa-tab-item>
-        <wa-tab-item label="Disabled" disabled></wa-tab-item>
-      </wa-tabs>
-      <wa-icon slot="functions" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
-      <wa-icon slot="functions" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
-      <wa-icon slot="left" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></wa-icon>
-      <wa-icon slot="right" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></wa-icon>
+    <kor-app-bar slot="top" logo="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" label="MyApp">
+      <kor-tabs>
+        <kor-tab-item label="Active" active></kor-tab-item>
+        <kor-tab-item label="Idle"></kor-tab-item>
+        <kor-tab-item label="Disabled" disabled></kor-tab-item>
+      </kor-tabs>
+      <kor-icon slot="functions" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></kor-icon>
+      <kor-icon slot="functions" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></kor-icon>
+      <kor-icon slot="left" button icon="brightness_3" onclick="document.documentElement.setAttribute('theme', 'dark')"></kor-icon>
+      <kor-icon slot="right" button icon="brightness_7" onclick="document.documentElement.setAttribute('theme', 'light')"></kor-icon>
       <!-- avatar -->
-      <wa-avatar slot="functions" label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></wa-avatar>
-    </wa-app-bar>
-    <wa-nav-bar slot="top">
-      <wa-tabs>
-        <wa-tab-item label="Active" active></wa-tab-item>
-        <wa-tab-item label="Idle"></wa-tab-item>
-        <wa-tab-item label="Disabled" disabled></wa-tab-item>
-      </wa-tabs>
-      <wa-icon slot="functions" button icon="save"></wa-icon>
-    </wa-nav-bar>
+      <kor-avatar slot="functions" label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></kor-avatar>
+    </kor-app-bar>
+    <kor-nav-bar slot="top">
+      <kor-tabs>
+        <kor-tab-item label="Active" active></kor-tab-item>
+        <kor-tab-item label="Idle"></kor-tab-item>
+        <kor-tab-item label="Disabled" disabled></kor-tab-item>
+      </kor-tabs>
+      <kor-icon slot="functions" button icon="save"></kor-icon>
+    </kor-nav-bar>
     <!-- panes -->
-    <wa-pane slot="left" label="Left Pane">
+    <kor-pane slot="left" label="Left Pane">
       <!-- switch -->
-      <wa-accordion label="Switch">
-        <wa-switch>
-          <wa-switch-item label="First" disabled></wa-switch-item>
-          <wa-switch-item label="Second"></wa-switch-item>
-          <wa-switch-item label="Active" active></wa-switch-item>
-        </wa-switch>
-        <wa-switch>
-          <wa-switch-item icon="train" disabled></wa-switch-item>
-          <wa-switch-item icon="directions_car"></wa-switch-item>
-          <wa-switch-item icon="directions_bike" active></wa-switch-item>
-        </wa-switch>
-      </wa-accordion>
+      <kor-accordion label="Switch">
+        <kor-switch>
+          <kor-switch-item label="First" disabled></kor-switch-item>
+          <kor-switch-item label="Second"></kor-switch-item>
+          <kor-switch-item label="Active" active></kor-switch-item>
+        </kor-switch>
+        <kor-switch>
+          <kor-switch-item icon="train" disabled></kor-switch-item>
+          <kor-switch-item icon="directions_car"></kor-switch-item>
+          <kor-switch-item icon="directions_bike" active></kor-switch-item>
+        </kor-switch>
+      </kor-accordion>
       <!-- stepper -->
-      <wa-accordion label="Stepper">
+      <kor-accordion label="Stepper">
         <!-- horizontal -->
-        <wa-stepper>
-          <wa-stepper-item label="First" disabled></wa-stepper-item>
-          <wa-stepper-item label="Second"></wa-stepper-item>
-          <wa-stepper-item label="Active" active></wa-stepper-item>
-        </wa-stepper>
-        <wa-stepper>
-          <wa-stepper-item label="Second" info="Information text"></wa-stepper-item>
-          <wa-stepper-item label="Active" info="Information text" active></wa-stepper-item>
-        </wa-stepper>
-        <wa-stepper>
-          <wa-stepper-item label="First" icon="train" disabled></wa-stepper-item>
-          <wa-stepper-item label="Second" icon="directions_car"></wa-stepper-item>
-          <wa-stepper-item label="Active" icon="directions_bike" active></wa-stepper-item>
-        </wa-stepper>
+        <kor-stepper>
+          <kor-stepper-item label="First" disabled></kor-stepper-item>
+          <kor-stepper-item label="Second"></kor-stepper-item>
+          <kor-stepper-item label="Active" active></kor-stepper-item>
+        </kor-stepper>
+        <kor-stepper>
+          <kor-stepper-item label="Second" info="Information text"></kor-stepper-item>
+          <kor-stepper-item label="Active" info="Information text" active></kor-stepper-item>
+        </kor-stepper>
+        <kor-stepper>
+          <kor-stepper-item label="First" icon="train" disabled></kor-stepper-item>
+          <kor-stepper-item label="Second" icon="directions_car"></kor-stepper-item>
+          <kor-stepper-item label="Active" icon="directions_bike" active></kor-stepper-item>
+        </kor-stepper>
         <!-- vertical -->
-        <wa-stepper orientation="vertical">
-          <wa-stepper-item label="First" disabled></wa-stepper-item>
-          <wa-stepper-item label="Second"></wa-stepper-item>
-          <wa-stepper-item label="Active" active></wa-stepper-item>
-        </wa-stepper>
-        <wa-stepper orientation="vertical">
-          <wa-stepper-item label="First" info="Information text" disabled></wa-stepper-item>
-          <wa-stepper-item label="Second" info="Information text"></wa-stepper-item>
-          <wa-stepper-item label="Active" info="Information text" active></wa-stepper-item>
-        </wa-stepper>
-        <wa-stepper orientation="vertical">
-          <wa-stepper-item label="First" icon="train" disabled></wa-stepper-item>
-          <wa-stepper-item label="Second" icon="directions_car"></wa-stepper-item>
-          <wa-stepper-item label="Active" icon="directions_bike" active></wa-stepper-item>
-        </wa-stepper>
-      </wa-accordion>
+        <kor-stepper orientation="vertical">
+          <kor-stepper-item label="First" disabled></kor-stepper-item>
+          <kor-stepper-item label="Second"></kor-stepper-item>
+          <kor-stepper-item label="Active" active></kor-stepper-item>
+        </kor-stepper>
+        <kor-stepper orientation="vertical">
+          <kor-stepper-item label="First" info="Information text" disabled></kor-stepper-item>
+          <kor-stepper-item label="Second" info="Information text"></kor-stepper-item>
+          <kor-stepper-item label="Active" info="Information text" active></kor-stepper-item>
+        </kor-stepper>
+        <kor-stepper orientation="vertical">
+          <kor-stepper-item label="First" icon="train" disabled></kor-stepper-item>
+          <kor-stepper-item label="Second" icon="directions_car"></kor-stepper-item>
+          <kor-stepper-item label="Active" icon="directions_bike" active></kor-stepper-item>
+        </kor-stepper>
+      </kor-accordion>
       <!-- breadcrumbs -->
-      <wa-accordion label="Breadcrumbs">
-        <wa-breadcrumbs>
-          <wa-breadcrumb-item label="First"></wa-breadcrumb-item>
-          <wa-breadcrumb-item label="Second"></wa-breadcrumb-item>
-          <wa-breadcrumb-item label="Active" active></wa-breadcrumb-item>
-        </wa-breadcrumbs>
-      </wa-accordion>
+      <kor-accordion label="Breadcrumbs">
+        <kor-breadcrumbs>
+          <kor-breadcrumb-item label="First"></kor-breadcrumb-item>
+          <kor-breadcrumb-item label="Second"></kor-breadcrumb-item>
+          <kor-breadcrumb-item label="Active" active></kor-breadcrumb-item>
+        </kor-breadcrumbs>
+      </kor-accordion>
       <!-- avatar -->
-      <wa-accordion label="Avatar">
-        <wa-avatar></wa-avatar>
-        <wa-avatar label="First Last"></wa-avatar>
-        <wa-avatar label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></wa-avatar>  
-      </wa-accordion>
+      <kor-accordion label="Avatar">
+        <kor-avatar></kor-avatar>
+        <kor-avatar label="First Last"></kor-avatar>
+        <kor-avatar label="First Middle Last" info="Information text" image="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"></kor-avatar>  
+      </kor-accordion>
       <!-- inputs -->
-      <wa-accordion label="Input">
+      <kor-accordion label="Input">
         <!-- text -->
-        <wa-input condensed label="Text condensed empty"></wa-input>
-        <wa-input label="Text filled" value="Hi"></wa-input>
-        <wa-input label="Text icon" icon="text_format"></wa-input>
-        <wa-input label="Text icon">
-          <wa-icon button icon="text_format" slot="functions"></wa-icon>
-        </wa-input>
+        <kor-input condensed label="Text condensed empty"></kor-input>
+        <kor-input label="Text filled" value="Hi"></kor-input>
+        <kor-input label="Text icon" icon="text_format"></kor-input>
+        <kor-input label="Text icon">
+          <kor-icon button icon="text_format" slot="functions"></kor-icon>
+        </kor-input>
         <!-- number -->
-        <wa-input condensed label="Number condensed empty" type="number"></wa-input>
-        <wa-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></wa-input>
-        <wa-input label="Number filled" type="number" value="150"></wa-input>
+        <kor-input condensed label="Number condensed empty" type="number"></kor-input>
+        <kor-input label="Number empty (min 50, max 100, step 10)" type="number" min="50" max="100" step="10"></kor-input>
+        <kor-input label="Number filled" type="number" value="150"></kor-input>
         <br>
         <!-- select -->
-        <wa-input type="select" label="Select">
-          <wa-menu-item label="Option 1"></wa-menu-item>
-          <wa-menu-item label="Option 2"></wa-menu-item>
-          <wa-menu-item label="Option 3" active></wa-menu-item>
-          <wa-menu-item label="Option 4"></wa-menu-item>
-          <wa-menu-item label="Option 5"></wa-menu-item>
-          <wa-menu-item label="Option 6"></wa-menu-item>
-          <wa-menu-item label="Option 7"></wa-menu-item>
-          <wa-menu-item label="Option 8"></wa-menu-item>
-          <wa-menu-item label="Option 9"></wa-menu-item>
-          <wa-menu-item label="Option 10"></wa-menu-item>
-          <wa-menu-item label="Option 11"></wa-menu-item>
-        </wa-input>
+        <kor-input type="select" label="Select">
+          <kor-menu-item label="Option 1"></kor-menu-item>
+          <kor-menu-item label="Option 2"></kor-menu-item>
+          <kor-menu-item label="Option 3" active></kor-menu-item>
+          <kor-menu-item label="Option 4"></kor-menu-item>
+          <kor-menu-item label="Option 5"></kor-menu-item>
+          <kor-menu-item label="Option 6"></kor-menu-item>
+          <kor-menu-item label="Option 7"></kor-menu-item>
+          <kor-menu-item label="Option 8"></kor-menu-item>
+          <kor-menu-item label="Option 9"></kor-menu-item>
+          <kor-menu-item label="Option 10"></kor-menu-item>
+          <kor-menu-item label="Option 11"></kor-menu-item>
+        </kor-input>
         <!-- status -->
-        <wa-input label="Status error" status="error"></wa-input>
-        <wa-input label="Status success" status="success"></wa-input>
-        <wa-input label="Status warning" status="warning"></wa-input>
+        <kor-input label="Status error" status="error"></kor-input>
+        <kor-input label="Status success" status="success"></kor-input>
+        <kor-input label="Status warning" status="warning"></kor-input>
         <br>
-        <wa-input disabled label="Disabled" status="error"></wa-input>
-        <wa-input readonly label="Readonly" status="error"></wa-input>
-      </wa-accordion>
+        <kor-input disabled label="Disabled" status="error"></kor-input>
+        <kor-input readonly label="Readonly" status="error"></kor-input>
+      </kor-accordion>
       <!-- checkbox -->
-      <wa-accordion label="Checkbox">
-        <wa-checkbox></wa-checkbox>
-        <wa-checkbox label="With label"></wa-checkbox>
-        <wa-checkbox label="Active" active></wa-checkbox>
-        <wa-checkbox label="Disabled" disabled></wa-checkbox>
-        <wa-checkbox label="Active Disabled" active disabled></wa-checkbox>
-      </wa-accordion>
+      <kor-accordion label="Checkbox">
+        <kor-checkbox></kor-checkbox>
+        <kor-checkbox label="With label"></kor-checkbox>
+        <kor-checkbox label="Active" active></kor-checkbox>
+        <kor-checkbox label="Disabled" disabled></kor-checkbox>
+        <kor-checkbox label="Active Disabled" active disabled></kor-checkbox>
+      </kor-accordion>
       <!-- radio button -->
-      <wa-accordion label="Radio Button">
-        <wa-radio-button></wa-radio-button>
-        <wa-radio-button label="With label"></wa-radio-button>
-        <wa-radio-button label="Active" active></wa-radio-button>
-        <wa-radio-button label="Disabled" disabled></wa-radio-button>
-        <wa-radio-button label="Active Disabled" active disabled></wa-radio-button>
-      </wa-accordion>
+      <kor-accordion label="Radio Button">
+        <kor-radio-button></kor-radio-button>
+        <kor-radio-button label="With label"></kor-radio-button>
+        <kor-radio-button label="Active" active></kor-radio-button>
+        <kor-radio-button label="Disabled" disabled></kor-radio-button>
+        <kor-radio-button label="Active Disabled" active disabled></kor-radio-button>
+      </kor-accordion>
       <!-- checkbox -->
-      <wa-accordion label="Toggle">
-        <wa-toggle></wa-toggle>
-        <wa-toggle label="With label"></wa-toggle>
-        <wa-toggle label="Active" active></wa-toggle>
-        <wa-toggle label="Disabled" disabled></wa-toggle>
-        <wa-toggle label="Active Disabled" active disabled></wa-toggle>
-      </wa-accordion>
+      <kor-accordion label="Toggle">
+        <kor-toggle></kor-toggle>
+        <kor-toggle label="With label"></kor-toggle>
+        <kor-toggle label="Active" active></kor-toggle>
+        <kor-toggle label="Disabled" disabled></kor-toggle>
+        <kor-toggle label="Active Disabled" active disabled></kor-toggle>
+      </kor-accordion>
       <!-- buttons -->
-      <wa-accordion label="Button">
-        <wa-button label="Primary"></wa-button>
-        <wa-button label="Secondary" color="secondary"></wa-button>
-        <wa-button label="Tertiary" color="tertiary"></wa-button>
-        <wa-button label="Primary" disabled></wa-button>
-        <wa-button label="Secondary" color="secondary" disabled></wa-button>
-        <wa-button label="Tertiary" color="tertiary" disabled></wa-button>
-        <wa-button icon="save"></wa-button>
-        <wa-button icon="save" color="secondary"></wa-button>
-        <wa-button icon="save" color="tertiary"></wa-button>
-        <wa-button icon="save" disabled></wa-button>
-        <wa-button icon="save" color="secondary" disabled></wa-button>
-        <wa-button icon="save" color="tertiary" disabled></wa-button>
-      </wa-accordion>
+      <kor-accordion label="Button">
+        <kor-button label="Primary"></kor-button>
+        <kor-button label="Secondary" color="secondary"></kor-button>
+        <kor-button label="Tertiary" color="tertiary"></kor-button>
+        <kor-button label="Primary" disabled></kor-button>
+        <kor-button label="Secondary" color="secondary" disabled></kor-button>
+        <kor-button label="Tertiary" color="tertiary" disabled></kor-button>
+        <kor-button icon="save"></kor-button>
+        <kor-button icon="save" color="secondary"></kor-button>
+        <kor-button icon="save" color="tertiary"></kor-button>
+        <kor-button icon="save" disabled></kor-button>
+        <kor-button icon="save" color="secondary" disabled></kor-button>
+        <kor-button icon="save" color="tertiary" disabled></kor-button>
+      </kor-accordion>
       <!-- tool -->
-      <wa-accordion label="Tool">
-        <wa-tool label="Label ipsum amet"></wa-tool>
-        <wa-tool label="Label ipsum amet" toggle></wa-tool>
-        <wa-tool label="Label ipsum amet" active></wa-tool>
-        <wa-tool label="Label ipsum amet" disabled></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s"></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" toggle></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" active></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" disabled></wa-tool>
-        <wa-tool icon="train"></wa-tool>
-        <wa-tool icon="train" toggle></wa-tool>
-        <wa-tool icon="train" active></wa-tool>
-        <wa-tool icon="train" disabled></wa-tool>
-        <wa-tool icon="train" size="s"></wa-tool>
-        <wa-tool icon="train" size="s" toggle></wa-tool>
-        <wa-tool icon="train" size="s" active></wa-tool>
-        <wa-tool icon="train" size="s" disabled></wa-tool>
-        <wa-tool label="Label ipsum amet" icon="train"></wa-tool>
-        <wa-tool label="Label ipsum amet" icon="train" toggle></wa-tool>
-        <wa-tool label="Label ipsum amet" icon="train" active></wa-tool>
-        <wa-tool label="Label ipsum amet" icon="train" disabled></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" icon="train"></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" icon="train" toggle></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" icon="train" active></wa-tool>
-        <wa-tool label="Label ipsum amet" size="s" icon="train" disabled></wa-tool>
-      </wa-accordion>
+      <kor-accordion label="Tool">
+        <kor-tool label="Label ipsum amet"></kor-tool>
+        <kor-tool label="Label ipsum amet" toggle></kor-tool>
+        <kor-tool label="Label ipsum amet" active></kor-tool>
+        <kor-tool label="Label ipsum amet" disabled></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s"></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" toggle></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" active></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" disabled></kor-tool>
+        <kor-tool icon="train"></kor-tool>
+        <kor-tool icon="train" toggle></kor-tool>
+        <kor-tool icon="train" active></kor-tool>
+        <kor-tool icon="train" disabled></kor-tool>
+        <kor-tool icon="train" size="s"></kor-tool>
+        <kor-tool icon="train" size="s" toggle></kor-tool>
+        <kor-tool icon="train" size="s" active></kor-tool>
+        <kor-tool icon="train" size="s" disabled></kor-tool>
+        <kor-tool label="Label ipsum amet" icon="train"></kor-tool>
+        <kor-tool label="Label ipsum amet" icon="train" toggle></kor-tool>
+        <kor-tool label="Label ipsum amet" icon="train" active></kor-tool>
+        <kor-tool label="Label ipsum amet" icon="train" disabled></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" icon="train"></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" icon="train" toggle></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" icon="train" active></kor-tool>
+        <kor-tool label="Label ipsum amet" size="s" icon="train" disabled></kor-tool>
+      </kor-accordion>
       <!-- icons -->
-      <wa-accordion label="Icon">
-        <wa-icon icon="save"></wa-icon>
-        <wa-icon icon="save" button></wa-icon>
-        <wa-icon icon="save" disabled></wa-icon>
-        <wa-icon icon="save" color="rgb(var(--accent-1))"></wa-icon>
-        <wa-icon icon="save" size="s"></wa-icon>
-        <wa-icon icon="save" size="l"></wa-icon>
-        <wa-icon icon="save" size="xl"></wa-icon>
-      </wa-accordion>
+      <kor-accordion label="Icon">
+        <kor-icon icon="save"></kor-icon>
+        <kor-icon icon="save" button></kor-icon>
+        <kor-icon icon="save" disabled></kor-icon>
+        <kor-icon icon="save" color="rgb(var(--accent-1))"></kor-icon>
+        <kor-icon icon="save" size="s"></kor-icon>
+        <kor-icon icon="save" size="l"></kor-icon>
+        <kor-icon icon="save" size="xl"></kor-icon>
+      </kor-accordion>
       <!-- badge -->
-      <wa-accordion label="Badge">
-        <wa-badge></wa-badge>
-        <wa-badge label="1"></wa-badge>
-        <wa-badge label="13"></wa-badge>
-        <wa-badge label="130"></wa-badge>
-        <wa-badge label="1300"></wa-badge>
-        <wa-badge status="error"></wa-badge>
-        <wa-badge status="warning"></wa-badge>
-        <wa-badge status="success"></wa-badge>
-      </wa-accordion>
+      <kor-accordion label="Badge">
+        <kor-badge></kor-badge>
+        <kor-badge label="1"></kor-badge>
+        <kor-badge label="13"></kor-badge>
+        <kor-badge label="130"></kor-badge>
+        <kor-badge label="1300"></kor-badge>
+        <kor-badge status="error"></kor-badge>
+        <kor-badge status="warning"></kor-badge>
+        <kor-badge status="success"></kor-badge>
+      </kor-accordion>
       <!-- tag -->
-      <wa-accordion label="Tag">
-        <wa-tag label="With label"></wa-tag>
-        <wa-tag label="Button" button></wa-tag>
-        <wa-tag icon="train" label="With label, icon"></wa-tag>
-        <wa-tag icon="train" label="With label, icon" removable></wa-tag>
-      </wa-accordion>
+      <kor-accordion label="Tag">
+        <kor-tag label="With label"></kor-tag>
+        <kor-tag label="Button" button></kor-tag>
+        <kor-tag icon="train" label="With label, icon"></kor-tag>
+        <kor-tag icon="train" label="With label, icon" removable></kor-tag>
+      </kor-accordion>
       <!-- progress bar -->
-      <wa-accordion label="Progress Bar">
-        <wa-progress-bar value="20"></wa-progress-bar>
-        <wa-progress-bar value="20" label="With label"></wa-progress-bar>
-        <wa-progress-bar value="20" label="Show progress" show-progress></wa-progress-bar>
-        <wa-progress-bar value="20" label="With info" info="Slow connection detected"></wa-progress-bar>
-        <wa-progress-bar value="20" label="With info, status" status="warning" info="Slow connection detected"></wa-progress-bar>
-        <wa-progress-bar value="20" label="Color" color="red"></wa-progress-bar>
+      <kor-accordion label="Progress Bar">
+        <kor-progress-bar value="20"></kor-progress-bar>
+        <kor-progress-bar value="20" label="With label"></kor-progress-bar>
+        <kor-progress-bar value="20" label="Show progress" show-progress></kor-progress-bar>
+        <kor-progress-bar value="20" label="With info" info="Slow connection detected"></kor-progress-bar>
+        <kor-progress-bar value="20" label="With info, status" status="warning" info="Slow connection detected"></kor-progress-bar>
+        <kor-progress-bar value="20" label="Color" color="red"></kor-progress-bar>
         <br>
-        <wa-progress-bar radial value="20"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="With label"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="Show progress" show-progress></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="With info" info="Slow connection detected"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="With info, status" status="warning" info="Slow connection detected"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="Color" color="red"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="Size s" size="s"></wa-progress-bar>
-        <wa-progress-bar radial value="20" label="Size l" size="l"></wa-progress-bar>
-      </wa-accordion>
+        <kor-progress-bar radial value="20"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="With label"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="Show progress" show-progress></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="With info" info="Slow connection detected"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="With info, status" status="warning" info="Slow connection detected"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="Color" color="red"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="Size s" size="s"></kor-progress-bar>
+        <kor-progress-bar radial value="20" label="Size l" size="l"></kor-progress-bar>
+      </kor-accordion>
       <!-- spinner -->
-      <wa-accordion label="Spinner">
-        <wa-spinner></wa-spinner>
-        <wa-spinner label="Size m, with label"></wa-spinner>
-        <wa-spinner size="s"></wa-spinner>
-        <wa-spinner size="s" label="Size s, with label"></wa-spinner>
-      </wa-accordion>
+      <kor-accordion label="Spinner">
+        <kor-spinner></kor-spinner>
+        <kor-spinner label="Size m, with label"></kor-spinner>
+        <kor-spinner size="s"></kor-spinner>
+        <kor-spinner size="s" label="Size s, with label"></kor-spinner>
+      </kor-accordion>
       <!-- menu item -->
-      <wa-accordion label="Menu Item">
-        <wa-menu-item label="Idle toggle='false'" toggle="false"></wa-menu-item>
-        <wa-menu-item label="With icon" icon="save"></wa-menu-item>
-        <wa-menu-item label="Icon slot">
-          <wa-icon button icon="save" slot="functions"></wa-icon>
-        </wa-menu-item>
-        <wa-menu-item label="Active" active></wa-menu-item>
-        <wa-menu-item label="Disabled" disabled></wa-menu-item>
-      </wa-accordion>
+      <kor-accordion label="Menu Item">
+        <kor-menu-item label="Idle toggle='false'" toggle="false"></kor-menu-item>
+        <kor-menu-item label="With icon" icon="save"></kor-menu-item>
+        <kor-menu-item label="Icon slot">
+          <kor-icon button icon="save" slot="functions"></kor-icon>
+        </kor-menu-item>
+        <kor-menu-item label="Active" active></kor-menu-item>
+        <kor-menu-item label="Disabled" disabled></kor-menu-item>
+      </kor-accordion>
       <!-- popover -->
-      <wa-accordion label="Popover">
+      <kor-accordion label="Popover">
         <!-- targets -->
-        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="popover-tar-1"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="popover-tar-2"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="popover-tar-3"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="popover-tar-4"></wa-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_up" id="popover-tar-1"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_down" id="popover-tar-2"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_left" id="popover-tar-3"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_right" id="popover-tar-4"></kor-icon>
         <!-- popovers -->
-        <wa-popover target="#popover-tar-1" position="top" label="Top"></wa-popover>
-        <wa-popover target="#popover-tar-2">
-          <wa-tabs slot="header">
-            <wa-tab-item label="Tab 1" active></wa-tab-item>
-            <wa-tab-item label="Tab 2"></wa-tab-item>
-          </wa-tabs>
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-        </wa-popover>
-        <wa-popover target="#popover-tar-3" position="left" label="Left">
-          <wa-button slot="footer"></wa-button>
-        </wa-popover>
-        <wa-popover target="#popover-tar-4" position="right" label="Right">
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-        </wa-popover>
-      </wa-accordion>
+        <kor-popover target="#popover-tar-1" position="top" label="Top"></kor-popover>
+        <kor-popover target="#popover-tar-2">
+          <kor-tabs slot="header">
+            <kor-tab-item label="Tab 1" active></kor-tab-item>
+            <kor-tab-item label="Tab 2"></kor-tab-item>
+          </kor-tabs>
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+        </kor-popover>
+        <kor-popover target="#popover-tar-3" position="left" label="Left">
+          <kor-button slot="footer"></kor-button>
+        </kor-popover>
+        <kor-popover target="#popover-tar-4" position="right" label="Right">
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+        </kor-popover>
+      </kor-accordion>
       <!-- popover -->
-      <wa-accordion label="Tooltip">
+      <kor-accordion label="Tooltip">
         <!-- targets -->
-        <wa-icon button slot="footer" icon="keyboard_arrow_up" id="tooltip-tar-1"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_down" id="tooltip-tar-2"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_left" id="tooltip-tar-3"></wa-icon>
-        <wa-icon button slot="footer" icon="keyboard_arrow_right" id="tooltip-tar-4"></wa-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_up" id="tooltip-tar-1"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_down" id="tooltip-tar-2"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_left" id="tooltip-tar-3"></kor-icon>
+        <kor-icon button slot="footer" icon="keyboard_arrow_right" id="tooltip-tar-4"></kor-icon>
         <!-- popovers -->
-        <wa-tooltip target="#tooltip-tar-1" position="top" label="Top"></wa-tooltip>
-        <wa-tooltip target="#tooltip-tar-2">
-          <wa-tabs slot="header">
-            <wa-tab-item label="Tab 1" active></wa-tab-item>
-            <wa-tab-item label="Tab 2"></wa-tab-item>
-          </wa-tabs>
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-        </wa-tooltip>
-        <wa-tooltip target="#tooltip-tar-3" position="left" label="Left">
-          <wa-button slot="footer"></wa-button>
-        </wa-tooltip>
-        <wa-tooltip target="#tooltip-tar-4" position="right" label="Right">
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-          <wa-icon button icon="save" slot="footer"></wa-icon>
-        </wa-tooltip>
-      </wa-accordion>
+        <kor-tooltip target="#tooltip-tar-1" position="top" label="Top"></kor-tooltip>
+        <kor-tooltip target="#tooltip-tar-2">
+          <kor-tabs slot="header">
+            <kor-tab-item label="Tab 1" active></kor-tab-item>
+            <kor-tab-item label="Tab 2"></kor-tab-item>
+          </kor-tabs>
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+        </kor-tooltip>
+        <kor-tooltip target="#tooltip-tar-3" position="left" label="Left">
+          <kor-button slot="footer"></kor-button>
+        </kor-tooltip>
+        <kor-tooltip target="#tooltip-tar-4" position="right" label="Right">
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+          <kor-icon button icon="save" slot="footer"></kor-icon>
+        </kor-tooltip>
+      </kor-accordion>
       <!-- tabs -->
-      <wa-accordion label="Tabs">
+      <kor-accordion label="Tabs">
         <!-- horizontal -->
-        <wa-tabs>
-          <wa-tab-item label="Active" active></wa-tab-item>
-          <wa-tab-item label="Idle"></wa-tab-item>
-          <wa-tab-item label="Disabled" disabled></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs>
-          <wa-tab-item label="Active" icon="train" active></wa-tab-item>
-          <wa-tab-item label="Idle" icon="train"></wa-tab-item>
-          <wa-tab-item label="Disabled" icon="train" disabled></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs>
-          <wa-tab-item icon="train" active></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-          <wa-tab-item icon="train" disabled></wa-tab-item>
-        </wa-tabs>
+        <kor-tabs>
+          <kor-tab-item label="Active" active></kor-tab-item>
+          <kor-tab-item label="Idle"></kor-tab-item>
+          <kor-tab-item label="Disabled" disabled></kor-tab-item>
+        </kor-tabs>
+        <kor-tabs>
+          <kor-tab-item label="Active" icon="train" active></kor-tab-item>
+          <kor-tab-item label="Idle" icon="train"></kor-tab-item>
+          <kor-tab-item label="Disabled" icon="train" disabled></kor-tab-item>
+        </kor-tabs>
+        <kor-tabs>
+          <kor-tab-item icon="train" active></kor-tab-item>
+          <kor-tab-item icon="train"></kor-tab-item>
+          <kor-tab-item icon="train" disabled></kor-tab-item>
+        </kor-tabs>
         <!-- vertical -->
-        <wa-tabs orientation="vertical">
-          <wa-tab-item label="Active" active></wa-tab-item>
-          <wa-tab-item label="Idle"></wa-tab-item>
-          <wa-tab-item label="Disabled" disabled></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs orientation="vertical">
-          <wa-tab-item label="Active" icon="train" active></wa-tab-item>
-          <wa-tab-item label="Idle" icon="train"></wa-tab-item>
-          <wa-tab-item label="Disabled" icon="train" disabled></wa-tab-item>
-        </wa-tabs>
-        <wa-tabs orientation="vertical">
-          <wa-tab-item icon="train" active></wa-tab-item>
-          <wa-tab-item icon="train"></wa-tab-item>
-          <wa-tab-item icon="train" disabled></wa-tab-item>
-        </wa-tabs>
-      </wa-accordion>
+        <kor-tabs orientation="vertical">
+          <kor-tab-item label="Active" active></kor-tab-item>
+          <kor-tab-item label="Idle"></kor-tab-item>
+          <kor-tab-item label="Disabled" disabled></kor-tab-item>
+        </kor-tabs>
+        <kor-tabs orientation="vertical">
+          <kor-tab-item label="Active" icon="train" active></kor-tab-item>
+          <kor-tab-item label="Idle" icon="train"></kor-tab-item>
+          <kor-tab-item label="Disabled" icon="train" disabled></kor-tab-item>
+        </kor-tabs>
+        <kor-tabs orientation="vertical">
+          <kor-tab-item icon="train" active></kor-tab-item>
+          <kor-tab-item icon="train"></kor-tab-item>
+          <kor-tab-item icon="train" disabled></kor-tab-item>
+        </kor-tabs>
+      </kor-accordion>
       <!-- modal -->
-      <wa-accordion label="Modal">
+      <kor-accordion label="Modal">
         <!-- targets -->
-        <wa-button label="With label, icon" onclick="document.querySelector('#modal').visible = true"></wa-button>
-        <wa-button label="With slots, sticky, size" onclick="document.querySelector('#modal-2').visible = true"></wa-button>
+        <kor-button label="With label, icon" onclick="document.querySelector('#modal').visible = true"></kor-button>
+        <kor-button label="With slots, sticky, size" onclick="document.querySelector('#modal-2').visible = true"></kor-button>
         <!-- modals -->
-        <wa-modal label="My Modal" icon="email" id="modal"></wa-modal>
-        <wa-modal height="400px" width="400px" sticky id="modal-2">
-          <wa-tabs slot="header">
-            <wa-tab-item label="Active" active></wa-tab-item>
-            <wa-tab-item label="Idle"></wa-tab-item>
-            <wa-tab-item label="Disabled" disabled></wa-tab-item>
-          </wa-tabs>
-          <wa-icon button icon="save" slot="functions"></wa-icon>
-          <wa-button slot="footer" label="Close Modal" onclick="event.target.parentElement.visible = false"></wa-button>
-        </wa-modal>
-      </wa-accordion>
+        <kor-modal label="My Modal" icon="email" id="modal"></kor-modal>
+        <kor-modal height="400px" width="400px" sticky id="modal-2">
+          <kor-tabs slot="header">
+            <kor-tab-item label="Active" active></kor-tab-item>
+            <kor-tab-item label="Idle"></kor-tab-item>
+            <kor-tab-item label="Disabled" disabled></kor-tab-item>
+          </kor-tabs>
+          <kor-icon button icon="save" slot="functions"></kor-icon>
+          <kor-button slot="footer" label="Close Modal" onclick="event.target.parentElement.visible = false"></kor-button>
+        </kor-modal>
+      </kor-accordion>
       <!-- notifications -->
-      <wa-accordion label="Notifications">
+      <kor-accordion label="Notifications">
         <!-- targets -->
-        <wa-button label="Top Left" onclick="document.querySelector('#notification-1').visible = true"></wa-button>
-        <wa-button label="Top Right" onclick="document.querySelector('#notification-2').visible = true"></wa-button>
-        <wa-button label="Bottom Left" onclick="document.querySelector('#notification-3').visible = true"></wa-button>
-        <wa-button label="Bottom Right" onclick="document.querySelector('#notification-4').visible = true"></wa-button>
-      </wa-accordion>
+        <kor-button label="Top Left" onclick="document.querySelector('#notification-1').visible = true"></kor-button>
+        <kor-button label="Top Right" onclick="document.querySelector('#notification-2').visible = true"></kor-button>
+        <kor-button label="Bottom Left" onclick="document.querySelector('#notification-3').visible = true"></kor-button>
+        <kor-button label="Bottom Right" onclick="document.querySelector('#notification-4').visible = true"></kor-button>
+      </kor-accordion>
       <!-- drawer -->
-      <wa-accordion label="Drawer">
+      <kor-accordion label="Drawer">
         <!-- targets -->
-        <wa-button label="Left with label, icon" onclick="document.querySelector('#drawer-left').visible = true"></wa-button>
-        <wa-button label="Right, with slots, sticky" onclick="document.querySelector('#drawer-right').visible = true"></wa-button>
-        <wa-button label="Top" onclick="document.querySelector('#drawer-top').visible = true"></wa-button>
-        <wa-button label="Bottom" onclick="document.querySelector('#drawer-bottom').visible = true"></wa-button>
+        <kor-button label="Left with label, icon" onclick="document.querySelector('#drawer-left').visible = true"></kor-button>
+        <kor-button label="Right, with slots, sticky" onclick="document.querySelector('#drawer-right').visible = true"></kor-button>
+        <kor-button label="Top" onclick="document.querySelector('#drawer-top').visible = true"></kor-button>
+        <kor-button label="Bottom" onclick="document.querySelector('#drawer-bottom').visible = true"></kor-button>
         <!-- drawers -->
-        <wa-drawer position="left" label="Left Drawer" icon="email" id="drawer-left"></wa-drawer>
-        <wa-drawer position="right" sticky id="drawer-right" >
-          <wa-tabs slot="header">
-            <wa-tab-item label="Active" active></wa-tab-item>
-            <wa-tab-item label="Idle"></wa-tab-item>
-            <wa-tab-item label="Disabled" disabled></wa-tab-item>
-          </wa-tabs>
-          <wa-icon button icon="save" slot="functions"></wa-icon>
-          <wa-button slot="footer" label="Close Drawer" onclick="event.target.parentElement.visible = false"></wa-button>
-        </wa-drawer>
-        <wa-drawer position="top" label="Top Drawer" id="drawer-top"></wa-drawer>
-        <wa-drawer position="bottom" label="Top Drawer" id="drawer-bottom"></wa-drawer>
-      </wa-accordion>
+        <kor-drawer position="left" label="Left Drawer" icon="email" id="drawer-left"></kor-drawer>
+        <kor-drawer position="right" sticky id="drawer-right" >
+          <kor-tabs slot="header">
+            <kor-tab-item label="Active" active></kor-tab-item>
+            <kor-tab-item label="Idle"></kor-tab-item>
+            <kor-tab-item label="Disabled" disabled></kor-tab-item>
+          </kor-tabs>
+          <kor-icon button icon="save" slot="functions"></kor-icon>
+          <kor-button slot="footer" label="Close Drawer" onclick="event.target.parentElement.visible = false"></kor-button>
+        </kor-drawer>
+        <kor-drawer position="top" label="Top Drawer" id="drawer-top"></kor-drawer>
+        <kor-drawer position="bottom" label="Top Drawer" id="drawer-bottom"></kor-drawer>
+      </kor-accordion>
       <!-- text -->
-      <wa-accordion label="Text">
-        <wa-text>Body 1, Text 1</wa-text>
-        <wa-text size="body-1" color="var(--text-2)">Body 1, Text 2</wa-text>
-        <wa-text size="body-1" color="var(--text-3)">Body 1, Text 3</wa-text>
-        <wa-text size="body-2" color="var(--text-1)">Body 2, Text 1</wa-text>
-        <wa-text size="body-2" color="var(--text-2)">Body 2, Text 2</wa-text>
-        <wa-text size="body-2" color="var(--text-3)">Body 2, Text 3</wa-text>
-        <wa-text size="header-1" color="var(--text-1)">Header 1, Text 1</wa-text>
-        <wa-text size="header-1" color="var(--text-2)">Header 1, Text 2</wa-text>
-        <wa-text size="header-1" color="var(--text-3)">Header 1, Text 3</wa-text>
-        <wa-text size="header-2" color="var(--text-1)">Header 2, Text 1</wa-text>
-        <wa-text size="header-2" color="var(--text-2)">Header 2, Text 2</wa-text>
-        <wa-text size="header-2" color="var(--text-3)">Header 2, Text 3</wa-text>
-      </wa-accordion>
+      <kor-accordion label="Text">
+        <kor-text>Body 1, Text 1</kor-text>
+        <kor-text size="body-1" color="var(--text-2)">Body 1, Text 2</kor-text>
+        <kor-text size="body-1" color="var(--text-3)">Body 1, Text 3</kor-text>
+        <kor-text size="body-2" color="var(--text-1)">Body 2, Text 1</kor-text>
+        <kor-text size="body-2" color="var(--text-2)">Body 2, Text 2</kor-text>
+        <kor-text size="body-2" color="var(--text-3)">Body 2, Text 3</kor-text>
+        <kor-text size="header-1" color="var(--text-1)">Header 1, Text 1</kor-text>
+        <kor-text size="header-1" color="var(--text-2)">Header 1, Text 2</kor-text>
+        <kor-text size="header-1" color="var(--text-3)">Header 1, Text 3</kor-text>
+        <kor-text size="header-2" color="var(--text-1)">Header 2, Text 1</kor-text>
+        <kor-text size="header-2" color="var(--text-2)">Header 2, Text 2</kor-text>
+        <kor-text size="header-2" color="var(--text-3)">Header 2, Text 3</kor-text>
+      </kor-accordion>
       <!-- text -->
-      <wa-accordion label="Divider">
+      <kor-accordion label="Divider">
         Spacing s
-        <wa-divider spacing="s"></wa-divider>
+        <kor-divider spacing="s"></kor-divider>
         Spacing m
-        <wa-divider spacing="m"></wa-divider>
+        <kor-divider spacing="m"></kor-divider>
         Spacing l
-        <wa-divider spacing="l"></wa-divider>
+        <kor-divider spacing="l"></kor-divider>
         <div style="display: flex; height: 48px">
           S
-          <wa-divider spacing="s" orientation="vertical"></wa-divider>
+          <kor-divider spacing="s" orientation="vertical"></kor-divider>
           M
-          <wa-divider spacing="m" orientation="vertical"></wa-divider>
+          <kor-divider spacing="m" orientation="vertical"></kor-divider>
           L
-          <wa-divider spacing="l" orientation="vertical"></wa-divider>
+          <kor-divider spacing="l" orientation="vertical"></kor-divider>
         </div>
-      </wa-accordion>
+      </kor-accordion>
       <!-- empty state -->
-      <wa-accordion label="Empty State">
-        <wa-empty-state style="height: 160px" label="With label"></wa-empty-state>
-        <wa-empty-state style="height: 160px" label="With label, icon" icon="train"></wa-empty-state>
-        <wa-empty-state style="height: 160px" label="With label, icon, footer" icon="train">
-          <wa-button slot="footer"></wa-button>
-        </wa-empty-state>
-      </wa-accordion>
-    </wa-pane>
-    <wa-pane slot="right" icon="train" label="With label, icon, slots">
-      <wa-icon slot="functions" button icon="save"></wa-icon>
+      <kor-accordion label="Empty State">
+        <kor-empty-state style="height: 160px" label="With label"></kor-empty-state>
+        <kor-empty-state style="height: 160px" label="With label, icon" icon="train"></kor-empty-state>
+        <kor-empty-state style="height: 160px" label="With label, icon, footer" icon="train">
+          <kor-button slot="footer"></kor-button>
+        </kor-empty-state>
+      </kor-accordion>
+    </kor-pane>
+    <kor-pane slot="right" icon="train" label="With label, icon, slots">
+      <kor-icon slot="functions" button icon="save"></kor-icon>
       <!-- menu items -->
-      <wa-accordion label="Idle"></wa-accordion>
-      <wa-accordion label="Expanded, Icon" icon="message" expanded></wa-accordion>
-      <wa-accordion label="Disabled" disabled></wa-accordion>
+      <kor-accordion label="Idle"></kor-accordion>
+      <kor-accordion label="Expanded, Icon" icon="message" expanded></kor-accordion>
+      <kor-accordion label="Disabled" disabled></kor-accordion>
       <!-- buttons -->
-      <wa-button slot="footer"></wa-button>
-    </wa-pane>
+      <kor-button slot="footer"></kor-button>
+    </kor-pane>
     <!-- grid -->
-    <wa-grid rows="2">
+    <kor-grid rows="2">
       <!-- cards -->
-      <wa-card label="With label, icon, slots" icon="extension" grid-cols="6">
-        <wa-icon button slot="functions" icon="save"></wa-icon>
-        <wa-table columns="2fr 1fr 1fr">
-          <wa-table-row slot="header">
-            <wa-table-cell head sortable sorted sort-direction="desc">Sortable A</wa-table-cell>
-            <wa-table-cell head sortable>Sortable B</wa-table-cell>
-            <wa-table-cell head sortable>Sortable C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 1A</wa-table-cell>
-            <wa-table-cell>Cell 1B</wa-table-cell>
-            <wa-table-cell>Cell 1C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 2A</wa-table-cell>
-            <wa-table-cell>Cell 2B</wa-table-cell>
-            <wa-table-cell>Cell 2C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 3A</wa-table-cell>
-            <wa-table-cell>Cell 3B</wa-table-cell>
-            <wa-table-cell>Cell 3C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 4A</wa-table-cell>
-            <wa-table-cell>Cell 4B</wa-table-cell>
-            <wa-table-cell>Cell 4C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 5A</wa-table-cell>
-            <wa-table-cell>Cell 5B</wa-table-cell>
-            <wa-table-cell>Cell 5C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 6A</wa-table-cell>
-            <wa-table-cell>Cell 6B</wa-table-cell>
-            <wa-table-cell>Cell 6C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 6A</wa-table-cell>
-            <wa-table-cell>Cell 6B</wa-table-cell>
-            <wa-table-cell>Cell 6C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 7A</wa-table-cell>
-            <wa-table-cell>Cell 7B</wa-table-cell>
-            <wa-table-cell>Cell 7C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 8A</wa-table-cell>
-            <wa-table-cell>Cell 8B</wa-table-cell>
-            <wa-table-cell>Cell 8C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell>Cell 9A</wa-table-cell>
-            <wa-table-cell>Cell 9B</wa-table-cell>
-            <wa-table-cell>Cell 9C</wa-table-cell>
-          </wa-table-row>
-        </wa-table>
-        <wa-button disabled slot="footer"></wa-button>
-      </wa-card>
-      <wa-card grid-cols="6" grid-rows="2">
-        <wa-table readonly condensed>
-          <wa-table-row slot="header">
-            <wa-table-cell head grid-cols="8">Head A</wa-table-cell>
-            <wa-table-cell head grid-cols="8" alignment="center">Head B</wa-table-cell>
-            <wa-table-cell head grid-cols="8" alignment="right">Head C</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-          <wa-table-row>
-            <wa-table-cell grid-cols="8">Cond. left</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="center">Cond. center</wa-table-cell>
-            <wa-table-cell grid-cols="8" alignment="right">Cond. right</wa-table-cell>
-          </wa-table-row>
-        </wa-table>
-      </wa-card>
-      <wa-card grid-cols="2"></wa-card>
-      <wa-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></wa-card>
-    </wa-grid>
+      <kor-card label="With label, icon, slots" icon="extension" grid-cols="6">
+        <kor-icon button slot="functions" icon="save"></kor-icon>
+        <kor-table columns="2fr 1fr 1fr">
+          <kor-table-row slot="header">
+            <kor-table-cell head sortable sorted sort-direction="desc">Sortable A</kor-table-cell>
+            <kor-table-cell head sortable>Sortable B</kor-table-cell>
+            <kor-table-cell head sortable>Sortable C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 1A</kor-table-cell>
+            <kor-table-cell>Cell 1B</kor-table-cell>
+            <kor-table-cell>Cell 1C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 2A</kor-table-cell>
+            <kor-table-cell>Cell 2B</kor-table-cell>
+            <kor-table-cell>Cell 2C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 3A</kor-table-cell>
+            <kor-table-cell>Cell 3B</kor-table-cell>
+            <kor-table-cell>Cell 3C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 4A</kor-table-cell>
+            <kor-table-cell>Cell 4B</kor-table-cell>
+            <kor-table-cell>Cell 4C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 5A</kor-table-cell>
+            <kor-table-cell>Cell 5B</kor-table-cell>
+            <kor-table-cell>Cell 5C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 6A</kor-table-cell>
+            <kor-table-cell>Cell 6B</kor-table-cell>
+            <kor-table-cell>Cell 6C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 6A</kor-table-cell>
+            <kor-table-cell>Cell 6B</kor-table-cell>
+            <kor-table-cell>Cell 6C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 7A</kor-table-cell>
+            <kor-table-cell>Cell 7B</kor-table-cell>
+            <kor-table-cell>Cell 7C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 8A</kor-table-cell>
+            <kor-table-cell>Cell 8B</kor-table-cell>
+            <kor-table-cell>Cell 8C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell>Cell 9A</kor-table-cell>
+            <kor-table-cell>Cell 9B</kor-table-cell>
+            <kor-table-cell>Cell 9C</kor-table-cell>
+          </kor-table-row>
+        </kor-table>
+        <kor-button disabled slot="footer"></kor-button>
+      </kor-card>
+      <kor-card grid-cols="6" grid-rows="2">
+        <kor-table readonly condensed>
+          <kor-table-row slot="header">
+            <kor-table-cell head grid-cols="8">Head A</kor-table-cell>
+            <kor-table-cell head grid-cols="8" alignment="center">Head B</kor-table-cell>
+            <kor-table-cell head grid-cols="8" alignment="right">Head C</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+          <kor-table-row>
+            <kor-table-cell grid-cols="8">Cond. left</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="center">Cond. center</kor-table-cell>
+            <kor-table-cell grid-cols="8" alignment="right">Cond. right</kor-table-cell>
+          </kor-table-row>
+        </kor-table>
+      </kor-card>
+      <kor-card grid-cols="2"></kor-card>
+      <kor-card grid-cols="4" label="Image Card" icon="image" image="https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"></kor-card>
+    </kor-grid>
     <!-- notifications -->
-    <wa-notifications position="top-left">
-      <wa-notification-item label="Top left with icon" icon="directions_car" id="notification-1"></wa-notification-item>
-    </wa-notifications>
-    <wa-notifications position="top-right">
-      <wa-notification-item id="notification-2" label="Top right, sticky with slots" sticky>
-        <wa-icon button slot="functions" icon="save"></wa-icon>
+    <kor-notifications position="top-left">
+      <kor-notification-item label="Top left with icon" icon="directions_car" id="notification-1"></kor-notification-item>
+    </kor-notifications>
+    <kor-notifications position="top-right">
+      <kor-notification-item id="notification-2" label="Top right, sticky with slots" sticky>
+        <kor-icon button slot="functions" icon="save"></kor-icon>
         This is the notification with content.
-        <wa-button slot="footer" onclick="event.target.parentElement.visible = false"></wa-button>
-      </wa-notification-item>
-    </wa-notifications>
-    <wa-notifications position="bottom-left">
-      <wa-notification-item label="Bottom left" id="notification-3"></wa-notification-item>
-    </wa-notifications>
-    <wa-notifications position="bottom-right">
-      <wa-notification-item label="Bottom right" id="notification-4"></wa-notification-item>
-    </wa-notifications>
-  </wa-page>
+        <kor-button slot="footer" onclick="event.target.parentElement.visible = false"></kor-button>
+      </kor-notification-item>
+    </kor-notifications>
+    <kor-notifications position="bottom-left">
+      <kor-notification-item label="Bottom left" id="notification-3"></kor-notification-item>
+    </kor-notifications>
+    <kor-notifications position="bottom-right">
+      <kor-notification-item label="Bottom right" id="notification-4"></kor-notification-item>
+    </kor-notifications>
+  </kor-page>
 
 </html>
