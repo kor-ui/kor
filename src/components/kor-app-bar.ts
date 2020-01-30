@@ -58,6 +58,9 @@ export class korAppBar extends LitElement {
       slot[name="left"] {
         min-width: 24px;
       }
+      slot[name="right"] {
+        margin-left: auto;
+      }
     `]
   }
 

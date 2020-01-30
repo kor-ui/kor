@@ -1,6 +1,8 @@
 # kor
 
-**kor** is a UI component library built with LitElement / lit-html. It is based on the web components standards which makes it browser-, framework- and OS-agnostic.
+**[www.kor-ui.com](https://www.kor-ui.com/)**
+
+A design system / UI component library built with LitElement. Based on the web components standards, kor is browser-, framework- and OS-agnostic and can be used to build web, desktop and mobile applications using Angular, Vue, React, plain JS and so on.
 
 ## Installation
 
@@ -11,16 +13,22 @@ npm install kor-ui
 
 ## Integration of Components
 
-There are three main ways of integrating the components into your app.
+There are three main ways of integrating the components into your app:
 
-1. You can include the JS bundle and CSS styles in your `index.html` file:
+1. Include the JS bundle and CSS styles directly in your `index.html` file:
 
 ```html
 <script type="text/javascript" charset="utf-8" src="node_modules/kor-ui/kor.js"></script>
 <link rel="stylesheet" type="text/css" href="node_modules/kor-ui/kor-styles.css">
 ```
 
-2. If you are using Angular, you can alternatively include the assets in your `angular.json` file:
+2. Import the ES module directly:
+
+```js
+import { kor } from 'kor-ui/kor.js' 
+```
+
+3. If you are using Angular, include the assets in your `angular.json` file:
 
 ```json
 "styles": [
@@ -33,15 +41,9 @@ There are three main ways of integrating the components into your app.
 ]
 ```
 
-3. Importing the ES module directly:
+## Usage
 
-```js
-import { kor } from 'kor-ui/kor.js' 
-```
-
-## Happy coding 😄
-
-Start using the components in your HTML templates:
+Use the kor components as if they were native HTML tags. All components allow one and two-way data binding and the attributes fire an `attribute-changed` event when modified:
 
 ```html
 <kor-button label="Hello World" color="secondary" disabled></kor-button>
