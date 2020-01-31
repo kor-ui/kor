@@ -21,6 +21,9 @@ export class korEmptyState extends LitElement {
         display: flex;
         margin-top: 16px;
       }
+      slot[name="footer"]::slotted(*) {
+        margin: 0 8px;
+      }
       kor-icon + kor-text {
         margin-top: 8px;
       }
