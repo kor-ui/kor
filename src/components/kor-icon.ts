@@ -22,6 +22,8 @@ export class korIcon extends LitElement {
         opacity: .90;
         color: var(--text-1);
         transition: .1s all ease-in-out;
+        height: fit-content;
+        width: fit-content;
       }
       :host([button]) {
         opacity: .60;
@@ -33,23 +35,15 @@ export class korIcon extends LitElement {
       }
       /* size */
       :host([size="xl"]) {
-        height: 48px;
-        width: 48px;
         font-size: 48px;
       }
       :host([size="l"]) {
-        height: 32px;
-        width: 32px;
         font-size: 32px;
       }
       :host([size="m"]) {
-        height: 24px;
-        width: 24px;
         font-size: 24px;
       }
       :host([size="s"]) {
-        height: 16px;
-        width: 16px;
         font-size: 16px;
       }
       /* hover inputs */

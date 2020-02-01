@@ -13,7 +13,7 @@ export class korInput extends LitElement {
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) readonly;
-  @property({ type: Boolean, reflect: true }) noClear;
+  @property({ type: Boolean, reflect: true, attribute: "no-clear" }) noClear;
   // input number properties
   @property({ type: String, reflect: true }) pattern;
   @property({ type: Number, reflect: true }) min;
