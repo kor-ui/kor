@@ -7,6 +7,7 @@ export class korSwitchItem extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
+  @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
     return [sharedStyles, css`
