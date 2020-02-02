@@ -1,6 +1,6 @@
 # kor
 
-## Visit [www.kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
+### Visit [www.kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
 
 A design system / UI component library built with LitElement. Based on the web components standards, kor is browser-, framework- and OS-agnostic and can be used to build web, desktop and mobile applications using Angular, Vue, React, plain JS and so on.
 
@@ -8,7 +8,7 @@ A design system / UI component library built with LitElement. Based on the web c
 
 Install the library in your project's folder:
 ```
-npm install kor-ui
+npm install kor-ui --save
 ```
 
 ## Integration of Components
@@ -50,4 +50,3 @@ Use the kor components as if they were native HTML tags. All components allow on
 <!-- data binding -->
 <kor-accordion [label]="myVar" (expanded-changed)="myFunction()"></kor-accordion>
 ```
-
