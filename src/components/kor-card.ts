@@ -35,7 +35,7 @@ export class korCard extends LitElement {
       .header,
       .top {
         display: flex;
-        overflow: overlay;
+        overflow: auto;
       }
       .header,
       slot[name="functions"] {

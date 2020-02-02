@@ -21,7 +21,7 @@ export class korTable extends LitElement {
       }
       slot:not([name]) {
         flex: 1;
-        overflow: overlay;
+        overflow: auto;
       }
     `]
   }
