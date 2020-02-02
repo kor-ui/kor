@@ -4,8 +4,6 @@ import { sharedStyles } from './shared-styles'
 @customElement('kor-switch')
 export class korSwitch extends LitElement {
 
-  @property({ type: String, reflect: true }) label = 'Label';
-
   static get styles() {
     return [sharedStyles, css`
       :host {
