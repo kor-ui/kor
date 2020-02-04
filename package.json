@@ -1,6 +1,6 @@
 {
   "name": "kor-ui",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Web components library with light, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
@@ -17,5 +17,9 @@
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduferfer/kor.git"
   }
 }
