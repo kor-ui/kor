@@ -1,7 +1,7 @@
 {
   "name": "kor-ui",
-  "version": "0.2.6",
-  "description": "Web components library with light, ready-to-use and framework-agnostic User Interface elements.",
+  "version": "0.2.7",
+  "description": "Web components library containing light, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "webpack --config webpack.dev.config.js"
