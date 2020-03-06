@@ -186,7 +186,7 @@ export class korInput extends LitElement {
           .value="${this.value !== undefined ? this.value : ''}"
           value="${this.value !== undefined ? this.value : ''}"
           @input=${(e) => e.target.value ? (this.type !== 'number' ? this.value = e.target.value : '') : this.removeAttribute('value')}
-          @focus="${(e) => this.active = true}"
+          @focus="${() => this.active = true}"
           @blur="${(e) => this.handleBlur(e)}"
         >
       </div>
