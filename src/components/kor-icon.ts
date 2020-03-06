@@ -24,6 +24,8 @@ export class korIcon extends LitElement {
         transition: .1s all ease-in-out;
         height: fit-content;
         width: fit-content;
+        min-height: fit-content;
+        min-width: fit-content;
         overflow: hidden;
       }
       :host([button]) {
