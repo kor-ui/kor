@@ -27,6 +27,9 @@ export class korIcon extends LitElement {
         min-height: fit-content;
         min-width: fit-content;
         overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
       }
       :host([button]) {
         opacity: .60;
@@ -38,15 +41,23 @@ export class korIcon extends LitElement {
       }
       /* size */
       :host([size="xl"]) {
+        height: 48px;
+        width: 48px;
         font-size: 48px;
       }
       :host([size="l"]) {
+        height: 32px;
+        width: 32px;
         font-size: 32px;
       }
       :host([size="m"]) {
+        height: 24px;
+        width: 24px;
         font-size: 24px;
       }
       :host([size="s"]) {
+        height: 16px;
+        width: 16px;
         font-size: 16px;
       }
       /* hover inputs */
@@ -1000,7 +1011,15 @@ export class korIcon extends LitElement {
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name == "color") {
       this.style.color = this.color;
+    } else if (name == 'icon' && newval.indexOf('url') > -1) {
+      this.handleIcon(newval);
     }
+  }
+
+  private handleIcon(val: string): void {
+    this.style.backgroundImage = val;
+    this.style.backgroundImage = val;
+    console.log(val);
   }
 
 }
