@@ -1,4 +1,4 @@
-# kor
+# ![](http://kor-ui.com/assets/favicon_light.png) kor
 
 ### Visit [www.kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
 
