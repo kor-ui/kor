@@ -1,5 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-text'
 
 @customElement('kor-spinner')
 export class korSpinner extends LitElement {

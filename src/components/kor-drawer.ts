@@ -1,5 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-card'
+import './kor-icon'
 
 @customElement('kor-drawer')
 export class korDrawer extends LitElement {

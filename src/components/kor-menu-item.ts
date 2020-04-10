@@ -1,5 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-icon'
+import './kor-text'
 
 @customElement('kor-menu-item')
 export class korMenuItem extends LitElement {

@@ -1,5 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-app-bar'
 
 @customElement('kor-nav-bar')
 export class korNavbar extends LitElement {

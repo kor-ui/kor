@@ -1,5 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-icon'
+import './kor-text'
 
 @customElement('kor-stepper-item')
 export class korStepperItem extends LitElement {

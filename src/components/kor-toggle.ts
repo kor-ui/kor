@@ -1,5 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element'
 import { sharedStyles } from './shared-styles'
+import './kor-text'
 
 @customElement('kor-toggle')
 export class korToggle extends LitElement {
