@@ -1,15 +1,12 @@
-![](http://kor-ui.com/assets/favicon_light.png) 
 # kor
 
 ### Visit [www.kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
 
 A design system / UI component library built with LitElement. Based on the web components standards, kor is browser-, framework- and OS-agnostic and can be used to build web, desktop and mobile applications using Angular, Vue, React, plain JS and so on.
 
----
-
 ## Installation
 
-Install the core library through npm:
+Install the library through npm:
 
 ```
 npm install @kor-ui/kor --save
@@ -19,16 +16,9 @@ npm install @kor-ui/kor --save
 
 ## Integration of Components
 
-The most simple and common way of including the components into an application is by **loading the whole bundle**:
+### Load the whole bundle
 
-- **Include the whole JS bundle** and CSS styles:
-
-```js
-// include js bundle through js import instead
-import 'kor-ui/kor' 
-```
-
-*or*
+The most simple and common way of including the components into an application is by loading the core bundle:
 
 ```html
 <!-- include whole js bundle in index.html -->
@@ -38,7 +28,16 @@ import 'kor-ui/kor'
 <link rel="stylesheet" type="text/css" href="node_modules/@kor-ui/kor/kor-styles.css">
 ```
 
-As an alternative, you can also **lazy load individual components** to reduce the bundle size and loading time (stylesheed needs to be included in addition to the following steps):
+*or*
+
+```js
+// include js bundle through js import instead
+import '@kor-ui/kor' 
+```
+
+### Lazy load
+
+As an alternative, you can also install and load individual components to reduce loading time (stylesheet still needs to be included in addition to the following steps):
 
 ```
 npm install @kor-ui/button --save
@@ -46,14 +45,15 @@ npm install @kor-ui/accordion --save
 ```
 
 ```html
-<!-- include component in index.html -->
+<!-- include components in html file -->
 <script type="text/javascript" charset="utf-8" src="node_modules/@kor-ui/button/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="node_modules/@kor-ui/accordion/index.js"></script>
 ```
 
 *or*
 
 ```js
-// include individual components 
+// include individual components through js import
 import { korButton } from '@kor-ui/button' 
 import { korAccordion } from '@kor-ui/accordion' 
 ```
