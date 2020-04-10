@@ -1,6 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../icon';
-import '../text';
 
 @customElement('kor-tool')
 export class korTool extends LitElement {

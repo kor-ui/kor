@@ -1,6 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../card';
-import '../icon';
 
 @customElement('kor-notification-item')
 export class korNotificationItem extends LitElement {

@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../popover';
 
 @customElement('kor-tooltip')
 export class korTooltip extends LitElement {

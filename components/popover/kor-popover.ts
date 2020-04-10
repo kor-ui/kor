@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../card';
 
 @customElement('kor-popover')
 export class korPopover extends LitElement {

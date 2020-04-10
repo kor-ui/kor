@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../text';
 
 @customElement('kor-spinner')
 export class korSpinner extends LitElement {

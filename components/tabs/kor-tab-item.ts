@@ -1,6 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import '../icon';
-import '../text';
 
 @customElement('kor-tab-item')
 export class korTabItem extends LitElement {
