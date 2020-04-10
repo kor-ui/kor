@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/drawer",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Kor drawer component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
@@ -10,8 +10,8 @@
         "url": "https://github.com/eduferfer/kor.git"
     },
     "dependencies": {
-        "@kor-ui/icon": "latest",
-        "@kor-ui/card": "latest"
+        "@kor-ui/card": "latest",
+        "@kor-ui/icon": "latest"
     },
     "keywords": [
         "design system",
