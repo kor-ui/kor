@@ -38,4 +38,3 @@ import './components/text/kor-text';
 import './components/toggle/kor-toggle';
 import './components/tool/kor-tool';
 import './components/tooltip/kor-tooltip';
-import './components/shared-styles/shared-styles';

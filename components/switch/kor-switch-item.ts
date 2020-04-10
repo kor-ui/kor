@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-switch-item')
 export class korSwitchItem extends LitElement {
@@ -10,7 +9,6 @@ export class korSwitchItem extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           display: flex;

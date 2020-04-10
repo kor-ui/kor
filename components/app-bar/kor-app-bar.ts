@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-app-bar')
 export class korAppBar extends LitElement {
@@ -9,7 +8,6 @@ export class korAppBar extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           z-index: 3;

@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-avatar')
 export class korAvatar extends LitElement {
@@ -9,7 +8,6 @@ export class korAvatar extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host,
         .image {

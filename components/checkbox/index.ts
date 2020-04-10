@@ -1,1 +1,1 @@
-import './kor-checkbox'
+export { korCheckbox } from './kor-checkbox'

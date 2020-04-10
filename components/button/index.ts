@@ -1,1 +1,1 @@
-import './kor-button'
+export { korButton } from './kor-button'

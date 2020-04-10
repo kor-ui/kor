@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 import '../card/kor-card';
 import '../icon/kor-icon';
 
@@ -18,7 +17,6 @@ export class korAccordion extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         kor-card {
           padding: 8px 16px;

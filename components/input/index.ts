@@ -1,1 +1,1 @@
-import './kor-input'
+export { korInput } from "./kor-input";

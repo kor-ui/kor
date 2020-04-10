@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-notifications')
 export class korNotifications extends LitElement {
@@ -7,7 +6,6 @@ export class korNotifications extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           position: fixed;

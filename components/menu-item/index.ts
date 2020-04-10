@@ -1,1 +1,1 @@
-import './kor-menu-item'
+export { korMenuItem } from './kor-menu-item'

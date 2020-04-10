@@ -1,1 +1,1 @@
-import './shared-styles'
+export { sharedStyles } from './shared-styles'

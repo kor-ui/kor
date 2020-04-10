@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-tooltip')
 export class korTooltip extends LitElement {
@@ -18,7 +17,6 @@ export class korTooltip extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           position: fixed;

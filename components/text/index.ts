@@ -1,1 +1,1 @@
-import './kor-text'
+export { korText } from './kor-text'

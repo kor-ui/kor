@@ -1,1 +1,1 @@
-import './kor-spinner'
+export { korSpinner } from './kor-spinner'

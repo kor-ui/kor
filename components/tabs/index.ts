@@ -1,2 +1,2 @@
-import './kor-tab-item'
-import './kor-tabs'
+export { korTabItem } from './kor-tab-item'
+export { korTabs } from './kor-tabs'

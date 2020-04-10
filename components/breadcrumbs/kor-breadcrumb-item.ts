@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-breadcrumb-item')
 export class korBreadcrumbItem extends LitElement {
@@ -8,7 +7,6 @@ export class korBreadcrumbItem extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           display: flex;

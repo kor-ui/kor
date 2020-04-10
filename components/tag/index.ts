@@ -1,1 +1,1 @@
-import './kor-tag'
+export { korTag } from './kor-tag'

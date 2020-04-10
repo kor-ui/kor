@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-popover')
 export class korPopover extends LitElement {
@@ -19,7 +18,6 @@ export class korPopover extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           background-color: rgb(var(--base-4));

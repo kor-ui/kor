@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-stepper-item')
 export class korStepperItem extends LitElement {
@@ -15,7 +14,6 @@ export class korStepperItem extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           position: relative;

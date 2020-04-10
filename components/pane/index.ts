@@ -1,1 +1,1 @@
-import './kor-pane'
+export { korPane } from './kor-pane'

@@ -1,5 +1,4 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../shared-styles/shared-styles';
 
 @customElement('kor-pane')
 export class korPane extends LitElement {
@@ -16,7 +15,6 @@ export class korPane extends LitElement {
 
   static get styles() {
     return [
-      sharedStyles,
       css`
         :host {
           background-color: rgb(var(--base-2));

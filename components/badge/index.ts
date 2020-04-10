@@ -1,1 +1,1 @@
-import './kor-badge'
+export { korBadge } from './kor-badge'

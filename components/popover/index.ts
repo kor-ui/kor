@@ -1,1 +1,1 @@
-import './kor-popover'
+export { korPopover } from './kor-popover'
