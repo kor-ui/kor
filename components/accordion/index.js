@@ -1,1 +1,1 @@
-import { korAccordion } from './kor-accordion'
+import './kor-accordion'

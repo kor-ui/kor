@@ -1,1 +1,1 @@
-import { korAppBar } from './kor-app-bar'
+import './kor-app-bar'
