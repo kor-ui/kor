@@ -1,10 +1,11 @@
 {
   "name": "kor-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Web components library containing light, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
-    "build": "webpack --config webpack.dev.config.js"
+    "build": "webpack --config webpack.dev.config.js",
+    "publish": "npm run build && npm publish"
   },
   "author": "Eduardo Ferreira",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "html-webpack-plugin": "^3.2.0",
     "lit-element": "^2.3.1",
+    "terser-webpack-plugin": "^2.3.5",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
