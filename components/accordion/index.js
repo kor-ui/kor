@@ -1,0 +1,1 @@
+import { korAccordion } from './kor-accordion'

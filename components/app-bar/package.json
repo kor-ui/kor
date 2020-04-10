@@ -1,0 +1,22 @@
+{
+    "name": "@kor-ui/app-bar",
+    "version": "0.0.0",
+    "description": "Kor app-bar component.",
+    "author": "Eduardo Ferreira",
+    "license": "MIT",
+    "homepage": "https://kor-ui.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eduferfer/kor.git"
+    },
+    "keywords": [
+        "design system",
+        "ui",
+        "ux",
+        "litelement",
+        "design",
+        "webcomponents",
+        "baukasten",
+        "app-bar"
+    ]
+}

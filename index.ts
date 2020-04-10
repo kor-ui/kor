@@ -1,5 +1,5 @@
-import './components/kor-accordion';
-import './components/kor-app-bar';
+import './components/accordion/kor-accordion';
+import './components/app-bar/kor-app-bar';
 import './components/kor-avatar';
 import './components/kor-badge';
 import './components/kor-breadcrumbs';
