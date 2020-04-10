@@ -1,1 +1,1 @@
-import './kor-tool'
+import './shared-styles'

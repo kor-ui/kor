@@ -1,7 +1,7 @@
 {
-    "name": "@kor-ui/table",
+    "name": "@kor-ui/stepper",
     "version": "0.0.3",
-    "description": "Kor table component.",
+    "description": "Kor stepper component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
     "homepage": "https://kor-ui.com",
@@ -21,7 +21,7 @@
         "design",
         "webcomponents",
         "baukasten",
-        "table"
+        "stepper"
     ],
     "gitHead": "6ec749c5997ae766651ab66d223a793a8f247f77"
 }
