@@ -1,39 +1,46 @@
-import { LitElement, css, html, customElement, property } from 'lit-element'
-import { sharedStyles } from './shared-styles'
+import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from './shared-styles';
 
 @customElement('kor-stepper')
 export class korStepper extends LitElement {
-
-  @property({ type: String, reflect: true }) orientation = "horizontal";
+  @property({ type: String, reflect: true }) orientation = 'horizontal';
 
   static get styles() {
-    return [sharedStyles, css`
-      :host {
-        display: flex;
-        width: 100%;
-        height: fit-content;
-        overflow: auto;
-      }
-      /* vertical */
-      :host([orientation="vertical"]) {
-        flex-direction: column;
-      }
-    `]
+    return [
+      sharedStyles,
+      css`
+        :host {
+          display: flex;
+          width: 100%;
+          height: fit-content;
+          overflow: auto;
+        }
+        /* vertical */
+        :host([orientation='vertical']) {
+          flex-direction: column;
+        }
+      `,
+    ];
   }
 
   render() {
     return html`
-      <slot @slotchange="${() => { this.handleOrientation(); this.handleItems()} }"></slot>
-    `
+      <slot
+        @slotchange="${() => {
+          this.handleOrientation();
+          this.handleItems();
+        }}"
+      ></slot>
+    `;
   }
 
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
-    this.dispatchEvent(new Event(`${name}-changed`)) ;
+  attributeChangedCallback(name, oldval, newval) {
+    super.attributeChangedCallback(name, oldval, newval);
+    this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   handleOrientation() {
-    (<any>this.childNodes).forEach(el => {
+    (<any>this.childNodes).forEach((el) => {
       el.orientation = this.orientation;
     });
   }
@@ -47,5 +54,4 @@ export class korStepper extends LitElement {
       el.last = el.index == length;
     });
   }
-  
 }

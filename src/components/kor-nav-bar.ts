@@ -1,19 +1,21 @@
-import { LitElement, css, html, customElement, property } from 'lit-element'
-import { sharedStyles } from './shared-styles'
-import './kor-app-bar'
+import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from './shared-styles';
+import './kor-app-bar';
 
 @customElement('kor-nav-bar')
 export class korNavbar extends LitElement {
-
   static get styles() {
-    return [sharedStyles, css`
-      :host {
-        z-index: 2;
-      }
-      kor-app-bar {
-        background-color: rgb(var(--base-2));
-      }
-    `]
+    return [
+      sharedStyles,
+      css`
+        :host {
+          z-index: 2;
+        }
+        kor-app-bar {
+          background-color: rgb(var(--base-2));
+        }
+      `,
+    ];
   }
 
   render() {
@@ -22,7 +24,6 @@ export class korNavbar extends LitElement {
         <slot></slot>
         <slot name="functions" slot="functions"></slot>
       </kor-app-bar>
-    `
+    `;
   }
-  
 }

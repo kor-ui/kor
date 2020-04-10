@@ -1,52 +1,59 @@
-import { LitElement, css, html, customElement, property } from 'lit-element'
-import { sharedStyles } from './shared-styles'
-import './kor-icon'
-import './kor-text'
+import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from './shared-styles';
+import './kor-icon';
+import './kor-text';
 
 @customElement('kor-breadcrumb-item')
 export class korBreadcrumbItem extends LitElement {
-
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: Boolean, reflect: true }) active = false;
 
   static get styles() {
-    return [sharedStyles, css`
-      :host {
-        display: flex;
-        align-items: center;
-      }
-      kor-icon {
-        pointer-events: none;
-        margin: 0 4px;
-      }
-      kor-text {
-        color: var(--text-2);
-        cursor: pointer;
-        font-weight: bold;
-      }
-      :host([active]) kor-text {
-        color: var(--text-1);
-      }
-      /* hover inputs */
-      @media (hover: hover) {
-        kor-text:hover:not(:active) {
+    return [
+      sharedStyles,
+      css`
+        :host {
+          display: flex;
+          align-items: center;
+        }
+        kor-icon {
+          pointer-events: none;
+          margin: 0 4px;
+        }
+        kor-text {
+          color: var(--text-2);
+          cursor: pointer;
+          font-weight: bold;
+        }
+        :host([active]) kor-text {
           color: var(--text-1);
         }
-      }
-    `]
+        /* hover inputs */
+        @media (hover: hover) {
+          kor-text:hover:not(:active) {
+            color: var(--text-1);
+          }
+        }
+      `,
+    ];
   }
 
   render() {
     return html`
-      ${!this.firstItem() ? html `
-        <kor-icon icon="keyboard_arrow_right" color="var(--text-2)"></kor-icon>
-      ` : ''}
+      ${!this.firstItem()
+        ? html`
+            <kor-icon
+              icon="keyboard_arrow_right"
+              color="var(--text-2)"
+            ></kor-icon>
+          `
+        : ''}
       <kor-text>${this.label}</kor-text>
-    `
+    `;
   }
 
-  attributeChangedCallback(name, oldval, newval) { 
-    super.attributeChangedCallback(name, oldval, newval); 
+  attributeChangedCallback(name, oldval, newval) {
+    super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
@@ -56,5 +63,4 @@ export class korBreadcrumbItem extends LitElement {
     firstItem = children.indexOf(this) == 0;
     return firstItem;
   }
-  
 }
