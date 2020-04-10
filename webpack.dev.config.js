@@ -41,7 +41,7 @@ module.exports = {
     "components/tool": './components/tool/index.ts',
     "components/tooltip": './components/tooltip/index.ts',
   },
-  mode: "development",
+  mode: "production",
   optimization: {
     minimize: true,
     minimizer: [

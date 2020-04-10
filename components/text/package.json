@@ -10,6 +10,7 @@
         "url": "https://github.com/eduferfer/kor.git"
     },
     "dependencies": {
+        "@kor-ui/kor": "latest",
         "@kor-ui/icon": "latest",
         "@kor-ui/text": "latest"
     },
