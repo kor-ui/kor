@@ -9,8 +9,8 @@
         "type": "git",
         "url": "https://github.com/eduferfer/kor.git"
     },
-    "peerDependencies": {
-        "@kor-ui/menu-item": "latest",
+    "dependencies": {
+        "@kor-ui/icon": "latest",
         "@kor-ui/text": "latest"
     },
     "keywords": [

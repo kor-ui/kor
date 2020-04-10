@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement } from 'lit-element';
+import '../app-bar';
 
 @customElement('kor-nav-bar')
 export class korNavbar extends LitElement {

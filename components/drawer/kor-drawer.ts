@@ -1,4 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import '../icon';
+import '../card';
 
 @customElement('kor-drawer')
 export class korDrawer extends LitElement {

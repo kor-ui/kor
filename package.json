@@ -8,7 +8,7 @@
   },
   "author": "Eduardo Ferreira",
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "lit-element": "^2.3.1"
   },
   "devDependencies": {

@@ -1,4 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import '../icon';
+import '../text';
 
 @customElement('kor-checkbox')
 export class korCheckbox extends LitElement {

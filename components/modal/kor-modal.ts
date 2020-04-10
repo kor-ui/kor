@@ -1,4 +1,6 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import '../card';
+import '../icon';
 
 @customElement('kor-modal')
 export class korModal extends LitElement {

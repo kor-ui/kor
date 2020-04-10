@@ -9,9 +9,9 @@
         "type": "git",
         "url": "https://github.com/eduferfer/kor.git"
     },
-    "peerDependencies": {
-        "@kor-ui/input": "latest",
-        "@kor-ui/text": "latest"
+    "dependencies": {
+        "@kor-ui/card": "latest",
+        "@kor-ui/icon": "latest"
     },
     "keywords": [
         "design system",

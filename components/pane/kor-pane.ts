@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import '../card';
 
 @customElement('kor-pane')
 export class korPane extends LitElement {

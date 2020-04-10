@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import '../text';
 
 @customElement('kor-radio-button')
 export class korRadioButton extends LitElement {
