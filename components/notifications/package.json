@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/notifications",
-    "version": "0.0.10",
+    "version": "1.0.4",
     "description": "Kor notifications component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
@@ -10,9 +10,9 @@
         "url": "https://github.com/eduferfer/kor.git"
     },
     "dependencies": {
-        "@kor-ui/kor": "latest",
         "@kor-ui/card": "latest",
-        "@kor-ui/icon": "latest"
+        "@kor-ui/icon": "latest",
+        "@kor-ui/kor": "latest"
     },
     "keywords": [
         "design system",

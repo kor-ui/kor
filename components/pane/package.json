@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/pane",
-    "version": "0.0.10",
+    "version": "1.0.4",
     "description": "Kor pane component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
@@ -10,8 +10,8 @@
         "url": "https://github.com/eduferfer/kor.git"
     },
     "dependencies": {
-        "@kor-ui/kor": "latest",
-        "@kor-ui/card": "latest"
+        "@kor-ui/card": "latest",
+        "@kor-ui/kor": "latest"
     },
     "keywords": [
         "design system",
