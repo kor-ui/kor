@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-card')
 export class korCard extends LitElement {
@@ -15,7 +16,8 @@ export class korCard extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

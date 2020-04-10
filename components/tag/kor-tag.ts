@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-tag')
 export class korTag extends LitElement {
@@ -8,7 +9,8 @@ export class korTag extends LitElement {
   @property({ type: Boolean, reflect: true }) button;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           padding: 4px;

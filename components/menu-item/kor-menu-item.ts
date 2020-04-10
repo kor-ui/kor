@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-menu-item')
 export class korMenuItem extends LitElement {
@@ -9,7 +10,8 @@ export class korMenuItem extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           padding: 8px 0;

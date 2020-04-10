@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-icon')
 export class korIcon extends LitElement {
@@ -9,7 +10,8 @@ export class korIcon extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           font-family: 'md-icons';
@@ -2881,7 +2883,5 @@ export class korIcon extends LitElement {
 
   private handleIcon(val: string): void {
     this.style.backgroundImage = val;
-    this.style.backgroundImage = val;
-    console.log(val);
   }
 }

@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-input')
 export class korInput extends LitElement {
@@ -19,7 +20,8 @@ export class korInput extends LitElement {
   @property({ type: Number, reflect: true }) step = 1;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

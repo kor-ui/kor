@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-table')
 export class korTable extends LitElement {
@@ -7,7 +8,8 @@ export class korTable extends LitElement {
   @property({ type: String, reflect: true }) columns = 'repeat(24, 1fr)';
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

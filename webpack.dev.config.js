@@ -5,9 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
-    // main
-    "": "./index.ts",
-    // components
+    ".": "./index.ts",
     "components/accordion": './components/accordion/index.ts',
     "components/app-bar": './components/app-bar/index.ts',
     "components/avatar": './components/avatar/index.ts',
@@ -43,7 +41,7 @@ module.exports = {
     "components/tool": './components/tool/index.ts',
     "components/tooltip": './components/tooltip/index.ts',
   },
-  mode: "production",
+  mode: "development",
   optimization: {
     minimize: true,
     minimizer: [

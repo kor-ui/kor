@@ -1,11 +1,13 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-stepper')
 export class korStepper extends LitElement {
   @property({ type: String, reflect: true }) orientation = 'horizontal';
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

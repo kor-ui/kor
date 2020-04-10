@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-drawer')
 export class korDrawer extends LitElement {
@@ -18,7 +19,8 @@ export class korDrawer extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           transition: 0.1s all ease-in-out, 0s top, 0s left;

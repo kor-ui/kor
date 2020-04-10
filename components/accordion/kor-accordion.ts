@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-accordion')
 export class korAccordion extends LitElement {
@@ -14,7 +15,8 @@ export class korAccordion extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         kor-card {
           padding: 8px 16px;

@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-modal')
 export class korModal extends LitElement {
@@ -17,7 +18,8 @@ export class korModal extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           transition: 0.1s all ease-in-out, 0s top, 0s left;

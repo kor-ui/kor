@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-button')
 export class korButton extends LitElement {
@@ -8,7 +9,8 @@ export class korButton extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

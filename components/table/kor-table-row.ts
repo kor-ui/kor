@@ -1,11 +1,13 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-table-row')
 export class korTableRow extends LitElement {
   @property({ type: Boolean, reflect: true }) active;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: grid;

@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-badge')
 export class korBadge extends LitElement {
@@ -6,7 +7,8 @@ export class korBadge extends LitElement {
   @property({ type: String, reflect: true }) status;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

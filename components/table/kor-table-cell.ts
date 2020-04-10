@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-table-cell')
 export class korTableCell extends LitElement {
@@ -11,7 +12,8 @@ export class korTableCell extends LitElement {
   sortDirection;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           display: flex;

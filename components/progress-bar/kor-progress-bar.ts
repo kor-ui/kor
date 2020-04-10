@@ -1,4 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles'
 
 @customElement('kor-progress-bar')
 export class korProgressBar extends LitElement {
@@ -13,7 +14,8 @@ export class korProgressBar extends LitElement {
   showProgress = false;
 
   static get styles() {
-    return [
+    return [ 
+      sharedStyles, 
       css`
         :host {
           width: 100%;
