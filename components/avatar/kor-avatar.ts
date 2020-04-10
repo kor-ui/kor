@@ -37,6 +37,7 @@ export class korAvatar extends LitElement {
           overflow: hidden;
           justify-content: center;
           font: var(--header-2);
+          color: var(--text-1);
           height: 32px;
           width: 32px;
           border-radius: 50%;
