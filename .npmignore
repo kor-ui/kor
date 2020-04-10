@@ -1,6 +1,5 @@
 node_modules
-src/.DS_Store
-src
 tsconfig.json
 webpack.dev.config.js
 .vscode
+index.ts

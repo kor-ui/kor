@@ -16,30 +16,20 @@ npm install kor-ui --save
 
 There are three main ways of integrating the components into your app:
 
-1. Include the JS bundle and CSS styles directly in your `index.html` file:
+- **Include the whole JS bundle** and CSS styles directly in your `index.html` file:
 
 ```html
 <script type="text/javascript" charset="utf-8" src="node_modules/kor-ui/kor.js"></script>
 <link rel="stylesheet" type="text/css" href="node_modules/kor-ui/kor-styles.css">
 ```
 
-2. Import the ES module directly:
+-  **Import modules** in your `.js` or `.ts` files (load kor-styles.css in addition to this):
 
 ```js
-import { kor } from 'kor-ui/kor.js' 
-```
-
-3. If you are using Angular, include the assets in your `angular.json` file:
-
-```json
-"styles": [
-    // ...    
-    "node_modules/kor-ui/kor-styles.css"
-],
-"scripts": [
-    // ...
-    "node_modules/kor-ui/kor.js"
-]
+// either import the whole bundle to enable all components
+import 'kor-ui/kor' 
+// or import individual modules to load only the desired components
+import { korButton } from 'kor-ui/components/kor-button' 
 ```
 
 ## Usage

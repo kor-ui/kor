@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./index.ts",
   mode: "production",
   optimization: {
     minimize: true,
