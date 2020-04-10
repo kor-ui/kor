@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   entry: {
     // main
-    "kor": "./index.ts",
+    "kor": "./components/kor/index.ts",
     "shared-styles": './components/shared-styles/index.ts',
     // components
     "accordion": './components/accordion/index.ts',
@@ -85,7 +85,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "components/kor/index.html",
       inject: false
     }),
   ]
