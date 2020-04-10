@@ -4,3 +4,4 @@ webpack.dev.config.js
 .vscode
 index.ts
 components/*
+lerna.json

@@ -1,4 +1,4 @@
 kor.js
 node_modules
+components/*/index.js
 .DS_Store
-src/.DS_Store

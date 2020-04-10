@@ -4,7 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: "./index.ts",
+  entry: {
+    "kor": "./components/kor/index.ts",
+    "accordion": './components/accordion/index.ts',
+    "app-bar": './components/app-bar/index.ts',
+    "avatar": './components/avatar/index.ts',
+    "badge": './components/badge/index.ts',
+    "breadcrumbs": './components/breadcrumbs/index.ts',
+    "button": './components/button/index.ts',
+    "card": './components/card/index.ts',
+  },
   mode: "production",
   optimization: {
     minimize: true,
@@ -12,15 +21,17 @@ module.exports = {
       new TerserPlugin({
         test: /\.js$/,
         terserOptions: {
-          // mangle: true, // Note `mangle.properties` is `false` by default.
           keep_classnames: true,
           keep_fnames: true,
+          output: {
+            comments: false,
+          },
         },
       }),
     ],
   },
   output: {
-    filename: "kor.js",
+    filename: "components/[name]/index.js",
     path: dist
   },
   module: {

@@ -1,7 +1,7 @@
 {
-    "name": "@kor-ui/accordion",
+    "name": "@kor-ui/modal",
     "version": "0.0.3",
-    "description": "Kor accordion component.",
+    "description": "Kor modal component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
     "homepage": "https://kor-ui.com",
@@ -10,8 +10,8 @@
         "url": "https://github.com/eduferfer/kor.git"
     },
     "peerDependencies": {
-        "@kor-ui/card": "latest",
-        "@kor-ui/icon": "latest"
+        "@kor-ui/modal": "latest",
+        "@kor-ui/text": "latest"
     },
     "keywords": [
         "design system",
@@ -21,7 +21,7 @@
         "design",
         "webcomponents",
         "baukasten",
-        "accordion"
+        "modal"
     ],
     "gitHead": "6ec749c5997ae766651ab66d223a793a8f247f77"
 }
