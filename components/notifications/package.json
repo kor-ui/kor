@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/notifications",
-    "version": "0.0.3",
+    "version": "0.0.4-alpha.0",
     "description": "Kor notifications component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",

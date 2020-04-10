@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/progress-bar",
-    "version": "0.0.3",
+    "version": "0.0.4-alpha.0",
     "description": "Kor progress-bar component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",

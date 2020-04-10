@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/menu-item",
-    "version": "0.0.3",
+    "version": "0.0.4-alpha.0",
     "description": "Kor menu-item component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
