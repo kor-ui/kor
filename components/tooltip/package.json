@@ -1,6 +1,6 @@
 {
     "name": "@kor-ui/tooltip",
-    "version": "0.0.5-alpha.0",
+    "version": "0.0.5",
     "description": "Kor tooltip component.",
     "author": "Eduardo Ferreira",
     "license": "MIT",
