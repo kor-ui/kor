@@ -1,5 +1,5 @@
 kor.js
 node_modules
 components/*/index.js
-main/index.js
+index.js
 .DS_Store
