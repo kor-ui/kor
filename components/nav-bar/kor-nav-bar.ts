@@ -1,11 +1,11 @@
 import { LitElement, css, html, customElement } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-nav-bar')
 export class korNavbar extends LitElement {
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           z-index: 2;

@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-grid')
 export class korGrid extends LitElement {
@@ -8,8 +8,8 @@ export class korGrid extends LitElement {
   @property({ type: String, reflect: true }) spacing = 'm';
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           display: grid;

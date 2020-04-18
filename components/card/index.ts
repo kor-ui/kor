@@ -1,1 +1,1 @@
-export { korCard } from './kor-card'
+export { korCard } from './kor-card';

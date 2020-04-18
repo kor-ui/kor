@@ -1,26 +1,26 @@
 {
-    "name": "@kor-ui/app-bar",
-    "version": "1.0.4",
-    "description": "Kor app-bar component.",
-    "author": "Eduardo Ferreira",
-    "license": "MIT",
-    "homepage": "https://kor-ui.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/eduferfer/kor.git"
-    },
-    "dependencies": {
-        "@kor-ui/kor": "latest"
-    },
-    "keywords": [
-        "design system",
-        "ui",
-        "ux",
-        "litelement",
-        "design",
-        "webcomponents",
-        "baukasten",
-        "app-bar"
-    ],
-    "gitHead": "c0b568727ed4cdf77e4ed3bfa3bdd234d27e5d98"
+  "name": "@kor-ui/app-bar",
+  "version": "1.0.4",
+  "description": "Kor app-bar component.",
+  "author": "Eduardo Ferreira",
+  "license": "MIT",
+  "homepage": "https://kor-ui.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduferfer/kor.git"
+  },
+  "dependencies": {
+    "@kor-ui/kor": "latest"
+  },
+  "keywords": [
+    "design system",
+    "ui",
+    "ux",
+    "litelement",
+    "design",
+    "webcomponents",
+    "baukasten",
+    "app-bar"
+  ],
+  "gitHead": "c0b568727ed4cdf77e4ed3bfa3bdd234d27e5d98"
 }

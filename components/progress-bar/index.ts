@@ -1,1 +1,1 @@
-export { korProgressBar } from './kor-progress-bar'
+export { korProgressBar } from './kor-progress-bar';

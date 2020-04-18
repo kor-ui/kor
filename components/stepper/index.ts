@@ -1,2 +1,2 @@
-export { korStepperItem } from './kor-stepper-item'
-export { korStepper } from './kor-stepper'
+export { korStepperItem } from './kor-stepper-item';
+export { korStepper } from './kor-stepper';

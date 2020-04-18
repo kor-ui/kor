@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-input')
 export class korInput extends LitElement {
@@ -20,8 +20,8 @@ export class korInput extends LitElement {
   @property({ type: Number, reflect: true }) step = 1;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           display: flex;
@@ -273,9 +273,8 @@ export class korInput extends LitElement {
     super();
     this.addEventListener('click', () => {
       this.active = true;
-      this.shadowRoot.querySelector('input').focus()
-     }
-    );
+      this.shadowRoot.querySelector('input').focus();
+    });
   }
 
   handleClear() {

@@ -1,1 +1,1 @@
-export { korAvatar } from './kor-avatar'
+export { korAvatar } from './kor-avatar';

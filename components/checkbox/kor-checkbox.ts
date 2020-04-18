@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-checkbox')
 export class korCheckbox extends LitElement {
@@ -8,8 +8,8 @@ export class korCheckbox extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           display: flex;

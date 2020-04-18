@@ -1,11 +1,11 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-switch')
 export class korSwitch extends LitElement {
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           background-color: rgba(var(--neutral-1), 0.1);

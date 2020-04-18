@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-pane')
 export class korPane extends LitElement {
@@ -15,8 +15,8 @@ export class korPane extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           background-color: rgb(var(--base-2));

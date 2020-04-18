@@ -1,1 +1,1 @@
-export { korTool } from './kor-tool'
+export { korTool } from './kor-tool';

@@ -1,13 +1,13 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-tabs')
 export class korTabs extends LitElement {
   @property({ type: String, reflect: true }) orientation = 'horizontal';
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           display: flex;

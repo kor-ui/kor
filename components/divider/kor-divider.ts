@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-divider')
 export class korDivider extends LitElement {
@@ -7,8 +7,8 @@ export class korDivider extends LitElement {
   @property({ type: String, reflect: true }) orientation = 'horizontal';
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host([orientation='horizontal']) {
           width: 100%;

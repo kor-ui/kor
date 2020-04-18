@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-page')
 export class korPage extends LitElement {
@@ -9,8 +9,8 @@ export class korPage extends LitElement {
   @property({ type: Boolean, reflect: true }) flat = false;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           height: 100%;

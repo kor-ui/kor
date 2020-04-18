@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-text')
 export class korText extends LitElement {
@@ -7,8 +7,8 @@ export class korText extends LitElement {
   @property({ type: String, reflect: true }) color;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           color: var(--text-1);

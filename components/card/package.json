@@ -1,27 +1,27 @@
 {
-    "name": "@kor-ui/card",
-    "version": "1.0.4",
-    "description": "Kor card component.",
-    "author": "Eduardo Ferreira",
-    "license": "MIT",
-    "homepage": "https://kor-ui.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/eduferfer/kor.git"
-    },
-    "dependencies": {
-        "@kor-ui/icon": "latest",
-        "@kor-ui/kor": "latest"
-    },
-    "keywords": [
-        "design system",
-        "ui",
-        "ux",
-        "litelement",
-        "design",
-        "webcomponents",
-        "baukasten",
-        "card"
-    ],
-    "gitHead": "c0b568727ed4cdf77e4ed3bfa3bdd234d27e5d98"
+  "name": "@kor-ui/card",
+  "version": "1.0.4",
+  "description": "Kor card component.",
+  "author": "Eduardo Ferreira",
+  "license": "MIT",
+  "homepage": "https://kor-ui.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduferfer/kor.git"
+  },
+  "dependencies": {
+    "@kor-ui/icon": "latest",
+    "@kor-ui/kor": "latest"
+  },
+  "keywords": [
+    "design system",
+    "ui",
+    "ux",
+    "litelement",
+    "design",
+    "webcomponents",
+    "baukasten",
+    "card"
+  ],
+  "gitHead": "c0b568727ed4cdf77e4ed3bfa3bdd234d27e5d98"
 }

@@ -1,1 +1,1 @@
-export { korDrawer } from './kor-drawer'
+export { korDrawer } from './kor-drawer';

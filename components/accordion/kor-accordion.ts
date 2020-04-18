@@ -15,8 +15,8 @@ export class korAccordion extends LitElement {
   @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         kor-card {
           padding: 8px 16px;

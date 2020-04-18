@@ -1,5 +1,5 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
-import { sharedStyles } from '../../shared-styles'
+import { sharedStyles } from '../../shared-styles';
 
 @customElement('kor-empty-state')
 export class korEmptyState extends LitElement {
@@ -7,8 +7,8 @@ export class korEmptyState extends LitElement {
   @property({ type: String, reflect: true }) icon;
 
   static get styles() {
-    return [ 
-      sharedStyles, 
+    return [
+      sharedStyles,
       css`
         :host {
           height: 100%;

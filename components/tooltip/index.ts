@@ -1,1 +1,1 @@
-export { korTooltip } from './kor-tooltip'
+export { korTooltip } from './kor-tooltip';
