@@ -22,7 +22,7 @@ export class korTool extends LitElement {
           width: fit-content;
           padding: 4px;
           box-sizing: border-box;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           cursor: pointer;
           border-radius: 4px;
         }

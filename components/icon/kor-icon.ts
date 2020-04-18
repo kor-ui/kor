@@ -22,7 +22,7 @@ export class korIcon extends LitElement {
           font-feature-settings: 'liga';
           opacity: 0.9;
           color: var(--text-1);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           height: fit-content;
           width: fit-content;
           min-height: fit-content;

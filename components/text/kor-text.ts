@@ -12,7 +12,7 @@ export class korText extends LitElement {
       css`
         :host {
           color: var(--text-1);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         :host([size='body-1']) {
           font: var(--body-1);

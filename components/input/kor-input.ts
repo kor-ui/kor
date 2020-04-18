@@ -41,7 +41,7 @@ export class korInput extends LitElement {
         :host,
         .label,
         input {
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         .center {
           flex: 1;
@@ -116,10 +116,10 @@ export class korInput extends LitElement {
         }
         /* clear */
         .clear-icon {
-          transition: 0.1s all ease-in-out, 0.1s opacity ease-in-out 0.1s;
+          transition: var(--transition-1), 0.1s opacity ease-in-out 0.1s;
         }
         :host(:not(:hover):not([active])) .clear-icon {
-          transition: 0.1s all ease-in-out, 0.1s width ease-in-out 0.1s,
+          transition: var(--transition-1), 0.1s width ease-in-out 0.1s,
             0.1s margin ease-in-out 0.1s;
           width: 0px;
           opacity: 0;

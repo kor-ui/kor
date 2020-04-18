@@ -20,7 +20,7 @@ export class korNotificationItem extends LitElement {
       sharedStyles,
       css`
         :host {
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           opacity: 1;
         }
         :host(:not([visible])) {

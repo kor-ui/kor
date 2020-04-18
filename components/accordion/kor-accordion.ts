@@ -25,7 +25,7 @@ export class korAccordion extends LitElement {
           margin-top: 16px;
           display: flex;
           flex-direction: column;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         /* expanded */
         :host(:not([expanded])) slot:not([name]) {

@@ -17,7 +17,7 @@ export class korTabItem extends LitElement {
           display: flex;
           align-items: center;
           box-sizing: border-box;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           cursor: pointer;
           border-color: transparent;
           border-style: solid;

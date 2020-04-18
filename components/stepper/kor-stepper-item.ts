@@ -23,7 +23,7 @@ export class korStepperItem extends LitElement {
           display: flex;
           align-items: center;
           box-sizing: border-box;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           cursor: pointer;
         }
         .circle {
@@ -36,7 +36,7 @@ export class korStepperItem extends LitElement {
           padding: 8px;
           border-radius: 50%;
           background-color: rgba(var(--neutral-1), 0.1);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         .text {
           display: flex;

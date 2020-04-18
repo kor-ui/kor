@@ -12,7 +12,7 @@ export class korTableRow extends LitElement {
         :host {
           display: grid;
           border-bottom: 1px solid rgba(var(--neutral-1), 0.15);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         /* header */
         :host([slot='header']) {

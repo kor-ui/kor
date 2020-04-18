@@ -23,7 +23,7 @@ export class korDrawer extends LitElement {
       sharedStyles,
       css`
         :host {
-          transition: 0.1s all ease-in-out, 0s top, 0s left;
+          transition: var(--transition-1), 0s top, 0s left;
           position: fixed;
           opacity: 1;
           z-index: 5;

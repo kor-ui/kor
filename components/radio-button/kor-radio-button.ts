@@ -20,7 +20,7 @@ export class korRadioButton extends LitElement {
         }
         /* box */
         .circle {
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           display: flex;
           align-items: center;
           justify-content: center;

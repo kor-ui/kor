@@ -18,7 +18,7 @@ export class korButton extends LitElement {
           width: fit-content;
           border-radius: 4px;
           cursor: pointer;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           justify-content: center;
         }
         .label {

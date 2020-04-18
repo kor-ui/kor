@@ -18,7 +18,7 @@ export class korMenuItem extends LitElement {
           border-radius: 4px;
           display: flex;
           cursor: pointer;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           overflow: visible;
         }
         kor-icon {

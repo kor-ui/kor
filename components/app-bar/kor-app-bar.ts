@@ -20,7 +20,7 @@ export class korAppBar extends LitElement {
           overflow: hidden;
           background-color: rgb(var(--base-0));
           box-shadow: var(--shadow-1);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         .logo {
           height: 24px;

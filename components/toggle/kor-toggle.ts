@@ -27,7 +27,7 @@ export class korToggle extends LitElement {
           border-radius: 12px;
           box-sizing: border-box;
           border: 2px solid rgba(var(--neutral-1), 0.25);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         :host([active]) .bg {
           border-color: transparent;
@@ -35,7 +35,7 @@ export class korToggle extends LitElement {
         }
         .dot {
           display: flex;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
           height: 12px;
           width: 12px;
           border-radius: 50%;

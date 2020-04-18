@@ -20,7 +20,7 @@ export class korTag extends LitElement {
           max-width: 160px;
           border-radius: 4px;
           border: 1px solid rgba(var(--neutral-1), 0.25);
-          transition: 0.1s ease-in-out;
+          transition: var(--transition-1);
         }
         .label {
           margin: 0 4px;

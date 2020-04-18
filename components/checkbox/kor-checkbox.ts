@@ -29,7 +29,7 @@ export class korCheckbox extends LitElement {
           border-radius: 2px;
           box-sizing: border-box;
           border: 2px solid rgba(var(--neutral-1), 0.25);
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         :host([active]) .box {
           border-color: transparent;

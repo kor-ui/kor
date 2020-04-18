@@ -22,7 +22,7 @@ export class korSwitchItem extends LitElement {
           cursor: pointer;
           align-items: center;
           justify-content: center;
-          transition: 0.1s all ease-in-out;
+          transition: var(--transition-1);
         }
         .label {
           user-select: none;
