@@ -272,7 +272,6 @@ export class korInput extends LitElement {
   constructor() {
     super();
     this.addEventListener('click', () => {
-      console.log("hi");
       this.active = true;
       this.shadowRoot.querySelector('input').focus()
      }
