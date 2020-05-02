@@ -2,4 +2,5 @@ kor.js
 node_modules
 components/*/index.js
 index.js
+map.json
 .DS_Store

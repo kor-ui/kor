@@ -1,10 +1,21 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset)..
+ * @prop {String} logo - If set, defines the logo shown on the left side.
+ * @prop {Boolean} mobile - If set, toggles the mobile variation.
+ * 
+ * @slot - The central content area. Used for hosting components such as Tabs.
+ * @slot functions - Displayed on the right side (if mobile is unset). Used for hosting components such as Icon and Avatar.
+ * @slot left - Displayed on the left side (if mobile is set to true). Used for hosting components such as Icon.
+ * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
+ */
+
 @customElement('kor-app-bar')
 export class korAppBar extends LitElement {
-  @property({ type: String, reflect: true }) logo;
   @property({ type: String, reflect: true }) label;
+  @property({ type: String, reflect: true }) logo;
   @property({ type: Boolean, reflect: true }) mobile;
 
   static get styles() {

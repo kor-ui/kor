@@ -1,5 +1,5 @@
-export { korAccordion } from './components/accordion/kor-accordion';
-export { korAppBar } from './components/app-bar/kor-app-bar';
+export { korAccordion } from './components/accordion/accordion';
+export { korAppBar } from './components/app-bar/app-bar';
 export { korAvatar } from './components/avatar/kor-avatar';
 export { korBadge } from './components/badge/kor-badge';
 export { korBreadcrumbs } from './components/breadcrumbs/kor-breadcrumbs';

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "webpack --config webpack.dev.config.js",
-    "analyze": "wca analyze 'components/**/kor-*.ts' --outFile wca.json",
+    "analyze": "wca analyze 'components/**/kor-*.ts' --outFile map.json",
     "publish": "npm run analyze && lerna publish"
   },
   "author": "Eduardo Ferreira",
