@@ -1,6 +1,13 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} label -	If set, defines the text label shown under the icon.
+ * @prop {String} icon - If set, defines the icon shown above the label.
+ *
+ * @slot footer - Displayed below the label.
+ */
+
 @customElement('kor-empty-state')
 export class korEmptyState extends LitElement {
   @property({ type: String, reflect: true }) label;

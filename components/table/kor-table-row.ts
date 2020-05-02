@@ -1,6 +1,12 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {Boolean} active - If set to true, a highlight style gets applied.
+ *
+ * @slot - Hosts (kor-table-cells).
+ */
+
 @customElement('kor-table-row')
 export class korTableRow extends LitElement {
   @property({ type: Boolean, reflect: true }) active;

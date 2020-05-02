@@ -1,6 +1,13 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} label - If set, defines the text label.
+ * @prop {String} icon - If set, defines the icon shown above the label (if set).
+ * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
+ * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ */
+
 @customElement('kor-tab-item')
 export class korTabItem extends LitElement {
   @property({ type: String, reflect: true }) label;

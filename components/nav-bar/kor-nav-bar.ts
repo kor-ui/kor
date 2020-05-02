@@ -1,6 +1,11 @@
 import { LitElement, css, html, customElement } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @slot - The main content area.
+ * @slot functions - Shown on the right side.
+ */
+
 @customElement('kor-nav-bar')
 export class korNavbar extends LitElement {
   static get styles() {

@@ -1,6 +1,11 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} label - If set, defines the text label.
+ * @prop {String} size - Defines the size of the component. Possible values are s (24px), m (32px) and l (40px).
+ */
+
 @customElement('kor-spinner')
 export class korSpinner extends LitElement {
   @property({ type: String, reflect: true }) size = 'm';

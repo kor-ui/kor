@@ -1,6 +1,12 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} position - Defines the corner where the notification is located. Possible values are top-left, top-right, bottom-left and bottom-right.
+ *
+ * @slot - Hosts kor-notification-items.
+ */
+
 @customElement('kor-notifications')
 export class korNotifications extends LitElement {
   @property({ type: String, reflect: true }) position = 'top-right';

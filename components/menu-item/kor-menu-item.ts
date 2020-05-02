@@ -1,6 +1,17 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} label - Defines the text label.
+ * @prop {String} icon - If set, defines the icon shown before the label.
+ * @prop {Boolean} active - If set to true, a highlight style gets applied.
+ * @prop {Boolean} toggle - If set to true, clicking on the component will toggle the active property between true and false.
+ * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ *
+ * @slot - Displayed inside the content area.
+ * @slot functions - Shown on the right side.
+ */
+
 @customElement('kor-menu-item')
 export class korMenuItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';

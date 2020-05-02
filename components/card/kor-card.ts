@@ -1,6 +1,19 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/**
+ * @prop {String} label -	If set, defines the text label.
+ * @prop {String} icon - If set, defines the icon shown close to the label.
+ * @prop {String} image - If set, defines the image shown on top of the card.
+ * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {Boolean} flat - If set, background, shadows and external padding are not shown.
+ *
+ * @slot - Displayed inside the content area.
+ * @slot header - Shown on top of the card, below the label (if any is set).
+ * @slot functions - Shown on the right side of the label or header slot.
+ * @slot footer - Shown below the content area.
+ */
+
 @customElement('kor-card')
 export class korCard extends LitElement {
   @property({ type: String, reflect: true }) label;
@@ -11,9 +24,9 @@ export class korCard extends LitElement {
   @property({ type: Boolean, reflect: true }) flat = false;
 
   // readonly properties
-  @property({ type: Boolean }) emptyHeader = true;
-  @property({ type: Boolean }) emptyFunctions = true;
-  @property({ type: Boolean }) emptyFooter = true;
+  emptyHeader = true;
+  emptyFunctions = true;
+  emptyFooter = true;
 
   static get styles() {
     return [
