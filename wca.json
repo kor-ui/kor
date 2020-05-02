@@ -1,0 +1,1896 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "kor-accordion",
+      "path": "./components/accordion/kor-accordion.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "expanded",
+          "description": "If set to true, expands the accordion to display its content.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyBody",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "expanded",
+          "attribute": "expanded",
+          "description": "If set to true, expands the accordion to display its content.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the accordion when it is expanded."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot replaces the default text label and expand arrow with custom content."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed close to the 'expand' arrow."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content when it is expanded."
+        }
+      ]
+    },
+    {
+      "name": "kor-app-bar",
+      "path": "./components/app-bar/kor-app-bar.ts",
+      "attributes": [
+        {
+          "name": "logo"
+        },
+        {
+          "name": "label"
+        },
+        {
+          "name": "mobile"
+        }
+      ],
+      "properties": [
+        {
+          "name": "logo",
+          "attribute": "logo"
+        },
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "mobile",
+          "attribute": "mobile"
+        }
+      ]
+    },
+    {
+      "name": "kor-avatar",
+      "path": "./components/avatar/kor-avatar.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "info"
+        },
+        {
+          "name": "image"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "info",
+          "attribute": "info"
+        },
+        {
+          "name": "image",
+          "attribute": "image"
+        }
+      ]
+    },
+    {
+      "name": "kor-breadcrumb-item",
+      "path": "./components/breadcrumbs/kor-breadcrumb-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-breadcrumbs",
+      "path": "./components/breadcrumbs/kor-breadcrumbs.ts"
+    },
+    {
+      "name": "kor-badge",
+      "path": "./components/badge/kor-badge.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "status"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "status",
+          "attribute": "status"
+        }
+      ]
+    },
+    {
+      "name": "kor-button",
+      "path": "./components/button/kor-button.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"primary\""
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "color",
+          "attribute": "color",
+          "type": "string",
+          "default": "\"primary\""
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-checkbox",
+      "path": "./components/checkbox/kor-checkbox.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-card",
+      "path": "./components/card/kor-card.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "image"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "flat",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "image",
+          "attribute": "image"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "flat",
+          "attribute": "flat",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-divider",
+      "path": "./components/divider/kor-divider.ts",
+      "attributes": [
+        {
+          "name": "spacing",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "spacing",
+          "attribute": "spacing",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-drawer",
+      "path": "./components/drawer/kor-drawer.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "position",
+          "type": "string",
+          "default": "\"left\""
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "default": "\"320px\""
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "default": "\"320px\""
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "type": "string",
+          "default": "\"left\""
+        },
+        {
+          "name": "height",
+          "attribute": "height",
+          "type": "string",
+          "default": "\"320px\""
+        },
+        {
+          "name": "width",
+          "attribute": "width",
+          "type": "string",
+          "default": "\"320px\""
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-empty-state",
+      "path": "./components/empty-state/kor-empty-state.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        }
+      ]
+    },
+    {
+      "name": "kor-grid",
+      "path": "./components/grid/kor-grid.ts",
+      "attributes": [
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "12"
+        },
+        {
+          "name": "rows"
+        },
+        {
+          "name": "spacing",
+          "type": "string",
+          "default": "\"m\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "columns",
+          "attribute": "columns",
+          "type": "number",
+          "default": "12"
+        },
+        {
+          "name": "rows",
+          "attribute": "rows"
+        },
+        {
+          "name": "spacing",
+          "attribute": "spacing",
+          "type": "string",
+          "default": "\"m\""
+        }
+      ]
+    },
+    {
+      "name": "kor-icon",
+      "path": "./components/icon/kor-icon.ts",
+      "attributes": [
+        {
+          "name": "icon"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "button"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "color",
+          "attribute": "color"
+        },
+        {
+          "name": "button",
+          "attribute": "button"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-input",
+      "path": "./components/input/kor-input.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "value"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "\"text\""
+        },
+        {
+          "name": "status"
+        },
+        {
+          "name": "condensed"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        },
+        {
+          "name": "readonly"
+        },
+        {
+          "name": "no-clear"
+        },
+        {
+          "name": "pattern"
+        },
+        {
+          "name": "min"
+        },
+        {
+          "name": "max"
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "default": "1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "value",
+          "attribute": "value"
+        },
+        {
+          "name": "type",
+          "attribute": "type",
+          "type": "string",
+          "default": "\"text\""
+        },
+        {
+          "name": "status",
+          "attribute": "status"
+        },
+        {
+          "name": "condensed",
+          "attribute": "condensed"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly"
+        },
+        {
+          "name": "noClear",
+          "attribute": "no-clear"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern"
+        },
+        {
+          "name": "min",
+          "attribute": "min"
+        },
+        {
+          "name": "max",
+          "attribute": "max"
+        },
+        {
+          "name": "step",
+          "attribute": "step",
+          "type": "number",
+          "default": "1"
+        }
+      ]
+    },
+    {
+      "name": "kor-menu-item",
+      "path": "./components/menu-item/kor-menu-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "toggle",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "toggle",
+          "attribute": "toggle",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-modal",
+      "path": "./components/modal/kor-modal.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "default": "\"400px\""
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "default": "\"600px\""
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "height",
+          "attribute": "height",
+          "type": "string",
+          "default": "\"400px\""
+        },
+        {
+          "name": "width",
+          "attribute": "width",
+          "type": "string",
+          "default": "\"600px\""
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-nav-bar",
+      "path": "./components/nav-bar/kor-nav-bar.ts"
+    },
+    {
+      "name": "kor-notification-item",
+      "path": "./components/notifications/kor-notification-item.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-notifications",
+      "path": "./components/notifications/kor-notifications.ts",
+      "attributes": [
+        {
+          "name": "position",
+          "type": "string",
+          "default": "\"top-right\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "position",
+          "attribute": "position",
+          "type": "string",
+          "default": "\"top-right\""
+        }
+      ]
+    },
+    {
+      "name": "kor-page",
+      "path": "./components/page/kor-page.ts",
+      "attributes": [
+        {
+          "name": "theme"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"row\""
+        },
+        {
+          "name": "flat",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "theme",
+          "attribute": "theme"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"row\""
+        },
+        {
+          "name": "flat",
+          "attribute": "flat",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-pane",
+      "path": "./components/pane/kor-pane.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"l\""
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"l\""
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-popover",
+      "path": "./components/popover/kor-popover.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "position",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "target"
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "target",
+          "attribute": "target"
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "kor-progress-bar",
+      "path": "./components/progress-bar/kor-progress-bar.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "info"
+        },
+        {
+          "name": "status"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "value"
+        },
+        {
+          "name": "radial",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-progress",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "info",
+          "attribute": "info"
+        },
+        {
+          "name": "status",
+          "attribute": "status"
+        },
+        {
+          "name": "color",
+          "attribute": "color"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "value",
+          "attribute": "value"
+        },
+        {
+          "name": "radial",
+          "attribute": "radial",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "showProgress",
+          "attribute": "show-progress",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-radio-button",
+      "path": "./components/radio-button/kor-radio-button.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-spinner",
+      "path": "./components/spinner/kor-spinner.ts",
+      "attributes": [
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "label"
+        }
+      ],
+      "properties": [
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "label",
+          "attribute": "label"
+        }
+      ]
+    },
+    {
+      "name": "kor-stepper-item",
+      "path": "./components/stepper/kor-stepper-item.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "info"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "index"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        },
+        {
+          "name": "first"
+        },
+        {
+          "name": "last"
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "info",
+          "attribute": "info"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "index",
+          "attribute": "index"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        },
+        {
+          "name": "first",
+          "attribute": "first"
+        },
+        {
+          "name": "last",
+          "attribute": "last"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-stepper",
+      "path": "./components/stepper/kor-stepper.ts",
+      "attributes": [
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-switch-item",
+      "path": "./components/switch/kor-switch-item.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-switch",
+      "path": "./components/switch/kor-switch.ts"
+    },
+    {
+      "name": "kor-table-cell",
+      "path": "./components/table/kor-table-cell.ts",
+      "attributes": [
+        {
+          "name": "grid-cols"
+        },
+        {
+          "name": "alignment",
+          "type": "string",
+          "default": "\"left\""
+        },
+        {
+          "name": "head"
+        },
+        {
+          "name": "sorted"
+        },
+        {
+          "name": "sortable"
+        },
+        {
+          "name": "sort-direction"
+        }
+      ],
+      "properties": [
+        {
+          "name": "gridCols",
+          "attribute": "grid-cols"
+        },
+        {
+          "name": "alignment",
+          "attribute": "alignment",
+          "type": "string",
+          "default": "\"left\""
+        },
+        {
+          "name": "head",
+          "attribute": "head"
+        },
+        {
+          "name": "sorted",
+          "attribute": "sorted"
+        },
+        {
+          "name": "sortable",
+          "attribute": "sortable"
+        },
+        {
+          "name": "sortDirection",
+          "attribute": "sort-direction"
+        }
+      ]
+    },
+    {
+      "name": "kor-table-row",
+      "path": "./components/table/kor-table-row.ts",
+      "attributes": [
+        {
+          "name": "active"
+        }
+      ],
+      "properties": [
+        {
+          "name": "active",
+          "attribute": "active"
+        }
+      ]
+    },
+    {
+      "name": "kor-table",
+      "path": "./components/table/kor-table.ts",
+      "attributes": [
+        {
+          "name": "readonly"
+        },
+        {
+          "name": "condensed"
+        },
+        {
+          "name": "columns",
+          "type": "string",
+          "default": "\"repeat(24, 1fr)\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "readonly",
+          "attribute": "readonly"
+        },
+        {
+          "name": "condensed",
+          "attribute": "condensed"
+        },
+        {
+          "name": "columns",
+          "attribute": "columns",
+          "type": "string",
+          "default": "\"repeat(24, 1fr)\""
+        }
+      ]
+    },
+    {
+      "name": "kor-tab-item",
+      "path": "./components/tabs/kor-tab-item.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-tabs",
+      "path": "./components/tabs/kor-tabs.ts",
+      "attributes": [
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-tag",
+      "path": "./components/tag/kor-tag.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "removable"
+        },
+        {
+          "name": "button"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "type": "string",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "removable",
+          "attribute": "removable"
+        },
+        {
+          "name": "button",
+          "attribute": "button"
+        }
+      ]
+    },
+    {
+      "name": "kor-text",
+      "path": "./components/text/kor-text.ts",
+      "attributes": [
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"body-1\""
+        },
+        {
+          "name": "color"
+        }
+      ],
+      "properties": [
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"body-1\""
+        },
+        {
+          "name": "color",
+          "attribute": "color"
+        }
+      ]
+    },
+    {
+      "name": "kor-toggle",
+      "path": "./components/toggle/kor-toggle.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled"
+        }
+      ]
+    },
+    {
+      "name": "kor-tool",
+      "path": "./components/tool/kor-tool.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "toggle"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "type": "string",
+          "default": "\"m\""
+        },
+        {
+          "name": "toggle",
+          "attribute": "toggle"
+        },
+        {
+          "name": "active",
+          "attribute": "active"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-tooltip",
+      "path": "./components/tooltip/kor-tooltip.ts",
+      "attributes": [
+        {
+          "name": "label"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "position",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "target"
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "type": "string",
+          "default": "\"column\""
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "type": "string",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "target",
+          "attribute": "target"
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "emptyHeader",
+          "attribute": "emptyHeader",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFunctions",
+          "attribute": "emptyFunctions",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "emptyFooter",
+          "attribute": "emptyFooter",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    }
+  ]
+}

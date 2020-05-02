@@ -11,9 +11,9 @@ export class korNotificationItem extends LitElement {
   @property({ type: Boolean, reflect: true }) sticky;
 
   // readonly properties
-  @property({ type: Boolean }) emptyHeader = true;
-  @property({ type: Boolean }) emptyFunctions = true;
-  @property({ type: Boolean }) emptyFooter = true;
+  emptyHeader = true;
+  emptyFunctions = true;
+  emptyFooter = true;
 
   static get styles() {
     return [

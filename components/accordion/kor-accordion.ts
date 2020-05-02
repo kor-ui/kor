@@ -1,6 +1,19 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+
+/** 
+ * @prop {String} label -	Defines the text label.
+ * @prop {String} icon - If set, defines the icon shown before the label.
+ * @prop {Boolean} expanded -	If set to true, expands the accordion to display its content.
+ * @prop {Boolean} disabled -	If set to true, disables mouse clicks and the style gets updated. 
+ * 
+ * @slot - Displayed inside the accordion when it is expanded.
+ * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
+ * @slot functions - Displayed close to the 'expand' arrow.
+ * @slot footer - Displayed below the content when it is expanded.
+ */
+
 @customElement('kor-accordion')
 export class korAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
@@ -9,10 +22,10 @@ export class korAccordion extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   // readonly properties
-  @property({ type: Boolean }) emptyHeader = true;
-  @property({ type: Boolean }) emptyFunctions = true;
-  @property({ type: Boolean }) emptyBody = true;
-  @property({ type: Boolean }) emptyFooter = true;
+  emptyHeader = true;
+  emptyFunctions = true;
+  emptyBody = true;
+  emptyFooter = true;
 
   static get styles() {
     return [
@@ -109,14 +122,11 @@ export class korAccordion extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     // remove card padding
-    setTimeout(
-      () =>
-        ((<any>(
-          this.shadowRoot
-            .querySelector('kor-card')
-            .shadowRoot.querySelector('.top')
-        )).style.padding = '0'),
-      0
-    );
+    setTimeout(() => {
+      const topNode: any = this.shadowRoot
+        .querySelector('kor-card')
+        .shadowRoot.querySelector('.top');
+      topNode.style.padding = '0';
+    }, 0);
   }
 }
