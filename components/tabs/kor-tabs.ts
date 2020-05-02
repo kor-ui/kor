@@ -1,6 +1,12 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} orientation	- Defines the orientation of the component. Possible values are horizontal and vertical.
+ * 
+ * @slot - Hosts kor-tab-items.
+ */
+
 @customElement('kor-tabs')
 export class korTabs extends LitElement {
   @property({ type: String, reflect: true }) orientation = 'horizontal';
