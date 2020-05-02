@@ -1,6 +1,12 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} label -	If set, defines the text label.
+ * @prop {Boolean} active - If set to true, a highlight style gets applied.
+ * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ */
+
 @customElement('kor-checkbox')
 export class korCheckbox extends LitElement {
   @property({ type: String, reflect: true }) label;

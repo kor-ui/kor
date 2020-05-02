@@ -4,7 +4,6 @@ import { sharedStyles } from '../../shared-styles';
 /** 
  * @prop {Number} label -		If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.
  * @prop {String} status - If set, a status icon is shown inside the badge. Accepted values are error, warning, success.
-
  */
 
 @customElement('kor-badge')

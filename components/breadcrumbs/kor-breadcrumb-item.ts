@@ -1,6 +1,11 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} label - Defines the text label.
+ * @prop {Boolean} active - Defines whether the item is currently active or not.
+ */
+
 @customElement('kor-breadcrumb-item')
 export class korBreadcrumbItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';

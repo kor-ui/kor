@@ -1,6 +1,19 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} label - If set, defines the text label.
+ * @prop {String} icon - If set, defines the icon shown close to the label.
+ * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
+ * @prop {Boolean} sticky - If set to true, the close icon will not be displayed.
+ * 
+ * @slot - Displayed inside the content area.
+ * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
+ * @slot functions - Displayed on the right side of the label or header slot.
+ * @slot footer - Displayed below the content area.
+ */
+
 @customElement('kor-notification-item')
 export class korNotificationItem extends LitElement {
   @property({ type: String, reflect: true }) label;
