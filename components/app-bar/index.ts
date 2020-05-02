@@ -1,1 +1,1 @@
-export { korAppBar } from './app-bar';
+export { korAppBar } from './kor-app-bar';

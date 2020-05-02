@@ -2,7 +2,7 @@ import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /** 
- * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset)..
+ * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset).
  * @prop {String} logo - If set, defines the logo shown on the left side.
  * @prop {Boolean} mobile - If set, toggles the mobile variation.
  * 
