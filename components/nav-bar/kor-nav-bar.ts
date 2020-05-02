@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @slot - The main content area.
  * @slot functions - Shown on the right side.
  */

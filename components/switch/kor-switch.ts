@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @slot - Hosts kor-switch-items.
  */
 

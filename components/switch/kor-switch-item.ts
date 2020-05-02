@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown instead of text label.
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.

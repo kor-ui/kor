@@ -1,9 +1,9 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {Boolean} active - If set to true, a highlight style gets applied.
- * 
+ *
  * @slot - Hosts (kor-table-cells).
  */
 

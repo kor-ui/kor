@@ -1,12 +1,12 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label -	Defines the text label.
  * @prop {String} icon - If set, defines the icon shown before the label.
  * @prop {Boolean} expanded -	If set to true, expands the accordion to display its content.
- * @prop {Boolean} disabled -	If set to true, disables mouse clicks and the style gets updated. 
- * 
+ * @prop {Boolean} disabled -	If set to true, disables mouse clicks and the style gets updated.
+ *
  * @slot - Displayed inside the accordion when it is expanded.
  * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
  * @slot functions - Displayed close to the 'expand' arrow.

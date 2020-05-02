@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} info - If set, defines the information text shown below the label.
  * @prop {String} icon - If set, defines the icon shown instead of the index number.

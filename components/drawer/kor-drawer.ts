@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
@@ -10,7 +10,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} width - Defines the width of the container (not the overlay).
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
  * @prop {Boolean} sticky - If set to true, clicking on the background will not hide the component. The close icon will also not be displayed.
- * 
+ *
  * @slot - Displayed inside the content area.
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Shown on the right side of the label or header slot.
@@ -24,7 +24,8 @@ export class korDrawer extends LitElement {
   @property({ type: String, reflect: true }) position = 'left';
   @property({ type: String, reflect: true }) height = '320px';
   @property({ type: String, reflect: true }) width = '320px';
-  @property({ type: String, reflect: true, attribute: 'flex-direction' }) flexDirection = 'column';
+  @property({ type: String, reflect: true, attribute: 'flex-direction' })
+  flexDirection = 'column';
   @property({ type: Boolean, reflect: true }) visible = false;
   @property({ type: Boolean, reflect: true }) sticky;
 

@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label -	Defines the text label.
  * @prop {String} icon - If set, replaces the text label with a custom icon.
  * @prop {String} color - Defines the color. The possible values are primary, secondary and tertiary

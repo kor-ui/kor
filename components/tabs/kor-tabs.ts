@@ -1,9 +1,9 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} orientation	- Defines the orientation of the component. Possible values are horizontal and vertical.
- * 
+ *
  * @slot - Hosts kor-tab-items.
  */
 

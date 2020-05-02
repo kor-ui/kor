@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
@@ -9,7 +9,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} target - Defines the DOM element to which the click event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
  * @prop {Boolean} sticky - If set to true, clicking on the page will not hide the component.
- * 
+ *
  * @slot - Displayed inside the content area.
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Displayed on the right side of the label or header slot.

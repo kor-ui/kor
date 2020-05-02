@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label - If set, defines the text label shown above the bar.
  * @prop {String} info - If set, defines the info text shown below of the bar.
  * @prop {String} value - Defines the value of the bar. Must be a number from 0 to 100.

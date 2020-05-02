@@ -1,7 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
-/** 
+/**
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
@@ -16,7 +16,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {Boolean} readonly - If set to true, disables the input without reducing the opacity.
  * @prop {Boolean} noClear - If set to true, the clear icon and functionality will not be available.
- * 
+ *
  * @slot - Displayed inside the content area.
  * @slot functions - Shown on the right side.
  */
