@@ -1,5 +1,9 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, customElement } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+
+/** 
+ * @slot - Hosts kor-switch-items.
+ */
 
 @customElement('kor-switch')
 export class korSwitch extends LitElement {

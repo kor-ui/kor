@@ -1,6 +1,15 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
+/** 
+ * @prop {String} label - If set, defines the text label.
+ * @prop {String} info - If set, defines the information text shown below the label.
+ * @prop {String} icon - If set, defines the icon shown instead of the index number.
+ * @prop {Number} index - Defines the index number shown inside the bubble (if icon is undefined). It is set dinamically by the component.
+ * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
+ * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ */
+
 @customElement('kor-stepper-item')
 export class korStepperItem extends LitElement {
   @property({ type: String, reflect: true }) label;
