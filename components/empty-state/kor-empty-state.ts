@@ -35,6 +35,9 @@ export class korEmptyState extends LitElement {
         kor-icon + kor-text {
           margin-top: 8px;
         }
+        kor-text {
+          text-align: center;
+        }
       `,
     ];
   }

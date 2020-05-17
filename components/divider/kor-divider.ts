@@ -3,7 +3,7 @@ import { sharedStyles } from '../../shared-styles';
 
 /**
  * @prop {String} spacing -	Defines the space around the divider. Possible values are s, n and l.
- * @prop {Boolean} orientation - Defines the orientation of the divider. Possible values are vertical and horizontal.
+ * @prop {String} orientation - Defines the orientation of the divider. Possible values are vertical and horizontal.
  */
 
 @customElement('kor-divider')
