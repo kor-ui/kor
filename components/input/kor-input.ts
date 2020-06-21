@@ -171,10 +171,7 @@ export class korInput extends LitElement {
           transform: rotate(180deg);
         }
         .select-menu {
-          position: absolute;
-          top: calc(100% + 1px);
-          left: 0px;
-          width: 100%;
+          position: fixed;
           max-height: 240px;
           z-index: 3;
           padding: 0px 16px;
@@ -215,7 +212,6 @@ export class korInput extends LitElement {
           step="${this.step}"
           pattern="${this.pattern}"
           .value="${this.value !== undefined ? this.value : ''}"
-          value="${this.value !== undefined ? this.value : ''}"
           @input=${(e) =>
             e.target.value
               ? this.type !== 'number'
@@ -279,7 +275,12 @@ export class korInput extends LitElement {
             ></kor-icon>
             ${this.active
               ? html`
-                  <kor-card class="select-menu">
+                  <kor-card
+                    class="select-menu"
+                    .style="top: ${this.getMenuStyles()
+                      .top}; left: ${this.getMenuStyles()
+                      .left}; width: ${this.getMenuStyles().width};"
+                  >
                     <slot @slotchange="${(e) => this.handleItems(e)}"></slot>
                   </kor-card>
                 `
@@ -320,7 +321,7 @@ export class korInput extends LitElement {
   }
 
   handleItems(e) {
-    let items: any = e.target.assignedNodes();
+    const items: any = e.target.assignedNodes();
     items.forEach((el) => {
       if (el.tagName === 'KOR-MENU-ITEM') {
         // handle click on menu item
@@ -342,15 +343,16 @@ export class korInput extends LitElement {
   attributeChangedCallback(name, oldval, newval) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
-    if (name == 'active' && this.active) {
+    if (name == 'active' && this.active && this.type == 'select') {
       this.handleMenu();
     }
   }
 
   handleMenu() {
-    let self = this;
+    const self = this;
+    const menuNode = this.shadowRoot.querySelector('.select-menu');
     // handle click outside of popover
-    let closePopover = function (e) {
+    const closePopover = function (e) {
       if (e.target !== self) {
         self.active = false;
         document.removeEventListener('click', closePopover);
@@ -385,5 +387,14 @@ export class korInput extends LitElement {
         break;
     }
     return icon;
+  }
+
+  getMenuStyles() {
+    let styles = {
+      top: `${this.getBoundingClientRect().top + this.scrollHeight + 1}px`,
+      left: `${this.getBoundingClientRect().left}px`,
+      width: `${this.scrollWidth}px`,
+    };
+    return styles;
   }
 }
