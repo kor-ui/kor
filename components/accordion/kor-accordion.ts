@@ -21,10 +21,14 @@ export class korAccordion extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
 
   // readonly properties
-  emptyHeader = true;
-  emptyFunctions = true;
-  emptyBody = true;
-  emptyFooter = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyHeader = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFunctions = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyBody = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
     return [
