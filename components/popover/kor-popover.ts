@@ -28,9 +28,12 @@ export class korPopover extends LitElement {
   @property({ type: Boolean, reflect: true }) sticky;
 
   // readonly properties
-  emptyHeader = true;
-  emptyFunctions = true;
-  emptyFooter = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyHeader = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFunctions = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
     return [

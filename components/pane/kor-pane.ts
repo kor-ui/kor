@@ -22,9 +22,12 @@ export class korPane extends LitElement {
   @property({ type: String, reflect: true }) size = 'l';
 
   // readonly properties
-  emptyHeader = true;
-  emptyFunctions = true;
-  emptyFooter = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyHeader = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFunctions = true;
+  /** @ignore */
+  @property({ type: Boolean }) emptyFooter = true;
 
   static get styles() {
     return [

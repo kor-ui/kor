@@ -81,7 +81,15 @@ export class korAppBar extends LitElement {
     return html`
       ${!this.mobile
         ? html`
-            ${this.logo ? html` <img class="logo" src="${this.logo}" @click="${() => this.handleLogoClick()}" /> ` : ''}
+            ${this.logo
+              ? html`
+                  <img
+                    class="logo"
+                    src="${this.logo}"
+                    @click="${() => this.handleLogoClick()}"
+                  />
+                `
+              : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
