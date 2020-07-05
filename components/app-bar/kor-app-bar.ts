@@ -81,7 +81,7 @@ export class korAppBar extends LitElement {
     return html`
       ${!this.mobile
         ? html`
-            ${this.logo ? html` <img class="logo" src="${this.logo}" /> ` : ''}
+            ${this.logo ? html` <img class="logo" src="${this.logo}" @click="${() => this.handleLogoClick()}" /> ` : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
@@ -97,5 +97,9 @@ export class korAppBar extends LitElement {
   attributeChangedCallback(name, oldval, newval) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
+  }
+
+  handleLogoClick() {
+    this.dispatchEvent(new Event('logo-clicked'));
   }
 }
