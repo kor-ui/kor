@@ -18,7 +18,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} noClear - If set to true, the clear icon and functionality will not be available.
  *
  * @slot - Displayed inside the content area.
- * @slot functions - Shown on the right side.
+ * @slot functions - Displayed on the right side.
  */
 
 @customElement('kor-input')
