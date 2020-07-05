@@ -10,6 +10,7 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Displayed on the right side (if mobile is unset). Used for hosting components such as Icon and Avatar.
  * @slot left - Displayed on the left side (if mobile is set to true). Used for hosting components such as Icon.
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
+ * 
  * @fires logo-clicked - Fired when clicking on the logo.
  */
 
