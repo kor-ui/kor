@@ -5,6 +5,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} label - If set, defines the text label shown next to the icon/image. If the label is set and an image is not defined, the initials will be shown as a placeholder.
  * @prop {String} info - If set, defines the information text shown below the label.
  * @prop {String} image - If set, replaces the placeholder image with a custom image.
+ * @prop {Boolean} condensed - If set to true, the image is shown in a smaller size.
  */
 
 @customElement('kor-avatar')
@@ -12,6 +13,7 @@ export class korAvatar extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) info;
   @property({ type: String, reflect: true }) image;
+  @property({ type: Boolean, reflect: true }) condensed;
 
   static get styles() {
     return [
@@ -56,6 +58,11 @@ export class korAvatar extends LitElement {
         }
         :host-context(kor-app-bar) {
           max-width: 288px;
+        }
+        /* condensed */
+        :host([condensed]) .image {
+          height: 24px;
+          width: 24px;
         }
       `,
     ];
