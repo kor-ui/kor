@@ -10,6 +10,7 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Displayed on the right side (if mobile is unset). Used for hosting components such as Icon and Avatar.
  * @slot left - Displayed on the left side (if mobile is set to true). Used for hosting components such as Icon.
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
+ * @fires logo-clicked - Fired when clicking on the logo.
  */
 
 @customElement('kor-app-bar')
@@ -81,7 +82,15 @@ export class korAppBar extends LitElement {
     return html`
       ${!this.mobile
         ? html`
-            ${this.logo ? html` <img class="logo" src="${this.logo}" /> ` : ''}
+            ${this.logo
+              ? html`
+                  <img
+                    class="logo"
+                    src="${this.logo}"
+                    @click="${() => this.handleLogoClick()}"
+                  />
+                `
+              : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
@@ -97,5 +106,9 @@ export class korAppBar extends LitElement {
   attributeChangedCallback(name, oldval, newval) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
+  }
+
+  handleLogoClick() {
+    this.dispatchEvent(new Event('logo-clicked'));
   }
 }

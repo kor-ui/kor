@@ -203,7 +203,7 @@ export class korInput extends LitElement {
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
           id="input"
-          type="${this.type}"
+          .type="${this.type}"
           ?readonly="${this.readonly ||
           this.disabled ||
           this.type === 'select'}"
@@ -212,12 +212,12 @@ export class korInput extends LitElement {
           step="${this.step}"
           pattern="${this.pattern}"
           .value="${this.value !== undefined ? this.value : ''}"
-          @input=${(e) =>
+          @input="${(e) =>
             e.target.value
               ? this.type !== 'number'
                 ? (this.value = e.target.value)
                 : ''
-              : this.removeAttribute('value')}
+              : this.removeAttribute('value')}"
           @focus="${() => (this.active = true)}"
           @blur="${(e) => this.handleBlur(e)}"
         />
