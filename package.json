@@ -1,6 +1,6 @@
 {
   "name": "@kor-ui/kor",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Web components library containing lightweight, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
@@ -25,9 +25,12 @@
     "webpack-dev-server": "^3.10.3"
   },
   "homepage": "https://kor-ui.com",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eduferfer/kor.git"
+    "url": "https://github.com/kor-ui/kor.git"
   },
   "keywords": [
     "design system",
@@ -37,5 +40,6 @@
     "design",
     "webcomponents",
     "baukasten"
-  ]
+  ],
+  "gitHead": "ac8e6237dd054f1590fe58a2270e48aa5ce28b63"
 }

@@ -1,13 +1,16 @@
 {
   "name": "@kor-ui/button",
-  "version": "1.0.9",
+  "version": "1.1.5",
   "description": "Kor button component.",
   "author": "Eduardo Ferreira",
   "license": "MIT",
   "homepage": "https://kor-ui.com",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eduferfer/kor.git"
+    "url": "https://github.com/kor-ui/kor.git"
   },
   "dependencies": {
     "@kor-ui/icon": "latest",
@@ -24,5 +27,5 @@
     "baukasten",
     "button"
   ],
-  "gitHead": "c0b568727ed4cdf77e4ed3bfa3bdd234d27e5d98"
+  "gitHead": "ac8e6237dd054f1590fe58a2270e48aa5ce28b63"
 }
