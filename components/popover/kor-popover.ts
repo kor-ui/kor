@@ -119,14 +119,20 @@ export class korPopover extends LitElement {
   }
 
   targetObserver() {
-    let tar = document.querySelector(this.target);
+    const tar =
+      typeof this.target === 'string'
+        ? document.querySelector(this.target)
+        : this.target;
     if (tar) {
       tar.addEventListener('click', () => this.handlePosition(tar));
     }
   }
 
   visibleObserver() {
-    let tar = document.querySelector(this.target);
+    const tar =
+      typeof this.target === 'string'
+        ? document.querySelector(this.target)
+        : this.target;
     if (tar) {
       this.handlePosition(tar);
     }
