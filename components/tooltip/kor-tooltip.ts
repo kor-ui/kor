@@ -89,7 +89,10 @@ export class korTooltip extends LitElement {
 
   targetObserver() {
     let timeout;
-    let tar = document.querySelector(this.target);
+    const tar =
+      typeof this.target === 'string'
+        ? document.querySelector(this.target)
+        : this.target;
     if (tar) {
       // show on mouse over
       tar.addEventListener('mouseover', () => {

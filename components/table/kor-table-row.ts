@@ -26,15 +26,15 @@ export class korTableRow extends LitElement {
         }
         /* active */
         :host([active]) {
-          background: rgba(var(--neutral-1), 0.1);
+          background-color: rgba(var(--neutral-1), 0.1);
         }
         /* hover inputs */
         @media (hover: hover) {
           :host(:hover:not([active]):not([slot='header'])) {
-            background: rgba(var(--neutral-1), 0.05);
+            background-color: rgba(var(--neutral-1), 0.05);
           }
           :host(:hover:not([active])):host-context(kor-table[readonly]) {
-            background: transparent;
+            background-color: transparent;
           }
         }
       `,
@@ -69,7 +69,7 @@ export class korTableRow extends LitElement {
   }
 
   handleColumns() {
-    let table: any = this.closest('kor-table');
+    const table: any = this.closest('kor-table');
     // define columns on load
     this.style.gridTemplateColumns = table.columns;
     // listen to column changes
