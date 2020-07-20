@@ -78,6 +78,7 @@ export class korInput extends LitElement {
           -webkit-appearance: none;
           font: var(--body-1);
           color: var(--text-1);
+          max-height: 16px;
         }
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
@@ -127,8 +128,8 @@ export class korInput extends LitElement {
         :host([active]) .label {
           font: var(--body-2);
         }
-        :host([label]:not([value]):not([active])) .label {
-          margin-bottom: -16px;
+        :host(:not([value]):not([active])) input {
+          max-height: 0px;
         }
         input,
         .label {
@@ -141,6 +142,7 @@ export class korInput extends LitElement {
         :host(:not(:hover):not([active])) .clear-icon {
           transition: var(--transition-1), 0.1s width ease-in-out 0.1s,
             0.1s margin ease-in-out 0.1s;
+          font-size: 0px;
           width: 0px;
           opacity: 0;
           margin-left: 0;
@@ -166,6 +168,10 @@ export class korInput extends LitElement {
         :host([type='select']),
         :host([type='select']) * {
           cursor: pointer !important;
+        }
+        :host([type='text']) .center,
+        :host([type='number']) .center {
+          cursor: text;
         }
         :host([active]) .select-icon {
           transform: rotate(180deg);
@@ -276,6 +282,7 @@ export class korInput extends LitElement {
             ${this.active
               ? html`
                   <kor-card
+                    @wheel="${(e) => e.stopPropagation()}"
                     class="select-menu"
                     .style="top: ${this.getMenuStyles()
                       .top}; left: ${this.getMenuStyles()
@@ -350,15 +357,16 @@ export class korInput extends LitElement {
 
   handleMenu() {
     const self = this;
-    const menuNode = this.shadowRoot.querySelector('.select-menu');
     // handle click outside of popover
     const closePopover = function (e) {
-      if (e.target !== self) {
+      if ((e.type === 'click' && e.target !== self) || e.type === 'wheel') {
         self.active = false;
         document.removeEventListener('click', closePopover);
+        document.removeEventListener('wheel', closePopover);
       }
     };
     document.addEventListener('click', closePopover);
+    document.addEventListener('wheel', closePopover);
   }
 
   validateMinMax(val) {
@@ -390,11 +398,13 @@ export class korInput extends LitElement {
   }
 
   getMenuStyles() {
-    let styles = {
-      top: `${this.getBoundingClientRect().top + this.scrollHeight + 1}px`,
+    const styles = {
+      top: `${this.getBoundingClientRect().top + this.clientHeight + 1}px`,
       left: `${this.getBoundingClientRect().left}px`,
-      width: `${this.scrollWidth}px`,
+      width: `${this.clientWidth}px`,
     };
+    console.log(this.getBoundingClientRect);
+    console.log(styles);
     return styles;
   }
 }

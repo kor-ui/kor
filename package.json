@@ -1,12 +1,13 @@
 {
   "name": "@kor-ui/kor",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Web components library containing lightweight, ready-to-use and framework-agnostic User Interface elements.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "build": "webpack --config webpack.dev.config.js",
     "analyze": "wca analyze 'components/**/kor-*.ts' --outFile map.json",
-    "publish": "npm run build && npm run analyze && lerna publish"
+    "publish": "npm run build && npm run analyze && lerna publish",
+    "format": "prettier --write --single-quote components/*/kor-*"
   },
   "author": "Eduardo Ferreira",
   "license": "MIT",
