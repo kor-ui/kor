@@ -78,6 +78,7 @@ export class korPopover extends LitElement {
     return html`
       <kor-card
         @click="${(e) => e.stopPropagation()}"
+        @wheel="${(e) => e.stopPropagation()}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
@@ -171,11 +172,13 @@ export class korPopover extends LitElement {
   addDocListener(tar) {
     let self = this;
     let closePopover = function (e) {
-      if (e.target !== tar) {
+      if ((e.target !== tar && e.type === 'click') || e.type === 'wheel') {
         self.visible = false;
         document.removeEventListener('click', closePopover);
+        document.removeEventListener('wheel', closePopover);
       }
     };
     document.addEventListener('click', closePopover);
+    document.addEventListener('wheel', closePopover);
   }
 }
