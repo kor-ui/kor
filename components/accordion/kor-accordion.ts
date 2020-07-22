@@ -34,6 +34,9 @@ export class korAccordion extends LitElement {
     return [
       sharedStyles,
       css`
+        :host(:not([expanded])) kor-card {
+          cursor: pointer;
+        }
         kor-card {
           padding: 8px 16px;
         }
@@ -83,11 +86,13 @@ export class korAccordion extends LitElement {
 
   render() {
     return html`
-      <kor-card>
+      <kor-card
+        @click="${() => (!this.expanded ? (this.expanded = true) : '')}"
+      >
         <slot
           name="header"
           slot="header"
-          @click="${() => (this.expanded = !this.expanded)}"
+          @click="${(e) => this.handleCollapse(e)}"
         >
           <div class="header">
             ${this.icon
@@ -131,5 +136,12 @@ export class korAccordion extends LitElement {
         .shadowRoot.querySelector('.top');
       topNode.style.padding = '0';
     }, 0);
+  }
+
+  handleCollapse(e) {
+    if (this.expanded) {
+      this.expanded = false;
+      e.stopPropagation();
+    }
   }
 }
