@@ -26,9 +26,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "homepage": "https://kor-ui.com",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kor-ui/kor.git"
