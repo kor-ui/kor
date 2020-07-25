@@ -403,8 +403,6 @@ export class korInput extends LitElement {
       left: `${this.getBoundingClientRect().left}px`,
       width: `${this.clientWidth}px`,
     };
-    console.log(this.getBoundingClientRect);
-    console.log(styles);
     return styles;
   }
 }
