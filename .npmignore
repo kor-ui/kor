@@ -3,5 +3,6 @@ tsconfig.json
 webpack.dev.config.js
 .vscode
 *.ts
+!*.d.ts
 components/*/*.package.json
 lerna.json
