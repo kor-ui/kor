@@ -1,7 +1,7 @@
 {
-  "name": "@kor-ui/accordion",
+  "name": "@kor-ui/slider",
   "version": "1.2.0",
-  "description": "Kor accordion component.",
+  "description": "Kor slider component.",
   "author": "Eduardo Ferreira",
   "license": "MIT",
   "homepage": "https://kor-ui.com",
@@ -10,9 +10,8 @@
     "url": "https://github.com/kor-ui/kor.git"
   },
   "dependencies": {
-    "@kor-ui/card": "latest",
-    "@kor-ui/icon": "latest",
-    "@kor-ui/kor": "latest"
+    "@kor-ui/kor": "latest",
+    "@kor-ui/text": "latest"
   },
   "keywords": [
     "design system",
@@ -22,7 +21,7 @@
     "design",
     "webcomponents",
     "baukasten",
-    "accordion"
+    "slider"
   ],
   "gitHead": "ac8e6237dd054f1590fe58a2270e48aa5ce28b63"
 }

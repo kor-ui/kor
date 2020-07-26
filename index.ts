@@ -23,6 +23,7 @@ export { korPane } from './components/pane/kor-pane';
 export { korPopover } from './components/popover/kor-popover';
 export { korProgressBar } from './components/progress-bar/kor-progress-bar';
 export { korRadioButton } from './components/radio-button/kor-radio-button';
+export { korSlider } from './components/slider/kor-slider';
 export { korSpinner } from './components/spinner/kor-spinner';
 export { korStepper } from './components/stepper/kor-stepper';
 export { korStepperItem } from './components/stepper/kor-stepper-item';
