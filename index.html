@@ -37,6 +37,13 @@
     </kor-nav-bar>
     <!-- panes -->
     <kor-pane slot="left" label="Left Pane">
+      <!-- slider -->
+      <kor-accordion label="Slider">
+        <kor-slider></kor-slider>
+        <kor-slider label="Label" value="50"></kor-slider>
+        <kor-slider label="Label" min="0" max="200" step="10" value="150"></kor-slider>
+        <kor-slider label="Label" min="0" max="200" step="10" value="150" input></kor-slider>
+      </kor-accordion>
       <!-- switch -->
       <kor-accordion label="Switch">
         <kor-switch>

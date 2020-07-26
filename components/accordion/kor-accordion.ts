@@ -78,6 +78,8 @@ export class korAccordion extends LitElement {
         /* disabled */
         :host([disabled]) .header {
           opacity: 0.2;
+        }
+        :host([disabled]) kor-card {
           pointer-events: none;
         }
       `,

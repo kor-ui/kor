@@ -29,6 +29,7 @@ module.exports = {
     "components/popover": './components/popover/index.ts',
     "components/progress-bar": './components/progress-bar/index.ts',
     "components/radio-button": './components/radio-button/index.ts',
+    "components/slider": './components/slider/index.ts',
     "components/spinner": './components/spinner/index.ts',
     "components/stepper": './components/stepper/index.ts',
     "components/switch": './components/switch/index.ts',
