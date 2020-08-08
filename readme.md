@@ -1,7 +1,7 @@
 ![](https://kor-ui.com/assets/favicon_light.png)
 # kor
 
-### Visit [www.kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
+### Visit [kor-ui.com](https://www.kor-ui.com/) for samples, APIs and other design/development documentation
 
 A design system / UI component library built with LitElement. Based on the web components standards, kor is browser-, framework- and OS-agnostic and can be used to build web, desktop and mobile applications using Angular, Vue, React, plain JS and so on.
 
