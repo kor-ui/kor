@@ -20,6 +20,7 @@ export class korButton extends LitElement {
       sharedStyles,
       css`
         :host {
+          font: var(--header-2);
           display: flex;
           height: fit-content;
           width: fit-content;
@@ -67,8 +68,11 @@ export class korButton extends LitElement {
           opacity: 0.2;
         }
         /* text and icon colors */
-        :host([color='primary']) .label,
-        :host([color='primary'][icon]) kor-icon {
+        kor-icon {
+          color: unset;
+        }
+
+        :host([color='primary']) {
           color: rgba(255, 255, 255, 0.9);
         }
         /* hover inputs */
@@ -91,7 +95,7 @@ export class korButton extends LitElement {
   render() {
     return html`
       ${!this.icon
-        ? html` <kor-text class="label">${this.label}</kor-text> `
+        ? html` ${this.label} `
         : html` <kor-icon icon="${this.icon}"></kor-icon> `}
     `;
   }
