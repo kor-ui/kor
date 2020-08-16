@@ -28,6 +28,7 @@ export class korTabItem extends LitElement {
           cursor: pointer;
           border-color: transparent;
           border-style: solid;
+          color: var(--text-2);
         }
         .label {
           line-height: 24px;
@@ -38,7 +39,7 @@ export class korTabItem extends LitElement {
         }
         .label,
         kor-icon {
-          color: var(--text-2);
+          color: unset;
         }
         /* horizontal */
         :host([orientation='horizontal']) {
@@ -75,8 +76,7 @@ export class korTabItem extends LitElement {
         :host([active]) {
           border-color: rgb(var(--accent-1));
         }
-        :host([active]) .label,
-        :host([active]) kor-icon {
+        :host([active]) {
           color: var(--text-1);
         }
         /* disabled */
@@ -86,8 +86,7 @@ export class korTabItem extends LitElement {
         }
         /* hover inputs */
         @media (hover: hover) {
-          :host(:hover:not([active])) .label,
-          :host(:hover:not([active])) kor-icon {
+          :host(:hover) .label {
             color: var(--text-1);
           }
         }
