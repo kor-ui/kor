@@ -21,6 +21,7 @@ export class korButton extends LitElement {
       css`
         :host {
           font: var(--header-2);
+          color: var(--text-1);
           display: flex;
           height: fit-content;
           width: fit-content;
@@ -28,9 +29,6 @@ export class korButton extends LitElement {
           cursor: pointer;
           transition: var(--transition-1);
           justify-content: center;
-        }
-        .label {
-          font-weight: bold;
           user-select: none;
           white-space: nowrap;
           overflow: hidden;
