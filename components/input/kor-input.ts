@@ -86,8 +86,8 @@ export class korInput extends LitElement {
           -webkit-appearance: none;
           margin: 0;
         }
-        input[type=number] {
-          -moz-appearance:textfield;
+        input[type='number'] {
+          -moz-appearance: textfield;
         }
         /* active */
         :host([active]) {
