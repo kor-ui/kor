@@ -23,8 +23,8 @@ export class korButton extends LitElement {
           font: var(--header-2);
           color: var(--text-1);
           display: flex;
-          height: fit-content;
-          width: fit-content;
+          height: max-content;
+          width: max-content;
           border-radius: 4px;
           cursor: pointer;
           transition: var(--transition-1);
