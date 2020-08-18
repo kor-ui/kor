@@ -18,7 +18,7 @@ export class korStepper extends LitElement {
         :host {
           display: flex;
           width: 100%;
-          height: fit-content;
+          height: max-content;
           overflow: auto;
         }
         /* vertical */

@@ -24,8 +24,8 @@ export class korTag extends LitElement {
         :host {
           padding: 4px;
           display: flex;
-          height: fit-content;
-          width: fit-content;
+          height: max-content;
+          width: max-content;
           max-width: 160px;
           border-radius: 4px;
           border: 1px solid rgba(var(--neutral-1), 0.25);

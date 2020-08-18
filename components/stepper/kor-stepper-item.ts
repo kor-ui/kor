@@ -103,7 +103,7 @@ export class korStepperItem extends LitElement {
           justify-content: flex-start;
           flex-direction: row;
           width: 100%;
-          height: fit-content;
+          height: max-content;
           padding: 16px 0;
         }
         :host([orientation='vertical']) .label,

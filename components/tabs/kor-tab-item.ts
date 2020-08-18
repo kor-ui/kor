@@ -45,7 +45,7 @@ export class korTabItem extends LitElement {
         :host([orientation='horizontal']) {
           flex-direction: column;
           justify-content: center;
-          width: fit-content;
+          width: max-content;
           min-width: 72px;
           max-width: 240px;
           height: 56px;
@@ -65,7 +65,7 @@ export class korTabItem extends LitElement {
           width: 100%;
           min-width: unset;
           max-width: 100%;
-          height: fit-content;
+          height: max-content;
           padding: 8px 8px 8px 14px;
           border-width: 0px 0px 0px 2px;
         }

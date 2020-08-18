@@ -19,7 +19,7 @@ export class korBadge extends LitElement {
           display: flex;
           justify-content: center;
           box-sizing: border-box;
-          width: fit-content;
+          width: max-content;
           min-width: 16px;
           padding: 0 4px;
           border-radius: 8px;

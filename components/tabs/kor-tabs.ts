@@ -18,7 +18,7 @@ export class korTabs extends LitElement {
         :host {
           display: flex;
           width: 100%;
-          height: fit-content;
+          height: max-content;
         }
         :host([slot='header']) {
           margin-top: -16px;
