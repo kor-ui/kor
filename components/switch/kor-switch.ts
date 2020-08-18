@@ -14,8 +14,8 @@ export class korSwitch extends LitElement {
         :host {
           background-color: rgba(var(--neutral-1), 0.1);
           display: flex;
-          width: fit-content;
-          height: fit-content;
+          width: max-content;
+          height: max-content;
           border-radius: 4px;
         }
       `,

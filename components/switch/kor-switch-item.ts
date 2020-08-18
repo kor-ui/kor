@@ -21,7 +21,7 @@ export class korSwitchItem extends LitElement {
       css`
         :host {
           display: flex;
-          width: fit-content;
+          width: max-content;
           min-width: 40px;
           max-width: 120px;
           padding: 4px 12px;

@@ -57,7 +57,7 @@ export class korCard extends LitElement {
         }
         .header,
         slot[name='functions'] {
-          height: fit-content;
+          height: max-content;
         }
         .header {
           flex: 1;

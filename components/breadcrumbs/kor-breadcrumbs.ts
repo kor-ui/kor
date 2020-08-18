@@ -14,7 +14,7 @@ export class korBreadcrumbs extends LitElement {
         :host {
           display: flex;
           width: 100%;
-          height: fit-content;
+          height: max-content;
         }
       `,
     ];

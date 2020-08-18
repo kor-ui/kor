@@ -31,10 +31,10 @@ export class korIcon extends LitElement {
           opacity: 0.9;
           color: var(--text-1);
           transition: var(--transition-1);
-          height: fit-content;
-          width: fit-content;
-          min-height: fit-content;
-          min-width: fit-content;
+          height: max-content;
+          width: max-content;
+          min-height: max-content;
+          min-width: max-content;
           overflow: hidden;
           background-repeat: no-repeat;
           background-position: center;
