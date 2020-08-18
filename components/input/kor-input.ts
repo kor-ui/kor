@@ -73,6 +73,7 @@ export class korInput extends LitElement {
         input {
           background: none;
           border: none;
+          box-shadow: none;
           padding: 0px;
           outline: none;
           -webkit-appearance: none;
@@ -83,6 +84,10 @@ export class korInput extends LitElement {
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
           -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type=number] {
+          -moz-appearance:textfield;
         }
         /* active */
         :host([active]) {

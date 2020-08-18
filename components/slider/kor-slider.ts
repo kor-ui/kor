@@ -57,6 +57,7 @@ export class korSlider extends LitElement {
           font: var(--body-1);
           color: var(--text-1);
           background-color: rgba(var(--neutral-1), 0.05);
+          border-radius: 2px;
           box-sizing: border-box;
           padding: 0 4px;
           width: 40px;
@@ -64,6 +65,10 @@ export class korSlider extends LitElement {
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
           -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type=number] {
+          -moz-appearance:textfield;
         }
         .label {
           display: flex;
