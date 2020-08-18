@@ -51,7 +51,6 @@ export class korSlider extends LitElement {
         input {
           background: none;
           border: none;
-          padding: 0px;
           outline: none;
           -webkit-appearance: none;
           font: var(--body-1);
