@@ -1,0 +1,22 @@
+import { LitElement } from 'lit-element';
+/**
+ * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset).
+ * @prop {String} logo - If set, defines the logo shown on the left side.
+ * @prop {Boolean} mobile - If set, toggles the mobile variation.
+ *
+ * @slot - The central content area. Used for hosting components such as Tabs.
+ * @slot functions - Displayed on the right side (if mobile is unset). Used for hosting components such as Icon and Avatar.
+ * @slot left - Displayed on the left side (if mobile is set to true). Used for hosting components such as Icon.
+ * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
+ *
+ * @fires logo-clicked - Fired when clicking on the logo.
+ */
+export declare class korAppBar extends LitElement {
+    label: any;
+    logo: any;
+    mobile: any;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    handleLogoClick(): void;
+}
