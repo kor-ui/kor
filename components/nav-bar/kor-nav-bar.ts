@@ -1,5 +1,6 @@
 import { LitElement, css, html, customElement } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../app-bar';
 
 /**
  * @slot - The main content area.

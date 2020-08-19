@@ -1,5 +1,7 @@
 import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../card';
+import '../icon';
 
 /**
  * @prop {String} label -	Defines the text label.
