@@ -29,7 +29,6 @@ export class korImage extends LitElement {
       sharedStyles,
       css`
         :host {
-          object-fit: ;
           position: relative;
           max-width: max-content;
           display: flex;
