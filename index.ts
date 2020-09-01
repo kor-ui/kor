@@ -11,6 +11,7 @@ export { korDivider } from './components/divider/kor-divider';
 export { korDrawer } from './components/drawer/kor-drawer';
 export { korEmptyState } from './components/empty-state/kor-empty-state';
 export { korGrid } from './components/grid/kor-grid';
+export { korImage } from './components/image/kor-image';
 export { korIcon } from './components/icon/kor-icon';
 export { korInput } from './components/input/kor-input';
 export { korMenuItem } from './components/menu-item/kor-menu-item';

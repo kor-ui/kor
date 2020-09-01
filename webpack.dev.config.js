@@ -19,6 +19,7 @@ module.exports = {
     "components/empty-state": './components/empty-state/index.ts',
     "components/grid": './components/grid/index.ts',
     "components/icon": './components/icon/index.ts',
+    "components/image": './components/image/index.ts',
     "components/input": './components/input/index.ts',
     "components/menu-item": './components/menu-item/index.ts',
     "components/modal": './components/modal/index.ts',

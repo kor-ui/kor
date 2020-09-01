@@ -10,12 +10,12 @@ import { LitElement } from 'lit-element';
  * @slot functions - Shown on the right side.
  */
 export declare class korMenuItem extends LitElement {
-    label: string;
-    icon: any;
-    active: any;
-    toggle: boolean;
-    disabled: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  label: string;
+  icon: any;
+  active: any;
+  toggle: boolean;
+  disabled: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }

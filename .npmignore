@@ -2,7 +2,9 @@ node_modules
 tsconfig.json
 webpack.dev.config.js
 .vscode
+.github
 *.ts
+!*.d.ts
 components/*/*.ts
-components/*/*.package.json
+!components/*/*.d.ts
 lerna.json
