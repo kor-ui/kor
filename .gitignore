@@ -1,6 +1,7 @@
-kor.js
 node_modules
+*.d.ts
+components/*/*.d.ts
 components/*/index.js
 index.js
-map.json
+custom-elements.json
 .DS_Store
