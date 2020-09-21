@@ -147,8 +147,9 @@ export class korInput extends LitElement {
         :host(:not(:hover):not([active])) .clear-icon {
           transition: var(--transition-1), 0.1s width ease-in-out 0.1s,
             0.1s margin ease-in-out 0.1s;
-          font-size: 0px;
-          width: 0px;
+          font-size: 0;
+          max-width: 0px;
+          max-height: 0px;
           opacity: 0;
           margin-left: 0;
         }
