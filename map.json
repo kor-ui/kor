@@ -1,0 +1,2510 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "kor-accordion",
+      "path": "./components/accordion/kor-accordion.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "expanded",
+          "description": "If set to true, expands the accordion to display its content.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "expanded",
+          "attribute": "expanded",
+          "description": "If set to true, expands the accordion to display its content.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the accordion when it is expanded."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot replaces the default text label and expand arrow with custom content."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed close to the 'expand' arrow."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content when it is expanded."
+        }
+      ]
+    },
+    {
+      "name": "kor-app-bar",
+      "path": "./components/app-bar/kor-app-bar.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown on the left side (if mobile is unset).",
+          "type": "String"
+        },
+        {
+          "name": "logo",
+          "description": "If set, defines the logo shown on the left side.",
+          "type": "String"
+        },
+        {
+          "name": "mobile",
+          "description": "If set, toggles the mobile variation.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown on the left side (if mobile is unset).",
+          "type": "String"
+        },
+        {
+          "name": "logo",
+          "attribute": "logo",
+          "description": "If set, defines the logo shown on the left side.",
+          "type": "String"
+        },
+        {
+          "name": "mobile",
+          "attribute": "mobile",
+          "description": "If set, toggles the mobile variation.",
+          "type": "Boolean"
+        }
+      ],
+      "events": [
+        {
+          "name": "logo-clicked",
+          "description": "Fired when clicking on the logo."
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The central content area. Used for hosting components such as Tabs."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side (if mobile is unset). Used for hosting components such as Icon and Avatar."
+        },
+        {
+          "name": "left",
+          "description": "Displayed on the left side (if mobile is set to true). Used for hosting components such as Icon."
+        },
+        {
+          "name": "right",
+          "description": "Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon."
+        }
+      ]
+    },
+    {
+      "name": "kor-avatar",
+      "path": "./components/avatar/kor-avatar.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown next to the icon/image. If the label is set and an image is not defined, the initials will be shown as a placeholder.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "description": "If set, defines the information text shown below the label.",
+          "type": "String"
+        },
+        {
+          "name": "image",
+          "description": "If set, replaces the placeholder image with a custom image.",
+          "type": "String"
+        },
+        {
+          "name": "condensed",
+          "description": "If set, the image is shown in a smaller size.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown next to the icon/image. If the label is set and an image is not defined, the initials will be shown as a placeholder.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "attribute": "info",
+          "description": "If set, defines the information text shown below the label.",
+          "type": "String"
+        },
+        {
+          "name": "image",
+          "attribute": "image",
+          "description": "If set, replaces the placeholder image with a custom image.",
+          "type": "String"
+        },
+        {
+          "name": "condensed",
+          "attribute": "condensed",
+          "description": "If set, the image is shown in a smaller size.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-badge",
+      "path": "./components/badge/kor-badge.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.",
+          "type": "Number"
+        },
+        {
+          "name": "status",
+          "description": "If set, a status icon is shown inside the badge. Accepted values are error, warning, success.",
+          "type": "String"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.",
+          "type": "Number"
+        },
+        {
+          "name": "status",
+          "attribute": "status",
+          "description": "If set, a status icon is shown inside the badge. Accepted values are error, warning, success.",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "kor-breadcrumb-item",
+      "path": "./components/breadcrumbs/kor-breadcrumb-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "active",
+          "description": "Defines whether the item is currently active or not.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "Defines whether the item is currently active or not.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-breadcrumbs",
+      "path": "./components/breadcrumbs/kor-breadcrumbs.ts",
+      "slots": [
+        {
+          "name": "",
+          "description": "The default slot. Takes `kor-breadcrumb-item`s as children."
+        }
+      ]
+    },
+    {
+      "name": "kor-card",
+      "path": "./components/card/kor-card.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "image",
+          "description": "If set, defines the image shown on top of the card.",
+          "type": "String"
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "flat",
+          "description": "If set, background, shadows and external padding are not shown.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "image",
+          "attribute": "image",
+          "description": "If set, defines the image shown on top of the card.",
+          "type": "String"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "flat",
+          "attribute": "flat",
+          "description": "If set, background, shadows and external padding are not shown.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "Shown on top of the card, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Shown on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Shown below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-button",
+      "path": "./components/button/kor-button.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "description": "If set, replaces the text label with a custom icon.",
+          "type": "String"
+        },
+        {
+          "name": "color",
+          "description": "Defines the color. The possible values are primary, secondary and tertiary",
+          "type": "String",
+          "default": "\"primary\""
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, replaces the text label with a custom icon.",
+          "type": "String"
+        },
+        {
+          "name": "color",
+          "attribute": "color",
+          "description": "Defines the color. The possible values are primary, secondary and tertiary",
+          "type": "String",
+          "default": "\"primary\""
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-divider",
+      "path": "./components/divider/kor-divider.ts",
+      "attributes": [
+        {
+          "name": "spacing",
+          "description": "Defines the space around the divider. Possible values are s, n and l.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "orientation",
+          "description": "Defines the orientation of the divider. Possible values are vertical and horizontal.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "spacing",
+          "attribute": "spacing",
+          "description": "Defines the space around the divider. Possible values are s, n and l.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Defines the orientation of the divider. Possible values are vertical and horizontal.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ]
+    },
+    {
+      "name": "kor-drawer",
+      "path": "./components/drawer/kor-drawer.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"left\""
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "height",
+          "description": "Defines the height of the container (not the overlay).",
+          "type": "String",
+          "default": "\"320px\""
+        },
+        {
+          "name": "width",
+          "description": "Defines the width of the container (not the overlay).",
+          "type": "String",
+          "default": "\"320px\""
+        },
+        {
+          "name": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "description": "If set to true, clicking on the background will not hide the component. The close icon will also not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"left\""
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "height",
+          "attribute": "height",
+          "description": "Defines the height of the container (not the overlay).",
+          "type": "String",
+          "default": "\"320px\""
+        },
+        {
+          "name": "width",
+          "attribute": "width",
+          "description": "Defines the width of the container (not the overlay).",
+          "type": "String",
+          "default": "\"320px\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky",
+          "description": "If set to true, clicking on the background will not hide the component. The close icon will also not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Shown on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Shown below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-empty-state",
+      "path": "./components/empty-state/kor-empty-state.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown under the icon.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown above the label.",
+          "type": "String"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown under the icon.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown above the label.",
+          "type": "String"
+        }
+      ],
+      "slots": [
+        {
+          "name": "footer",
+          "description": "Displayed below the label."
+        }
+      ]
+    },
+    {
+      "name": "kor-checkbox",
+      "path": "./components/checkbox/kor-checkbox.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-grid",
+      "path": "./components/grid/kor-grid.ts",
+      "attributes": [
+        {
+          "name": "columns",
+          "description": "Defines how many columns the grid has.",
+          "type": "Number",
+          "default": "12"
+        },
+        {
+          "name": "rows",
+          "description": "If set, defines how many rows the grid has. If left undefined, the rows will be automatically populated according to the columns wrapping.",
+          "type": "Number"
+        },
+        {
+          "name": "spacing",
+          "description": "Defines the gap between the elements in the grid. Possible values are s (8px), m (12px) and l(16px).",
+          "type": "String",
+          "default": "\"m\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "columns",
+          "attribute": "columns",
+          "description": "Defines how many columns the grid has.",
+          "type": "Number",
+          "default": "12"
+        },
+        {
+          "name": "rows",
+          "attribute": "rows",
+          "description": "If set, defines how many rows the grid has. If left undefined, the rows will be automatically populated according to the columns wrapping.",
+          "type": "Number"
+        },
+        {
+          "name": "spacing",
+          "attribute": "spacing",
+          "description": "Defines the gap between the elements in the grid. Possible values are s (8px), m (12px) and l(16px).",
+          "type": "String",
+          "default": "\"m\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The slot where the content is rendered."
+        }
+      ]
+    },
+    {
+      "name": "kor-icon",
+      "path": "./components/icon/kor-icon.ts",
+      "attributes": [
+        {
+          "name": "icon",
+          "description": "Defines the icon shown. Takes any string from the Material Design Library or custom url('') pointing to local or remote images or vectors.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "description": "If set, defines the size of the icon. Possible values are xl (48px) l (32px), m (24px) and s (16px), but css font-size can be used to set custom sizes.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "color",
+          "description": "If set, replaces the text label with a custom icon.",
+          "type": "String"
+        },
+        {
+          "name": "button",
+          "description": "If set to true, updates hover, click effects and cursors.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "Defines the icon shown. Takes any string from the Material Design Library or custom url('') pointing to local or remote images or vectors.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "If set, defines the size of the icon. Possible values are xl (48px) l (32px), m (24px) and s (16px), but css font-size can be used to set custom sizes.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "color",
+          "attribute": "color",
+          "description": "If set, replaces the text label with a custom icon.",
+          "type": "String"
+        },
+        {
+          "name": "button",
+          "attribute": "button",
+          "description": "If set to true, updates hover, click effects and cursors.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-input",
+      "path": "./components/input/kor-input.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown on top.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown before the label/value.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "description": "If set, defines the value of the input. Changes upon user interaction.",
+          "type": "String"
+        },
+        {
+          "name": "type",
+          "description": "Defines the type. Possible values are text, number and select.",
+          "type": "String",
+          "default": "\"text\""
+        },
+        {
+          "name": "status",
+          "description": "If set, Displays a status icon on the right side of the input.",
+          "type": "String"
+        },
+        {
+          "name": "pattern",
+          "description": "(If type=\"number\" only) If set, defines a custom input pattern (see full documentation).",
+          "type": "String"
+        },
+        {
+          "name": "min",
+          "description": "(If type=\"number\" only) If set, defines the minimum value accepted.",
+          "type": "Number"
+        },
+        {
+          "name": "max",
+          "description": "(If type=\"number\" only) If set, defines the maximum value accepted.",
+          "type": "Number"
+        },
+        {
+          "name": "step",
+          "description": "(If type=\"number\" only) Defines the steps to skip when the user presses the left or right arrows.",
+          "type": "Number",
+          "default": "1"
+        },
+        {
+          "name": "condensed",
+          "description": "If set to true, reduces the height of the input. The label is only shown if the value is undefined.",
+          "type": "Boolean"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, highlights the label and underline.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        },
+        {
+          "name": "readonly",
+          "description": "If set to true, disables the input without reducing the opacity.",
+          "type": "Boolean"
+        },
+        {
+          "name": "no-clear",
+          "description": "If set to true, the clear icon and functionality will not be available.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown on top.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown before the label/value.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "If set, defines the value of the input. Changes upon user interaction.",
+          "type": "String"
+        },
+        {
+          "name": "type",
+          "attribute": "type",
+          "description": "Defines the type. Possible values are text, number and select.",
+          "type": "String",
+          "default": "\"text\""
+        },
+        {
+          "name": "status",
+          "attribute": "status",
+          "description": "If set, Displays a status icon on the right side of the input.",
+          "type": "String"
+        },
+        {
+          "name": "pattern",
+          "attribute": "pattern",
+          "description": "(If type=\"number\" only) If set, defines a custom input pattern (see full documentation).",
+          "type": "String"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "(If type=\"number\" only) If set, defines the minimum value accepted.",
+          "type": "Number"
+        },
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "(If type=\"number\" only) If set, defines the maximum value accepted.",
+          "type": "Number"
+        },
+        {
+          "name": "step",
+          "attribute": "step",
+          "description": "(If type=\"number\" only) Defines the steps to skip when the user presses the left or right arrows.",
+          "type": "Number",
+          "default": "1"
+        },
+        {
+          "name": "condensed",
+          "attribute": "condensed",
+          "description": "If set to true, reduces the height of the input. The label is only shown if the value is undefined.",
+          "type": "Boolean"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, highlights the label and underline.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly",
+          "description": "If set to true, disables the input without reducing the opacity.",
+          "type": "Boolean"
+        },
+        {
+          "name": "noClear",
+          "attribute": "no-clear",
+          "description": "If set to true, the clear icon and functionality will not be available.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side."
+        }
+      ]
+    },
+    {
+      "name": "kor-menu-item",
+      "path": "./components/menu-item/kor-menu-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "toggle",
+          "description": "If set to true, clicking on the component will toggle the active property between true and false.",
+          "type": "Boolean",
+          "default": "true"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown before the label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "toggle",
+          "attribute": "toggle",
+          "description": "If set to true, clicking on the component will toggle the active property between true and false.",
+          "type": "Boolean",
+          "default": "true"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "functions",
+          "description": "Shown on the right side."
+        }
+      ]
+    },
+    {
+      "name": "kor-modal",
+      "path": "./components/modal/kor-modal.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "height",
+          "description": "Defines the height of the container (not the overlay).",
+          "type": "String",
+          "default": "\"400px\""
+        },
+        {
+          "name": "width",
+          "description": "Defines the width of the container (not the overlay).",
+          "type": "String",
+          "default": "\"600px\""
+        },
+        {
+          "name": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "description": "If set to true, clicking on the background will not hide the component. The close icon will also not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "height",
+          "attribute": "height",
+          "description": "Defines the height of the container (not the overlay).",
+          "type": "String",
+          "default": "\"400px\""
+        },
+        {
+          "name": "width",
+          "attribute": "width",
+          "description": "Defines the width of the container (not the overlay).",
+          "type": "String",
+          "default": "\"600px\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky",
+          "description": "If set to true, clicking on the background will not hide the component. The close icon will also not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-nav-bar",
+      "path": "./components/nav-bar/kor-nav-bar.ts",
+      "slots": [
+        {
+          "name": "",
+          "description": "The main content area."
+        },
+        {
+          "name": "functions",
+          "description": "Shown on the right side."
+        }
+      ]
+    },
+    {
+      "name": "kor-notification-item",
+      "path": "./components/notifications/kor-notification-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "description": "If set to true, the close icon will not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky",
+          "description": "If set to true, the close icon will not be displayed.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-notifications",
+      "path": "./components/notifications/kor-notifications.ts",
+      "attributes": [
+        {
+          "name": "position",
+          "description": "Defines the corner where the notification is located. Possible values are top-left, top-right, bottom-left and bottom-right.",
+          "type": "String",
+          "default": "\"top-right\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "position",
+          "attribute": "position",
+          "description": "Defines the corner where the notification is located. Possible values are top-left, top-right, bottom-left and bottom-right.",
+          "type": "String",
+          "default": "\"top-right\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts kor-notification-items."
+        }
+      ]
+    },
+    {
+      "name": "kor-page",
+      "path": "./components/page/kor-page.ts",
+      "attributes": [
+        {
+          "name": "theme",
+          "description": "Defines the color theme of the page. Possible values are dark and light.",
+          "type": "String"
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"row\""
+        },
+        {
+          "name": "flat",
+          "description": "If set to true, the page background will be flat, without the need to use card as containers for the content.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "theme",
+          "attribute": "theme",
+          "description": "Defines the color theme of the page. Possible values are dark and light.",
+          "type": "String"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"row\""
+        },
+        {
+          "name": "flat",
+          "attribute": "flat",
+          "description": "If set to true, the page background will be flat, without the need to use card as containers for the content.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The main content area."
+        },
+        {
+          "name": "top",
+          "description": "Shown on the top. Hosts components such as kor-app-bar and kor-nav-bar."
+        },
+        {
+          "name": "bottom",
+          "description": "Shown on the bottom. Hosts components such as kor-nav-bar."
+        },
+        {
+          "name": "left",
+          "description": "Shown on the left side. Hosts components such as kor-pane."
+        },
+        {
+          "name": "right",
+          "description": "Shown on the right side. Hosts components such as kor-pane."
+        }
+      ]
+    },
+    {
+      "name": "kor-pane",
+      "path": "./components/pane/kor-pane.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "size",
+          "description": "Defines the size (width) of the component. Possible values are s (80px), m (120px) and l(320px).",
+          "type": "String",
+          "default": "\"l\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Defines the size (width) of the component. Possible values are s (80px), m (120px) and l(320px).",
+          "type": "String",
+          "default": "\"l\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-popover",
+      "path": "./components/popover/kor-popover.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "target",
+          "description": "Defines the DOM element to which the click event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.",
+          "type": "String"
+        },
+        {
+          "name": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "description": "If set to true, clicking on the page will not hide the component.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "target",
+          "attribute": "target",
+          "description": "Defines the DOM element to which the click event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.",
+          "type": "String"
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "sticky",
+          "attribute": "sticky",
+          "description": "If set to true, clicking on the page will not hide the component.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content area."
+        }
+      ]
+    },
+    {
+      "name": "kor-progress-bar",
+      "path": "./components/progress-bar/kor-progress-bar.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown above the bar.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "description": "If set, defines the info text shown below of the bar.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "description": "Defines the value of the bar. Must be a number from 0 to 100.",
+          "type": "String"
+        },
+        {
+          "name": "status",
+          "description": "If set, shows a status icon besides the information text. Possible values are success, warning and error.",
+          "type": "String"
+        },
+        {
+          "name": "color",
+          "description": "If set, defines the color of the bar.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "description": "(Only if radial is true) Defines the size of the bar.",
+          "type": "Number",
+          "default": "\"m\""
+        },
+        {
+          "name": "radial",
+          "description": "If set to true, the bar will become a circle instead of a linear bar.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "show-progress",
+          "description": "If set to true, the value (in %) will be visible.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown above the bar.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "attribute": "info",
+          "description": "If set, defines the info text shown below of the bar.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Defines the value of the bar. Must be a number from 0 to 100.",
+          "type": "String"
+        },
+        {
+          "name": "status",
+          "attribute": "status",
+          "description": "If set, shows a status icon besides the information text. Possible values are success, warning and error.",
+          "type": "String"
+        },
+        {
+          "name": "color",
+          "attribute": "color",
+          "description": "If set, defines the color of the bar.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "(Only if radial is true) Defines the size of the bar.",
+          "type": "Number",
+          "default": "\"m\""
+        },
+        {
+          "name": "radial",
+          "attribute": "radial",
+          "description": "If set to true, the bar will become a circle instead of a linear bar.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "showProgress",
+          "attribute": "show-progress",
+          "description": "If set to true, the value (in %) will be visible.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-radio-button",
+      "path": "./components/radio-button/kor-radio-button.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-slider",
+      "path": "./components/slider/kor-slider.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label shown on top.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "description": "Defines the current value. Must be a value between min and max.",
+          "type": "Number",
+          "default": "50"
+        },
+        {
+          "name": "min",
+          "description": "Defines the minimum value accepted.",
+          "type": "Number",
+          "default": "0"
+        },
+        {
+          "name": "max",
+          "description": "Defines the maximum value accepted.",
+          "type": "Number",
+          "default": "100"
+        },
+        {
+          "name": "step",
+          "description": "Defines the steps to skip when the user drags the thumb.",
+          "type": "Number",
+          "default": "1"
+        },
+        {
+          "name": "input",
+          "description": "If set to true, allows the user to input a value using the keyboard.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label shown on top.",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Defines the current value. Must be a value between min and max.",
+          "type": "Number",
+          "default": "50"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "description": "Defines the minimum value accepted.",
+          "type": "Number",
+          "default": "0"
+        },
+        {
+          "name": "max",
+          "attribute": "max",
+          "description": "Defines the maximum value accepted.",
+          "type": "Number",
+          "default": "100"
+        },
+        {
+          "name": "step",
+          "attribute": "step",
+          "description": "Defines the steps to skip when the user drags the thumb.",
+          "type": "Number",
+          "default": "1"
+        },
+        {
+          "name": "input",
+          "attribute": "input",
+          "description": "If set to true, allows the user to input a value using the keyboard.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-spinner",
+      "path": "./components/spinner/kor-spinner.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "description": "Defines the size of the component. Possible values are s (24px), m (32px) and l (40px).",
+          "type": "String",
+          "default": "\"m\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Defines the size of the component. Possible values are s (24px), m (32px) and l (40px).",
+          "type": "String",
+          "default": "\"m\""
+        }
+      ]
+    },
+    {
+      "name": "kor-stepper-item",
+      "path": "./components/stepper/kor-stepper-item.ts",
+      "attributes": [
+        {
+          "name": "first"
+        },
+        {
+          "name": "last"
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "description": "If set, defines the information text shown below the label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown instead of the index number.",
+          "type": "String"
+        },
+        {
+          "name": "index",
+          "description": "Defines the index number shown inside the bubble (if icon is undefined). It is set dinamically by the component.",
+          "type": "Number"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "first",
+          "attribute": "first"
+        },
+        {
+          "name": "last",
+          "attribute": "last"
+        },
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "info",
+          "attribute": "info",
+          "description": "If set, defines the information text shown below the label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown instead of the index number.",
+          "type": "String"
+        },
+        {
+          "name": "index",
+          "attribute": "index",
+          "description": "Defines the index number shown inside the bubble (if icon is undefined). It is set dinamically by the component.",
+          "type": "Number"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-stepper",
+      "path": "./components/stepper/kor-stepper.ts",
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "Defines the orientation of the component. Possible values are horizontal and vertical.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Defines the orientation of the component. Possible values are horizontal and vertical.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts kor-stepper-items."
+        }
+      ]
+    },
+    {
+      "name": "kor-switch-item",
+      "path": "./components/switch/kor-switch-item.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown instead of text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown instead of text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-switch",
+      "path": "./components/switch/kor-switch.ts",
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts kor-switch-items."
+        }
+      ]
+    },
+    {
+      "name": "kor-table-cell",
+      "path": "./components/table/kor-table-cell.ts",
+      "attributes": [
+        {
+          "name": "alignment",
+          "description": "Defines the alignment of items inside the cell. Possible values are left, center and right.",
+          "type": "String",
+          "default": "\"left\""
+        },
+        {
+          "name": "sort-direction",
+          "description": "(If head, sortable and sorted are true) Defines the direction of sorting. Possible values are asc and desc.",
+          "type": "String"
+        },
+        {
+          "name": "grid-cols",
+          "description": "Defines how many columns the cell occupies. The sum of all cells in a given row should not surpass the total number of columns in the table (which is 24 by default).",
+          "type": "Number"
+        },
+        {
+          "name": "head",
+          "description": "If set to true, the cell will behave like a table head (use if the parent kor-table-row is placed on the header slot of the table).",
+          "type": "Boolean"
+        },
+        {
+          "name": "sortable",
+          "description": "(If head is true) If set to true, upon clicking on the cell it will toggle the sorted property.",
+          "type": "Boolean"
+        },
+        {
+          "name": "sorted",
+          "description": "(If head and sortable are true) If set to true, an arrow will be shown to indicate that the column is sorted.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignment",
+          "attribute": "alignment",
+          "description": "Defines the alignment of items inside the cell. Possible values are left, center and right.",
+          "type": "String",
+          "default": "\"left\""
+        },
+        {
+          "name": "sortDirection",
+          "attribute": "sort-direction",
+          "description": "(If head, sortable and sorted are true) Defines the direction of sorting. Possible values are asc and desc.",
+          "type": "String"
+        },
+        {
+          "name": "gridCols",
+          "attribute": "grid-cols",
+          "description": "Defines how many columns the cell occupies. The sum of all cells in a given row should not surpass the total number of columns in the table (which is 24 by default).",
+          "type": "Number"
+        },
+        {
+          "name": "head",
+          "attribute": "head",
+          "description": "If set to true, the cell will behave like a table head (use if the parent kor-table-row is placed on the header slot of the table).",
+          "type": "Boolean"
+        },
+        {
+          "name": "sortable",
+          "attribute": "sortable",
+          "description": "(If head is true) If set to true, upon clicking on the cell it will toggle the sorted property.",
+          "type": "Boolean"
+        },
+        {
+          "name": "sorted",
+          "attribute": "sorted",
+          "description": "(If head and sortable are true) If set to true, an arrow will be shown to indicate that the column is sorted.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts plain text or other elements."
+        }
+      ]
+    },
+    {
+      "name": "kor-table-row",
+      "path": "./components/table/kor-table-row.ts",
+      "attributes": [
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts (kor-table-cells)."
+        }
+      ]
+    },
+    {
+      "name": "kor-table",
+      "path": "./components/table/kor-table.ts",
+      "attributes": [
+        {
+          "name": "columns",
+          "description": "Defines the column template. It accepts any value also accepted by the standard css grid-template-columns (e.g. repeat(4, 1fr), 40px 1fr auto).",
+          "type": "String",
+          "default": "\"repeat(24, 1fr)\""
+        },
+        {
+          "name": "readonly",
+          "description": "If set to true, disables selection on mouse clicks and the hover effects.",
+          "type": "Boolean"
+        },
+        {
+          "name": "condensed",
+          "description": "If set to true, condensed the height of the rows and cells.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "columns",
+          "attribute": "columns",
+          "description": "Defines the column template. It accepts any value also accepted by the standard css grid-template-columns (e.g. repeat(4, 1fr), 40px 1fr auto).",
+          "type": "String",
+          "default": "\"repeat(24, 1fr)\""
+        },
+        {
+          "name": "readonly",
+          "attribute": "readonly",
+          "description": "If set to true, disables selection on mouse clicks and the hover effects.",
+          "type": "Boolean"
+        },
+        {
+          "name": "condensed",
+          "attribute": "condensed",
+          "description": "If set to true, condensed the height of the rows and cells.",
+          "type": "Boolean"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The container where the table body is rendered (kor-table-rows)."
+        },
+        {
+          "name": "header",
+          "description": "The container for the header (kor-table-row). It does not scroll with the content, but remains sticky on top."
+        }
+      ]
+    },
+    {
+      "name": "kor-tab-item",
+      "path": "./components/tabs/kor-tab-item.ts",
+      "attributes": [
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown above the label (if set).",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "type": "string",
+          "default": "\"horizontal\""
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown above the label (if set).",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied. Only one item can be active at a time.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-tabs",
+      "path": "./components/tabs/kor-tabs.ts",
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "Defines the orientation of the component. Possible values are horizontal and vertical.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "orientation",
+          "attribute": "orientation",
+          "description": "Defines the orientation of the component. Possible values are horizontal and vertical.",
+          "type": "String",
+          "default": "\"horizontal\""
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Hosts kor-tab-items."
+        }
+      ]
+    },
+    {
+      "name": "kor-tag",
+      "path": "./components/tag/kor-tag.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown besides the label.",
+          "type": "String"
+        },
+        {
+          "name": "button",
+          "description": "If set to true, hover and click effects will be added.",
+          "type": "Boolean"
+        },
+        {
+          "name": "removable",
+          "description": "If set to true, a close icon is displayed. Clicking on it dispatches a remove event.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String",
+          "default": "\"Label\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown besides the label.",
+          "type": "String"
+        },
+        {
+          "name": "button",
+          "attribute": "button",
+          "description": "If set to true, hover and click effects will be added.",
+          "type": "Boolean"
+        },
+        {
+          "name": "removable",
+          "attribute": "removable",
+          "description": "If set to true, a close icon is displayed. Clicking on it dispatches a remove event.",
+          "type": "Boolean"
+        }
+      ],
+      "events": [
+        {
+          "name": "remove",
+          "description": "Dispatched when clicking on the close icon (removable only)."
+        }
+      ]
+    },
+    {
+      "name": "kor-text",
+      "path": "./components/text/kor-text.ts",
+      "attributes": [
+        {
+          "name": "size",
+          "description": "Defines the size, line height, font family and initial color of the text. Possible values are header-1, header-2, body-1 and body-1, but custom styles can be set through css.",
+          "type": "String",
+          "default": "\"body-1\""
+        },
+        {
+          "name": "color",
+          "description": "If set, overwrites the initial color of the text. Possible values are var(--text-1) (90% neutral color), var(--text-2) (60% neutral color) and var(--text-3) (20% neutral color), but any custom RGB, RGBA, HEX or color variable can be passed to the property as value as well.",
+          "type": "String"
+        }
+      ],
+      "properties": [
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Defines the size, line height, font family and initial color of the text. Possible values are header-1, header-2, body-1 and body-1, but custom styles can be set through css.",
+          "type": "String",
+          "default": "\"body-1\""
+        },
+        {
+          "name": "color",
+          "attribute": "color",
+          "description": "If set, overwrites the initial color of the text. Possible values are var(--text-1) (90% neutral color), var(--text-2) (60% neutral color) and var(--text-3) (20% neutral color), but any custom RGB, RGBA, HEX or color variable can be passed to the property as value as well.",
+          "type": "String"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Container where plain text (and/or other elements) is written."
+        }
+      ]
+    },
+    {
+      "name": "kor-toggle",
+      "path": "./components/toggle/kor-toggle.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "name": "kor-tool",
+      "path": "./components/tool/kor-tool.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown above the text label (if set).",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "description": "Defines the size of the component. Possible values are s and m.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "toggle",
+          "description": "If set to true, clicking on the menu item will toggle the active property between true and false.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown above the text label (if set).",
+          "type": "String"
+        },
+        {
+          "name": "size",
+          "attribute": "size",
+          "description": "Defines the size of the component. Possible values are s and m.",
+          "type": "String",
+          "default": "\"m\""
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If set to true, a highlight style gets applied.",
+          "type": "Boolean"
+        },
+        {
+          "name": "toggle",
+          "attribute": "toggle",
+          "description": "If set to true, clicking on the menu item will toggle the active property between true and false.",
+          "type": "Boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If set to true, disables mouse clicks and the style gets updated.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "kor-tooltip",
+      "path": "./components/tooltip/kor-tooltip.ts",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "target",
+          "description": "Defines the DOM element to which the mouseover event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.",
+          "type": "String"
+        },
+        {
+          "name": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "If set, defines the text label.",
+          "type": "String"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "If set, defines the icon shown close to the label.",
+          "type": "String"
+        },
+        {
+          "name": "position",
+          "attribute": "position",
+          "description": "Defines the position of the component in the screen. Possible values are left, right, top and bottom.",
+          "type": "String",
+          "default": "\"bottom\""
+        },
+        {
+          "name": "flexDirection",
+          "attribute": "flex-direction",
+          "description": "Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.",
+          "type": "String",
+          "default": "\"column\""
+        },
+        {
+          "name": "target",
+          "attribute": "target",
+          "description": "Defines the DOM element to which the mouseover event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.",
+          "type": "String"
+        },
+        {
+          "name": "visible",
+          "attribute": "visible",
+          "description": "If set to true, displays the component on top of the screen.",
+          "type": "Boolean",
+          "default": "false"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Displayed inside the content area."
+        },
+        {
+          "name": "header",
+          "description": "If used, the header slot is shown on top of the component, below the label (if any is set)."
+        },
+        {
+          "name": "functions",
+          "description": "Displayed on the right side of the label or header slot."
+        },
+        {
+          "name": "footer",
+          "description": "Displayed below the content area."
+        }
+      ]
+    }
+  ]
+}
