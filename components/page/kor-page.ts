@@ -49,7 +49,7 @@ export class korPage extends LitElement {
         slot:not([name]) {
           padding: 16px;
         }
-        :host[scrollable] slot:not([name]) {
+        :host([scrollable]) slot:not([name]) {
           overflow: auto;
         }
         slot[name='top'],
