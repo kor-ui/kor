@@ -1,5 +1,5 @@
-import { LitElement, css, html, customElement, property } from "lit-element";
-import { sharedStyles } from "../../shared-styles";
+import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles';
 
 /**
  * @prop {String} theme - Defines the color theme of the page. Possible values are dark and light.
@@ -14,11 +14,11 @@ import { sharedStyles } from "../../shared-styles";
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 
-@customElement("kor-page")
+@customElement('kor-page')
 export class korPage extends LitElement {
   @property({ type: String, reflect: true }) theme;
-  @property({ type: String, reflect: true, attribute: "flex-direction" })
-  flexDirection = "row";
+  @property({ type: String, reflect: true, attribute: 'flex-direction' })
+  flexDirection = 'row';
   @property({ type: Boolean, reflect: true }) flat = false;
   @property({ type: Boolean, reflect: true }) scrollable = false;
 
@@ -52,9 +52,9 @@ export class korPage extends LitElement {
         :host[scrollable] slot:not([name]) {
           overflow: auto;
         }
-        slot[name="top"],
-        slot[name="bottom"],
-        :host([flex-direction="column"]) slot:not([name]) {
+        slot[name='top'],
+        slot[name='bottom'],
+        :host([flex-direction='column']) slot:not([name]) {
           flex-direction: column;
         }
       `,
