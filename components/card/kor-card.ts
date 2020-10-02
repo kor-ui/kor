@@ -39,7 +39,7 @@ export class korCard extends LitElement {
           display: flex;
           flex-direction: column;
           flex: 1;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           box-sizing: border-box;
           overflow: hidden;
         }

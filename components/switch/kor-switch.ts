@@ -16,7 +16,7 @@ export class korSwitch extends LitElement {
           display: flex;
           width: max-content;
           height: max-content;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
         }
       `,
     ];

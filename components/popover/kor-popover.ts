@@ -41,7 +41,7 @@ export class korPopover extends LitElement {
       css`
         :host {
           background-color: rgb(var(--base-4));
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           display: flex;
           box-shadow: var(--shadow-1);
           transition: var(--transition-1), 0s top, 0s left;
