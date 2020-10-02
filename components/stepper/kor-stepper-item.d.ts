@@ -8,18 +8,18 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korStepperItem extends LitElement {
-    label: any;
-    info: any;
-    icon: any;
-    index: any;
-    active: any;
-    disabled: any;
-    first: any;
-    last: any;
-    orientation: string;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    connectedCallback(): void;
-    getIndex(): void;
+  label: any;
+  info: any;
+  icon: any;
+  index: any;
+  active: any;
+  disabled: any;
+  first: any;
+  last: any;
+  orientation: string;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  connectedCallback(): void;
+  getIndex(): void;
 }

@@ -27,7 +27,7 @@ export class korTag extends LitElement {
           height: max-content;
           width: max-content;
           max-width: 160px;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           border: 1px solid rgba(var(--neutral-1), 0.25);
           transition: var(--transition-1);
         }

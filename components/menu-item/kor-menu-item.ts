@@ -26,7 +26,7 @@ export class korMenuItem extends LitElement {
       css`
         :host {
           padding: 8px 0;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           display: flex;
           cursor: pointer;
           transition: var(--transition-1);

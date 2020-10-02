@@ -11,17 +11,17 @@ import { LitElement } from 'lit-element';
  * @slot footer - Displayed below the content area.
  */
 export declare class korPane extends LitElement {
-    label: any;
-    icon: any;
-    flexDirection: string;
-    size: string;
-    /** @ignore */
-    emptyHeader: boolean;
-    /** @ignore */
-    emptyFunctions: boolean;
-    /** @ignore */
-    emptyFooter: boolean;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  label: any;
+  icon: any;
+  flexDirection: string;
+  size: string;
+  /** @ignore */
+  emptyHeader: boolean;
+  /** @ignore */
+  emptyFunctions: boolean;
+  /** @ignore */
+  emptyFooter: boolean;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }
