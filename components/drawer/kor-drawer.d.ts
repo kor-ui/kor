@@ -15,22 +15,22 @@ import { LitElement } from 'lit-element';
  * @slot footer - Shown below the content area.
  */
 export declare class korDrawer extends LitElement {
-  label: any;
-  icon: any;
-  position: string;
-  height: string;
-  width: string;
-  flexDirection: string;
-  visible: boolean;
-  sticky: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  getCardSize(): any;
+    label: any;
+    icon: any;
+    position: string;
+    height: string;
+    width: string;
+    flexDirection: string;
+    visible: boolean;
+    sticky: any;
+    /** @ignore */
+    emptyHeader: boolean;
+    /** @ignore */
+    emptyFunctions: boolean;
+    /** @ignore */
+    emptyFooter: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    getCardSize(): any;
 }

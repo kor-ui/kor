@@ -4,10 +4,10 @@ import { LitElement } from 'lit-element';
  * @prop {String} status - If set, a status icon is shown inside the badge. Accepted values are error, warning, success.
  */
 export declare class korBadge extends LitElement {
-  label: any;
-  status: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  getStatusIcon(): string;
+    label: any;
+    status: any;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    getStatusIcon(): string;
 }
