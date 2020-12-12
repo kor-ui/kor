@@ -12,11 +12,11 @@ import { LitElement } from 'lit-element';
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 export declare class korPage extends LitElement {
-  theme: any;
-  flexDirection: string;
-  flat: boolean;
-  scrollable: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    theme: any;
+    flexDirection: string;
+    flat: boolean;
+    scrollable: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }
