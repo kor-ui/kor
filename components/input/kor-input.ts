@@ -16,6 +16,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {Boolean} readonly - If set to true, disables the input without reducing the opacity.
  * @prop {Boolean} noClear - If set to true, the clear icon and functionality will not be available.
+ * @prop {Boolean} autofocus - If set to true, the component gets focused as soon as the page loads.
  *
  * @slot - Displayed inside the content area.
  * @slot functions - Displayed on the right side.
@@ -33,6 +34,7 @@ export class korInput extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) readonly;
   @property({ type: Boolean, reflect: true, attribute: 'no-clear' }) noClear;
+  @property({ type: Boolean, reflect: true }) autofocus;
   // input number properties
   @property({ type: String, reflect: true }) pattern;
   @property({ type: Number, reflect: true }) min;
@@ -214,15 +216,15 @@ export class korInput extends LitElement {
       <div class="center">
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
-          id="input"
           .type="${this.type}"
+          ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly ||
           this.disabled ||
           this.type === 'select'}"
-          min="${this.min}"
-          max="${this.max}"
-          step="${this.step}"
-          pattern="${this.pattern}"
+          .min="${this.min}"
+          .max="${this.max}"
+          .step="${this.step.toString()}"
+          .pattern="${this.pattern}"
           .value="${this.value !== undefined ? this.value : ''}"
           @input="${(e) =>
             e.target.value
@@ -317,8 +319,12 @@ export class korInput extends LitElement {
   }
 
   handleBlur(e) {
-    this.type === 'number' ? this.validateMinMax(e.target.value) : '';
-    this.type !== 'select' ? (this.active = false) : '';
+    if (this.type === 'number') {
+      this.validateMinMax(e.target.value);
+    }
+    if (this.type !== 'select') {
+      this.active = false;
+    }
   }
 
   handleIncrement(dir) {
