@@ -33,7 +33,7 @@ export class korTool extends LitElement {
           box-sizing: border-box;
           transition: var(--transition-1);
           cursor: pointer;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
         }
         .label {
           display: -webkit-box;

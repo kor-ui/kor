@@ -1,5 +1,5 @@
-import { LitElement, css, html, customElement, property } from "lit-element";
-import { sharedStyles } from "../../shared-styles";
+import { LitElement, css, html, customElement, property } from 'lit-element';
+import { sharedStyles } from '../../shared-styles';
 
 /**
  * @prop {String} src - Defines the source image to be displayed. Must be a url (web or relative path).
@@ -13,15 +13,15 @@ import { sharedStyles } from "../../shared-styles";
  * @slot bottom - The container for components overlayed at the bottom corner of the image.
  */
 
-@customElement("kor-image")
+@customElement('kor-image')
 export class korImage extends LitElement {
   @property({ type: String, reflect: true }) src;
   @property({ type: String, reflect: true }) alt;
-  @property({ type: String, reflect: true }) width = "100%";
+  @property({ type: String, reflect: true }) width = '100%';
   @property({ type: String, reflect: true }) height;
-  @property({ type: String, reflect: true }) fit = "contain";
+  @property({ type: String, reflect: true }) fit = 'contain';
   @property({ type: String, reflect: true }) legend;
-  @property({ type: String, reflect: true, attribute: "legend-position" })
+  @property({ type: String, reflect: true, attribute: 'legend-position' })
   legendPosition;
 
   static get styles() {
@@ -48,12 +48,12 @@ export class korImage extends LitElement {
         :host(:not([legend-position])) kor-text {
           margin-top: 8px;
         }
-        :host([legend-position^="inner-"]) kor-text {
+        :host([legend-position^='inner-']) kor-text {
           position: absolute;
           padding: 8px;
           box-sizing: border-box;
         }
-        :host([legend-position="inner-top"]) kor-text {
+        :host([legend-position='inner-top']) kor-text {
           top: 0;
           background-image: linear-gradient(
             rgba(0, 0, 0, 0.8),
@@ -61,7 +61,7 @@ export class korImage extends LitElement {
             rgba(0, 0, 0, 0)
           );
         }
-        :host([legend-position="inner-bottom"]) kor-text {
+        :host([legend-position='inner-bottom']) kor-text {
           bottom: 0;
           background-image: linear-gradient(
             rgba(0, 0, 0, 0),
@@ -80,17 +80,17 @@ export class korImage extends LitElement {
           width: 100%;
           overflow: hidden;
         }
-        slot[name="top"] {
+        slot[name='top'] {
           top: 0;
         }
-        :host([legend][legend-position="inner-top"]) slot[name="top"] {
+        :host([legend][legend-position='inner-top']) slot[name='top'] {
           top: 24px;
         }
-        slot[name="bottom"] {
+        slot[name='bottom'] {
           bottom: 0;
         }
-        :host([legend]:not([legend-position])) slot[name="bottom"],
-        :host([legend][legend-position="inner-bottom"]) slot[name="bottom"] {
+        :host([legend]:not([legend-position])) slot[name='bottom'],
+        :host([legend][legend-position='inner-bottom']) slot[name='bottom'] {
           bottom: 24px;
         }
       `,
@@ -106,7 +106,7 @@ export class korImage extends LitElement {
         height="${this.height}"
         style="object-fit: ${this.fit}"
       />
-      ${this.legend ? html` <kor-text>${this.legend}</kor-text> ` : ""}
+      ${this.legend ? html` <kor-text>${this.legend}</kor-text> ` : ''}
       <slot name="top"></slot>
       <slot name="bottom"></slot>
     `;

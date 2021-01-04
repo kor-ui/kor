@@ -14,6 +14,7 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {Boolean} readonly - If set to true, disables the input without reducing the opacity.
  * @prop {Boolean} noClear - If set to true, the clear icon and functionality will not be available.
+ * @prop {Boolean} autofocus - If set to true, the component gets focused as soon as the page loads.
  *
  * @slot - Displayed inside the content area.
  * @slot functions - Displayed on the right side.
@@ -29,6 +30,7 @@ export declare class korInput extends LitElement {
     disabled: any;
     readonly: any;
     noClear: any;
+    autofocus: any;
     pattern: any;
     min: any;
     max: any;

@@ -37,6 +37,7 @@ export { korTableCell } from './components/table/kor-table-cell';
 export { korTabs } from './components/tabs/kor-tabs';
 export { korTag } from './components/tag/kor-tag';
 export { korText } from './components/text/kor-text';
+export { korTextarea} from './components/textarea/kor-textarea';
 export { korToggle } from './components/toggle/kor-toggle';
 export { korTool } from './components/tool/kor-tool';
 export { korTooltip } from './components/tooltip/kor-tooltip';

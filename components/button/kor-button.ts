@@ -25,7 +25,7 @@ export class korButton extends LitElement {
           display: flex;
           height: max-content;
           width: max-content;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           cursor: pointer;
           transition: var(--transition-1);
           justify-content: center;
@@ -69,7 +69,6 @@ export class korButton extends LitElement {
         kor-icon {
           color: unset;
         }
-
         :host([color='primary']) {
           color: rgba(255, 255, 255, 0.9);
         }
