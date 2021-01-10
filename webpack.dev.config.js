@@ -38,7 +38,7 @@ module.exports = {
     "components/tabs": './components/tabs/index.ts',
     "components/tag": './components/tag/index.ts',
     "components/text": './components/text/index.ts',
-    "components/text": './components/text/index.ts',
+    "components/textarea": './components/textarea/index.ts',
     "components/toggle": './components/toggle/index.ts',
     "components/tool": './components/tool/index.ts',
     "components/tooltip": './components/tooltip/index.ts',
