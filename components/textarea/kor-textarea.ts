@@ -133,6 +133,7 @@ export class korTextarea extends LitElement {
           .value="${this.value !== undefined ? this.value : ''}"
           .rows="${this.rows}"
           .columns="${this.rows}"
+          .maxLength="${this.maxLength}"
           ?autofocus="${this.autofocus}"
           @input="${(e) =>
             e.target.value
