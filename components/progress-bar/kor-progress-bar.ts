@@ -106,22 +106,24 @@ export class korProgressBar extends LitElement {
         : ''}
       ${!this.radial
         ? html`
-            <!-- linear progress bar -->
+            <!-- linear -->
             <svg width="100%" height="8">
               <defs>
                 <clipPath id="clip-path">
                   <rect width="100%" height="8px" rx="4px" />
                 </clipPath>
               </defs>
-              <rect fill="rgba(var(--neutral-1), .1)" width="100%" rx="4px" />
+              <rect fill="rgba(var(--neutral-1), .1)" width="100%" height="100%" rx="4px" />
               <rect
                 fill="${this.color ? this.color : 'rgb(var(--accent-1))'}"
                 width="${this.value}%"
+                height="100%"
                 clip-path="url(#clip-path)"
               />
             </svg>
           `
         : html`
+            <!-- radial -->
             <div class="radial-wrapper">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
