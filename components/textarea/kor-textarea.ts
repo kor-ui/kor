@@ -17,7 +17,7 @@ export class korTextarea extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) value;
   @property({ type: Number, reflect: true }) rows = 1;
-  @property({ type: Number, reflect: true, attribute: 'max-length' }) maxLength = 1;
+  @property({ type: Number, reflect: true, attribute: 'max-length' }) maxLength;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) readonly;
@@ -129,19 +129,12 @@ export class korTextarea extends LitElement {
     return html`
       <div class="center">
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
-        <textarea
-          .value="${this.value !== undefined ? this.value : ''}"
-          .rows="${this.rows}"
-          .columns="${this.rows}"
-          .maxLength="${this.maxLength}"
-          ?autofocus="${this.autofocus}"
-          @input="${(e) =>
-            e.target.value
-              ? (this.value = e.target.value)
-              : this.removeAttribute('value')}"
-          @focus="${() => (this.active = true)}"
-          @blur="${() => (this.active = false)}"
-        ></textarea>
+        <textarea .value="${this.value !== undefined ? this.value : ''}" .rows="${this.rows}" .columns="${this.rows}"
+          .maxLength="${this.maxLength}" ?autofocus="${this.autofocus}" @input="${(e) =>
+              e.target.value
+                ? (this.value = e.target.value)
+                : this.removeAttribute('value')}" @focus="${() => (this.active = true)}"
+          @blur="${() => (this.active = false)}"></textarea>
       </div>
     `;
   }
