@@ -232,7 +232,6 @@ export class korInput extends LitElement {
                 ? (this.value = e.target.value)
                 : ''
               : this.removeAttribute('value')}"
-          @focus="${() => (this.active = true)}"
           @blur="${(e) => this.handleBlur(e)}"
         />
       </div>
@@ -308,7 +307,7 @@ export class korInput extends LitElement {
   constructor() {
     super();
     this.addEventListener('click', () => {
-      this.active = true;
+      this.active = !this.active;
       this.shadowRoot.querySelector('input').focus();
     });
   }
