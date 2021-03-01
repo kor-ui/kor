@@ -308,7 +308,11 @@ export class korInput extends LitElement {
   constructor() {
     super();
     this.addEventListener('click', () => {
-      this.active = true;
+      if (this.type == 'select') {
+        this.active = !this.active;
+      } else {
+        this.active = true;
+      }
       this.shadowRoot.querySelector('input').focus();
     });
   }
