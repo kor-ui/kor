@@ -129,12 +129,19 @@ export class korTextarea extends LitElement {
     return html`
       <div class="center">
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
-        <textarea .value="${this.value !== undefined ? this.value : ''}" .rows="${this.rows}" .columns="${this.rows}"
-          .maxLength="${this.maxLength}" ?autofocus="${this.autofocus}" @input="${(e) =>
-              e.target.value
-                ? (this.value = e.target.value)
-                : this.removeAttribute('value')}" @focus="${() => (this.active = true)}"
-          @blur="${() => (this.active = false)}"></textarea>
+        <textarea
+          .value="${this.value !== undefined ? this.value : ''}"
+          .rows="${this.rows}"
+          .columns="${this.rows}"
+          .maxLength="${this.maxLength}"
+          ?autofocus="${this.autofocus}"
+          @input="${(e) =>
+            e.target.value
+              ? (this.value = e.target.value)
+              : this.removeAttribute('value')}"
+          @focus="${() => (this.active = true)}"
+          @blur="${() => (this.active = false)}"
+        ></textarea>
       </div>
     `;
   }

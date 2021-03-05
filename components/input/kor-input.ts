@@ -114,7 +114,7 @@ export class korInput extends LitElement {
         :host([condensed]) {
           min-height: 32px;
         }
-        :host([condensed][value]) .label,
+        :host([condensed][value]:not([value=''])) .label,
         :host([condensed][active]) .label {
           display: none;
         }
@@ -131,11 +131,12 @@ export class korInput extends LitElement {
           color: var(--text-2);
           pointer-events: none;
         }
-        :host([value]) .label,
+        :host([value]:not([value=''])) .label,
         :host([active]) .label {
           font: var(--body-2);
         }
-        :host(:not([value]):not([active])) input {
+        :host(:not([value]):not([active])) input,
+        :host([value='']:not([active])) input {
           max-height: 0px;
         }
         input,
@@ -225,15 +226,10 @@ export class korInput extends LitElement {
           .max="${this.max}"
           .step="${this.step.toString()}"
           .pattern="${this.pattern}"
-          .value="${this.value !== undefined ? this.value : ''}"
-          @input="${(e) =>
-            e.target.value
-              ? this.type !== 'number'
-                ? (this.value = e.target.value)
-                : ''
-              : this.removeAttribute('value')}"
+          .value="${this.value ? this.value : null}"
+          @change="${this.handleChange}"
           @focus="${() => (this.active = true)}"
-          @blur="${(e) => this.handleBlur(e)}"
+          @blur="${this.handleBlur}"
         />
       </div>
       <!-- clear -->
@@ -296,7 +292,7 @@ export class korInput extends LitElement {
                       .top}; left: ${this.getMenuStyles()
                       .left}; width: ${this.getMenuStyles().width};"
                   >
-                    <slot @slotchange="${(e) => this.handleItems(e)}"></slot>
+                    <slot @slotchange="${this.handleItems}"></slot>
                   </kor-card>
                 `
               : ''}
@@ -308,13 +304,19 @@ export class korInput extends LitElement {
   constructor() {
     super();
     this.addEventListener('click', () => {
-      if (this.type == 'select') {
-        this.active = !this.active;
-      } else {
-        this.active = true;
-      }
+      this.active = true;
       this.shadowRoot.querySelector('input').focus();
     });
+  }
+
+  handleChange(e) {
+    this.value = e.target.value;
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   handleClear() {

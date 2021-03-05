@@ -6,9 +6,9 @@ import { LitElement } from 'lit-element';
  * @slot footer - Displayed below the label.
  */
 export declare class korEmptyState extends LitElement {
-    label: any;
-    icon: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  label: any;
+  icon: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }

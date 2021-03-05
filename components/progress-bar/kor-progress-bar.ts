@@ -113,7 +113,12 @@ export class korProgressBar extends LitElement {
                   <rect width="100%" height="8px" rx="4px" />
                 </clipPath>
               </defs>
-              <rect fill="rgba(var(--neutral-1), .1)" width="100%" height="100%" rx="4px" />
+              <rect
+                fill="rgba(var(--neutral-1), .1)"
+                width="100%"
+                height="100%"
+                rx="4px"
+              />
               <rect
                 fill="${this.color ? this.color : 'rgb(var(--accent-1))'}"
                 width="${this.value}%"

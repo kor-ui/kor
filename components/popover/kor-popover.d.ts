@@ -14,24 +14,24 @@ import { LitElement } from 'lit-element';
  * @slot footer - Displayed below the content area.
  */
 export declare class korPopover extends LitElement {
-    label: any;
-    icon: any;
-    flexDirection: string;
-    position: string;
-    target: any;
-    visible: boolean;
-    sticky: any;
-    /** @ignore */
-    emptyHeader: boolean;
-    /** @ignore */
-    emptyFunctions: boolean;
-    /** @ignore */
-    emptyFooter: boolean;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    targetObserver(): void;
-    visibleObserver(): void;
-    handlePosition(tar: any): void;
-    addDocListener(tar: any): void;
+  label: any;
+  icon: any;
+  flexDirection: string;
+  position: string;
+  target: any;
+  visible: boolean;
+  sticky: any;
+  /** @ignore */
+  emptyHeader: boolean;
+  /** @ignore */
+  emptyFunctions: boolean;
+  /** @ignore */
+  emptyFooter: boolean;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  targetObserver(): void;
+  visibleObserver(): void;
+  handlePosition(tar: any): void;
+  addDocListener(tar: any): void;
 }

@@ -70,8 +70,9 @@ export class korRadioButton extends LitElement {
       <input
         type="radio"
         ?checked="${this.active}"
-        value="${this.label}"
-        name="${this.label}"
+        .value="${this.label}"
+        .name="${this.label}"
+        @change="${this.handleChange}"
       />
       <div class="circle"></div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
@@ -86,6 +87,15 @@ export class korRadioButton extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.addEventListener('click', () => this.handleActive());
+  }
+
+  handleChange() {
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   handleActive() {
