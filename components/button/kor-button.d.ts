@@ -6,11 +6,11 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korButton extends LitElement {
-  label: string;
-  icon: any;
-  color: string;
-  disabled: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: string;
+    icon: any;
+    color: string;
+    disabled: any;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }

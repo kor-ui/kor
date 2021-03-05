@@ -20,35 +20,36 @@ import { LitElement } from 'lit-element';
  * @slot functions - Displayed on the right side.
  */
 export declare class korInput extends LitElement {
-  label: any;
-  icon: any;
-  value: any;
-  type: string;
-  status: any;
-  condensed: any;
-  active: any;
-  disabled: any;
-  readonly: any;
-  noClear: any;
-  autofocus: any;
-  pattern: any;
-  min: any;
-  max: any;
-  step: number;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  constructor();
-  handleClear(): void;
-  handleBlur(e: any): void;
-  handleIncrement(dir: any): void;
-  handleItems(e: any): void;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  handleMenu(): void;
-  validateMinMax(val: any): void;
-  getStatusIcon(): string;
-  getMenuStyles(): {
-    top: string;
-    left: string;
-    width: string;
-  };
+    label: any;
+    icon: any;
+    value: any;
+    type: string;
+    status: any;
+    condensed: any;
+    active: any;
+    disabled: any;
+    readonly: any;
+    noClear: any;
+    autofocus: any;
+    pattern: any;
+    min: any;
+    max: any;
+    step: number;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    constructor();
+    handleChange(e: any): void;
+    handleClear(): void;
+    handleBlur(e: any): void;
+    handleIncrement(dir: any): void;
+    handleItems(e: any): void;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    handleMenu(): void;
+    validateMinMax(val: any): void;
+    getStatusIcon(): string;
+    getMenuStyles(): {
+        top: string;
+        left: string;
+        width: string;
+    };
 }
