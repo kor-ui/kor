@@ -227,7 +227,7 @@ export class korInput extends LitElement {
           .step="${this.step.toString()}"
           .pattern="${this.pattern}"
           .value="${this.value ? this.value : null}"
-          @change="${this.handleChange}"
+          @input="${this.handleChange}"
           @focus="${() => (this.active = true)}"
           @blur="${this.handleBlur}"
         />
