@@ -205,7 +205,7 @@ export class korInput extends LitElement {
             border-color: rgba(var(--neutral-1), 0.4);
           }
         }
-      `,
+      `
     ];
   }
 
@@ -314,7 +314,7 @@ export class korInput extends LitElement {
     this.dispatchEvent(
       new CustomEvent('change', {
         bubbles: true,
-        composed: true,
+        composed: true
       })
     );
   }
@@ -419,7 +419,7 @@ export class korInput extends LitElement {
     const styles = {
       top: `${this.getBoundingClientRect().top + this.clientHeight + 1}px`,
       left: `${this.getBoundingClientRect().left}px`,
-      width: `${this.clientWidth}px`,
+      width: `${this.clientWidth}px`
     };
     return styles;
   }
