@@ -135,8 +135,8 @@ export class korInput extends LitElement {
         :host([active]) .label {
           font: var(--body-2);
         }
-        :host(:not([value]):not([active])) input,
-        :host([value='']:not([active])) input {
+        :host(:not([value]):not([active]):not([type='date'])) input,
+        :host([value='']:not([active]):not([type='date'])) input {
           max-height: 0px;
         }
         input,
@@ -199,6 +199,14 @@ export class korInput extends LitElement {
         slot:not([name])::slotted(*) {
           margin-bottom: 0;
         }
+        /* date */
+        :host([type='date']) ::-webkit-calendar-picker-indicator {
+          background: unset;
+        }
+        .date-icon {
+          margin-left: -24px;
+          pointer-events: none;
+        }
         /* hover inputs */
         @media (hover: hover) {
           :host(:hover:not([active])) {
@@ -232,6 +240,33 @@ export class korInput extends LitElement {
           @blur="${this.handleBlur}"
         />
       </div>
+      <!-- select -->
+      ${this.type === 'select'
+        ? html`
+            <kor-icon
+              button
+              class="select-icon"
+              icon="arrow_drop_down"
+            ></kor-icon>
+            ${this.active
+              ? html`
+                  <kor-card
+                    @wheel="${(e) => e.stopPropagation()}"
+                    class="select-menu"
+                    .style="top: ${this.getMenuStyles()
+                      .top}; left: ${this.getMenuStyles()
+                      .left}; width: ${this.getMenuStyles().width};"
+                  >
+                    <slot @slotchange="${this.handleItems}"></slot>
+                  </kor-card>
+                `
+              : ''}
+          `
+        : ''}
+      <!-- date -->
+      ${this.type === 'date'
+        ? html` <kor-icon button class="date-icon" icon="event"></kor-icon> `
+        : ''}
       <!-- clear -->
       ${!this.disabled &&
       !this.readonly &&
@@ -275,29 +310,6 @@ export class korInput extends LitElement {
         : ''}
       <!-- functions slot -->
       <slot name="functions"></slot>
-      <!-- select -->
-      ${this.type === 'select'
-        ? html`
-            <kor-icon
-              button
-              class="select-icon"
-              icon="arrow_drop_down"
-            ></kor-icon>
-            ${this.active
-              ? html`
-                  <kor-card
-                    @wheel="${(e) => e.stopPropagation()}"
-                    class="select-menu"
-                    .style="top: ${this.getMenuStyles()
-                      .top}; left: ${this.getMenuStyles()
-                      .left}; width: ${this.getMenuStyles().width};"
-                  >
-                    <slot @slotchange="${this.handleItems}"></slot>
-                  </kor-card>
-                `
-              : ''}
-          `
-        : ''}
     `;
   }
 
