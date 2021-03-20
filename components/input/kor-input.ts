@@ -200,12 +200,12 @@ export class korInput extends LitElement {
           margin-bottom: 0;
         }
         /* date */
-        :host([type='date']) ::-webkit-calendar-picker-indicator {
-          background: unset;
-        }
         .date-icon {
           margin-left: -24px;
           pointer-events: none;
+        }
+        :host([type='date']) ::-webkit-calendar-picker-indicator {
+          background: unset;
         }
         /* hover inputs */
         @media (hover: hover) {
