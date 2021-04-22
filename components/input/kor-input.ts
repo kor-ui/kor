@@ -84,7 +84,11 @@ export class korInput extends LitElement {
           max-height: 16px;
         }
         input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
+        input[type='number']::-webkit-outer-spin-button,
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
           -webkit-appearance: none;
           margin: 0;
         }
