@@ -6,6 +6,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
  * @prop {String} type - Defines the type. Possible values are text, number and select.
+ * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
  * @prop {Number} min - (If type="number" only) If set, defines the minimum value accepted.
@@ -27,6 +28,7 @@ export class korInput extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) value;
+  @property({ type: String, reflect: true }) name;
   @property({ type: String, reflect: true }) type = 'text';
   @property({ type: String, reflect: true }) status;
   @property({ type: Boolean, reflect: true }) condensed;
@@ -239,6 +241,7 @@ export class korInput extends LitElement {
           .step="${this.step.toString()}"
           .pattern="${this.pattern}"
           .value="${this.value ? this.value : null}"
+          .name="${this.name}"
           @input="${this.handleChange}"
           @focus="${() => (this.active = true)}"
           @blur="${this.handleBlur}"
