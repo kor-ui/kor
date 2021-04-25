@@ -12,5 +12,6 @@ export declare class korRadioButton extends LitElement {
     render(): import("lit-element").TemplateResult;
     attributeChangedCallback(name: any, oldval: any, newval: any): void;
     connectedCallback(): void;
+    handleChange(): void;
     handleActive(): void;
 }

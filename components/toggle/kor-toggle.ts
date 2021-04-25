@@ -84,8 +84,9 @@ export class korToggle extends LitElement {
         type="checkbox"
         ?checked="${this.active}"
         ?readonly="${this.disabled}"
-        value="${this.label}"
-        name="${this.label}"
+        .value="${this.label}"
+        .name="${this.label}"
+        @change="${this.handleChange}"
       />
       <div class="bg">
         <div class="dot"></div>
@@ -104,5 +105,14 @@ export class korToggle extends LitElement {
     this.addEventListener('click', () => {
       this.active = !this.active;
     });
+  }
+
+  handleChange() {
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }

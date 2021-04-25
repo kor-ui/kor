@@ -12,4 +12,5 @@ export declare class korCheckbox extends LitElement {
     render(): import("lit-element").TemplateResult;
     attributeChangedCallback(name: any, oldval: any, newval: any): void;
     connectedCallback(): void;
+    handleChange(): void;
 }

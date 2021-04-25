@@ -5,7 +5,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
  * @prop {Number} rows - Defines the visible number of lines in a text area.
- * @prop {Number} maxLength - Defines the maximum number of characters allowed in the text area.
  * @prop {Boolean} active - If set to true, highlights the label and underline.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {Boolean} readonly - If set to true, disables the input without reducing the opacity.
@@ -17,7 +16,6 @@ export class korTextarea extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) value;
   @property({ type: Number, reflect: true }) rows = 1;
-  @property({ type: Number, reflect: true, attribute: 'max-length' }) maxLength = 1;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) readonly;
@@ -133,14 +131,10 @@ export class korTextarea extends LitElement {
           .value="${this.value !== undefined ? this.value : ''}"
           .rows="${this.rows}"
           .columns="${this.rows}"
-          .maxLength="${this.maxLength}"
           ?autofocus="${this.autofocus}"
-          @input="${(e) =>
-            e.target.value
-              ? (this.value = e.target.value)
-              : this.removeAttribute('value')}"
           @focus="${() => (this.active = true)}"
           @blur="${() => (this.active = false)}"
+          @input="${this.handleChange}"
         ></textarea>
       </div>
     `;
@@ -152,6 +146,16 @@ export class korTextarea extends LitElement {
       this.active = true;
       this.shadowRoot.querySelector('textarea').focus();
     });
+  }
+
+  handleChange(e) {
+    this.value = e.target.value;
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   handleClear() {

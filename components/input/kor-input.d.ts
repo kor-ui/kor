@@ -4,6 +4,7 @@ import { LitElement } from 'lit-element';
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
  * @prop {String} type - Defines the type. Possible values are text, number and select.
+ * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
  * @prop {Number} min - (If type="number" only) If set, defines the minimum value accepted.
@@ -23,6 +24,7 @@ export declare class korInput extends LitElement {
     label: any;
     icon: any;
     value: any;
+    name: any;
     type: string;
     status: any;
     condensed: any;
@@ -38,6 +40,7 @@ export declare class korInput extends LitElement {
     static get styles(): import("lit-element").CSSResult[];
     render(): import("lit-element").TemplateResult;
     constructor();
+    handleChange(e: any): void;
     handleClear(): void;
     handleBlur(e: any): void;
     handleIncrement(dir: any): void;
