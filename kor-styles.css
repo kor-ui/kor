@@ -42,7 +42,7 @@ html, *[theme="light"] {
 /* typography */
 @font-face {
   font-family: 'md-icons';
-  src:  local('Material Icons'), local('MaterialIcons-Regular'), url('./fonts/md-icons.woff2') format('woff2'), url('./fonts/md-icons.woff') format('woff');
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('./fonts/md-icons.ttf') format('truetype');
 }
 @font-face {
   font-family: 'open-sans';
