@@ -15,5 +15,5 @@ export declare class korIcon extends LitElement {
     static get styles(): import("lit-element").CSSResult[];
     render(): import("lit-element").TemplateResult;
     attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    private handleIcon;
+    private setBackgroundImage;
 }
