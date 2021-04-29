@@ -4,8 +4,8 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
- * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are `left`, `right`, `top` and `bottom`.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {String} height - Defines the height of the container (not the overlay).
  * @prop {String} width - Defines the width of the container (not the overlay).
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
@@ -21,11 +21,11 @@ import { sharedStyles } from '../../shared-styles';
 export class korDrawer extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) position = 'left';
+  @property({ type: String, reflect: true }) position: 'left' | 'right' | 'top' | 'bottom' = 'left';
   @property({ type: String, reflect: true }) height = '320px';
   @property({ type: String, reflect: true }) width = '320px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
+  flexDirection: 'row' | 'column' = 'column';
   @property({ type: Boolean, reflect: true }) visible = false;
   @property({ type: Boolean, reflect: true }) sticky;
 

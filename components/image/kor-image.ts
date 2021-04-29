@@ -109,7 +109,7 @@ export class korImage extends LitElement {
         alt="${this.alt}"
         width="${this.width}"
         height="${this.height}"
-        style="object-fit: xxxxxxxxxxx"
+        style="object-fit: ${this.fit}"
       />
       ${this.legend ? html` <kor-text>${this.legend}</kor-text> ` : ''}
       <slot name="top"></slot>

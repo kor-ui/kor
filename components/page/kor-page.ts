@@ -64,11 +64,12 @@ export class korPage extends LitElement {
   }
 
   render() {
+    // @ts-ignore
     return html`
       <slot name="top"></slot>
       <div class="center-wrapper">
         <slot name="left"></slot>
-        <slot style="padding: xxxxxxxxxxxxxxx"></slot>
+        <slot style="padding: ${this.padding}"></slot>
         <slot name="right"></slot>
       </div>
       <slot name="bottom"></slot>
