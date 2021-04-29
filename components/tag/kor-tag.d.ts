@@ -8,12 +8,12 @@ import { LitElement } from 'lit-element';
  * @fires remove - Dispatched when clicking on the close icon (removable only).
  */
 export declare class korTag extends LitElement {
-    label: string;
-    icon: any;
-    button: any;
-    removable: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    handleRemove(): void;
+  label: string;
+  icon: any;
+  button: any;
+  removable: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  handleRemove(): void;
 }

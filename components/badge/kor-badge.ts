@@ -3,13 +3,17 @@ import { sharedStyles } from '../../shared-styles';
 
 /**
  * @prop {Number} label -		If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.
- * @prop {String} status - If set, a status icon is shown inside the badge. Accepted values are error, warning, success.
+ * @prop {'error'|'warning'|'success'|undefined} status - If set, a status icon is shown inside the badge. Accepted values are `error`, `warning`, `success`.
  */
 
 @customElement('kor-badge')
 export class korBadge extends LitElement {
   @property({ type: Number, reflect: true }) label;
-  @property({ type: String, reflect: true }) status;
+  @property({ type: String, reflect: true }) status:
+    | 'error'
+    | 'warning'
+    | 'success'
+    | undefined;
 
   static get styles() {
     return [

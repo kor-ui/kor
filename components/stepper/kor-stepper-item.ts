@@ -8,6 +8,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Number} index - Defines the index number shown inside the bubble (if icon is undefined). It is set dinamically by the component.
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
 @customElement('kor-stepper-item')
@@ -20,7 +21,9 @@ export class korStepperItem extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled;
   @property({ type: Boolean, reflect: true }) first;
   @property({ type: Boolean, reflect: true }) last;
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [

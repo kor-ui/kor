@@ -5,7 +5,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
- * @prop {String} type - Defines the type. Possible values are text, number and select.
+ * @prop {'text'|'number'|'select'|'name'|undefined} type - Defines the type. Possible values are `text`, `number`, `select` and `date`.
  * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
@@ -29,7 +29,12 @@ export class korInput extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) value;
   @property({ type: String, reflect: true }) name;
-  @property({ type: String, reflect: true }) type = 'text';
+  @property({ type: String, reflect: true }) type:
+    | 'text'
+    | 'number'
+    | 'select'
+    | 'date'
+    | undefined = 'text';
   @property({ type: String, reflect: true }) status;
   @property({ type: Boolean, reflect: true }) condensed;
   @property({ type: Boolean, reflect: true }) active;
@@ -87,10 +92,10 @@ export class korInput extends LitElement {
         }
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button,
-        input[type="search"]::-webkit-search-decoration,
-        input[type="search"]::-webkit-search-cancel-button,
-        input[type="search"]::-webkit-search-results-button,
-        input[type="search"]::-webkit-search-results-decoration {
+        input[type='search']::-webkit-search-decoration,
+        input[type='search']::-webkit-search-cancel-button,
+        input[type='search']::-webkit-search-results-button,
+        input[type='search']::-webkit-search-results-decoration {
           -webkit-appearance: none;
           margin: 0;
         }
@@ -219,7 +224,7 @@ export class korInput extends LitElement {
             border-color: rgba(var(--neutral-1), 0.4);
           }
         }
-      `
+      `,
     ];
   }
 
@@ -333,7 +338,7 @@ export class korInput extends LitElement {
     this.dispatchEvent(
       new CustomEvent('change', {
         bubbles: true,
-        composed: true
+        composed: true,
       })
     );
   }
@@ -438,7 +443,7 @@ export class korInput extends LitElement {
     const styles = {
       top: `${this.getBoundingClientRect().top + this.clientHeight + 1}px`,
       left: `${this.getBoundingClientRect().left}px`,
-      width: `${this.clientWidth}px`
+      width: `${this.clientWidth}px`,
     };
     return styles;
   }

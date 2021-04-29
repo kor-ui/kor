@@ -5,7 +5,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} image - If set, defines the image shown on top of the card.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {Boolean} flat - If set, background, shadows and external padding are not shown.
  *
  * @slot - Displayed inside the content area.
@@ -20,7 +20,7 @@ export class korCard extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) image;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
+  flexDirection: 'column' | 'row' = 'column';
   @property({ type: Boolean, reflect: true }) flat = false;
 
   // readonly properties

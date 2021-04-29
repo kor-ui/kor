@@ -7,10 +7,10 @@ import { LitElement } from 'lit-element';
  * @slot - The slot where the content is rendered.
  */
 export declare class korGrid extends LitElement {
-    columns: number;
-    rows: any;
-    spacing: string;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  columns: number;
+  rows: any;
+  spacing: string;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }

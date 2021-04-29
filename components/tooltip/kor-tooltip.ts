@@ -4,8 +4,8 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {String} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are `left`, `right`, `top` and `bottom`.
+ * @prop {'column'|'row'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {String} target - Defines the DOM element to which the mouseover event will be attached. It behaves identically to querySelector, which means tag names, IDs, classes and similar can be used (e.g. #myEl, .myEl, kor-input[type='number']). Please ensure the selector is unique.
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
  *
@@ -20,8 +20,12 @@ export class korTooltip extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
-  @property({ type: String, reflect: true }) position = 'bottom';
+  flexDirection: 'column' | 'row' = 'column';
+  @property({ type: String, reflect: true }) position:
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'bottom' = 'bottom';
   @property({ type: String, reflect: true }) target;
   @property({ type: Boolean, reflect: true }) visible = false;
 

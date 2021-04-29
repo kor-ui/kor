@@ -4,8 +4,8 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
- * @prop {String} size - Defines the size (width) of the component. Possible values are s (80px), m (120px) and l(320px).
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
+ * @prop {'s'|'m'|'l'} size - Defines the size (width) of the component. Possible values are `s`(80px), `m`(120px) and `l`(320px).
  *
  * @slot - Displayed inside the content area.
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
@@ -18,8 +18,8 @@ export class korPane extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
-  @property({ type: String, reflect: true }) size = 'l';
+  flexDirection: 'row' | 'column' = 'column';
+  @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'l';
 
   // readonly properties
   /** @ignore */

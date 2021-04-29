@@ -4,7 +4,7 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {String} height - Defines the height of the container (not the overlay).
  * @prop {String} width - Defines the width of the container (not the overlay).
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
@@ -23,7 +23,7 @@ export class korModal extends LitElement {
   @property({ type: String, reflect: true }) height = '400px';
   @property({ type: String, reflect: true }) width = '600px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
+  flexDirection: 'row' | 'column' = 'column';
   @property({ type: Boolean, reflect: true }) visible = false;
   @property({ type: Boolean, reflect: true }) sticky;
 

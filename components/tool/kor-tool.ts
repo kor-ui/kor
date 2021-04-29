@@ -4,7 +4,7 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown above the text label (if set).
- * @prop {String} size - Defines the size of the component. Possible values are s and m.
+ * @prop {'s'|'m'} size - Defines the size of the component. Possible values are `s` and `m`.
  * @prop {Boolean} active - If set to true, a highlight style gets applied.
  * @prop {Boolean} toggle - If set to true, clicking on the menu item will toggle the active property between true and false.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
@@ -14,7 +14,7 @@ import { sharedStyles } from '../../shared-styles';
 export class korTool extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) size = 'm';
+  @property({ type: String, reflect: true }) size: 's' | 'm' = 'm';
   @property({ type: Boolean, reflect: true }) toggle;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled = false;

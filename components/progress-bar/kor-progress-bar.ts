@@ -4,9 +4,9 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label shown above the bar.
  * @prop {String} info - If set, defines the info text shown below of the bar.
- * @prop {String} status - If set, shows a status icon besides the information text. Possible values are success, warning and error.
+ * @prop {'success'|'warning'|'error'|undefined} status - If set, shows a status icon besides the information text. Possible values are `success`, `warning` and `error`.
  * @prop {String} color - If set, defines the color of the bar.
- * @prop {String} size - (Only if radial is true) Defines the size of the bar. Possible values are s, m and l.
+ * @prop {'s'|'m'|'l'} size - (Only if radial is true) Defines the size of the bar. Possible values are `s`, `m` and `l`.
  * @prop {Number} value - Defines the value of the bar. Must be a number from 0 to 100.
  * @prop {Boolean} radial - If set to true, the bar will become a circle instead of a linear bar.
  * @prop {Boolean} showProgress - If set to true, the value (in %) will be visible.
@@ -16,9 +16,13 @@ import { sharedStyles } from '../../shared-styles';
 export class korProgressBar extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) info;
-  @property({ type: String, reflect: true }) status;
+  @property({ type: String, reflect: true }) status:
+    | 'success'
+    | 'warning'
+    | 'error'
+    | undefined;
   @property({ type: String, reflect: true }) color;
-  @property({ type: String, reflect: true }) size = 'm';
+  @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
   @property({ type: Number, reflect: true }) value;
   @property({ type: Boolean, reflect: true }) radial = false;
   @property({ type: Boolean, reflect: true, attribute: 'show-progress' })

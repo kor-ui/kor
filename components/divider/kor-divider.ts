@@ -2,14 +2,16 @@ import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
- * @prop {String} spacing -	Defines the space around the divider. Possible values are s, n and l.
- * @prop {String} orientation - Defines the orientation of the divider. Possible values are vertical and horizontal.
+ * @prop {'s'|'m'|'l'} spacing -	Defines the space around the divider. Possible values are `s`, `m` and `l`.
+ * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the divider. Possible values are `vertical` and `horizontal`.
  */
 
 @customElement('kor-divider')
 export class korDivider extends LitElement {
-  @property({ type: String, reflect: true }) spacing = 'm';
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) spacing: 's' | 'm' | 'l' = 'm';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -56,7 +58,7 @@ export class korDivider extends LitElement {
   }
 
   render() {
-    return html` <div class="line"></div> `;
+    return html`<div class="line"></div>`;
   }
 
   attributeChangedCallback(name, oldval, newval) {

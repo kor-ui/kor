@@ -4,7 +4,7 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
  * @prop {Boolean} sticky - If set to true, the close icon will not be displayed.
  *
@@ -19,7 +19,7 @@ export class korNotificationItem extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
+  flexDirection: 'row' | 'column' = 'column';
   @property({ type: Boolean, reflect: true }) visible = false;
   @property({ type: Boolean, reflect: true }) sticky;
 

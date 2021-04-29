@@ -6,6 +6,7 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} icon - If set, defines the icon shown above the label (if set).
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
 @customElement('kor-tab-item')
@@ -14,7 +15,9 @@ export class korTabItem extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: Boolean, reflect: true }) active;
   @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [

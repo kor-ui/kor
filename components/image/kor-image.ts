@@ -6,9 +6,9 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {String} alt - Defines the text shown in case the image cannot be loaded.
  * @prop {String} width - Defines the width of the image. Can take a numeric or percentual value.
  * @prop {String} height - Defines the height of the image. Can take a numeric or percentual value.
- * @prop {String} fit - Defines how the image fits to the component. Possible values are `fill`, `contain`, `cover`, `none` and `scale-down`.
+ * @prop {'fill'|'contain'|'cover'|'none'|'scale-down'} fit - Defines how the image fits to the component. Possible values are `fill`, `contain`, `cover`, `none` and `scale-down`.
  * @prop {String} legend - Defines the legend text.
- * @prop {String} legendPosition - Defines the position of the legend. Possible values are `inner-top` and `inner bottom`. If left unset, the legend is displayed underneath the image
+ * @prop {'inner-top'|'inner-bottom'} legendPosition - Defines the position of the legend. Possible values are `inner-top` and `inner-bottom`. If left unset, the legend is displayed underneath the image
  * @slot top - The container for components overlayed at the top corner of the image.
  * @slot bottom - The container for components overlayed at the bottom corner of the image.
  */
@@ -19,7 +19,12 @@ export class korImage extends LitElement {
   @property({ type: String, reflect: true }) alt;
   @property({ type: String, reflect: true }) width = '100%';
   @property({ type: String, reflect: true }) height;
-  @property({ type: String, reflect: true }) fit = 'contain';
+  @property({ type: String, reflect: true }) fit:
+    | 'fill'
+    | 'contain'
+    | 'cover'
+    | 'none'
+    | 'scale-down' = 'contain';
   @property({ type: String, reflect: true }) legend;
   @property({ type: String, reflect: true, attribute: 'legend-position' })
   legendPosition;
@@ -104,7 +109,7 @@ export class korImage extends LitElement {
         alt="${this.alt}"
         width="${this.width}"
         height="${this.height}"
-        style="object-fit: ${this.fit}"
+        style="object-fit: xxxxxxxxxxx"
       />
       ${this.legend ? html` <kor-text>${this.legend}</kor-text> ` : ''}
       <slot name="top"></slot>

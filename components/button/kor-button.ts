@@ -4,7 +4,7 @@ import { sharedStyles } from '../../shared-styles';
 /**
  * @prop {String} label -	Defines the text label.
  * @prop {String} icon - If set, replaces the text label with a custom icon.
- * @prop {String} color - Defines the color. The possible values are primary, secondary and tertiary
+ * @prop {'primary'|'secondary'|'tertiary'} color - Defines the color. The possible values are `primary`, `secondary` and `tertiary`
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
@@ -12,7 +12,10 @@ import { sharedStyles } from '../../shared-styles';
 export class korButton extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) color = 'primary';
+  @property({ type: String, reflect: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary' = 'primary';
   @property({ type: Boolean, reflect: true }) disabled;
 
   static get styles() {

@@ -2,14 +2,18 @@ import { LitElement, css, html, customElement, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
- * @prop {String} position - Defines the corner where the notification is located. Possible values are top-left, top-right, bottom-left and bottom-right.
+ * @prop {'top-left'|'top-right'|'bottom-left'|'bottom-right'} position - Defines the corner where the notification is located. Possible values are `top-left`, `top-right`, `bottom-left` and `bottom-right`.
  *
  * @slot - Hosts kor-notification-items.
  */
 
 @customElement('kor-notifications')
 export class korNotifications extends LitElement {
-  @property({ type: String, reflect: true }) position = 'top-right';
+  @property({ type: String, reflect: true }) position:
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right' = 'top-right';
 
   static get styles() {
     return [
@@ -54,7 +58,7 @@ export class korNotifications extends LitElement {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`<slot></slot>`;
   }
 
   attributeChangedCallback(name, oldval, newval) {
