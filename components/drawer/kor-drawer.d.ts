@@ -2,8 +2,8 @@ import { LitElement } from 'lit-element';
 /**
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
- * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are `left`, `right`, `top` and `bottom`.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {String} height - Defines the height of the container (not the overlay).
  * @prop {String} width - Defines the width of the container (not the overlay).
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
@@ -17,10 +17,10 @@ import { LitElement } from 'lit-element';
 export declare class korDrawer extends LitElement {
     label: any;
     icon: any;
-    position: string;
+    position: 'left' | 'right' | 'top' | 'bottom';
     height: string;
     width: string;
-    flexDirection: string;
+    flexDirection: 'row' | 'column';
     visible: boolean;
     sticky: any;
     /** @ignore */
