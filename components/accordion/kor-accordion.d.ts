@@ -13,21 +13,21 @@ import '../card';
  * @slot footer - Displayed below the content when it is expanded.
  */
 export declare class korAccordion extends LitElement {
-  label: string;
-  icon: any;
-  expanded: any;
-  disabled: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyBody: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  connectedCallback(): void;
-  handleCollapse(e: any): void;
+    label: string;
+    icon: any;
+    expanded: any;
+    disabled: any;
+    /** @ignore */
+    emptyHeader: boolean;
+    /** @ignore */
+    emptyFunctions: boolean;
+    /** @ignore */
+    emptyBody: boolean;
+    /** @ignore */
+    emptyFooter: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    connectedCallback(): void;
+    handleCollapse(e: any): void;
 }

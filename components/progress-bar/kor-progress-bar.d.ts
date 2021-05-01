@@ -12,17 +12,17 @@ import '../text';
  * @prop {Boolean} showProgress - If set to true, the value (in %) will be visible.
  */
 export declare class korProgressBar extends LitElement {
-  label: any;
-  info: any;
-  status: 'success' | 'warning' | 'error' | undefined;
-  color: any;
-  size: 's' | 'm' | 'l';
-  value: any;
-  radial: boolean;
-  showProgress: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  getStatusIcon(): string;
-  getSize(): number;
+    label: any;
+    info: any;
+    status: 'success' | 'warning' | 'error' | undefined;
+    color: any;
+    size: 's' | 'm' | 'l';
+    value: any;
+    radial: boolean;
+    showProgress: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    getStatusIcon(): string;
+    getSize(): number;
 }

@@ -16,20 +16,20 @@ import '../icon';
  * @slot footer - Displayed below the content area.
  */
 export declare class korModal extends LitElement {
-  label: any;
-  icon: any;
-  height: string;
-  width: string;
-  flexDirection: 'row' | 'column';
-  visible: boolean;
-  sticky: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: any;
+    icon: any;
+    height: string;
+    width: string;
+    flexDirection: 'row' | 'column';
+    visible: boolean;
+    sticky: any;
+    /** @ignore */
+    emptyHeader: boolean;
+    /** @ignore */
+    emptyFunctions: boolean;
+    /** @ignore */
+    emptyFooter: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }

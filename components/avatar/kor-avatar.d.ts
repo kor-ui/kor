@@ -8,12 +8,12 @@ import '../text';
  * @prop {Boolean} condensed - If set, the image is shown in a smaller size.
  */
 export declare class korAvatar extends LitElement {
-  label: any;
-  info: any;
-  image: any;
-  condensed: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  getInitials(label: any): any;
+    label: any;
+    info: any;
+    image: any;
+    condensed: any;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    getInitials(label: any): any;
 }

@@ -13,18 +13,18 @@ import '../icon';
  * @slot footer - Shown below the content area.
  */
 export declare class korCard extends LitElement {
-  label: any;
-  icon: any;
-  image: any;
-  flexDirection: 'column' | 'row';
-  flat: boolean;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: any;
+    icon: any;
+    image: any;
+    flexDirection: 'column' | 'row';
+    flat: boolean;
+    /** @ignore */
+    emptyHeader: boolean;
+    /** @ignore */
+    emptyFunctions: boolean;
+    /** @ignore */
+    emptyFooter: boolean;
+    static get styles(): import("lit-element").CSSResult[];
+    render(): import("lit-element").TemplateResult;
+    attributeChangedCallback(name: any, oldval: any, newval: any): void;
 }
