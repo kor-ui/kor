@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -9,7 +9,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - The slot where the content is rendered.
  */
 
-@customElement('kor-grid')
 export class korGrid extends LitElement {
   @property({ type: Number, reflect: true }) columns = 12;
   @property({ type: Number, reflect: true }) rows;
@@ -296,4 +295,8 @@ export class korGrid extends LitElement {
       this.style.gridTemplateRows = `repeat(${this.rows}, 1fr)`;
     }
   }
+}
+
+if (!window.customElements.get('kor-grid')) {
+  window.customElements.define('kor-grid', korGrid);
 }

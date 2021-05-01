@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -11,7 +11,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} autofocus - If set to true, the component gets focused as soon as the page loads.
  */
 
-@customElement('kor-textarea')
 export class korTextarea extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) value;
@@ -167,4 +166,8 @@ export class korTextarea extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-textarea')) {
+  window.customElements.define('kor-textarea', korTextarea);
 }

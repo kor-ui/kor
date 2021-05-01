@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -12,7 +12,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - Hosts plain text or other elements.
  */
 
-@customElement('kor-table-cell')
 export class korTableCell extends LitElement {
   @property({ type: Number, reflect: true, attribute: 'grid-cols' }) gridCols;
   @property({ type: String, reflect: true }) alignment = 'left';
@@ -112,4 +111,8 @@ export class korTableCell extends LitElement {
       this.sortDirection = 'asc';
     }
   }
+}
+
+if (!window.customElements.get('kor-table-cell')) {
+  window.customElements.define('kor-table-cell', korTableCell);
 }

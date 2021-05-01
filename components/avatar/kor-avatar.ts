@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -8,7 +8,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} condensed - If set, the image is shown in a smaller size.
  */
 
-@customElement('kor-avatar')
 export class korAvatar extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) info;
@@ -73,11 +72,11 @@ export class korAvatar extends LitElement {
       <!-- image -->
       <div class="image">
         ${this.image
-          ? html` <img src="${this.image}" /> `
-          : html`
+        ? html` <img src="${this.image}" /> `
+        : html`
               ${this.label
-                ? html` ${this.getInitials(this.label)} `
-                : html` <kor-icon icon="person"></kor-icon> `}
+            ? html` ${this.getInitials(this.label)} `
+            : html` <kor-icon icon="person"></kor-icon> `}
             `}
       </div>
       <!-- text -->
@@ -85,18 +84,18 @@ export class korAvatar extends LitElement {
         ? html`
             <div class="text">
               ${this.label
-                ? html`<kor-text size="body-2" class="label"
+            ? html`<kor-text size="body-2" class="label"
                     >${this.label}</kor-text
                   >`
-                : ''}
+            : ''}
               ${this.info
-                ? html`<kor-text
+            ? html`<kor-text
                     size="body-2"
                     class="info"
                     color="var(--text-2)"
                     >${this.info}</kor-text
                   >`
-                : ''}
+            : ''}
             </div>
           `
         : ''}
@@ -115,4 +114,8 @@ export class korAvatar extends LitElement {
     ).toUpperCase();
     return initials;
   }
+}
+
+if (!window.customElements.get('kor-avatar')) {
+  window.customElements.define('kor-avatar', korAvatar);
 }

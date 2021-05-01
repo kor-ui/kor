@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -17,7 +17,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Shown below the content area.
  */
 
-@customElement('kor-drawer')
 export class korDrawer extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -98,7 +97,7 @@ export class korDrawer extends LitElement {
       <kor-card
         @click="${(e) => e.stopPropagation()}"
         style="height: ${this.getCardSize().height}; width: ${this.getCardSize()
-          .width}; max-height: ${this.getCardSize()
+        .width}; max-height: ${this.getCardSize()
           .height}; max-width: ${this.getCardSize().width}"
         .label="${this.label}"
         .icon="${this.icon}"
@@ -108,25 +107,25 @@ export class korDrawer extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-            ? html`
+        ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-            : ''}
+        : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
@@ -161,4 +160,8 @@ export class korDrawer extends LitElement {
     }
     return size;
   }
+}
+
+if (!window.customElements.get('kor-drawer')) {
+  window.customElements.define('kor-drawer', korDrawer);
 }

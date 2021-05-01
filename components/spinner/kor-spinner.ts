@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -6,7 +6,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {'s'|'m'|'l'} size - Defines the size of the component. Possible values are `s`(24px), `m`(32px) and `l`(40px).
  */
 
-@customElement('kor-spinner')
 export class korSpinner extends LitElement {
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
   @property({ type: String, reflect: true }) label;
@@ -89,4 +88,8 @@ export class korSpinner extends LitElement {
     }
     return size;
   }
+}
+
+if (!window.customElements.get('kor-spinner')) {
+  window.customElements.define('kor-spinner', korSpinner);
 }

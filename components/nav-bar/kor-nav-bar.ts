@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement } from 'lit-element';
+import { LitElement, css, html } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -6,7 +6,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Shown on the right side.
  */
 
-@customElement('kor-nav-bar')
 export class korNavbar extends LitElement {
   static get styles() {
     return [
@@ -30,4 +29,8 @@ export class korNavbar extends LitElement {
       </kor-app-bar>
     `;
   }
+}
+
+if (!window.customElements.get('kor-nav-bar')) {
+  window.customElements.define('kor-nav-bar', korNavbar);
 }

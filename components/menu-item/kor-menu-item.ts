@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -12,7 +12,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Shown on the right side.
  */
 
-@customElement('kor-menu-item')
 export class korMenuItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
@@ -92,4 +91,8 @@ export class korMenuItem extends LitElement {
       });
     }
   }
+}
+
+if (!window.customElements.get('kor-menu-item')) {
+  window.customElements.define('kor-menu-item', korMenuItem);
 }

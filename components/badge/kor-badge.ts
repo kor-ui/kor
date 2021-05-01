@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -6,7 +6,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {'error'|'warning'|'success'|undefined} status - If set, a status icon is shown inside the badge. Accepted values are `error`, `warning`, `success`.
  */
 
-@customElement('kor-badge')
 export class korBadge extends LitElement {
   @property({ type: Number, reflect: true }) label;
   @property({ type: String, reflect: true }) status:
@@ -60,24 +59,24 @@ export class korBadge extends LitElement {
       ${!this.status
         ? html`
             ${this.label
-              ? html`
+            ? html`
                   <kor-text size="body-2">
                     ${this.label > 999 ? html` 999+ ` : html` ${this.label} `}
                   </kor-text>
                 `
-              : ''}
+            : ''}
           `
         : html`
             <!-- status -->
             ${this.status
-              ? html`
+            ? html`
                   <kor-icon
                     class="status-icon"
                     size="s"
                     icon="${this.getStatusIcon()}"
                   ></kor-icon>
                 `
-              : ''}
+            : ''}
           `}
     `;
   }
@@ -102,4 +101,8 @@ export class korBadge extends LitElement {
     }
     return icon;
   }
+}
+
+if (!window.customElements.get('kor-badge')) {
+  window.customElements.define('kor-badge', korBadge);
 }

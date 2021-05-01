@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -8,7 +8,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the label.
  */
 
-@customElement('kor-empty-state')
 export class korEmptyState extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -64,4 +63,8 @@ export class korEmptyState extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-empty-state')) {
+  window.customElements.define('kor-empty-state', korEmptyState);
 }

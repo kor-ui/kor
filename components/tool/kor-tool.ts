@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -10,7 +10,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-tool')
 export class korTool extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -92,4 +91,8 @@ export class korTool extends LitElement {
       });
     }
   }
+}
+
+if (!window.customElements.get('kor-tool')) {
+  window.customElements.define('kor-tool', korTool);
 }

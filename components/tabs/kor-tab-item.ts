@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -9,7 +9,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
-@customElement('kor-tab-item')
 export class korTabItem extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -125,4 +124,8 @@ export class korTabItem extends LitElement {
     });
     (<any>this).active = true;
   }
+}
+
+if (!window.customElements.get('kor-tab-item')) {
+  window.customElements.define('kor-tab-item', korTabItem);
 }

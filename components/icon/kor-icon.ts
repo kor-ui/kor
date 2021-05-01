@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -9,7 +9,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled -	If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-icon')
 export class korIcon extends LitElement {
   @property({ type: String, reflect: true }) icon;
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' | 'xl' = 'm';
@@ -96,4 +95,9 @@ export class korIcon extends LitElement {
   private setBackgroundImage(val: string): void {
     this.style.backgroundImage = val;
   }
+
+}
+
+if (!window.customElements.get('kor-icon')) {
+  window.customElements.define('kor-icon', korIcon);
 }

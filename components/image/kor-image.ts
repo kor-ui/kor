@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -13,7 +13,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot bottom - The container for components overlayed at the bottom corner of the image.
  */
 
-@customElement('kor-image')
 export class korImage extends LitElement {
   @property({ type: String, reflect: true }) src;
   @property({ type: String, reflect: true }) alt;
@@ -121,4 +120,8 @@ export class korImage extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-image')) {
+  window.customElements.define('kor-image', korImage);
 }

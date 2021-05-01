@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -10,7 +10,6 @@ import { sharedStyles } from '../../shared-styles';
  * @fires remove - Dispatched when clicking on the close icon (removable only).
  */
 
-@customElement('kor-tag')
 export class korTag extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
@@ -78,4 +77,8 @@ export class korTag extends LitElement {
   handleRemove() {
     this.dispatchEvent(new Event('remove'));
   }
+}
+
+if (!window.customElements.get('kor-tag')) {
+  window.customElements.define('kor-tag', korTag);
 }

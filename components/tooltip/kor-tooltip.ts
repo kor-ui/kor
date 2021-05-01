@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -15,7 +15,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the content area.
  */
 
-@customElement('kor-tooltip')
 export class korTooltip extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -63,20 +62,20 @@ export class korTooltip extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? undefined : 'functions'}"
           @slotchange="${(e) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-popover>
     `;
@@ -109,4 +108,8 @@ export class korTooltip extends LitElement {
       });
     }
   }
+}
+
+if (!window.customElements.get('kor-tooltip')) {
+  window.customElements.define('kor-tooltip', korTooltip);
 }

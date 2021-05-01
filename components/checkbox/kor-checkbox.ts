@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -7,7 +7,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-checkbox')
 export class korCheckbox extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: Boolean, reflect: true }) active;
@@ -77,8 +76,8 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-          : ''}
+        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+        : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;
@@ -104,4 +103,8 @@ export class korCheckbox extends LitElement {
       })
     );
   }
+}
+
+if (!window.customElements.get('kor-checkbox')) {
+  window.customElements.define('kor-checkbox', korCheckbox);
 }

@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -13,7 +13,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the content when it is expanded.
  */
 
-@customElement('kor-accordion')
 export class korAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon;
@@ -98,8 +97,8 @@ export class korAccordion extends LitElement {
         >
           <div class="header">
             ${this.icon
-              ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
-              : ''}
+        ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
+        : ''}
             <p>${this.label}</p>
             <kor-icon
               button
@@ -111,15 +110,15 @@ export class korAccordion extends LitElement {
         <slot></slot>
         <slot name="functions" slot="functions"></slot>
         ${this.expanded
-          ? html`
+        ? html`
               <slot
                 name="footer"
                 slot="${this.emptyFooter ? undefined : 'footer'}"
                 @slotchange="${(e) =>
-                  (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
               ></slot>
             `
-          : ''}
+        : ''}
       </kor-card>
     `;
   }
@@ -146,4 +145,8 @@ export class korAccordion extends LitElement {
       e.stopPropagation();
     }
   }
+}
+
+if (!window.customElements.get('kor-accordion')) {
+  window.customElements.define('kor-accordion', korAccordion);
 }

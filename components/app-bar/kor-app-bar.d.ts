@@ -1,4 +1,5 @@
 import { LitElement } from 'lit-element';
+import '../icon';
 /**
  * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset).
  * @prop {String} logo - If set, defines the logo shown on the left side.

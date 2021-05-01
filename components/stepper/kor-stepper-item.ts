@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -11,7 +11,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
-@customElement('kor-stepper-item')
 export class korStepperItem extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) info;
@@ -169,19 +168,19 @@ export class korStepperItem extends LitElement {
       <!-- circle -->
       <div class="circle">
         ${this.icon
-          ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-          : html`
+        ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+        : html`
               <kor-text size="header-1" class="number">${this.index}</kor-text>
             `}
       </div>
       <!-- text -->
       <div class="text">
         ${this.label
-          ? html` <kor-text class="label">${this.label}</kor-text> `
-          : ''}
+        ? html` <kor-text class="label">${this.label}</kor-text> `
+        : ''}
         ${this.info
-          ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
-          : ''}
+        ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
+        : ''}
       </div>
       <!-- lines -->
       ${!this.first ? html` <div class="line before"></div> ` : ''}
@@ -211,4 +210,8 @@ export class korStepperItem extends LitElement {
     children = Array.prototype.slice.call(this.parentElement.children);
     this.index = children.indexOf(this) + 1;
   }
+}
+
+if (!window.customElements.get('kor-stepper-item')) {
+  window.customElements.define('kor-stepper-item', korStepperItem);
 }

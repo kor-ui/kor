@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -14,7 +14,6 @@ import { sharedStyles } from '../../shared-styles';
  * @fires logo-clicked - Fired when clicking on the logo.
  */
 
-@customElement('kor-app-bar')
 export class korAppBar extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) logo;
@@ -83,24 +82,24 @@ export class korAppBar extends LitElement {
     return html`
       ${!this.mobile
         ? html`
-            ${this.logo
-              ? html`
-                  <img
-                    class="logo"
-                    src="${this.logo}"
-                    @click="${() => this.handleLogoClick()}"
-                  />
-                `
-              : ''}
+          ${this.logo
+            ? html`
+                <img
+                  class="logo"
+                  src="${this.logo}"
+                  @click="${() => this.handleLogoClick()}"
+                />
+              `
+            : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
           `
         : html`
-            <slot name="left"></slot>
-            ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
-            <slot name="right"></slot>
-          `}
+          <slot name="left"></slot>
+          ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
+          <slot name="right"></slot>
+        `}
     `;
   }
 
@@ -112,4 +111,8 @@ export class korAppBar extends LitElement {
   handleLogoClick() {
     this.dispatchEvent(new Event('logo-clicked'));
   }
+}
+
+if (!window.customElements.get('kor-app-bar')) {
+  window.customElements.define('kor-app-bar', korAppBar);
 }

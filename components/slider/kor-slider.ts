@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -10,7 +10,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} input - If set to true, allows the user to input a value using the keyboard.
  */
 
-@customElement('kor-slider')
 export class korSlider extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: Number, reflect: true }) value = 50;
@@ -89,19 +88,19 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-                ? html`
+            ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
                       @blur="${(e) =>
-                        this.handleInput(parseFloat(e.target.value))}"
+                this.handleInput(parseFloat(e.target.value))}"
                       @keypress="${(e) =>
-                        e.key === 'Enter'
-                          ? this.handleInput(parseFloat(e.target.value))
-                          : ''}"
+                e.key === 'Enter'
+                  ? this.handleInput(parseFloat(e.target.value))
+                  : ''}"
                     />
                   `
-                : ''}
+            : ''}
             </div>
           `
         : ''}
@@ -184,4 +183,8 @@ export class korSlider extends LitElement {
     window.addEventListener('mouseup', removeListeners);
     window.addEventListener('touchend', removeListeners);
   }
+}
+
+if (!window.customElements.get('kor-slider')) {
+  window.customElements.define('kor-slider', korSlider);
 }

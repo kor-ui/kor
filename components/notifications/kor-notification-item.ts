@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -14,7 +14,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the content area.
  */
 
-@customElement('kor-notification-item')
 export class korNotificationItem extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -74,25 +73,25 @@ export class korNotificationItem extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-            ? html`
+        ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-            : ''}
+        : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
@@ -102,4 +101,8 @@ export class korNotificationItem extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-notification-item')) {
+  window.customElements.define('kor-notification-item', korNotificationItem);
 }

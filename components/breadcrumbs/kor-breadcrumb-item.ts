@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -6,7 +6,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} active - Defines whether the item is currently active or not.
  */
 
-@customElement('kor-breadcrumb-item')
 export class korBreadcrumbItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: Boolean, reflect: true }) active = false;
@@ -66,4 +65,8 @@ export class korBreadcrumbItem extends LitElement {
     firstItem = children.indexOf(this) == 0;
     return firstItem;
   }
+}
+
+if (!window.customElements.get('kor-breadcrumb-item')) {
+  window.customElements.define('kor-breadcrumb-item', korBreadcrumbItem);
 }

@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -10,7 +10,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot header - The container for the header (kor-table-row). It does not scroll with the content, but remains sticky on top.
  */
 
-@customElement('kor-table')
 export class korTable extends LitElement {
   @property({ type: Boolean, reflect: true }) readonly;
   @property({ type: Boolean, reflect: true }) condensed;
@@ -48,4 +47,8 @@ export class korTable extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-table')) {
+  window.customElements.define('kor-table', korTable);
 }

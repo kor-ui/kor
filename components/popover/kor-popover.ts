@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -16,7 +16,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the content area.
  */
 
-@customElement('kor-popover')
 export class korPopover extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -91,20 +90,20 @@ export class korPopover extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? undefined : 'functions'}"
           @slotchange="${(e) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
@@ -157,9 +156,8 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('top')) {
       self.style.top = `${rect.top - self.clientHeight - 8}px`;
     } else {
-      self.style.top = `${
-        rect.top + rect.height / 2 - self.clientHeight / 2
-      }px`;
+      self.style.top = `${rect.top + rect.height / 2 - self.clientHeight / 2
+        }px`;
     }
     // get x axis
     if (self.position.startsWith('right')) {
@@ -167,9 +165,8 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('left')) {
       self.style.left = `${rect.left - self.clientWidth - 8}px`;
     } else {
-      self.style.left = `${
-        rect.left + rect.width / 2 - self.clientWidth / 2
-      }px`;
+      self.style.left = `${rect.left + rect.width / 2 - self.clientWidth / 2
+        }px`;
     }
   }
 
@@ -185,4 +182,8 @@ export class korPopover extends LitElement {
     document.addEventListener('click', closePopover);
     document.addEventListener('wheel', closePopover);
   }
+}
+
+if (!window.customElements.get('kor-popover')) {
+  window.customElements.define('kor-popover', korPopover);
 }

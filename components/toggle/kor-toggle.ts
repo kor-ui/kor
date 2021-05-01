@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -7,7 +7,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-toggle')
 export class korToggle extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: Boolean, reflect: true }) active;
@@ -115,4 +114,8 @@ export class korToggle extends LitElement {
       })
     );
   }
+}
+
+if (!window.customElements.get('kor-toggle')) {
+  window.customElements.define('kor-toggle', korToggle);
 }

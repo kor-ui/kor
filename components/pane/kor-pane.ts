@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -13,7 +13,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot footer - Displayed below the content area.
  */
 
-@customElement('kor-pane')
 export class korPane extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: String, reflect: true }) icon;
@@ -68,19 +67,19 @@ export class korPane extends LitElement {
           name="header"
           slot="${this.emptyHeader ? '' : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? '' : 'functions'}"
           @slotchange="${(e) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? '' : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
@@ -90,4 +89,8 @@ export class korPane extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-pane')) {
+  window.customElements.define('kor-pane', korPane);
 }

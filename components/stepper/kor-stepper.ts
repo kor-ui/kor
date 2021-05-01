@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -7,7 +7,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - Hosts kor-stepper-items.
  */
 
-@customElement('kor-stepper')
 export class korStepper extends LitElement {
   @property({ type: String, reflect: true }) orientation:
     | 'horizontal'
@@ -35,9 +34,9 @@ export class korStepper extends LitElement {
     return html`
       <slot
         @slotchange="${() => {
-          this.handleOrientation();
-          this.handleItems();
-        }}"
+        this.handleOrientation();
+        this.handleItems();
+      }}"
       ></slot>
     `;
   }
@@ -62,4 +61,8 @@ export class korStepper extends LitElement {
       el.last = el.index == length;
     });
   }
+}
+
+if (!window.customElements.get('kor-stepper')) {
+  window.customElements.define('kor-stepper', korStepper);
 }

@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -15,7 +15,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 
-@customElement('kor-page')
 export class korPage extends LitElement {
   @property({ type: String, reflect: true }) theme:
     | 'dark'
@@ -80,4 +79,8 @@ export class korPage extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-page')) {
+  window.customElements.define('kor-page', korPage);
 }

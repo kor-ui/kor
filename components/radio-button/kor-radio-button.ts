@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -7,7 +7,6 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-radio-button')
 export class korRadioButton extends LitElement {
   @property({ type: String, reflect: true }) label;
   @property({ type: Boolean, reflect: true }) active;
@@ -105,4 +104,8 @@ export class korRadioButton extends LitElement {
     });
     (<any>this).active = true;
   }
+}
+
+if (!window.customElements.get('kor-radio-button')) {
+  window.customElements.define('kor-radio-button', korRadioButton);
 }

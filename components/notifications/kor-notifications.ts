@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -7,7 +7,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - Hosts kor-notification-items.
  */
 
-@customElement('kor-notifications')
 export class korNotifications extends LitElement {
   @property({ type: String, reflect: true }) position:
     | 'top-left'
@@ -65,4 +64,8 @@ export class korNotifications extends LitElement {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-notifications')) {
+  window.customElements.define('kor-notifications', korNotifications);
 }

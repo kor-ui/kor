@@ -1,4 +1,4 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -8,7 +8,6 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - Container where plain text (and/or other elements) is written.
  */
 
-@customElement('kor-text')
 export class korText extends LitElement {
   @property({ type: String, reflect: true }) size = 'body-1';
   @property({ type: String, reflect: true }) color:
@@ -53,4 +52,8 @@ export class korText extends LitElement {
       this.style.color = this.color;
     }
   }
+}
+
+if (!window.customElements.get('kor-text')) {
+  window.customElements.define('kor-text', korText);
 }
