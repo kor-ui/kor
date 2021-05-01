@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -168,19 +170,19 @@ export class korStepperItem extends LitElement {
       <!-- circle -->
       <div class="circle">
         ${this.icon
-        ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-        : html`
+          ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+          : html`
               <kor-text size="header-1" class="number">${this.index}</kor-text>
             `}
       </div>
       <!-- text -->
       <div class="text">
         ${this.label
-        ? html` <kor-text class="label">${this.label}</kor-text> `
-        : ''}
+          ? html` <kor-text class="label">${this.label}</kor-text> `
+          : ''}
         ${this.info
-        ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
-        : ''}
+          ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
+          : ''}
       </div>
       <!-- lines -->
       ${!this.first ? html` <div class="line before"></div> ` : ''}

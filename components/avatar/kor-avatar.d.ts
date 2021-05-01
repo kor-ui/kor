@@ -1,4 +1,6 @@
 import { LitElement } from 'lit-element';
+import '../icon';
+import '../text';
 /**
  * @prop {String} label - If set, defines the text label shown next to the icon/image. If the label is set and an image is not defined, the initials will be shown as a placeholder.
  * @prop {String} info - If set, defines the information text shown below the label.
@@ -6,12 +8,12 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} condensed - If set, the image is shown in a smaller size.
  */
 export declare class korAvatar extends LitElement {
-    label: any;
-    info: any;
-    image: any;
-    condensed: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    getInitials(label: any): any;
+  label: any;
+  info: any;
+  image: any;
+  condensed: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  getInitials(label: any): any;
 }

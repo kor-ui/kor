@@ -1,4 +1,6 @@
 import { LitElement } from 'lit-element';
+import '../icon';
+import '../text';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} info - If set, defines the information text shown below the label.
@@ -9,18 +11,18 @@ import { LitElement } from 'lit-element';
  * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 export declare class korStepperItem extends LitElement {
-    label: any;
-    info: any;
-    icon: any;
-    index: any;
-    active: any;
-    disabled: any;
-    first: any;
-    last: any;
-    orientation: 'horizontal' | 'vertical';
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    connectedCallback(): void;
-    getIndex(): void;
+  label: any;
+  info: any;
+  icon: any;
+  index: any;
+  active: any;
+  disabled: any;
+  first: any;
+  last: any;
+  orientation: 'horizontal' | 'vertical';
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  connectedCallback(): void;
+  getIndex(): void;
 }

@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {Number} label -		If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.
@@ -59,24 +61,24 @@ export class korBadge extends LitElement {
       ${!this.status
         ? html`
             ${this.label
-            ? html`
+              ? html`
                   <kor-text size="body-2">
                     ${this.label > 999 ? html` 999+ ` : html` ${this.label} `}
                   </kor-text>
                 `
-            : ''}
+              : ''}
           `
         : html`
             <!-- status -->
             ${this.status
-            ? html`
+              ? html`
                   <kor-icon
                     class="status-icon"
                     size="s"
                     icon="${this.getStatusIcon()}"
                   ></kor-icon>
                 `
-            : ''}
+              : ''}
           `}
     `;
   }

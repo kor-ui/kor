@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../card';
+import '../icon';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -73,25 +75,25 @@ export class korNotificationItem extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-        ? html`
+            ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-        : ''}
+            : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

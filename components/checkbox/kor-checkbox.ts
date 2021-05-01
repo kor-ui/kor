@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label -	If set, defines the text label.
@@ -76,8 +78,8 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-        : ''}
+          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+          : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;

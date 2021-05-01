@@ -95,7 +95,6 @@ export class korIcon extends LitElement {
   private setBackgroundImage(val: string): void {
     this.style.backgroundImage = val;
   }
-
 }
 
 if (!window.customElements.get('kor-icon')) {

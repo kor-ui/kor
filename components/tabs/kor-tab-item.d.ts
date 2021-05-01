@@ -1,4 +1,6 @@
 import { LitElement } from 'lit-element';
+import '../icon';
+import '../text';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown above the label (if set).
@@ -7,14 +9,14 @@ import { LitElement } from 'lit-element';
  * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 export declare class korTabItem extends LitElement {
-    label: any;
-    icon: any;
-    active: any;
-    disabled: any;
-    orientation: 'horizontal' | 'vertical';
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    connectedCallback(): void;
-    handleActive(): void;
+  label: any;
+  icon: any;
+  active: any;
+  disabled: any;
+  orientation: 'horizontal' | 'vertical';
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  connectedCallback(): void;
+  handleActive(): void;
 }

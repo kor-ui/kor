@@ -1,5 +1,4 @@
 import { LitElement } from 'lit-element';
-import '../icon';
 /**
  * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset).
  * @prop {String} logo - If set, defines the logo shown on the left side.
@@ -13,11 +12,11 @@ import '../icon';
  * @fires logo-clicked - Fired when clicking on the logo.
  */
 export declare class korAppBar extends LitElement {
-    label: any;
-    logo: any;
-    mobile: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    handleLogoClick(): void;
+  label: any;
+  logo: any;
+  mobile: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  handleLogoClick(): void;
 }

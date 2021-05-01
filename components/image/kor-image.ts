@@ -1,5 +1,6 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../text';
 
 /**
  * @prop {String} src - Defines the source image to be displayed. Must be a url (web or relative path).

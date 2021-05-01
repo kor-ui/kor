@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../card';
 
 /**
  * @prop {String} label -	Defines the text label.
@@ -97,8 +99,8 @@ export class korAccordion extends LitElement {
         >
           <div class="header">
             ${this.icon
-        ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
-        : ''}
+              ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
+              : ''}
             <p>${this.label}</p>
             <kor-icon
               button
@@ -110,15 +112,15 @@ export class korAccordion extends LitElement {
         <slot></slot>
         <slot name="functions" slot="functions"></slot>
         ${this.expanded
-        ? html`
+          ? html`
               <slot
                 name="footer"
                 slot="${this.emptyFooter ? undefined : 'footer'}"
                 @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+                  (this.emptyFooter = e.target.assignedNodes().length === 0)}"
               ></slot>
             `
-        : ''}
+          : ''}
       </kor-card>
     `;
   }

@@ -1,5 +1,7 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label shown above the bar.
@@ -102,8 +104,8 @@ export class korProgressBar extends LitElement {
             <div class="header">
               <kor-text size="header-2" class="label">${this.label}</kor-text>
               ${this.showProgress && !this.radial
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
             </div>
           `
         : ''}
@@ -149,17 +151,17 @@ export class korProgressBar extends LitElement {
                   stroke="${this.color ? this.color : 'rgb(var(--accent-1))'}"
                   stroke-dasharray="${2 * Math.PI * (this.getSize() / 2 - 4)}"
                   stroke-dashoffset="${2 *
-          Math.PI *
-          (this.getSize() / 2 - 4) *
-          (1 - this.value / 100)}"
+                  Math.PI *
+                  (this.getSize() / 2 - 4) *
+                  (1 - this.value / 100)}"
                   r="${this.getSize() / 2 - 4}"
                   cx="${this.getSize() / 2}"
                   cy="${this.getSize() / 2}"
                 />
               </svg>
               ${this.showProgress
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
             </div>
           `}
       ${this.info || this.status
@@ -167,21 +169,21 @@ export class korProgressBar extends LitElement {
             <div class="footer">
               <!-- status -->
               ${this.status
-            ? html`
+                ? html`
                     <kor-icon
                       class="status-icon"
                       icon="${this.getStatusIcon()}"
                     ></kor-icon>
                   `
-            : ''}
+                : ''}
               <!-- info -->
               ${this.info
-            ? html`
+                ? html`
                     <kor-text color="var(--text-2)" class="info"
                       >${this.info}</kor-text
                     >
                   `
-            : ''}
+                : ''}
             </div>
           `
         : ''}

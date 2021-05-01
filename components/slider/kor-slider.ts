@@ -1,5 +1,6 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label shown on top.
@@ -88,19 +89,19 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-            ? html`
+                ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
                       @blur="${(e) =>
-                this.handleInput(parseFloat(e.target.value))}"
+                        this.handleInput(parseFloat(e.target.value))}"
                       @keypress="${(e) =>
-                e.key === 'Enter'
-                  ? this.handleInput(parseFloat(e.target.value))
-                  : ''}"
+                        e.key === 'Enter'
+                          ? this.handleInput(parseFloat(e.target.value))
+                          : ''}"
                     />
                   `
-            : ''}
+                : ''}
             </div>
           `
         : ''}

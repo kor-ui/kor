@@ -34,9 +34,9 @@ export class korStepper extends LitElement {
     return html`
       <slot
         @slotchange="${() => {
-        this.handleOrientation();
-        this.handleItems();
-      }}"
+          this.handleOrientation();
+          this.handleItems();
+        }}"
       ></slot>
     `;
   }

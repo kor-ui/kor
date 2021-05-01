@@ -1,5 +1,6 @@
 import { LitElement, css, html, property } from 'lit-element';
 import { sharedStyles } from '../../shared-styles';
+import '../popover';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -62,20 +63,20 @@ export class korTooltip extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? undefined : 'functions'}"
           @slotchange="${(e) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-popover>
     `;
