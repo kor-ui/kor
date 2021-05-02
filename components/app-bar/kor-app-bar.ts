@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -83,14 +84,14 @@ export class korAppBar extends LitElement {
       ${!this.mobile
         ? html`
             ${this.logo
-              ? html`
+            ? html`
                   <img
                     class="logo"
                     src="${this.logo}"
                     @click="${() => this.handleLogoClick()}"
                   />
                 `
-              : ''}
+            : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>

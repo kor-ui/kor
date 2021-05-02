@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../text';
 
@@ -89,19 +90,19 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-                ? html`
+            ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
                       @blur="${(e) =>
-                        this.handleInput(parseFloat(e.target.value))}"
+                this.handleInput(parseFloat(e.target.value))}"
                       @keypress="${(e) =>
-                        e.key === 'Enter'
-                          ? this.handleInput(parseFloat(e.target.value))
-                          : ''}"
+                e.key === 'Enter'
+                  ? this.handleInput(parseFloat(e.target.value))
+                  : ''}"
                     />
                   `
-                : ''}
+            : ''}
             </div>
           `
         : ''}

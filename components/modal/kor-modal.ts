@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 import '../icon';
@@ -75,7 +76,7 @@ export class korModal extends LitElement {
       <kor-card
         @click="${(e) => e.stopPropagation()}"
         style="height: ${this.height}; width: ${this.width}; max-height: ${this
-          .height}; max-width: ${this.width}"
+        .height}; max-width: ${this.width}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
@@ -84,25 +85,25 @@ export class korModal extends LitElement {
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-            ? html`
+        ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-            : ''}
+        : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

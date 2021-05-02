@@ -11,9 +11,6 @@
   },
   "author": "Eduardo Ferreira",
   "license": "MIT",
-  "dependencies": {
-    "lit-element": "^2.4.0"
-  },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.2",
     "html-webpack-plugin": "^3.2.0",
@@ -39,5 +36,8 @@
     "webcomponents",
     "baukasten"
   ],
-  "gitHead": "b0ae13e43894b4a4afd5b47aca9bd72026fac89a"
+  "gitHead": "b0ae13e43894b4a4afd5b47aca9bd72026fac89a",
+  "dependencies": {
+    "lit": "*"
+  }
 }

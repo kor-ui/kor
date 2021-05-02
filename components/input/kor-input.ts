@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 import '../icon';
@@ -240,8 +241,8 @@ export class korInput extends LitElement {
           .type="${this.type}"
           ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly ||
-          this.disabled ||
-          this.type === 'select'}"
+      this.disabled ||
+      this.type === 'select'}"
           .min="${this.min}"
           .max="${this.max}"
           .step="${this.step.toString()}"
@@ -262,18 +263,18 @@ export class korInput extends LitElement {
               icon="arrow_drop_down"
             ></kor-icon>
             ${this.active
-              ? html`
+            ? html`
                   <kor-card
                     @wheel="${(e) => e.stopPropagation()}"
                     class="select-menu"
                     .style="top: ${this.getMenuStyles()
-                      .top}; left: ${this.getMenuStyles()
-                      .left}; width: ${this.getMenuStyles().width};"
+                .top}; left: ${this.getMenuStyles()
+                  .left}; width: ${this.getMenuStyles().width};"
                   >
                     <slot @slotchange="${this.handleItems}"></slot>
                   </kor-card>
                 `
-              : ''}
+            : ''}
           `
         : ''}
       <!-- date -->
@@ -282,10 +283,10 @@ export class korInput extends LitElement {
         : ''}
       <!-- clear -->
       ${!this.disabled &&
-      !this.readonly &&
-      this.value &&
-      !this.noClear &&
-      this.type !== 'select'
+        !this.readonly &&
+        this.value &&
+        !this.noClear &&
+        this.type !== 'select'
         ? html`
             <kor-icon
               button

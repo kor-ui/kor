@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 
@@ -133,41 +134,41 @@ export class korCard extends LitElement {
         this.emptyFunctions &&
         !this.label &&
         !this.icon
-          ? 'empty'
-          : ''}"
+        ? 'empty'
+        : ''}"
       >
         <div class="header">
           ${this.label || this.icon
-            ? html`
+        ? html`
                 <div class="label">
                   ${this.icon
-                    ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-                    : ''}
+            ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+            : ''}
                   <p>${this.label}</p>
                 </div>
                 ${!this.emptyHeader && (this.label || this.icon)
-                  ? html` <div style="margin-top: 16px"></div> `
-                  : ''}
-              `
+            ? html` <div style="margin-top: 16px"></div> `
             : ''}
+              `
+        : ''}
           <slot
             name="header"
             @slotchange="${(e) =>
-              (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
             class="${this.emptyHeader ? 'empty' : ''}"
           ></slot>
         </div>
         <slot
           name="functions"
           @slotchange="${(e) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
       </div>
       <slot></slot>
       <slot
         name="footer"
         @slotchange="${(e) =>
-          (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         class="${this.emptyFooter ? 'empty' : ''}"
       ></slot>
     `;

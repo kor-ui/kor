@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 import '../text';
@@ -78,8 +79,8 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-          : ''}
+        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+        : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;

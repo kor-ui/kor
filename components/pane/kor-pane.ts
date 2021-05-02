@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 
@@ -68,19 +69,19 @@ export class korPane extends LitElement {
           name="header"
           slot="${this.emptyHeader ? '' : 'header'}"
           @slotchange="${(e) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? '' : 'functions'}"
           @slotchange="${(e) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? '' : 'footer'}"
           @slotchange="${(e) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

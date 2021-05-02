@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 import '../text';
@@ -61,24 +62,24 @@ export class korBadge extends LitElement {
       ${!this.status
         ? html`
             ${this.label
-              ? html`
+            ? html`
                   <kor-text size="body-2">
                     ${this.label > 999 ? html` 999+ ` : html` ${this.label} `}
                   </kor-text>
                 `
-              : ''}
+            : ''}
           `
         : html`
             <!-- status -->
             ${this.status
-              ? html`
+            ? html`
                   <kor-icon
                     class="status-icon"
                     size="s"
                     icon="${this.getStatusIcon()}"
                   ></kor-icon>
                 `
-              : ''}
+            : ''}
           `}
     `;
   }

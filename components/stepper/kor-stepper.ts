@@ -1,4 +1,5 @@
-import { LitElement, css, html, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -34,9 +35,9 @@ export class korStepper extends LitElement {
     return html`
       <slot
         @slotchange="${() => {
-          this.handleOrientation();
-          this.handleItems();
-        }}"
+        this.handleOrientation();
+        this.handleItems();
+      }}"
       ></slot>
     `;
   }
