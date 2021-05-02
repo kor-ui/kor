@@ -57,14 +57,14 @@ export class korBreadcrumbItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   firstItem(): boolean {
     let firstItem: boolean, children: any;
-    children = Array.prototype.slice.call(this.parentElement.children);
+    children = Array.prototype.slice.call(this.parentElement?.children);
     firstItem = children.indexOf(this) == 0;
     return firstItem;
   }

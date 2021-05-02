@@ -35,20 +35,20 @@ export class korStepper extends LitElement {
     return html`
       <slot
         @slotchange="${() => {
-        this.handleOrientation();
-        this.handleItems();
-      }}"
+          this.handleOrientation();
+          this.handleItems();
+        }}"
       ></slot>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   handleOrientation() {
-    (<any>this.childNodes).forEach((el) => {
+    (<NodeListOf<any>>this.childNodes).forEach((el: any) => {
       el.orientation = this.orientation;
     });
   }

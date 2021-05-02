@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../popover';
 
@@ -18,8 +18,8 @@ import '../popover';
  */
 
 export class korTooltip extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'column' | 'row' = 'column';
   @property({ type: String, reflect: true }) position:
@@ -27,16 +27,13 @@ export class korTooltip extends LitElement {
     | 'right'
     | 'top'
     | 'bottom' = 'bottom';
-  @property({ type: String, reflect: true }) target;
+  @property({ type: String, reflect: true }) target: string | undefined;
   @property({ type: Boolean, reflect: true }) visible = false;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -63,27 +60,27 @@ export class korTooltip extends LitElement {
         <slot
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
-          @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? undefined : 'functions'}"
-          @slotchange="${(e) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
-          @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-popover>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // add listener on target changed
@@ -93,7 +90,7 @@ export class korTooltip extends LitElement {
   }
 
   targetObserver() {
-    let timeout;
+    let timeout: any;
     const tar =
       typeof this.target === 'string'
         ? document.querySelector(this.target)

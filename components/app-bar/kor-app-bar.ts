@@ -16,9 +16,9 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korAppBar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) logo;
-  @property({ type: Boolean, reflect: true }) mobile;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) logo: string | undefined;
+  @property({ type: Boolean, reflect: true }) mobile = false;
 
   static get styles() {
     return [
@@ -84,14 +84,14 @@ export class korAppBar extends LitElement {
       ${!this.mobile
         ? html`
             ${this.logo
-            ? html`
+              ? html`
                   <img
                     class="logo"
                     src="${this.logo}"
                     @click="${() => this.handleLogoClick()}"
                   />
                 `
-            : ''}
+              : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
@@ -104,7 +104,7 @@ export class korAppBar extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

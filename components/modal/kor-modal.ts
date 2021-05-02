@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 import '../icon';
@@ -20,22 +20,19 @@ import '../icon';
  */
 
 export class korModal extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true }) height = '400px';
   @property({ type: String, reflect: true }) width = '600px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'column';
   @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky;
+  @property({ type: Boolean, reflect: true }) sticky = false;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -74,9 +71,9 @@ export class korModal extends LitElement {
   render() {
     return html`
       <kor-card
-        @click="${(e) => e.stopPropagation()}"
+        @click="${(e: any) => e.stopPropagation()}"
         style="height: ${this.height}; width: ${this.width}; max-height: ${this
-        .height}; max-width: ${this.width}"
+          .height}; max-width: ${this.width}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
@@ -84,32 +81,32 @@ export class korModal extends LitElement {
         <slot
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
-          @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-        ? html`
+            ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-        : ''}
+            : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
-          @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name === 'visible' && this.visible) {

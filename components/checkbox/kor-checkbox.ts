@@ -11,9 +11,9 @@ import '../text';
  */
 
 export class korCheckbox extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
     return [
@@ -79,14 +79,14 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-        : ''}
+          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+          : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

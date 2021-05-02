@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 
@@ -17,20 +17,17 @@ import '../icon';
  */
 
 export class korCard extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) image;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) image: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'column' | 'row' = 'column';
   @property({ type: Boolean, reflect: true }) flat = false;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -134,47 +131,47 @@ export class korCard extends LitElement {
         this.emptyFunctions &&
         !this.label &&
         !this.icon
-        ? 'empty'
-        : ''}"
+          ? 'empty'
+          : ''}"
       >
         <div class="header">
           ${this.label || this.icon
-        ? html`
+            ? html`
                 <div class="label">
                   ${this.icon
-            ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-            : ''}
+                    ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+                    : ''}
                   <p>${this.label}</p>
                 </div>
                 ${!this.emptyHeader && (this.label || this.icon)
-            ? html` <div style="margin-top: 16px"></div> `
-            : ''}
+                  ? html` <div style="margin-top: 16px"></div> `
+                  : ''}
               `
-        : ''}
+            : ''}
           <slot
             name="header"
-            @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            @slotchange="${(e: any) =>
+              (this.emptyHeader = e.target.assignedNodes().length === 0)}"
             class="${this.emptyHeader ? 'empty' : ''}"
           ></slot>
         </div>
         <slot
           name="functions"
-          @slotchange="${(e) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
       </div>
       <slot></slot>
       <slot
         name="footer"
-        @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        @slotchange="${(e: any) =>
+          (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         class="${this.emptyFooter ? 'empty' : ''}"
       ></slot>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

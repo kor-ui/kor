@@ -16,16 +16,16 @@ import '../text';
  */
 
 export class korProgressBar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) info;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) info: string | undefined;
   @property({ type: String, reflect: true }) status:
     | 'success'
     | 'warning'
     | 'error'
     | undefined;
-  @property({ type: String, reflect: true }) color;
+  @property({ type: String, reflect: true }) color: string | undefined;
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
-  @property({ type: Number, reflect: true }) value;
+  @property({ type: Number, reflect: true }) value: number | undefined;
   @property({ type: Boolean, reflect: true }) radial = false;
   @property({ type: Boolean, reflect: true, attribute: 'show-progress' })
   showProgress = false;
@@ -105,8 +105,8 @@ export class korProgressBar extends LitElement {
             <div class="header">
               <kor-text size="header-2" class="label">${this.label}</kor-text>
               ${this.showProgress && !this.radial
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
             </div>
           `
         : ''}
@@ -152,17 +152,17 @@ export class korProgressBar extends LitElement {
                   stroke="${this.color ? this.color : 'rgb(var(--accent-1))'}"
                   stroke-dasharray="${2 * Math.PI * (this.getSize() / 2 - 4)}"
                   stroke-dashoffset="${2 *
-          Math.PI *
-          (this.getSize() / 2 - 4) *
-          (1 - this.value / 100)}"
+                  Math.PI *
+                  (this.getSize() / 2 - 4) *
+                  (1 - (this.value ? this.value / 100 : 0))}"
                   r="${this.getSize() / 2 - 4}"
                   cx="${this.getSize() / 2}"
                   cy="${this.getSize() / 2}"
                 />
               </svg>
               ${this.showProgress
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
             </div>
           `}
       ${this.info || this.status
@@ -170,33 +170,33 @@ export class korProgressBar extends LitElement {
             <div class="footer">
               <!-- status -->
               ${this.status
-            ? html`
+                ? html`
                     <kor-icon
                       class="status-icon"
                       icon="${this.getStatusIcon()}"
                     ></kor-icon>
                   `
-            : ''}
+                : ''}
               <!-- info -->
               ${this.info
-            ? html`
+                ? html`
                     <kor-text color="var(--text-2)" class="info"
                       >${this.info}</kor-text
                     >
                   `
-            : ''}
+                : ''}
             </div>
           `
         : ''}
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':
@@ -224,6 +224,8 @@ export class korProgressBar extends LitElement {
       case 'l':
         size = 80;
         break;
+      default:
+        size = 0;
     }
     return size;
   }

@@ -16,7 +16,8 @@ export class korText extends LitElement {
     | 'header-2'
     | 'body-1'
     | 'body-2'
-    | string;
+    | string
+    | undefined;
 
   static get styles() {
     return [
@@ -46,10 +47,10 @@ export class korText extends LitElement {
     return html`<slot></slot>`;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
-    if (name == 'color') {
+    if (name == 'color' && this.color) {
       this.style.color = this.color;
     }
   }

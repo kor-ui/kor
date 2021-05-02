@@ -8,12 +8,12 @@ import '../icon';
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
- * @prop {'text'|'number'|'select'|'name'|undefined} type - Defines the type. Possible values are `text`, `number`, `select` and `date`.
+ * @prop {'text'|'number'|'select'|'name'} type - Defines the type. Possible values are `text`, `number`, `select` and `date`.
  * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
- * @prop {Number} min - (If type="number" only) If set, defines the minimum value accepted.
- * @prop {Number} max - (If type="number" only) If set, defines the maximum value accepted.
+ * @prop {String} min - (If type="number" only) If set, defines the minimum value accepted.
+ * @prop {String} max - (If type="number" only) If set, defines the maximum value accepted.
  * @prop {Number} step - (If type="number" only) Defines the steps to skip when the user presses the left or right arrows.
  * @prop {Boolean} condensed - If set to true, reduces the height of the input. The label is only shown if the value is undefined.
  * @prop {Boolean} active - If set to true, highlights the label and underline.
@@ -27,27 +27,27 @@ import '../icon';
  */
 
 export class korInput extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) value;
-  @property({ type: String, reflect: true }) name;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) value: string | undefined;
+  @property({ type: String, reflect: true }) name: string | undefined;
   @property({ type: String, reflect: true }) type:
     | 'text'
     | 'number'
     | 'select'
-    | 'date'
-    | undefined = 'text';
-  @property({ type: String, reflect: true }) status;
-  @property({ type: Boolean, reflect: true }) condensed;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: Boolean, reflect: true }) readonly;
-  @property({ type: Boolean, reflect: true, attribute: 'no-clear' }) noClear;
-  @property({ type: Boolean, reflect: true }) autofocus;
+    | 'date' = 'text';
+  @property({ type: String, reflect: true }) status: string | undefined;
+  @property({ type: Boolean, reflect: true }) condensed = false;
+  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) readonly = false;
+  @property({ type: Boolean, reflect: true, attribute: 'no-clear' })
+  noClear = false;
+  @property({ type: Boolean, reflect: true }) autofocus = false;
   // input number properties
-  @property({ type: String, reflect: true }) pattern;
-  @property({ type: Number, reflect: true }) min;
-  @property({ type: Number, reflect: true }) max;
+  @property({ type: String, reflect: true }) pattern: string | undefined;
+  @property({ type: String, reflect: true }) min: string | undefined;
+  @property({ type: String, reflect: true }) max: string | undefined;
   @property({ type: Number, reflect: true }) step = 1;
 
   static get styles() {
@@ -241,8 +241,8 @@ export class korInput extends LitElement {
           .type="${this.type}"
           ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly ||
-      this.disabled ||
-      this.type === 'select'}"
+          this.disabled ||
+          this.type === 'select'}"
           .min="${this.min}"
           .max="${this.max}"
           .step="${this.step.toString()}"
@@ -263,18 +263,18 @@ export class korInput extends LitElement {
               icon="arrow_drop_down"
             ></kor-icon>
             ${this.active
-            ? html`
+              ? html`
                   <kor-card
-                    @wheel="${(e) => e.stopPropagation()}"
+                    @wheel="${(e: any) => e.stopPropagation()}"
                     class="select-menu"
                     .style="top: ${this.getMenuStyles()
-                .top}; left: ${this.getMenuStyles()
-                  .left}; width: ${this.getMenuStyles().width};"
+                      .top}; left: ${this.getMenuStyles()
+                      .left}; width: ${this.getMenuStyles().width};"
                   >
                     <slot @slotchange="${this.handleItems}"></slot>
                   </kor-card>
                 `
-            : ''}
+              : ''}
           `
         : ''}
       <!-- date -->
@@ -283,10 +283,10 @@ export class korInput extends LitElement {
         : ''}
       <!-- clear -->
       ${!this.disabled &&
-        !this.readonly &&
-        this.value &&
-        !this.noClear &&
-        this.type !== 'select'
+      !this.readonly &&
+      this.value &&
+      !this.noClear &&
+      this.type !== 'select'
         ? html`
             <kor-icon
               button
@@ -331,11 +331,11 @@ export class korInput extends LitElement {
     super();
     this.addEventListener('click', () => {
       this.active = true;
-      this.shadowRoot.querySelector('input').focus();
+      this.shadowRoot?.querySelector('input')?.focus();
     });
   }
 
-  handleChange(e) {
+  handleChange(e: any) {
     this.value = e.target.value;
     this.dispatchEvent(
       new CustomEvent('change', {
@@ -350,7 +350,7 @@ export class korInput extends LitElement {
     this.removeAttribute('value');
   }
 
-  handleBlur(e) {
+  handleBlur(e: any) {
     if (this.type === 'number') {
       this.validateMinMax(e.target.value);
     }
@@ -359,28 +359,30 @@ export class korInput extends LitElement {
     }
   }
 
-  handleIncrement(dir) {
+  handleIncrement(dir: string) {
     if (dir === 'left') {
       this.validateMinMax(
-        parseInt(this.value ? this.value : this.min ? this.min : 0) - this.step
+        parseInt(this.value ? this.value : this.min ? this.min : '0') -
+          this.step
       );
     } else if (dir === 'right') {
       this.validateMinMax(
-        parseInt(this.value ? this.value : this.min ? this.min : 0) + this.step
+        parseInt(this.value ? this.value : this.min ? this.min : '0') +
+          this.step
       );
     }
   }
 
-  handleItems(e) {
-    const items: any = e.target.assignedNodes();
-    items.forEach((el) => {
+  handleItems(e: any) {
+    const items: NodeList = e.target.assignedNodes();
+    items.forEach((el: any) => {
       if (el.tagName === 'KOR-MENU-ITEM') {
         // handle click on menu item
-        el.addEventListener('active-changed', (e) => {
+        el.addEventListener('active-changed', (e: any) => {
           if (e.target.active) {
             // unselect siblings
-            items.forEach((sib) => {
-              sib.active = false;
+            items.forEach((el: any) => {
+              el.active = false;
             });
             e.target.active = true;
             this.value = el.label;
@@ -391,7 +393,7 @@ export class korInput extends LitElement {
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name == 'active' && this.active && this.type == 'select') {
@@ -402,7 +404,7 @@ export class korInput extends LitElement {
   handleMenu() {
     const self = this;
     // handle click outside of popover
-    const closePopover = function (e) {
+    const closePopover = function (e: any) {
       if ((e.type === 'click' && e.target !== self) || e.type === 'wheel') {
         self.active = false;
         document.removeEventListener('click', closePopover);
@@ -413,19 +415,19 @@ export class korInput extends LitElement {
     document.addEventListener('wheel', closePopover);
   }
 
-  validateMinMax(val) {
+  validateMinMax(val: number) {
     if (val) {
-      if (this.min && val < this.min) {
+      if (this.min && val < parseInt(this.min)) {
         this.value = this.min;
-      } else if (val > this.max) {
+      } else if (this.max && val > parseInt(this.max)) {
         this.value = this.max;
       } else {
-        this.value = val;
+        this.value = val.toString();
       }
     }
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':

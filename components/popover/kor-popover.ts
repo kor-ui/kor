@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 
@@ -19,8 +19,8 @@ import '../card';
  */
 
 export class korPopover extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'column';
   @property({ type: String, reflect: true }) position:
@@ -28,17 +28,17 @@ export class korPopover extends LitElement {
     | 'right'
     | 'top'
     | 'bottom' = 'bottom';
-  @property({ type: String, reflect: true }) target;
+  @property({ type: String, reflect: true }) target:
+    | string
+    | HTMLElement
+    | undefined;
   @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky;
+  @property({ type: Boolean, reflect: true }) sticky = false;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -82,8 +82,8 @@ export class korPopover extends LitElement {
   render() {
     return html`
       <kor-card
-        @click="${(e) => e.stopPropagation()}"
-        @wheel="${(e) => e.stopPropagation()}"
+        @click="${(e: any) => e.stopPropagation()}"
+        @wheel="${(e: any) => e.stopPropagation()}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
@@ -91,27 +91,27 @@ export class korPopover extends LitElement {
         <slot
           name="header"
           slot="${this.emptyHeader ? undefined : 'header'}"
-          @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? undefined : 'functions'}"
-          @slotchange="${(e) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? undefined : 'footer'}"
-          @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // add listener on target changed
@@ -145,7 +145,7 @@ export class korPopover extends LitElement {
     !this.sticky && this.target ? this.addDocListener(tar) : '';
   }
 
-  handlePosition(tar) {
+  handlePosition(tar: Element | null | undefined) {
     if (!tar) {
       return;
     }
@@ -158,8 +158,9 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('top')) {
       self.style.top = `${rect.top - self.clientHeight - 8}px`;
     } else {
-      self.style.top = `${rect.top + rect.height / 2 - self.clientHeight / 2
-        }px`;
+      self.style.top = `${
+        rect.top + rect.height / 2 - self.clientHeight / 2
+      }px`;
     }
     // get x axis
     if (self.position.startsWith('right')) {
@@ -167,14 +168,15 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('left')) {
       self.style.left = `${rect.left - self.clientWidth - 8}px`;
     } else {
-      self.style.left = `${rect.left + rect.width / 2 - self.clientWidth / 2
-        }px`;
+      self.style.left = `${
+        rect.left + rect.width / 2 - self.clientWidth / 2
+      }px`;
     }
   }
 
-  addDocListener(tar) {
+  addDocListener(tar: Element | null | undefined) {
     let self = this;
-    let closePopover = function (e) {
+    let closePopover = function (e: any) {
       if ((e.target !== tar && e.type === 'click') || e.type === 'wheel') {
         self.visible = false;
         document.removeEventListener('click', closePopover);

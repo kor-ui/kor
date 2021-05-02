@@ -12,8 +12,8 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korTable extends LitElement {
-  @property({ type: Boolean, reflect: true }) readonly;
-  @property({ type: Boolean, reflect: true }) condensed;
+  @property({ type: Boolean, reflect: true }) readonly = false;
+  @property({ type: Boolean, reflect: true }) condensed = false;
   @property({ type: String, reflect: true }) columns = 'repeat(24, 1fr)';
 
   static get styles() {
@@ -44,7 +44,7 @@ export class korTable extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

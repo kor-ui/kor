@@ -16,13 +16,15 @@ import '../text';
  */
 
 export class korTableCell extends LitElement {
-  @property({ type: Number, reflect: true, attribute: 'grid-cols' }) gridCols;
+  @property({ type: Number, reflect: true, attribute: 'grid-cols' }) gridCols:
+    | number
+    | undefined;
   @property({ type: String, reflect: true }) alignment = 'left';
-  @property({ type: Boolean, reflect: true }) head;
-  @property({ type: Boolean, reflect: true }) sorted;
-  @property({ type: Boolean, reflect: true }) sortable;
+  @property({ type: Boolean, reflect: true }) head = false;
+  @property({ type: Boolean, reflect: true }) sorted = false;
+  @property({ type: Boolean, reflect: true }) sortable = false;
   @property({ type: String, reflect: true, attribute: 'sort-direction' })
-  sortDirection;
+  sortDirection: string | undefined;
 
   static get styles() {
     return [
@@ -84,7 +86,7 @@ export class korTableCell extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name == 'grid-cols') {
@@ -106,8 +108,8 @@ export class korTableCell extends LitElement {
       this.sortDirection = this.sortDirection == 'asc' ? 'desc' : 'asc';
     } else {
       // unsort other heads otherwise
-      let siblings: any = this.parentElement.childNodes;
-      siblings.forEach((el) => {
+      let siblings: NodeList | undefined = this.parentElement?.childNodes;
+      siblings?.forEach((el: any) => {
         el.sorted = false;
       });
       this.sorted = true;

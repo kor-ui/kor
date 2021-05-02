@@ -14,20 +14,20 @@ import '../popover';
  * @slot footer - Displayed below the content area.
  */
 export declare class korTooltip extends LitElement {
-    label: any;
-    icon: any;
-    flexDirection: 'column' | 'row';
-    position: 'left' | 'right' | 'top' | 'bottom';
-    target: any;
-    visible: boolean;
-    /** @ignore */
-    emptyHeader: boolean;
-    /** @ignore */
-    emptyFunctions: boolean;
-    /** @ignore */
-    emptyFooter: boolean;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    targetObserver(): void;
+  label: any;
+  icon: any;
+  flexDirection: 'column' | 'row';
+  position: 'left' | 'right' | 'top' | 'bottom';
+  target: any;
+  visible: boolean;
+  /** @ignore */
+  emptyHeader: boolean;
+  /** @ignore */
+  emptyFunctions: boolean;
+  /** @ignore */
+  emptyFooter: boolean;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  targetObserver(): void;
 }

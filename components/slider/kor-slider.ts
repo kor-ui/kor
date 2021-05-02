@@ -13,12 +13,12 @@ import '../text';
  */
 
 export class korSlider extends LitElement {
-  @property({ type: String, reflect: true }) label;
+  @property({ type: String, reflect: true }) label: string | undefined;
   @property({ type: Number, reflect: true }) value = 50;
   @property({ type: Number, reflect: true }) min = 0;
   @property({ type: Number, reflect: true }) max = 100;
   @property({ type: Number, reflect: true }) step = 1;
-  @property({ type: Boolean, reflect: true }) input;
+  @property({ type: Boolean, reflect: true }) input = false;
 
   static get styles() {
     return [
@@ -90,27 +90,27 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-            ? html`
+                ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
-                      @blur="${(e) =>
-                this.handleInput(parseFloat(e.target.value))}"
-                      @keypress="${(e) =>
-                e.key === 'Enter'
-                  ? this.handleInput(parseFloat(e.target.value))
-                  : ''}"
+                      @blur="${(e: any) =>
+                        this.handleInput(parseFloat(e.target.value))}"
+                      @keypress="${(e: any) =>
+                        e.key === 'Enter'
+                          ? this.handleInput(parseFloat(e.target.value))
+                          : ''}"
                     />
                   `
-            : ''}
+                : ''}
             </div>
           `
         : ''}
       <div class="track">
         <div
           class="thumb"
-          @mousedown="${(e) => this.handleThumbDrag(e)}"
-          @touchstart="${(e) => this.handleThumbDrag(e)}"
+          @mousedown="${(e: any) => this.handleThumbDrag(e)}"
+          @touchstart="${(e: any) => this.handleThumbDrag(e)}"
         >
           <div></div>
         </div>
@@ -118,7 +118,7 @@ export class korSlider extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name === 'value' || name === 'min' || name === 'max') {
@@ -141,7 +141,10 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbPosition(): void {
-    const thumb: HTMLElement = this.shadowRoot.querySelector('.thumb');
+    const thumb:
+      | HTMLElement
+      | null
+      | undefined = this.shadowRoot?.querySelector('.thumb');
     const position = ((this.value - this.min) / (this.max - this.min)) * 100;
     // check if thumb exists and position is within range
     if (thumb && position >= 0 && position <= 100) {
@@ -150,11 +153,11 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbDrag(e: any) {
-    const trackWidth: number = this.shadowRoot.querySelector('.track')
+    const trackWidth: number = this.shadowRoot!.querySelector('.track')!
       .clientWidth;
     const stepWidth: number = (trackWidth / (this.max - this.min)) * this.step;
     let originX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-    const getDeltaX = (e) => {
+    const getDeltaX = (e: any) => {
       e.preventDefault();
       const eventX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
       const delta = eventX - originX;

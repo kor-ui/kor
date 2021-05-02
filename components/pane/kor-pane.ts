@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
 
@@ -16,19 +16,16 @@ import '../card';
  */
 
 export class korPane extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'column';
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'l';
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -68,26 +65,26 @@ export class korPane extends LitElement {
         <slot
           name="header"
           slot="${this.emptyHeader ? '' : 'header'}"
-          @slotchange="${(e) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? '' : 'functions'}"
-          @slotchange="${(e) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? '' : 'footer'}"
-          @slotchange="${(e) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          @slotchange="${(e: any) =>
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

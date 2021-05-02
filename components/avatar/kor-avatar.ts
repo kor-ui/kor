@@ -12,10 +12,10 @@ import '../text';
  */
 
 export class korAvatar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) info;
-  @property({ type: String, reflect: true }) image;
-  @property({ type: Boolean, reflect: true }) condensed;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) info: string | undefined;
+  @property({ type: String, reflect: true }) image: string | undefined;
+  @property({ type: Boolean, reflect: true }) condensed = false;
 
   static get styles() {
     return [
@@ -75,11 +75,11 @@ export class korAvatar extends LitElement {
       <!-- image -->
       <div class="image">
         ${this.image
-        ? html` <img src="${this.image}" /> `
-        : html`
+          ? html` <img src="${this.image}" /> `
+          : html`
               ${this.label
-            ? html` ${this.getInitials(this.label)} `
-            : html` <kor-icon icon="person"></kor-icon> `}
+                ? html` ${this.getInitials(this.label)} `
+                : html` <kor-icon icon="person"></kor-icon> `}
             `}
       </div>
       <!-- text -->
@@ -87,35 +87,32 @@ export class korAvatar extends LitElement {
         ? html`
             <div class="text">
               ${this.label
-            ? html`<kor-text size="body-2" class="label"
+                ? html`<kor-text size="body-2" class="label"
                     >${this.label}</kor-text
                   >`
-            : ''}
+                : ''}
               ${this.info
-            ? html`<kor-text
+                ? html`<kor-text
                     size="body-2"
                     class="info"
                     color="var(--text-2)"
                     >${this.info}</kor-text
                   >`
-            : ''}
+                : ''}
             </div>
           `
         : ''}
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getInitials(label) {
-    var initials = label.match(/\b\w/g) || [];
-    initials = (
-      (initials.shift() || '') + (initials.pop() || '')
-    ).toUpperCase();
-    return initials;
+  getInitials(label: string) {
+    const initials = label.match(/\b\w/g) || [];
+    return (initials.shift() || '') + (initials.pop() || '').toUpperCase();
   }
 }
 

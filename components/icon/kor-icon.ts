@@ -11,11 +11,11 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korIcon extends LitElement {
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) color: string | undefined;
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' | 'xl' = 'm';
-  @property({ type: String, reflect: true }) color;
-  @property({ type: Boolean, reflect: true }) button;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: Boolean, reflect: true }) button = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
     return [
@@ -80,13 +80,13 @@ export class korIcon extends LitElement {
   }
 
   render() {
-    return html` ${this.icon.indexOf('url') ? html` ${this.icon} ` : ''}`;
+    return html` ${this.icon?.indexOf('url') ? html` ${this.icon} ` : ''}`;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
-    if (name == 'color') {
+    if (name == 'color' && this.color) {
       this.style.color = this.color;
     } else if (name == 'icon' && newval.indexOf('url') > -1) {
       this.setBackgroundImage(newval);

@@ -12,7 +12,7 @@ import { sharedStyles } from '../../shared-styles';
 
 export class korGrid extends LitElement {
   @property({ type: Number, reflect: true }) columns = 12;
-  @property({ type: Number, reflect: true }) rows;
+  @property({ type: Number, reflect: true }) rows: Number | undefined;
   @property({ type: String, reflect: true }) spacing: 's' | 'm' | 'l' = 'm';
 
   static get styles() {
@@ -284,7 +284,7 @@ export class korGrid extends LitElement {
     return html`<slot></slot>`;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // update columns

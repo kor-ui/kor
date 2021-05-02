@@ -43,12 +43,12 @@ export class korTabs extends LitElement {
   }
 
   handleOrientation() {
-    (<any>this.childNodes).forEach((el) => {
+    (<NodeListOf<any>>this.childNodes).forEach((el: any) => {
       el.orientation = this.orientation;
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

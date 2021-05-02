@@ -12,12 +12,12 @@ import '../icon';
 
 export class korButton extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true }) color:
     | 'primary'
     | 'secondary'
     | 'tertiary' = 'primary';
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
     return [
@@ -101,7 +101,7 @@ export class korButton extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

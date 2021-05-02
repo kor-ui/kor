@@ -12,11 +12,11 @@ import { LitElement } from 'lit-element';
  * @fires logo-clicked - Fired when clicking on the logo.
  */
 export declare class korAppBar extends LitElement {
-    label: any;
-    logo: any;
-    mobile: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    handleLogoClick(): void;
+  label: any;
+  logo: any;
+  mobile: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  handleLogoClick(): void;
 }

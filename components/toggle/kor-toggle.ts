@@ -10,9 +10,9 @@ import '../text';
  */
 
 export class korToggle extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
     return [
@@ -96,7 +96,7 @@ export class korToggle extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

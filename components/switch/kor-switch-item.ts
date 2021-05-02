@@ -12,10 +12,10 @@ import '../text';
  */
 
 export class korSwitchItem extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
     return [
@@ -78,7 +78,7 @@ export class korSwitchItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -89,8 +89,8 @@ export class korSwitchItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.parentElement.childNodes;
-    siblings.forEach((el) => {
+    let siblings: any = this.parentElement?.childNodes;
+    siblings.forEach((el: any) => {
       el.active = false;
     });
     (<any>this).active = true;

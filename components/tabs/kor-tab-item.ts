@@ -13,10 +13,10 @@ import '../text';
  */
 
 export class korTabItem extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
   @property({ type: String, reflect: true }) orientation:
     | 'horizontal'
     | 'vertical' = 'horizontal';
@@ -108,7 +108,7 @@ export class korTabItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -119,10 +119,10 @@ export class korTabItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.closest('kor-tabs').querySelectorAll(
+    let siblings: any = this.closest('kor-tabs')?.querySelectorAll(
       'kor-tab-item'
     );
-    siblings.forEach((el) => {
+    siblings.forEach((el: any) => {
       el.active = false;
     });
     (<any>this).active = true;

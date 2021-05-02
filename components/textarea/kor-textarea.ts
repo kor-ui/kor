@@ -13,13 +13,13 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korTextarea extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) value;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) value: string | undefined;
   @property({ type: Number, reflect: true }) rows = 1;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: Boolean, reflect: true }) readonly;
-  @property({ type: Boolean, reflect: true }) autofocus;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) readonly: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) autofocus: boolean = false;
 
   static get styles() {
     return [
@@ -144,12 +144,12 @@ export class korTextarea extends LitElement {
     super();
     this.addEventListener('click', () => {
       this.active = true;
-      this.shadowRoot.querySelector('textarea').focus();
+      this.shadowRoot?.querySelector('textarea')?.focus();
     });
   }
 
-  handleChange(e) {
-    this.value = e.target.value;
+  handleChange(e: Event) {
+    this.value = (<any>e.target).value;
     this.dispatchEvent(
       new CustomEvent('change', {
         bubbles: true,
@@ -163,12 +163,15 @@ export class korTextarea extends LitElement {
     this.removeAttribute('value');
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 }
 
 if (!window.customElements.get('kor-textarea')) {
-  window.customElements.define('kor-textarea', korTextarea);
+  window.customElements.define(
+    'kor-textarea',
+    <CustomElementConstructor>korTextarea
+  );
 }

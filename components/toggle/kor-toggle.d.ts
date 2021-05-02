@@ -6,12 +6,12 @@ import '../text';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korToggle extends LitElement {
-    label: any;
-    active: any;
-    disabled: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
-    connectedCallback(): void;
-    handleChange(): void;
+  label: any;
+  active: any;
+  disabled: any;
+  static get styles(): import('lit-element').CSSResult[];
+  render(): import('lit-element').TemplateResult;
+  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+  connectedCallback(): void;
+  handleChange(): void;
 }

@@ -10,7 +10,7 @@ import '../text';
 
 export class korSpinner extends LitElement {
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
-  @property({ type: String, reflect: true }) label;
+  @property({ type: String, reflect: true }) label: string | undefined;
 
   static get styles() {
     return [
@@ -70,7 +70,7 @@ export class korSpinner extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

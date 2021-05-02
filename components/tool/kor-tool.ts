@@ -14,11 +14,11 @@ import '../text';
  */
 
 export class korTool extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true }) size: 's' | 'm' = 'm';
-  @property({ type: Boolean, reflect: true }) toggle;
-  @property({ type: Boolean, reflect: true }) active;
+  @property({ type: Boolean, reflect: true }) toggle = false;
+  @property({ type: Boolean, reflect: true }) active = false;
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   static get styles() {
@@ -84,7 +84,7 @@ export class korTool extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // add toggle click listener

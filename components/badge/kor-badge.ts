@@ -10,7 +10,7 @@ import '../text';
  */
 
 export class korBadge extends LitElement {
-  @property({ type: Number, reflect: true }) label;
+  @property({ type: Number, reflect: true }) label: number | undefined;
   @property({ type: String, reflect: true }) status:
     | 'error'
     | 'warning'
@@ -62,34 +62,34 @@ export class korBadge extends LitElement {
       ${!this.status
         ? html`
             ${this.label
-            ? html`
+              ? html`
                   <kor-text size="body-2">
                     ${this.label > 999 ? html` 999+ ` : html` ${this.label} `}
                   </kor-text>
                 `
-            : ''}
+              : ''}
           `
         : html`
             <!-- status -->
             ${this.status
-            ? html`
+              ? html`
                   <kor-icon
                     class="status-icon"
                     size="s"
                     icon="${this.getStatusIcon()}"
                   ></kor-icon>
                 `
-            : ''}
+              : ''}
           `}
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':

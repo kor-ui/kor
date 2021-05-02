@@ -15,9 +15,9 @@ import '../text';
 
 export class korTag extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) button;
-  @property({ type: Boolean, reflect: true }) removable;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) button = false;
+  @property({ type: Boolean, reflect: true }) removable = false;
 
   static get styles() {
     return [
@@ -72,7 +72,7 @@ export class korTag extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }

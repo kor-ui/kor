@@ -9,7 +9,7 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korTableRow extends LitElement {
-  @property({ type: Boolean, reflect: true }) active;
+  @property({ type: Boolean, reflect: true }) active = false;
 
   static get styles() {
     return [
@@ -45,7 +45,7 @@ export class korTableRow extends LitElement {
     return html` <slot></slot> `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -57,24 +57,24 @@ export class korTableRow extends LitElement {
   }
 
   handleActive() {
-    let table: any, siblings: any;
+    let table: HTMLElement | null, siblings: NodeList | undefined;
     table = this.closest('kor-table');
-    if (!table.readonly && this.slot != 'header') {
-      siblings = this.parentElement.childNodes;
-      siblings.forEach((el) => {
-        el.active = false;
+    if (!(<any>table)?.readonly && this.slot != 'header') {
+      siblings = this.parentElement?.childNodes;
+      siblings?.forEach((el: any) => {
+        (<any>el).active = false;
       });
       this.active = true;
     }
   }
 
   handleColumns() {
-    const table: any = this.closest('kor-table');
+    const table: HTMLElement | null = this.closest('kor-table');
     // define columns on load
-    this.style.gridTemplateColumns = table.columns;
+    this.style.gridTemplateColumns = (<any>table).columns;
     // listen to column changes
-    table.addEventListener('columns-changed', () => {
-      this.style.gridTemplateColumns = table.columns;
+    table?.addEventListener('columns-changed', () => {
+      this.style.gridTemplateColumns = (<any>table).columns;
     });
   }
 }

@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 import '../card';
@@ -18,19 +18,15 @@ import '../card';
 
 export class korAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) expanded;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) expanded = false;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyBody = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyBody = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -96,7 +92,7 @@ export class korAccordion extends LitElement {
         <slot
           name="header"
           slot="header"
-          @click="${(e) => this.handleCollapse(e)}"
+          @click="${(e: any) => this.handleCollapse(e)}"
         >
           <div class="header">
             ${this.icon
@@ -117,7 +113,7 @@ export class korAccordion extends LitElement {
               <slot
                 name="footer"
                 slot="${this.emptyFooter ? undefined : 'footer'}"
-                @slotchange="${(e) =>
+                @slotchange="${(e: any) =>
             (this.emptyFooter = e.target.assignedNodes().length === 0)}"
               ></slot>
             `
@@ -126,7 +122,7 @@ export class korAccordion extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -135,14 +131,16 @@ export class korAccordion extends LitElement {
     super.connectedCallback();
     // remove card padding
     setTimeout(() => {
-      const topNode: any = this.shadowRoot
-        .querySelector('kor-card')
-        .shadowRoot.querySelector('.top');
-      topNode.style.padding = '0';
+      const topNode: HTMLElement | null | undefined = this.shadowRoot
+        ?.querySelector('kor-card')
+        ?.shadowRoot?.querySelector('.top');
+      if (topNode) {
+        topNode.style.padding = '0';
+      }
     }, 0);
   }
 
-  handleCollapse(e) {
+  handleCollapse(e: any) {
     if (this.expanded) {
       this.expanded = false;
       e.stopPropagation();

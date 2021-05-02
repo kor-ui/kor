@@ -16,19 +16,19 @@ import '../text';
  */
 
 export class korImage extends LitElement {
-  @property({ type: String, reflect: true }) src;
-  @property({ type: String, reflect: true }) alt;
+  @property({ type: String, reflect: true }) src: string | undefined;
+  @property({ type: String, reflect: true }) alt: string | undefined;
+  @property({ type: String, reflect: true }) height: string | undefined;
   @property({ type: String, reflect: true }) width = '100%';
-  @property({ type: String, reflect: true }) height;
   @property({ type: String, reflect: true }) fit:
     | 'fill'
     | 'contain'
     | 'cover'
     | 'none'
     | 'scale-down' = 'contain';
-  @property({ type: String, reflect: true }) legend;
+  @property({ type: String, reflect: true }) legend: string | undefined;
   @property({ type: String, reflect: true, attribute: 'legend-position' })
-  legendPosition;
+  legendPosition: string | undefined;
 
   static get styles() {
     return [
@@ -118,7 +118,7 @@ export class korImage extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
