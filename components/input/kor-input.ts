@@ -393,17 +393,17 @@ export class korInput extends LitElement {
   }
 
   handleMenu() {
-    const self = this;
+    const parent = this.parentElement;
     // handle click outside of popover
-    const closePopover = function (e) {
-      if ((e.type === 'click' && e.target !== self) || e.type === 'wheel') {
-        self.active = false;
-        document.removeEventListener('click', closePopover);
-        document.removeEventListener('wheel', closePopover);
+    const closePopover = (e) => {
+      if ((e.type === 'click' && e.target !== this) || e.type === 'wheel') {
+        this.active = false;
+        parent.removeEventListener('click', closePopover);
+        parent.removeEventListener('wheel', closePopover);
       }
     };
-    document.addEventListener('click', closePopover);
-    document.addEventListener('wheel', closePopover);
+    parent.addEventListener('click', closePopover);
+    parent.addEventListener('wheel', closePopover);
   }
 
   validateMinMax(val) {
