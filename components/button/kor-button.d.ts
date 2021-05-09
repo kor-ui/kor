@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 /**
  * @prop {String} label -	Defines the text label.
@@ -7,11 +7,11 @@ import '../icon';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korButton extends LitElement {
-  label: string;
-  icon: any;
-  color: 'primary' | 'secondary' | 'tertiary';
-  disabled: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: string;
+    icon: string | undefined;
+    color: 'primary' | 'secondary' | 'tertiary';
+    disabled: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

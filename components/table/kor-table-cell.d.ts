@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 import '../text';
 /**
@@ -12,14 +12,14 @@ import '../text';
  * @slot - Hosts plain text or other elements.
  */
 export declare class korTableCell extends LitElement {
-  gridCols: any;
-  alignment: string;
-  head: any;
-  sorted: any;
-  sortable: any;
-  sortDirection: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  handleSort(): void;
+    gridCols: number | undefined;
+    alignment: string;
+    head: boolean;
+    sorted: boolean;
+    sortable: boolean;
+    sortDirection: string | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    handleSort(): void;
 }

@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../text';
 /**
  * @prop {String} label - If set, defines the text label.
@@ -6,13 +6,13 @@ import '../text';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korRadioButton extends LitElement {
-  label: any;
-  active: any;
-  disabled: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  connectedCallback(): void;
-  handleChange(): void;
-  handleActive(): void;
+    label: string | undefined;
+    active: boolean;
+    disabled: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    connectedCallback(): void;
+    handleChange(): void;
+    handleActive(): void;
 }

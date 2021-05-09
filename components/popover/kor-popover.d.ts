@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../card';
 /**
  * @prop {String} label - If set, defines the text label.
@@ -15,24 +15,21 @@ import '../card';
  * @slot footer - Displayed below the content area.
  */
 export declare class korPopover extends LitElement {
-  label: any;
-  icon: any;
-  flexDirection: 'row' | 'column';
-  position: 'left' | 'right' | 'top' | 'bottom';
-  target: any;
-  visible: boolean;
-  sticky: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  targetObserver(): void;
-  visibleObserver(): void;
-  handlePosition(tar: any): void;
-  addDocListener(tar: any): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'row' | 'column';
+    position: 'left' | 'right' | 'top' | 'bottom';
+    target: string | HTMLElement | undefined;
+    visible: boolean;
+    sticky: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    targetObserver(): void;
+    visibleObserver(): void;
+    handlePosition(tar: Element | null | undefined): void;
+    addDocListener(tar: Element | null | undefined): void;
 }

@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 import '../card';
 /**
@@ -13,21 +13,17 @@ import '../card';
  * @slot footer - Displayed below the content when it is expanded.
  */
 export declare class korAccordion extends LitElement {
-  label: string;
-  icon: any;
-  expanded: any;
-  disabled: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyBody: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  connectedCallback(): void;
-  handleCollapse(e: any): void;
+    label: string;
+    icon: string | undefined;
+    expanded: boolean;
+    disabled: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyBody: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    connectedCallback(): void;
+    handleCollapse(e: any): void;
 }

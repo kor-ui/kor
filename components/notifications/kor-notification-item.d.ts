@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../card';
 import '../icon';
 /**
@@ -14,18 +14,15 @@ import '../icon';
  * @slot footer - Displayed below the content area.
  */
 export declare class korNotificationItem extends LitElement {
-  label: any;
-  icon: any;
-  flexDirection: 'row' | 'column';
-  visible: boolean;
-  sticky: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'row' | 'column';
+    visible: boolean;
+    sticky: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

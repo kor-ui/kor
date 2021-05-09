@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 import '../text';
 /**
@@ -11,18 +11,18 @@ import '../text';
  * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 export declare class korStepperItem extends LitElement {
-  label: any;
-  info: any;
-  icon: any;
-  index: any;
-  active: any;
-  disabled: any;
-  first: any;
-  last: any;
-  orientation: 'horizontal' | 'vertical';
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  connectedCallback(): void;
-  getIndex(): void;
+    label: string | undefined;
+    info: string | undefined;
+    icon: string | undefined;
+    index: number | undefined;
+    active: boolean;
+    disabled: boolean;
+    first: boolean;
+    last: boolean;
+    orientation: 'horizontal' | 'vertical';
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    connectedCallback(): void;
+    getIndex(): void;
 }

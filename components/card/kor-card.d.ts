@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 /**
  * @prop {String} label -	If set, defines the text label.
@@ -13,18 +13,15 @@ import '../icon';
  * @slot footer - Shown below the content area.
  */
 export declare class korCard extends LitElement {
-  label: any;
-  icon: any;
-  image: any;
-  flexDirection: 'column' | 'row';
-  flat: boolean;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: string | undefined;
+    icon: string | undefined;
+    image: string | undefined;
+    flexDirection: 'column' | 'row';
+    flat: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

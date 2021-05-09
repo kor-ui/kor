@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../card';
 import '../icon';
 /**
@@ -17,22 +17,19 @@ import '../icon';
  * @slot footer - Shown below the content area.
  */
 export declare class korDrawer extends LitElement {
-  label: any;
-  icon: any;
-  position: 'left' | 'right' | 'top' | 'bottom';
-  height: string;
-  width: string;
-  flexDirection: 'row' | 'column';
-  visible: boolean;
-  sticky: any;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  getCardSize(): any;
+    label: string | undefined;
+    icon: string | undefined;
+    position: 'left' | 'right' | 'top' | 'bottom';
+    height: string;
+    width: string;
+    flexDirection: 'row' | 'column';
+    visible: boolean;
+    sticky: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    getCardSize(): any;
 }

@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../popover';
 /**
  * @prop {String} label - If set, defines the text label.
@@ -14,20 +14,17 @@ import '../popover';
  * @slot footer - Displayed below the content area.
  */
 export declare class korTooltip extends LitElement {
-  label: any;
-  icon: any;
-  flexDirection: 'column' | 'row';
-  position: 'left' | 'right' | 'top' | 'bottom';
-  target: any;
-  visible: boolean;
-  /** @ignore */
-  emptyHeader: boolean;
-  /** @ignore */
-  emptyFunctions: boolean;
-  /** @ignore */
-  emptyFooter: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  targetObserver(): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'column' | 'row';
+    position: 'left' | 'right' | 'top' | 'bottom';
+    target: string | undefined;
+    visible: boolean;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    targetObserver(): void;
 }

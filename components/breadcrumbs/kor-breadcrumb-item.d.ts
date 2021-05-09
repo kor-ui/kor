@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 import '../text';
 /**
@@ -6,10 +6,10 @@ import '../text';
  * @prop {Boolean} active - Defines whether the item is currently active or not.
  */
 export declare class korBreadcrumbItem extends LitElement {
-  label: string;
-  active: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  firstItem(): boolean;
+    label: string;
+    active: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    firstItem(): boolean;
 }

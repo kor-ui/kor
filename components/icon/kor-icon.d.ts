@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 /**
  * @prop {String} icon - Defines the icon shown. Takes any string from the Material Design Library or custom url('') pointing to local or remote images or vectors.
  * @prop {'s'|'m'|'l'|'xl'} size - If set, defines the size of the icon. Possible values are `xl`(48px) `l`(32px), `m`(24px) and `s`(16px), but css font-size can be used to set custom sizes.
@@ -7,13 +7,13 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} disabled -	If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korIcon extends LitElement {
-  icon: any;
-  size: 's' | 'm' | 'l' | 'xl';
-  color: any;
-  button: any;
-  disabled: any;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  private setBackgroundImage;
+    icon: string | undefined;
+    color: string | undefined;
+    size: 's' | 'm' | 'l' | 'xl';
+    button: boolean;
+    disabled: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    private setBackgroundImage;
 }

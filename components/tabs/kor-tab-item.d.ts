@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import '../icon';
 import '../text';
 /**
@@ -9,14 +9,14 @@ import '../text';
  * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 export declare class korTabItem extends LitElement {
-  label: any;
-  icon: any;
-  active: any;
-  disabled: any;
-  orientation: 'horizontal' | 'vertical';
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
-  connectedCallback(): void;
-  handleActive(): void;
+    label: string | undefined;
+    icon: string | undefined;
+    active: boolean;
+    disabled: boolean;
+    orientation: 'horizontal' | 'vertical';
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    connectedCallback(): void;
+    handleActive(): void;
 }

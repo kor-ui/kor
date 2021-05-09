@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 /**
  * @prop {'dark'|'light'|undefined} theme - Defines the color theme of the page. Possible values are `dark` and `light`.
  * @prop {String} padding - Defines the padding style of the default slot.
@@ -13,12 +13,12 @@ import { LitElement } from 'lit-element';
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 export declare class korPage extends LitElement {
-  theme: 'dark' | 'light' | undefined;
-  padding: string;
-  flexDirection: 'row' | 'column';
-  flat: boolean;
-  scrollable: boolean;
-  static get styles(): import('lit-element').CSSResult[];
-  render(): import('lit-element').TemplateResult;
-  attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    theme: 'dark' | 'light' | undefined;
+    padding: string;
+    flexDirection: 'row' | 'column';
+    flat: boolean;
+    scrollable: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }
