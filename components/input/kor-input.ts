@@ -235,18 +235,16 @@ export class korInput extends LitElement {
       ${this.icon
         ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
         : ''}
-      <div class="center">
+      <div class="center" @click="${(e: Event) => this.closeSelectMenu(e)}">
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
           .type="${this.type}"
           ?autofocus="${this.autofocus}"
-          ?readonly="${this.readonly ||
-          this.disabled ||
-          this.type === 'select'}"
-          .min="${this.min}"
-          .max="${this.max}"
+          ?readonly="${this.readonly || this.disabled || this.type === 'select'}"
+          .min="${this.min ? this.min : null}"
+          .max="${this.max ? this.max : null}"
           .step="${this.step.toString()}"
-          .pattern="${this.pattern}"
+          .pattern="${this.pattern ? this.pattern : null}"
           .value="${this.value ? this.value : null}"
           .name="${this.name}"
           @input="${this.handleChange}"
@@ -263,18 +261,18 @@ export class korInput extends LitElement {
               icon="arrow_drop_down"
             ></kor-icon>
             ${this.active
-              ? html`
+            ? html`
                   <kor-card
                     @wheel="${(e: any) => e.stopPropagation()}"
                     class="select-menu"
                     .style="top: ${this.getMenuStyles()
-                      .top}; left: ${this.getMenuStyles()
-                      .left}; width: ${this.getMenuStyles().width};"
+                .top}; left: ${this.getMenuStyles()
+                  .left}; width: ${this.getMenuStyles().width};"
                   >
                     <slot @slotchange="${this.handleItems}"></slot>
                   </kor-card>
                 `
-              : ''}
+            : ''}
           `
         : ''}
       <!-- date -->
@@ -283,10 +281,10 @@ export class korInput extends LitElement {
         : ''}
       <!-- clear -->
       ${!this.disabled &&
-      !this.readonly &&
-      this.value &&
-      !this.noClear &&
-      this.type !== 'select'
+        !this.readonly &&
+        this.value &&
+        !this.noClear &&
+        this.type !== 'select'
         ? html`
             <kor-icon
               button
@@ -301,7 +299,7 @@ export class korInput extends LitElement {
         ? html`
             <kor-icon
               class="status-icon"
-              icon="${this.getStatusIcon()}"
+              .icon="${this.getStatusIcon()}"
             ></kor-icon>
           `
         : ''}
@@ -363,12 +361,12 @@ export class korInput extends LitElement {
     if (dir === 'left') {
       this.validateMinMax(
         parseInt(this.value ? this.value : this.min ? this.min : '0') -
-          this.step
+        this.step
       );
     } else if (dir === 'right') {
       this.validateMinMax(
         parseInt(this.value ? this.value : this.min ? this.min : '0') +
-          this.step
+        this.step
       );
     }
   }
@@ -404,15 +402,18 @@ export class korInput extends LitElement {
   handleMenu() {
     const parent = this.parentElement;
     // handle click outside of popover
-    const closePopover = (e) => {
-      if ((e.type === 'click' && e.target !== this) || e.type === 'wheel') {
-        this.active = false;
-        parent.removeEventListener('click', closePopover);
-        parent.removeEventListener('wheel', closePopover);
-      }
+    const closePopover = () => {
+      this.active = false;
+      parent?.removeEventListener('wheel', closePopover);
     };
-    parent.addEventListener('click', closePopover);
-    parent.addEventListener('wheel', closePopover);
+    parent?.addEventListener('wheel', closePopover);
+  }
+
+  closeSelectMenu(e: Event): void {
+    if (this.type === 'select' && this.active) {
+      e.stopImmediatePropagation();
+      this.active = false;
+    }
   }
 
   validateMinMax(val: number) {
