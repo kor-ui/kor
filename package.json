@@ -38,6 +38,6 @@
   ],
   "gitHead": "b0ae13e43894b4a4afd5b47aca9bd72026fac89a",
   "dependencies": {
-    "lit": "*"
+    "lit": "^2.0.0-rc.2"
   }
 }
