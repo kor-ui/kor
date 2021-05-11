@@ -19,8 +19,8 @@ import '../card';
 export class korAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon: string | undefined;
-  @property({ type: Boolean, reflect: true }) expanded = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) expanded: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   // readonly properties
   @state() emptyHeader = true;
@@ -110,13 +110,12 @@ export class korAccordion extends LitElement {
         <slot name="functions" slot="functions"></slot>
         ${this.expanded
         ? html`
-              <slot
-                name="footer"
-                slot="${this.emptyFooter ? undefined : 'footer'}"
-                @slotchange="${(e: any) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
-              ></slot>
-            `
+          <slot
+            name="footer"
+            slot="${this.emptyFooter ? 'hidden' : 'footer'}"
+            @slotchange="${(e: any) => (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          ></slot>
+        `
         : ''}
       </kor-card>
     `;

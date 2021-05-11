@@ -18,7 +18,7 @@ import { sharedStyles } from '../../shared-styles';
 export class korAppBar extends LitElement {
   @property({ type: String, reflect: true }) label: string | undefined;
   @property({ type: String, reflect: true }) logo: string | undefined;
-  @property({ type: Boolean, reflect: true }) mobile = false;
+  @property({ type: Boolean, reflect: true }) mobile: boolean | undefined;
 
   static get styles() {
     return [
@@ -84,14 +84,14 @@ export class korAppBar extends LitElement {
       ${!this.mobile
         ? html`
             ${this.logo
-              ? html`
+            ? html`
                   <img
                     class="logo"
                     src="${this.logo}"
                     @click="${() => this.handleLogoClick()}"
                   />
                 `
-              : ''}
+            : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>

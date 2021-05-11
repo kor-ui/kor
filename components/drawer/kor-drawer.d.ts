@@ -23,8 +23,8 @@ export declare class korDrawer extends LitElement {
     height: string;
     width: string;
     flexDirection: 'row' | 'column';
-    visible: boolean;
-    sticky: boolean;
+    visible: boolean | undefined;
+    sticky: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;

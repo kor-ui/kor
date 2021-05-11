@@ -14,9 +14,9 @@ import '../text';
 export declare class korMenuItem extends LitElement {
     label: string;
     icon: string | undefined;
-    active: boolean;
+    active: boolean | undefined;
     toggle: boolean;
-    disabled: boolean;
+    disabled: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

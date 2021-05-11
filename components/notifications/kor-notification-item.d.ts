@@ -17,8 +17,8 @@ export declare class korNotificationItem extends LitElement {
     label: string | undefined;
     icon: string | undefined;
     flexDirection: 'row' | 'column';
-    visible: boolean;
-    sticky: boolean;
+    visible: boolean | undefined;
+    sticky: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;

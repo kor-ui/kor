@@ -17,7 +17,7 @@ export class korButton extends LitElement {
     | 'primary'
     | 'secondary'
     | 'tertiary' = 'primary';
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [

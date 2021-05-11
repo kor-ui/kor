@@ -19,10 +19,10 @@ export class korStepperItem extends LitElement {
   @property({ type: String, reflect: true }) info: string | undefined;
   @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: Number, reflect: true }) index: number | undefined;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
-  @property({ type: Boolean, reflect: true }) first = false;
-  @property({ type: Boolean, reflect: true }) last = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) first: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) last: boolean | undefined;
   @property({ type: String, reflect: true }) orientation:
     | 'horizontal'
     | 'vertical' = 'horizontal';
@@ -171,19 +171,19 @@ export class korStepperItem extends LitElement {
       <!-- circle -->
       <div class="circle">
         ${this.icon
-          ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-          : html`
+        ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+        : html`
               <kor-text size="header-1" class="number">${this.index}</kor-text>
             `}
       </div>
       <!-- text -->
       <div class="text">
         ${this.label
-          ? html` <kor-text class="label">${this.label}</kor-text> `
-          : ''}
+        ? html` <kor-text class="label">${this.label}</kor-text> `
+        : ''}
         ${this.info
-          ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
-          : ''}
+        ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
+        : ''}
       </div>
       <!-- lines -->
       ${!this.first ? html` <div class="line before"></div> ` : ''}

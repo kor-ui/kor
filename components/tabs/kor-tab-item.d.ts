@@ -11,8 +11,8 @@ import '../text';
 export declare class korTabItem extends LitElement {
     label: string | undefined;
     icon: string | undefined;
-    active: boolean;
-    disabled: boolean;
+    active: boolean | undefined;
+    disabled: boolean | undefined;
     orientation: 'horizontal' | 'vertical';
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;

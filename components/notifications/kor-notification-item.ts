@@ -22,8 +22,8 @@ export class korNotificationItem extends LitElement {
   @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'column';
-  @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky = false;
+  @property({ type: Boolean, reflect: true }) visible: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sticky: boolean | undefined;
 
   // readonly properties
   @state() emptyHeader = true;
@@ -71,27 +71,27 @@ export class korNotificationItem extends LitElement {
       >
         <slot
           name="header"
-          slot="${this.emptyHeader ? undefined : 'header'}"
+          slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-            ? html`
+        ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-            : ''}
+        : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
-          slot="${this.emptyFooter ? undefined : 'footer'}"
+          slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

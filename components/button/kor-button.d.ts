@@ -10,7 +10,7 @@ export declare class korButton extends LitElement {
     label: string;
     icon: string | undefined;
     color: 'primary' | 'secondary' | 'tertiary';
-    disabled: boolean;
+    disabled: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

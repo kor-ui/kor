@@ -26,8 +26,8 @@ export class korModal extends LitElement {
   @property({ type: String, reflect: true }) width = '600px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'column';
-  @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky = false;
+  @property({ type: Boolean, reflect: true }) visible: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sticky: boolean | undefined;
 
   // readonly properties
   @state() emptyHeader = true;
@@ -73,34 +73,34 @@ export class korModal extends LitElement {
       <kor-card
         @click="${(e: any) => e.stopPropagation()}"
         style="height: ${this.height}; width: ${this.width}; max-height: ${this
-          .height}; max-width: ${this.width}"
+        .height}; max-width: ${this.width}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
       >
         <slot
           name="header"
-          slot="${this.emptyHeader ? undefined : 'header'}"
+          slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-            ? html`
+        ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-            : ''}
+        : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
-          slot="${this.emptyFooter ? undefined : 'footer'}"
+          slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

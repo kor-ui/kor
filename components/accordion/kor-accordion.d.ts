@@ -15,8 +15,8 @@ import '../card';
 export declare class korAccordion extends LitElement {
     label: string;
     icon: string | undefined;
-    expanded: boolean;
-    disabled: boolean;
+    expanded: boolean | undefined;
+    disabled: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyBody: boolean;

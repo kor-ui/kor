@@ -12,8 +12,8 @@ import '../text';
 export declare class korTag extends LitElement {
     label: string;
     icon: string | undefined;
-    button: boolean;
-    removable: boolean;
+    button: boolean | undefined;
+    removable: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

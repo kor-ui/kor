@@ -20,9 +20,9 @@ export class korTableCell extends LitElement {
     | number
     | undefined;
   @property({ type: String, reflect: true }) alignment = 'left';
-  @property({ type: Boolean, reflect: true }) head = false;
-  @property({ type: Boolean, reflect: true }) sorted = false;
-  @property({ type: Boolean, reflect: true }) sortable = false;
+  @property({ type: Boolean, reflect: true }) head: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sorted: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sortable: boolean | undefined;
   @property({ type: String, reflect: true, attribute: 'sort-direction' })
   sortDirection: string | undefined;
 

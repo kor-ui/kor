@@ -20,8 +20,8 @@ export declare class korPopover extends LitElement {
     flexDirection: 'row' | 'column';
     position: 'left' | 'right' | 'top' | 'bottom';
     target: string | HTMLElement | undefined;
-    visible: boolean;
-    sticky: boolean;
+    visible: boolean | undefined;
+    sticky: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;

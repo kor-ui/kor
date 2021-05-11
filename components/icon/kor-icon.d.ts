@@ -10,8 +10,8 @@ export declare class korIcon extends LitElement {
     icon: string | undefined;
     color: string | undefined;
     size: 's' | 'm' | 'l' | 'xl';
-    button: boolean;
-    disabled: boolean;
+    button: boolean | undefined;
+    disabled: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

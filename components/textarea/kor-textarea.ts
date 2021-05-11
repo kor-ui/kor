@@ -132,6 +132,8 @@ export class korTextarea extends LitElement {
           .rows="${this.rows}"
           .columns="${this.rows}"
           ?autofocus="${this.autofocus}"
+          ?disabled="${this.disabled}"
+          ?readonly="${this.readonly}"
           @focus="${() => (this.active = true)}"
           @blur="${() => (this.active = false)}"
           @input="${this.handleChange}"

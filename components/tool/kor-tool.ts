@@ -17,9 +17,9 @@ export class korTool extends LitElement {
   @property({ type: String, reflect: true }) label: string | undefined;
   @property({ type: String, reflect: true }) icon: string | undefined;
   @property({ type: String, reflect: true }) size: 's' | 'm' = 'm';
-  @property({ type: Boolean, reflect: true }) toggle = false;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) toggle: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [

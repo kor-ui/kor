@@ -29,11 +29,11 @@ export declare class korInput extends LitElement {
     name: string | undefined;
     type: 'text' | 'number' | 'select' | 'date';
     status: string | undefined;
-    condensed: boolean;
-    active: boolean;
-    disabled: boolean;
-    readonly: boolean;
-    noClear: boolean;
+    condensed: boolean | undefined;
+    active: boolean | undefined;
+    disabled: boolean | undefined;
+    readonly: boolean | undefined;
+    noClear: boolean | undefined;
     autofocus: boolean;
     pattern: string | undefined;
     min: string | undefined;

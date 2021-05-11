@@ -32,8 +32,8 @@ export class korPopover extends LitElement {
     | string
     | HTMLElement
     | undefined;
-  @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky = false;
+  @property({ type: Boolean, reflect: true }) visible: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sticky: boolean | undefined;
 
   // readonly properties
   @state() emptyHeader = true;
@@ -90,20 +90,20 @@ export class korPopover extends LitElement {
       >
         <slot
           name="header"
-          slot="${this.emptyHeader ? undefined : 'header'}"
+          slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
         (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
-          slot="${this.emptyFunctions ? undefined : 'functions'}"
+          slot="${this.emptyFunctions ? 'hidden' : 'functions'}"
           @slotchange="${(e: any) =>
         (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
-          slot="${this.emptyFooter ? undefined : 'footer'}"
+          slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
         (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>

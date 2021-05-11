@@ -14,8 +14,8 @@ import '../text';
 export class korSwitchItem extends LitElement {
   @property({ type: String, reflect: true }) label: string | undefined;
   @property({ type: String, reflect: true }) icon: string | undefined;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [

@@ -17,7 +17,7 @@ export declare class korCard extends LitElement {
     icon: string | undefined;
     image: string | undefined;
     flexDirection: 'column' | 'row';
-    flat: boolean;
+    flat: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;

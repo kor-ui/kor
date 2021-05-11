@@ -11,7 +11,7 @@ import '../text';
 
 export class korBreadcrumbItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
 
   static get styles() {
     return [

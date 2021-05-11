@@ -9,7 +9,7 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korTableRow extends LitElement {
-  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
 
   static get styles() {
     return [

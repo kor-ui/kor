@@ -12,8 +12,8 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korTable extends LitElement {
-  @property({ type: Boolean, reflect: true }) readonly = false;
-  @property({ type: Boolean, reflect: true }) condensed = false;
+  @property({ type: Boolean, reflect: true }) readonly: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) condensed: boolean | undefined;
   @property({ type: String, reflect: true }) columns = 'repeat(24, 1fr)';
 
   static get styles() {

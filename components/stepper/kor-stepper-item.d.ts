@@ -15,10 +15,10 @@ export declare class korStepperItem extends LitElement {
     info: string | undefined;
     icon: string | undefined;
     index: number | undefined;
-    active: boolean;
-    disabled: boolean;
-    first: boolean;
-    last: boolean;
+    active: boolean | undefined;
+    disabled: boolean | undefined;
+    first: boolean | undefined;
+    last: boolean | undefined;
     orientation: 'horizontal' | 'vertical';
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;

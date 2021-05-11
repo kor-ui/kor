@@ -26,9 +26,9 @@ export class korProgressBar extends LitElement {
   @property({ type: String, reflect: true }) color: string | undefined;
   @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
   @property({ type: Number, reflect: true }) value: number | undefined;
-  @property({ type: Boolean, reflect: true }) radial = false;
+  @property({ type: Boolean, reflect: true }) radial: boolean | undefined;
   @property({ type: Boolean, reflect: true, attribute: 'show-progress' })
-  showProgress = false;
+  showProgress: boolean | undefined;
 
   static get styles() {
     return [

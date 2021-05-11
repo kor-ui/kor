@@ -14,9 +14,9 @@ import '../text';
 export declare class korTableCell extends LitElement {
     gridCols: number | undefined;
     alignment: string;
-    head: boolean;
-    sorted: boolean;
-    sortable: boolean;
+    head: boolean | undefined;
+    sorted: boolean | undefined;
+    sortable: boolean | undefined;
     sortDirection: string | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;

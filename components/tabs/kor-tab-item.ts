@@ -15,8 +15,8 @@ import '../text';
 export class korTabItem extends LitElement {
   @property({ type: String, reflect: true }) label: string | undefined;
   @property({ type: String, reflect: true }) icon: string | undefined;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
   @property({ type: String, reflect: true }) orientation:
     | 'horizontal'
     | 'vertical' = 'horizontal';

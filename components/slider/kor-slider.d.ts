@@ -14,7 +14,7 @@ export declare class korSlider extends LitElement {
     min: number;
     max: number;
     step: number;
-    input: boolean;
+    input: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

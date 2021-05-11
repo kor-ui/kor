@@ -16,8 +16,8 @@ import '../text';
 export class korTag extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
   @property({ type: String, reflect: true }) icon: string | undefined;
-  @property({ type: Boolean, reflect: true }) button = false;
-  @property({ type: Boolean, reflect: true }) removable = false;
+  @property({ type: Boolean, reflect: true }) button: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) removable: boolean | undefined;
 
   static get styles() {
     return [

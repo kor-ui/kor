@@ -18,8 +18,8 @@ export declare class korProgressBar extends LitElement {
     color: string | undefined;
     size: 's' | 'm' | 'l';
     value: number | undefined;
-    radial: boolean;
-    showProgress: boolean;
+    radial: boolean | undefined;
+    showProgress: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

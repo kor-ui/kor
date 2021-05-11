@@ -16,8 +16,8 @@ export declare class korPage extends LitElement {
     theme: 'dark' | 'light' | undefined;
     padding: string;
     flexDirection: 'row' | 'column';
-    flat: boolean;
-    scrollable: boolean;
+    flat: boolean | undefined;
+    scrollable: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

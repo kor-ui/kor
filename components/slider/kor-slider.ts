@@ -18,7 +18,7 @@ export class korSlider extends LitElement {
   @property({ type: Number, reflect: true }) min = 0;
   @property({ type: Number, reflect: true }) max = 100;
   @property({ type: Number, reflect: true }) step = 1;
-  @property({ type: Boolean, reflect: true }) input = false;
+  @property({ type: Boolean, reflect: true }) input: boolean | undefined;
 
   static get styles() {
     return [
@@ -90,19 +90,19 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-                ? html`
+            ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
                       @blur="${(e: any) =>
-                        this.handleInput(parseFloat(e.target.value))}"
+                this.handleInput(parseFloat(e.target.value))}"
                       @keypress="${(e: any) =>
-                        e.key === 'Enter'
-                          ? this.handleInput(parseFloat(e.target.value))
-                          : ''}"
+                e.key === 'Enter'
+                  ? this.handleInput(parseFloat(e.target.value))
+                  : ''}"
                     />
                   `
-                : ''}
+            : ''}
             </div>
           `
         : ''}

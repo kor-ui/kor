@@ -12,8 +12,8 @@ import '../text';
 
 export class korCheckbox extends LitElement {
   @property({ type: String, reflect: true }) label: string | undefined;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [
@@ -79,8 +79,8 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-          : ''}
+        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+        : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;

@@ -14,7 +14,7 @@ import { LitElement } from 'lit';
 export declare class korAppBar extends LitElement {
     label: string | undefined;
     logo: string | undefined;
-    mobile: boolean;
+    mobile: boolean | undefined;
     static get styles(): import("lit").CSSResultGroup[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;

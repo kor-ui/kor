@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit';
+import { ifDefined } from 'lit-html/directives/if-defined';
 import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 import '../card';
@@ -37,12 +38,12 @@ export class korInput extends LitElement {
     | 'select'
     | 'date' = 'text';
   @property({ type: String, reflect: true }) status: string | undefined;
-  @property({ type: Boolean, reflect: true }) condensed = false;
-  @property({ type: Boolean, reflect: true }) active = false;
-  @property({ type: Boolean, reflect: true }) disabled = false;
-  @property({ type: Boolean, reflect: true }) readonly = false;
+  @property({ type: Boolean, reflect: true }) condensed: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) readonly: boolean | undefined;
   @property({ type: Boolean, reflect: true, attribute: 'no-clear' })
-  noClear = false;
+  noClear: boolean | undefined;
   @property({ type: Boolean, reflect: true }) autofocus = false;
   // input number properties
   @property({ type: String, reflect: true }) pattern: string | undefined;
@@ -235,45 +236,48 @@ export class korInput extends LitElement {
       ${this.icon
         ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
         : ''}
-      <div class="center" @click="${(e: Event) => this.closeSelectMenu(e)}">
+      <div class="center">
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
           .type="${this.type}"
           ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly || this.disabled || this.type === 'select'}"
-          .min="${this.min ? this.min : null}"
-          .max="${this.max ? this.max : null}"
+          min="${ifDefined(this.min)}"
+          max="${ifDefined(this.max)}"
           .step="${this.step.toString()}"
-          .pattern="${this.pattern ? this.pattern : null}"
-          .value="${this.value ? this.value : null}"
-          .name="${this.name}"
+          pattern="${ifDefined(this.pattern)}"
+          value="${ifDefined(this.value)}"
+          name="${ifDefined(this.name)}"
           @input="${this.handleChange}"
-          @focus="${() => (this.active = true)}"
+          @focus="${() => (this.type !== 'select' && !this.active ? this.active = true : '')}"
           @blur="${this.handleBlur}"
         />
       </div>
       <!-- select -->
       ${this.type === 'select'
         ? html`
-            <kor-icon
-              button
-              class="select-icon"
-              icon="arrow_drop_down"
-            ></kor-icon>
-            ${this.active
+          <kor-icon
+            button
+            class="select-icon"
+            icon="arrow_drop_down"
+          ></kor-icon>
+          ${this.active
             ? html`
-                  <kor-card
-                    @wheel="${(e: any) => e.stopPropagation()}"
-                    class="select-menu"
-                    .style="top: ${this.getMenuStyles()
-                .top}; left: ${this.getMenuStyles()
-                  .left}; width: ${this.getMenuStyles().width};"
-                  >
-                    <slot @slotchange="${this.handleItems}"></slot>
-                  </kor-card>
-                `
+              <kor-card
+                @click="${(e: Event) => { this.active = false; e.stopPropagation(); }}"
+                @wheel="${(e: Event) => e.stopPropagation()}"
+                class="select-menu"
+                .style="
+                  top: ${this.getMenuStyles().top};
+                  left: ${this.getMenuStyles().left};
+                  width: ${this.getMenuStyles().width};
+                "
+              >
+                <slot @slotchange="${this.handleItems}"></slot>
+              </kor-card>
+            `
             : ''}
-          `
+        `
         : ''}
       <!-- date -->
       ${this.type === 'date'
@@ -327,9 +331,15 @@ export class korInput extends LitElement {
 
   constructor() {
     super();
-    this.addEventListener('click', () => {
-      this.active = true;
-      this.shadowRoot?.querySelector('input')?.focus();
+    this.addEventListener('click', (e) => {
+      if (this.active && this.type === 'select') {
+        this.closeSelectMenu(e);
+      } else if (!this.active) {
+        this.active = true;
+        if (this.type !== 'select' && !this.disabled && !this.readonly) {
+          this.shadowRoot?.querySelector('input')?.focus();
+        }
+      }
     });
   }
 
@@ -394,7 +404,7 @@ export class korInput extends LitElement {
   attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
-    if (name == 'active' && this.active && this.type == 'select') {
+    if (name === 'active' && this.active && this.type === 'select') {
       this.handleMenu();
     }
   }

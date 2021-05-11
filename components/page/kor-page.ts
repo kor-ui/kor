@@ -24,8 +24,8 @@ export class korPage extends LitElement {
   @property({ type: String, reflect: true }) padding = '16px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'row';
-  @property({ type: Boolean, reflect: true }) flat = false;
-  @property({ type: Boolean, reflect: true }) scrollable = false;
+  @property({ type: Boolean, reflect: true }) flat: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) scrollable: boolean | undefined;
 
   static get styles() {
     return [
