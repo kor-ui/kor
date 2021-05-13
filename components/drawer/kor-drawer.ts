@@ -64,7 +64,7 @@ export class korDrawer extends LitElement {
           border-radius: 0px;
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
-          transition: 0.2s all ease-in-out, 0s top, 0s left;
+          transition: 0.2s all ease-out, 0s top, 0s left;
         }
         /* position */
         :host([position='left']) kor-card {

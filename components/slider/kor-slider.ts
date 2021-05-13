@@ -43,7 +43,7 @@ export class korSlider extends LitElement {
           width: 12px;
           border-radius: 50%;
           background-color: rgb(var(--accent-1));
-          transition: 0.1s all ease-in-out;
+          transition: 0.1s all ease-out;
         }
         .thumb:hover > div {
           background-color: rgb(var(--accent-1b));

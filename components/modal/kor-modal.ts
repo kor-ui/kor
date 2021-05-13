@@ -62,7 +62,7 @@ export class korModal extends LitElement {
         kor-card {
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
-          transition: 0.2s all ease-in-out, 0s top, 0s left;
+          transition: 0.2s all ease-out, 0s top, 0s left;
         }
       `,
     ];

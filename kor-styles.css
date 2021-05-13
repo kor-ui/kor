@@ -67,7 +67,7 @@ html, body {
   --body-2: normal 12px/16px 'open-sans';
   --header-1: bold 16px/24px 'open-sans';
   --header-2: bold 14px/24px 'open-sans';
-  --transition-1: 0.1s all ease-in-out;
+  --transition-1: 0.1s all ease-out;
   --border-radius: 4px;
   font-family: 'open-sans', sans-serif;
   font-style: normal;
@@ -102,4 +102,7 @@ html, body {
 *::-webkit-scrollbar-thumb:active,
 *::-webkit-scrollbar-thumb:hover {
   background-color: rgba(var(--neutral-1), .20)
+}
+kor-swipe-actions::-webkit-scrollbar {
+  display: none;
 }

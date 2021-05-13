@@ -35,7 +35,7 @@ export class korPane extends LitElement {
           background-color: rgb(var(--base-2));
           display: flex;
           box-shadow: var(--shadow-1);
-          transition: 0.1s width ease-in-out;
+          transition: 0.1s width ease-out;
         }
         :host([size='l']) {
           width: 320px;
@@ -66,19 +66,19 @@ export class korPane extends LitElement {
           name="header"
           slot="${this.emptyHeader ? '' : 'header'}"
           @slotchange="${(e: any) =>
-            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? '' : 'functions'}"
           @slotchange="${(e: any) =>
-            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? '' : 'footer'}"
           @slotchange="${(e: any) =>
-            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
