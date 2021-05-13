@@ -28,6 +28,8 @@ export { korSlider } from './components/slider/kor-slider';
 export { korSpinner } from './components/spinner/kor-spinner';
 export { korStepper } from './components/stepper/kor-stepper';
 export { korStepperItem } from './components/stepper/kor-stepper-item';
+export { korSwipeActions } from './components/swipe-actions/kor-swipe-actions';
+export { korSwipeAction } from './components/swipe-actions/kor-swipe-action';
 export { korSwitch } from './components/switch/kor-switch';
 export { korSwitchItem } from './components/switch/kor-switch-item';
 export { korTabItem } from './components/tabs/kor-tab-item';
