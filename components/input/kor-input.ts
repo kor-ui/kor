@@ -107,7 +107,7 @@ export class korInput extends LitElement {
         }
         /* active */
         :host([active]) {
-          border-color: rgba(var(--neutral-1), 0.6);
+          border-color: rgb(var(--accent-1));
         }
         :host([active]) .label {
           color: rgb(var(--accent-1));
@@ -240,13 +240,13 @@ export class korInput extends LitElement {
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
           .type="${this.type}"
+          .value="${this.value ? this.value : ''}"
+          .step="${this.step.toString()}"
           ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly || this.disabled || this.type === 'select'}"
           min="${ifDefined(this.min)}"
           max="${ifDefined(this.max)}"
-          .step="${this.step.toString()}"
           pattern="${ifDefined(this.pattern)}"
-          value="${ifDefined(this.value)}"
           name="${ifDefined(this.name)}"
           @input="${this.handleChange}"
           @focus="${() => (this.type !== 'select' && !this.active ? this.active = true : '')}"
@@ -294,7 +294,7 @@ export class korInput extends LitElement {
               button
               class="clear-icon"
               icon="close"
-              @click="${() => this.handleClear()}"
+              @click="${this.handleClear}"
             ></kor-icon>
           `
         : ''}
@@ -355,7 +355,6 @@ export class korInput extends LitElement {
 
   handleClear() {
     this.value = undefined;
-    this.removeAttribute('value');
   }
 
   handleBlur(e: any) {
