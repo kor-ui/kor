@@ -170,10 +170,12 @@ export class korPopover extends LitElement {
   }
 
   addDocListener(tar) {
-    let self = this;
-    let closePopover = function (e) {
-      if ((e.target !== tar && e.type === 'click') || e.type === 'wheel') {
-        self.visible = false;
+    let closePopover = (e) => {
+      if ((e.composedPath()[0] != tar // if the target is rendered in a shadowRoot
+           && e.target !== tar && e.type === 'click')
+          || e.type === 'wheel')
+      {
+        this.visible = false;
         document.removeEventListener('click', closePopover);
         document.removeEventListener('wheel', closePopover);
       }
