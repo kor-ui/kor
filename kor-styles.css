@@ -1,5 +1,5 @@
 /* colors */
-html, *[theme="light"] {
+html, :host, *[theme="light"] {
   --neutral-1: 0, 0, 0;
   --neutral-2: 255, 255, 255;
   --accent-1: 60, 100, 240;
