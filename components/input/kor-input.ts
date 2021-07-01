@@ -341,6 +341,12 @@ export class korInput extends LitElement {
   handleClear() {
     this.value = undefined;
     this.removeAttribute('value');
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        bubbles: true,
+        composed: true
+      })
+    );
   }
 
   handleBlur(e) {

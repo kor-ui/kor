@@ -156,6 +156,14 @@ export class korPopover extends LitElement {
       self.style.top = `${
         rect.top + rect.height / 2 - self.clientHeight / 2
       }px`;
+      // The top of the viewport check for overflow
+      if (parseInt(self.style.top) < 0) self.style.top = "8px";
+      // The bottom of the viewport check for overflow
+      const viewport_height =
+        Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+      if (parseInt(self.style.top) + self.clientHeight > viewport_height) {
+        self.style.top = `${viewport_height - self.clientHeight - 8}px`;
+      }
     }
     // get x axis
     if (self.position.startsWith('right')) {
@@ -171,7 +179,7 @@ export class korPopover extends LitElement {
 
   addDocListener(tar) {
     let closePopover = (e) => {
-      if ((e.composedPath()[0] != tar // if the target is rendered in a shadowRoot
+      if ((e.composedPath()[0] !== tar // if the target is rendered in a shadowRoot
            && e.target !== tar && e.type === 'click')
           || e.type === 'wheel')
       {
