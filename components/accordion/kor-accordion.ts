@@ -96,8 +96,8 @@ export class korAccordion extends LitElement {
         >
           <div class="header">
             ${this.icon
-        ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
-        : ''}
+              ? html` <kor-icon class="icon" icon="${this.icon}"></kor-icon> `
+              : ''}
             <p>${this.label}</p>
             <kor-icon
               button
@@ -109,14 +109,15 @@ export class korAccordion extends LitElement {
         <slot></slot>
         <slot name="functions" slot="functions"></slot>
         ${this.expanded
-        ? html`
-          <slot
-            name="footer"
-            slot="${this.emptyFooter ? 'hidden' : 'footer'}"
-            @slotchange="${(e: any) => (this.emptyFooter = e.target.assignedNodes().length === 0)}"
-          ></slot>
-        `
-        : ''}
+          ? html`
+              <slot
+                name="footer"
+                slot="${this.emptyFooter ? 'hidden' : 'footer'}"
+                @slotchange="${(e: any) =>
+                  (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+              ></slot>
+            `
+          : ''}
       </kor-card>
     `;
   }
