@@ -69,6 +69,7 @@ export class korCard extends LitElement {
         .label {
           flex: 1;
           display: flex;
+          gap: 8px;
         }
         .label p {
           font: var(--header-1);
@@ -76,14 +77,19 @@ export class korCard extends LitElement {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          margin: 0;
+          margin: unset;
         }
-        .label kor-icon {
-          margin-right: 8px;
+        /* slots */
+        slot[name='footer'],
+        slot[name='functions'],
+        slot[name='header'],
+        slot:not([name]) {
+          gap: 12px;
         }
-        slot[name='footer']::slotted(*:not(:first-child)),
-        slot[name='functions']::slotted(*) {
-          margin-left: 12px;
+        slot[name='header'],
+        slot[name='functions'],
+        slot[name='footer'] {
+          align-items: center;
         }
         /* content */
         slot:not([name]) {
@@ -97,22 +103,9 @@ export class korCard extends LitElement {
         .header {
           flex-direction: column;
         }
-        :host([flex-direction='column'])
-          slot:not([name])::slotted(*:not(:last-child)) {
-          margin-bottom: 12px;
-        }
-        :host([flex-direction='row'])
-          slot:not([name])::slotted(*:not(:last-child)) {
-          margin-right: 12px;
-        }
         /* footer */
         slot[name='footer'] {
           justify-content: flex-end;
-        }
-        slot[name='header'],
-        slot[name='functions'],
-        slot[name='footer'] {
-          align-items: center;
         }
         /* image */
         .image {
@@ -131,41 +124,41 @@ export class korCard extends LitElement {
         this.emptyFunctions &&
         !this.label &&
         !this.icon
-        ? 'empty'
-        : ''}"
+          ? 'empty'
+          : ''}"
       >
         <div class="header">
           ${this.label || this.icon
-        ? html`
+            ? html`
                 <div class="label">
                   ${this.icon
-            ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-            : ''}
+                    ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+                    : ''}
                   <p>${this.label}</p>
                 </div>
                 ${!this.emptyHeader && (this.label || this.icon)
-            ? html` <div style="margin-top: 16px"></div> `
-            : ''}
+                  ? html` <div style="margin-top: 16px"></div> `
+                  : ''}
               `
-        : ''}
+            : ''}
           <slot
             name="header"
             @slotchange="${(e: any) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+              (this.emptyHeader = e.target.assignedNodes().length === 0)}"
             class="${this.emptyHeader ? 'empty' : ''}"
           ></slot>
         </div>
         <slot
           name="functions"
           @slotchange="${(e: any) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
       </div>
       <slot></slot>
       <slot
         name="footer"
         @slotchange="${(e: any) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+          (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         class="${this.emptyFooter ? 'empty' : ''}"
       ></slot>
     `;
