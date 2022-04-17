@@ -14,6 +14,11 @@ import '../icon';
  * @slot header - Shown on top of the card, below the label (if any is set).
  * @slot functions - Shown on the right side of the label or header slot.
  * @slot footer - Shown below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korCard extends LitElement {
@@ -40,6 +45,11 @@ export class korCard extends LitElement {
           border-radius: var(--border-radius);
           box-sizing: border-box;
           overflow: hidden;
+          /* css properties */
+          --body-gap: 12px;
+          --header-gap: var(--body-gap);
+          --functions-gap: var(--body-gap);
+          --footer-gap: var(--body-gap);
         }
         :host(:not([flat])) {
           background-color: rgb(var(--base-3));
@@ -80,9 +90,12 @@ export class korCard extends LitElement {
           margin: unset;
         }
         /* slots */
-        slot[name='footer'],
-        slot[name='functions'],
-        slot[name='header'],
+        slot[name='functions'] {
+          gap: var(--functions-gap);
+        }
+        slot[name='header'] {
+          gap: var(--header-gap);
+        }
         slot:not([name]) {
           gap: 12px;
         }
@@ -98,6 +111,7 @@ export class korCard extends LitElement {
           padding: 0 16px;
           margin-right: -16px;
           margin-left: -16px;
+          gap: var(--body-gap);
         }
         :host([flex-direction='column']) slot:not([name]),
         .header {
@@ -106,6 +120,7 @@ export class korCard extends LitElement {
         /* footer */
         slot[name='footer'] {
           justify-content: flex-end;
+          gap: var(--footer-gap);
         }
         /* image */
         .image {
