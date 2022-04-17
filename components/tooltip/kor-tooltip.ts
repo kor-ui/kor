@@ -15,6 +15,11 @@ import '../popover';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Displayed on the right side of the label or header slot.
  * @slot footer - Displayed below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korTooltip extends LitElement {
@@ -42,6 +47,17 @@ export class korTooltip extends LitElement {
         :host {
           position: fixed;
           z-index: 4;
+          /* css properties */
+          --body-gap: 12px;
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
+        }
+        kor-popover {
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
       `,
     ];
@@ -61,20 +77,20 @@ export class korTooltip extends LitElement {
           name="header"
           slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? 'hidden' : 'functions'}"
           @slotchange="${(e: any) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-popover>
     `;

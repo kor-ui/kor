@@ -15,6 +15,11 @@ import '../icon';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Displayed on the right side of the label or header slot.
  * @slot footer - Displayed below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korNotificationItem extends LitElement {
@@ -37,6 +42,11 @@ export class korNotificationItem extends LitElement {
         :host {
           transition: var(--transition-1);
           opacity: 1;
+          /* css properties */
+          --body-gap: 12px;
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
         }
         :host(:not([visible])) {
           opacity: 0;
@@ -48,6 +58,10 @@ export class korNotificationItem extends LitElement {
         }
         kor-card {
           background: rgb(var(--base-4));
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
         :host(:not([visible]):host-context([position$='right'])) {
           margin-left: 8px;
@@ -73,25 +87,25 @@ export class korNotificationItem extends LitElement {
           name="header"
           slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-        ? html`
+            ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-        : ''}
+            : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

@@ -18,6 +18,11 @@ import '../icon';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Shown on the right side of the label or header slot.
  * @slot footer - Shown below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korDrawer extends LitElement {
@@ -54,6 +59,11 @@ export class korDrawer extends LitElement {
           width: 100%;
           height: 100%;
           background: rgba(0, 0, 0, 0.4);
+          /* css properties */
+          --body-gap: 12px;
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
         }
         :host(:not([visible])) {
           opacity: 0;
@@ -65,6 +75,10 @@ export class korDrawer extends LitElement {
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
           transition: 0.2s all ease-out, 0s top, 0s left;
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
         /* position */
         :host([position='left']) kor-card {
@@ -101,7 +115,7 @@ export class korDrawer extends LitElement {
       <kor-card
         @click="${(e: any) => e.stopPropagation()}"
         style="height: ${this.getCardSize().height}; width: ${this.getCardSize()
-        .width}; max-height: ${this.getCardSize()
+          .width}; max-height: ${this.getCardSize()
           .height}; max-width: ${this.getCardSize().width}"
         .label="${this.label}"
         .icon="${this.icon}"
@@ -111,25 +125,25 @@ export class korDrawer extends LitElement {
           name="header"
           slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
           ${!this.sticky
-        ? html`
+            ? html`
                 <kor-icon
                   button
                   icon="close"
                   @click="${() => (this.visible = false)}"
                 ></kor-icon>
               `
-        : ''}
+            : ''}
         </slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;

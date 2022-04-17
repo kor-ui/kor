@@ -16,6 +16,11 @@ import '../card';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Displayed on the right side of the label or header slot.
  * @slot footer - Displayed below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korPopover extends LitElement {
@@ -54,6 +59,11 @@ export class korPopover extends LitElement {
           opacity: 1;
           z-index: 4;
           width: 240px;
+          /* css properties */
+          --body-gap: 12px;
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
         }
         :host(:not([visible])) {
           opacity: 0;
@@ -74,6 +84,10 @@ export class korPopover extends LitElement {
         kor-card {
           background-color: transparent;
           box-shadow: none;
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
       `,
     ];
@@ -92,20 +106,20 @@ export class korPopover extends LitElement {
           name="header"
           slot="${this.emptyHeader ? 'hidden' : 'header'}"
           @slotchange="${(e: any) =>
-        (this.emptyHeader = e.target.assignedNodes().length === 0)}"
+            (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions ? 'hidden' : 'functions'}"
           @slotchange="${(e: any) =>
-        (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
+            (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter ? 'hidden' : 'footer'}"
           @slotchange="${(e: any) =>
-        (this.emptyFooter = e.target.assignedNodes().length === 0)}"
+            (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
@@ -158,7 +172,9 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('top')) {
       self.style.top = `${rect.top - self.clientHeight - 8}px`;
     } else {
-      self.style.top = `${rect.top + rect.height / 2 - self.clientHeight / 2}px`;
+      self.style.top = `${
+        rect.top + rect.height / 2 - self.clientHeight / 2
+      }px`;
     }
     // get x axis
     if (self.position.startsWith('right')) {
@@ -166,7 +182,9 @@ export class korPopover extends LitElement {
     } else if (self.position.startsWith('left')) {
       self.style.left = `${rect.left - self.clientWidth - 8}px`;
     } else {
-      self.style.left = `${rect.left + rect.width / 2 - self.clientWidth / 2}px`;
+      self.style.left = `${
+        rect.left + rect.width / 2 - self.clientWidth / 2
+      }px`;
     }
   }
 
