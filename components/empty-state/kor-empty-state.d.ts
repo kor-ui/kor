@@ -6,6 +6,8 @@ import '../text';
  * @prop {String} icon - If set, defines the icon shown above the label.
  *
  * @slot footer - Displayed below the label.
+ *
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korEmptyState extends LitElement {
     label: string | undefined;

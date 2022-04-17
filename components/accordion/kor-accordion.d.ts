@@ -11,6 +11,11 @@ import '../card';
  * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
  * @slot functions - Displayed close to the 'expand' arrow.
  * @slot footer - Displayed below the content when it is expanded.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korAccordion extends LitElement {
     label: string;

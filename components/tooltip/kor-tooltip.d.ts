@@ -12,6 +12,11 @@ import '../popover';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Displayed on the right side of the label or header slot.
  * @slot footer - Displayed below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korTooltip extends LitElement {
     label: string | undefined;

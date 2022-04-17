@@ -10,6 +10,8 @@ import { LitElement } from 'lit';
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
  *
  * @fires logo-clicked - Fired when clicking on the logo.
+ *
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
  */
 export declare class korAppBar extends LitElement {
     label: string | undefined;
