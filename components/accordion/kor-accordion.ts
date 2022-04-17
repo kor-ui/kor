@@ -14,6 +14,11 @@ import '../card';
  * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
  * @slot functions - Displayed close to the 'expand' arrow.
  * @slot footer - Displayed below the content when it is expanded.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korAccordion extends LitElement {
@@ -35,9 +40,9 @@ export class korAccordion extends LitElement {
         :host {
           /* css properties */
           --body-gap: 12px;
-          --functions-gap: 8px;
-          --header-gap: var(--functions-gap);
-          --footer-gap: var(--body-gap);
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
         }
         :host(:not([expanded])) kor-card {
           cursor: pointer;
@@ -46,22 +51,14 @@ export class korAccordion extends LitElement {
           padding: 8px 16px;
         }
         slot {
-          display: flex;
-          flex: 1;
         }
         slot:not([name]) {
-          flex-direction: column;
           transition: var(--transition-1);
-          gap: var(--body-gap);
-        }
-        slot[name='functions'] {
-          gap: var(--functions-gap);
-        }
-        slot[name='header'] {
-          gap: var(--header-gap);
+          display: inherit;
+          flex-direction: inherit;
+          gap: inherit;
         }
         slot[name='footer'] {
-          gap: var(--footer-gap);
           justify-content: flex-end;
         }
         /* expanded */

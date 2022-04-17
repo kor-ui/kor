@@ -47,9 +47,9 @@ export class korCard extends LitElement {
           overflow: hidden;
           /* css properties */
           --body-gap: 12px;
-          --header-gap: var(--body-gap);
-          --functions-gap: var(--body-gap);
-          --footer-gap: var(--body-gap);
+          --header-gap: 12px;
+          --functions-gap: 12px;
+          --footer-gap: 12px;
         }
         :host(:not([flat])) {
           background-color: rgb(var(--base-3));
