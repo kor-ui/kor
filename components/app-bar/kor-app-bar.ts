@@ -13,6 +13,8 @@ import { sharedStyles } from '../../shared-styles';
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
  *
  * @fires logo-clicked - Fired when clicking on the logo.
+ *
+ *  @cssprop --functions-gap - Defines the gap between elements in the functions slot.
  */
 
 export class korAppBar extends LitElement {
@@ -34,24 +36,28 @@ export class korAppBar extends LitElement {
           background-color: rgb(var(--base-0));
           box-shadow: var(--shadow-1);
           transition: var(--transition-1);
+          gap: 32px;
+          /* css properties */
+          --functions-gap: 12px;
         }
         .logo {
           height: 24px;
-          margin-right: 32px;
         }
         .label {
           font: var(--header-1);
           color: var(--text-1);
           max-width: 320px;
-          margin-right: 32px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
+        /* mobile */
+        :host[mobile] {
+          gap: 16px;
+        }
         :host([mobile]) .label {
           flex: 1;
           max-width: unset;
-          margin: 0 16px;
           text-align: center;
         }
         /* slots */
@@ -62,8 +68,8 @@ export class korAppBar extends LitElement {
         slot:not([name]) {
           flex: 1;
         }
-        slot[name='functions']::slotted(*) {
-          margin-left: 12px;
+        slot[name='functions'] {
+          gap: var(--functions-gap);
         }
         ::slotted(kor-tabs) {
           border-bottom: unset;
@@ -84,14 +90,14 @@ export class korAppBar extends LitElement {
       ${!this.mobile
         ? html`
             ${this.logo
-            ? html`
+              ? html`
                   <img
                     class="logo"
                     src="${this.logo}"
                     @click="${() => this.handleLogoClick()}"
                   />
                 `
-            : ''}
+              : ''}
             ${this.label ? html` <div class="label">${this.label}</div> ` : ''}
             <slot></slot>
             <slot name="functions"></slot>
