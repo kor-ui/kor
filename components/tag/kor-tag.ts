@@ -24,7 +24,7 @@ export class korTag extends LitElement {
       sharedStyles,
       css`
         :host {
-          padding: 4px;
+          padding: var(--spacing-xs);
           display: flex;
           height: max-content;
           width: max-content;
@@ -34,7 +34,7 @@ export class korTag extends LitElement {
           transition: var(--transition-1);
         }
         .label {
-          margin: 0 4px;
+          margin: 0 var(--spacing-xs);
         }
         /* button */
         :host([button]) {

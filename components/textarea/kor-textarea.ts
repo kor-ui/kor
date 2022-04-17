@@ -34,7 +34,8 @@ export class korTextarea extends LitElement {
           border-color: rgba(var(--neutral-1), 0.2);
           border-radius: 2px;
           box-sizing: border-box;
-          padding: 4px 8px 3px 8px;
+          padding: var(--spacing-xs) var(--spacing-s)
+            calc(var(--spacing-xs) - 1px) var(--spacing-s);
           width: 100%;
           overflow: visible;
           background-color: rgba(var(--neutral-1), 0.05);

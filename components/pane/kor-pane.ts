@@ -42,10 +42,10 @@ export class korPane extends LitElement {
           box-shadow: var(--shadow-1);
           transition: 0.1s width ease-out;
           /* css properties */
-          --body-gap: 12px;
-          --header-gap: 12px;
-          --functions-gap: 12px;
-          --footer-gap: 12px;
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host([size='l']) {
           width: 320px;

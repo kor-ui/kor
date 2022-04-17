@@ -34,13 +34,13 @@ export class korGrid extends LitElement {
         }
         /* spacing */
         :host([spacing='s']) {
-          grid-gap: 8px;
+          grid-gap: var(--spacing-s);
         }
         :host([spacing='m']) {
-          grid-gap: 12px;
+          grid-gap: var(--spacing-m);
         }
         :host([spacing='l']) {
-          grid-gap: 16px;
+          grid-gap: var(--spacing-l);
         }
         /* columns and rows */
         ::slotted(*[grid-cols='0']) {

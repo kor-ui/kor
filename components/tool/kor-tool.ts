@@ -31,7 +31,7 @@ export class korTool extends LitElement {
           align-items: center;
           justify-content: center;
           width: max-content;
-          padding: 4px;
+          padding: var(--spacing-xs);
           box-sizing: border-box;
           transition: var(--transition-1);
           cursor: pointer;

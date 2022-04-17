@@ -33,7 +33,7 @@ export class korTableCell extends LitElement {
         :host {
           display: flex;
           align-items: center;
-          padding: 12px 8px;
+          padding: var(--spacing-m) var(--spacing-s);
           font: var(--body-1);
           overflow: hidden;
           cursor: default;
@@ -45,7 +45,7 @@ export class korTableCell extends LitElement {
         }
         /* condensed */
         :host:host-context(kor-table[condensed]) {
-          padding: 8px 8px;
+          padding: var(--spacing-s);
         }
         /* head */
         :host([head]) kor-text {
@@ -66,7 +66,7 @@ export class korTableCell extends LitElement {
           transform: rotate(180deg);
         }
         .sort {
-          margin: 4px 0px 4px 4px;
+          margin: var(--spacing-xs) 0px var(--spacing-xs) var(--spacing-xs);
           color: var(--text-2);
         }
       `,

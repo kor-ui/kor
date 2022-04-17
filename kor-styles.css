@@ -67,6 +67,10 @@ html, body {
   --header-2: bold 14px/24px 'open-sans';
   --transition-1: 0.1s all ease-out;
   --border-radius: 4px;
+  --spacing-xs: calc(var(--spacing-s) / 2);
+  --spacing-s: 8px;
+  --spacing-m: calc(var(--spacing-s) * 1.5);
+  --spacing-l: calc(var(--spacing-s) * 2);;
   font-family: 'open-sans', sans-serif;
   font-style: normal;
   font-weight: 400;

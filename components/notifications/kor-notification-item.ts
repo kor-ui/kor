@@ -43,10 +43,10 @@ export class korNotificationItem extends LitElement {
           transition: var(--transition-1);
           opacity: 1;
           /* css properties */
-          --body-gap: 12px;
-          --header-gap: 12px;
-          --functions-gap: 12px;
-          --footer-gap: 12px;
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host(:not([visible])) {
           opacity: 0;

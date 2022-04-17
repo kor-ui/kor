@@ -46,15 +46,15 @@ export class korCard extends LitElement {
           box-sizing: border-box;
           overflow: hidden;
           /* css properties */
-          --body-gap: 12px;
-          --header-gap: 12px;
-          --functions-gap: 12px;
-          --footer-gap: 12px;
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host(:not([flat])) {
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
-          padding: 16px;
+          padding: var(--spacing-l);
         }
         /* header */
         slot,
@@ -71,15 +71,15 @@ export class korCard extends LitElement {
           flex: 1;
         }
         .top:not(.empty) {
-          padding-bottom: 16px;
+          padding-bottom: var(--spacing-l);
         }
         slot[name='footer']:not(.empty) {
-          padding-top: 16px;
+          padding-top: var(--spacing-l);
         }
         .label {
           flex: 1;
           display: flex;
-          gap: 8px;
+          gap: var(--spacing-s);
         }
         .label p {
           font: var(--header-1);
@@ -97,7 +97,7 @@ export class korCard extends LitElement {
           gap: var(--header-gap);
         }
         slot:not([name]) {
-          gap: 12px;
+          gap: var(--spacing-m);
         }
         slot[name='header'],
         slot[name='functions'],
@@ -108,9 +108,9 @@ export class korCard extends LitElement {
         slot:not([name]) {
           flex: 1;
           width: 100%;
-          padding: 0 16px;
-          margin-right: -16px;
-          margin-left: -16px;
+          padding: 0 var(--spacing-l);
+          margin-right: calc(var(--spacing-l) * -1);
+          margin-left: calc(var(--spacing-l) * -1);
           gap: var(--body-gap);
         }
         :host([flex-direction='column']) slot:not([name]),
@@ -125,7 +125,8 @@ export class korCard extends LitElement {
         /* image */
         .image {
           width: calc(100% + 32px);
-          margin: -16px -16px 16px -16px;
+          margin: calc(var(--spacing-l) * -1) calc(var(--spacing-l) * -1)
+            var(--spacing-l) calc(var(--spacing-l) * -1);
         }
       `,
     ];
@@ -152,7 +153,7 @@ export class korCard extends LitElement {
                   <p>${this.label}</p>
                 </div>
                 ${!this.emptyHeader && (this.label || this.icon)
-                  ? html` <div style="margin-top: 16px"></div> `
+                  ? html` <div style="margin-top: var(--spacing-l)"></div> `
                   : ''}
               `
             : ''}

@@ -23,7 +23,7 @@ export class korBreadcrumbItem extends LitElement {
         }
         kor-icon {
           pointer-events: none;
-          margin: 0 4px;
+          margin: 0 var(--spacing-xs);
         }
         kor-text {
           color: var(--text-2);

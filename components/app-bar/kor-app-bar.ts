@@ -29,16 +29,16 @@ export class korAppBar extends LitElement {
         :host {
           z-index: 3;
           height: 56px;
-          padding: 0 16px;
+          padding: 0 var(--spacing-l);
           display: flex;
           align-items: center;
           overflow: hidden;
           background-color: rgb(var(--base-0));
           box-shadow: var(--shadow-1);
           transition: var(--transition-1);
-          gap: 32px;
+          gap: calc(var(--spacing-l) * 2);
           /* css properties */
-          --functions-gap: 12px;
+          --functions-gap: var(--spacing-m);
         }
         .logo {
           height: 24px;
@@ -53,7 +53,7 @@ export class korAppBar extends LitElement {
         }
         /* mobile */
         :host[mobile] {
-          gap: 16px;
+          gap: var(--spacing-l);
         }
         :host([mobile]) .label {
           flex: 1;

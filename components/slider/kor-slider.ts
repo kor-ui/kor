@@ -27,7 +27,7 @@ export class korSlider extends LitElement {
         .track {
           width: 100%;
           height: 2px;
-          margin: 16px 0;
+          margin: var(--spacing-l) 0;
           background-color: rgba(var(--neutral-1), 0.2);
           position: relative;
         }
@@ -35,7 +35,7 @@ export class korSlider extends LitElement {
           padding: 10px;
           position: absolute;
           top: -15px;
-          margin-left: -16px;
+          margin-left: cal(var(--spacing-l) * -1);
           cursor: pointer;
         }
         .thumb > div {
@@ -77,7 +77,7 @@ export class korSlider extends LitElement {
           flex: 1;
         }
         .label > * + * {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
       `,
     ];
@@ -90,19 +90,19 @@ export class korSlider extends LitElement {
             <div class="label">
               <kor-text>${this.label}</kor-text>
               ${this.input
-            ? html`
+                ? html`
                     <input
                       type="number"
                       .value="${<any>this.value}"
                       @blur="${(e: any) =>
-                this.handleInput(parseFloat(e.target.value))}"
+                        this.handleInput(parseFloat(e.target.value))}"
                       @keypress="${(e: any) =>
-                e.key === 'Enter'
-                  ? this.handleInput(parseFloat(e.target.value))
-                  : ''}"
+                        e.key === 'Enter'
+                          ? this.handleInput(parseFloat(e.target.value))
+                          : ''}"
                     />
                   `
-            : ''}
+                : ''}
             </div>
           `
         : ''}
@@ -141,10 +141,8 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbPosition(): void {
-    const thumb:
-      | HTMLElement
-      | null
-      | undefined = this.shadowRoot?.querySelector('.thumb');
+    const thumb: HTMLElement | null | undefined =
+      this.shadowRoot?.querySelector('.thumb');
     const position = ((this.value - this.min) / (this.max - this.min)) * 100;
     // check if thumb exists and position is within range
     if (thumb && position >= 0 && position <= 100) {
@@ -153,8 +151,8 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbDrag(e: any) {
-    const trackWidth: number = this.shadowRoot!.querySelector('.track')!
-      .clientWidth;
+    const trackWidth: number =
+      this.shadowRoot!.querySelector('.track')!.clientWidth;
     const stepWidth: number = (trackWidth / (this.max - this.min)) * this.step;
     let originX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
     const getDeltaX = (e: any) => {

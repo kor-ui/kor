@@ -48,10 +48,10 @@ export class korTooltip extends LitElement {
           position: fixed;
           z-index: 4;
           /* css properties */
-          --body-gap: 12px;
-          --header-gap: 12px;
-          --functions-gap: 12px;
-          --footer-gap: 12px;
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         kor-popover {
           --body-gap: inherit;

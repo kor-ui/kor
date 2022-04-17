@@ -23,7 +23,7 @@ export class korTabs extends LitElement {
           height: max-content;
         }
         :host([slot='header']) {
-          margin-top: -16px;
+          margin-top: calc(var(--spacing-l) * -1);
         }
         :host(:not([orientation='vertical'])) {
           border-bottom: 1px solid rgba(var(--neutral-1), 0.1);

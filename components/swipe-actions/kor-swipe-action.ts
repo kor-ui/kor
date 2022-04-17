@@ -4,7 +4,9 @@ import { sharedStyles } from '../../shared-styles';
 
 export class korSwipeAction extends LitElement {
   @property({ reflect: true }) icon: string | undefined;
-  @property({ reflect: true, attribute: 'bg-color' }) bgColor: string | undefined;
+  @property({ reflect: true, attribute: 'bg-color' }) bgColor:
+    | string
+    | undefined;
 
   static get styles() {
     return [
@@ -16,31 +18,29 @@ export class korSwipeAction extends LitElement {
           position: relative;
           display: flex;
           align-items: center;
-          background-color: rgba(var(--neutral-1), .1);
+          background-color: rgba(var(--neutral-1), 0.1);
         }
-        :host([slot="left"]) {
+        :host([slot='left']) {
           justify-content: flex-start;
         }
-        :host([slot="right"]) {
+        :host([slot='right']) {
           justify-content: flex-end;
         }
         kor-icon {
           position: sticky;
         }
-        :host([slot="left"]) kor-icon {
-          left: 16px;
+        :host([slot='left']) kor-icon {
+          left: var(--spacing-l);
         }
-        :host([slot="right"]) kor-icon {
-          right: 16px;
+        :host([slot='right']) kor-icon {
+          right: var(--spacing-l);
         }
       `,
     ];
   }
 
   render() {
-    return html`
-      <kor-icon .icon="${this.icon}"></kor-icon>
-    `;
+    return html` <kor-icon .icon="${this.icon}"></kor-icon> `;
   }
 
   attributeChangedCallback(name: string, oldval: string, newval: string) {

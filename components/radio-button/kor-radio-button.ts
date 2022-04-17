@@ -45,7 +45,7 @@ export class korRadioButton extends LitElement {
         /* label */
         kor-text {
           flex: 1;
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;

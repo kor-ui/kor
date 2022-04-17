@@ -134,7 +134,7 @@ export class korInput extends LitElement {
         }
         /* icon */
         :host([icon]) .icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         /* label */
         .label {
@@ -176,7 +176,7 @@ export class korInput extends LitElement {
         .increment-icon,
         .select-icon,
         slot[name='functions']::slotted(*) {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         .status-icon[icon='cancel'] {
           color: rgb(var(--functional-red));
@@ -203,12 +203,12 @@ export class korInput extends LitElement {
           position: fixed;
           max-height: 240px;
           z-index: 3;
-          padding: 0px 16px;
+          padding: 0px var(--spacing-l);
           background-color: rgb(var(--base-4));
         }
         slot:not([name]) {
           display: block;
-          margin: 0 -8px;
+          margin: 0 calc(var(--spacing-s) * -1);
         }
         slot:not([name])::slotted(*) {
           margin-bottom: 0;
@@ -243,41 +243,47 @@ export class korInput extends LitElement {
           .value="${this.value ? this.value : ''}"
           .step="${this.step.toString()}"
           ?autofocus="${this.autofocus}"
-          ?readonly="${this.readonly || this.disabled || this.type === 'select'}"
+          ?readonly="${this.readonly ||
+          this.disabled ||
+          this.type === 'select'}"
           min="${ifDefined(this.min)}"
           max="${ifDefined(this.max)}"
           pattern="${ifDefined(this.pattern)}"
           name="${ifDefined(this.name)}"
           @input="${this.handleChange}"
-          @focus="${() => (this.type !== 'select' && !this.active ? this.active = true : '')}"
+          @focus="${() =>
+            this.type !== 'select' && !this.active ? (this.active = true) : ''}"
           @blur="${this.handleBlur}"
         />
       </div>
       <!-- select -->
       ${this.type === 'select'
         ? html`
-          <kor-icon
-            button
-            class="select-icon"
-            icon="arrow_drop_down"
-          ></kor-icon>
-          ${this.active
-            ? html`
-              <kor-card
-                @click="${(e: Event) => { this.active = false; e.stopPropagation(); }}"
-                @wheel="${(e: Event) => e.stopPropagation()}"
-                class="select-menu"
-                .style="
+            <kor-icon
+              button
+              class="select-icon"
+              icon="arrow_drop_down"
+            ></kor-icon>
+            ${this.active
+              ? html`
+                  <kor-card
+                    @click="${(e: Event) => {
+                      this.active = false;
+                      e.stopPropagation();
+                    }}"
+                    @wheel="${(e: Event) => e.stopPropagation()}"
+                    class="select-menu"
+                    .style="
                   top: ${this.getMenuStyles().top};
                   left: ${this.getMenuStyles().left};
                   width: ${this.getMenuStyles().width};
                 "
-              >
-                <slot @slotchange="${this.handleItems}"></slot>
-              </kor-card>
-            `
-            : ''}
-        `
+                  >
+                    <slot @slotchange="${this.handleItems}"></slot>
+                  </kor-card>
+                `
+              : ''}
+          `
         : ''}
       <!-- date -->
       ${this.type === 'date'
@@ -285,10 +291,10 @@ export class korInput extends LitElement {
         : ''}
       <!-- clear -->
       ${!this.disabled &&
-        !this.readonly &&
-        this.value &&
-        !this.noClear &&
-        this.type !== 'select'
+      !this.readonly &&
+      this.value &&
+      !this.noClear &&
+      this.type !== 'select'
         ? html`
             <kor-icon
               button
@@ -370,12 +376,12 @@ export class korInput extends LitElement {
     if (dir === 'left') {
       this.validateMinMax(
         parseInt(this.value ? this.value : this.min ? this.min : '0') -
-        this.step
+          this.step
       );
     } else if (dir === 'right') {
       this.validateMinMax(
         parseInt(this.value ? this.value : this.min ? this.min : '0') +
-        this.step
+          this.step
       );
     }
   }

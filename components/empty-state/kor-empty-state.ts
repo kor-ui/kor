@@ -29,15 +29,15 @@ export class korEmptyState extends LitElement {
           align-items: center;
           justify-content: center;
           /* css properties */
-          --footer-gap: 12px;
+          --footer-gap: var(--spacing-m);
         }
         slot[name='footer'] {
           display: flex;
-          margin-top: 16px;
+          margin-top: var(--spacing-l);
           gap: var(--footer-gap);
         }
         kor-icon + kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         kor-text {
           text-align: center;

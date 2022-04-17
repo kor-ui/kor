@@ -54,7 +54,7 @@ export class korTabItem extends LitElement {
           min-width: 72px;
           max-width: 240px;
           height: 56px;
-          padding: 0px 16px;
+          padding: 0px var(--spacing-l);
           border-width: 0px 0px 2px 0px;
         }
         :host([orientation='horizontal']) .label {
@@ -71,11 +71,12 @@ export class korTabItem extends LitElement {
           min-width: unset;
           max-width: 100%;
           height: max-content;
-          padding: 8px 8px 8px 14px;
+          padding: var(--spacing-s) var(--spacing-s) var(--spacing-s)
+            calc(var(--spacing-l) - 2px);
           border-width: 0px 0px 0px 2px;
         }
         :host([orientation='vertical']) kor-icon + .label {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         /* active */
         :host([active]) {
@@ -119,9 +120,8 @@ export class korTabItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.closest('kor-tabs')?.querySelectorAll(
-      'kor-tab-item'
-    );
+    let siblings: any =
+      this.closest('kor-tabs')?.querySelectorAll('kor-tab-item');
     siblings.forEach((el: any) => {
       el.active = false;
     });

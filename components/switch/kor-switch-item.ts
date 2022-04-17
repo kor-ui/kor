@@ -26,7 +26,7 @@ export class korSwitchItem extends LitElement {
           width: max-content;
           min-width: 40px;
           max-width: 120px;
-          padding: 4px 12px;
+          padding: var(--spacing-xs) var(--spacing-m);
           border-radius: var(--border-radius);
           cursor: pointer;
           align-items: center;

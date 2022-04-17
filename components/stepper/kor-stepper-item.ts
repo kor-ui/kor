@@ -47,7 +47,7 @@ export class korStepperItem extends LitElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 8px;
+          padding: var(--spacing-s);
           border-radius: 50%;
           background-color: rgba(var(--neutral-1), 0.1);
           transition: var(--transition-1);
@@ -83,14 +83,14 @@ export class korStepperItem extends LitElement {
         :host([orientation='horizontal']) {
           justify-content: center;
           flex-direction: column;
-          padding: 0 16px;
+          padding: 0 var(--spacing-l);
         }
         :host([orientation='horizontal']) .label,
         :host([orientation='horizontal']) .info {
           text-align: center;
         }
         :host([orientation='horizontal']) .circle + .text {
-          margin-top: 4px;
+          margin-top: var(--spacing-xs);
         }
         :host([orientation='horizontal']) .line {
           height: 2px;
@@ -109,14 +109,14 @@ export class korStepperItem extends LitElement {
           flex-direction: row;
           width: 100%;
           height: max-content;
-          padding: 16px 0;
+          padding: var(--spacing-l) 0;
         }
         :host([orientation='vertical']) .label,
         :host([orientation='vertical']) .info {
           text-align: left;
         }
         :host([orientation='vertical']) .circle + .text {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         :host([orientation='vertical']) .line {
           width: 2px;
@@ -171,19 +171,19 @@ export class korStepperItem extends LitElement {
       <!-- circle -->
       <div class="circle">
         ${this.icon
-        ? html` <kor-icon icon="${this.icon}"></kor-icon> `
-        : html`
+          ? html` <kor-icon icon="${this.icon}"></kor-icon> `
+          : html`
               <kor-text size="header-1" class="number">${this.index}</kor-text>
             `}
       </div>
       <!-- text -->
       <div class="text">
         ${this.label
-        ? html` <kor-text class="label">${this.label}</kor-text> `
-        : ''}
+          ? html` <kor-text class="label">${this.label}</kor-text> `
+          : ''}
         ${this.info
-        ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
-        : ''}
+          ? html` <kor-text size="body-2" class="info">${this.info}</kor-text> `
+          : ''}
       </div>
       <!-- lines -->
       ${!this.first ? html` <div class="line before"></div> ` : ''}

@@ -31,7 +31,7 @@ export class korAvatar extends LitElement {
           flex-direction: column;
           justify-content: center;
           flex: 1;
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
           overflow: hidden;
         }
         .label,
@@ -75,11 +75,11 @@ export class korAvatar extends LitElement {
       <!-- image -->
       <div class="image">
         ${this.image
-        ? html` <img src="${this.image}" /> `
-        : html`
+          ? html` <img src="${this.image}" /> `
+          : html`
               ${this.label
-            ? html` ${this.getInitials(this.label)} `
-            : html` <kor-icon icon="person"></kor-icon> `}
+                ? html` ${this.getInitials(this.label)} `
+                : html` <kor-icon icon="person"></kor-icon> `}
             `}
       </div>
       <!-- text -->
@@ -87,18 +87,18 @@ export class korAvatar extends LitElement {
         ? html`
             <div class="text">
               ${this.label
-            ? html`<kor-text size="body-2" class="label"
+                ? html`<kor-text size="body-2" class="label"
                     >${this.label}</kor-text
                   >`
-            : ''}
+                : ''}
               ${this.info
-            ? html`<kor-text
+                ? html`<kor-text
                     size="body-2"
                     class="info"
                     color="var(--text-2)"
                     >${this.info}</kor-text
                   >`
-            : ''}
+                : ''}
             </div>
           `
         : ''}

@@ -52,11 +52,11 @@ export class korImage extends LitElement {
           white-space: nowrap;
         }
         :host(:not([legend-position])) kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         :host([legend-position^='inner-']) kor-text {
           position: absolute;
-          padding: 8px;
+          padding: var(--spacing-s);
           box-sizing: border-box;
         }
         :host([legend-position='inner-top']) kor-text {
@@ -79,9 +79,9 @@ export class korImage extends LitElement {
         slot {
           display: flex;
           justify-content: flex-end;
-          gap: 8px;
+          gap: var(--spacing-s);
           position: absolute;
-          padding: 4px;
+          padding: var(--spacing-xs);
           box-sizing: border-box;
           width: 100%;
           overflow: hidden;

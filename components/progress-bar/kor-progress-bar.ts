@@ -52,10 +52,10 @@ export class korProgressBar extends LitElement {
           text-overflow: ellipsis;
         }
         .header {
-          margin-bottom: 8px;
+          margin-bottom: var(--spacing-s);
         }
         .footer {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         /* radial */
         :host([radial]) {
@@ -82,7 +82,7 @@ export class korProgressBar extends LitElement {
         }
         /* status */
         .status-icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         .status-icon[icon='cancel'] {
           color: rgb(var(--functional-red));
@@ -102,91 +102,91 @@ export class korProgressBar extends LitElement {
       <!-- header -->
       ${this.label || this.showProgress
         ? html`
-          <div class="header">
-            <kor-text size="header-2" class="label">${this.label}</kor-text>
-            ${this.showProgress && !this.radial
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
-          </div>
-        `
+            <div class="header">
+              <kor-text size="header-2" class="label">${this.label}</kor-text>
+              ${this.showProgress && !this.radial
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
+            </div>
+          `
         : ''}
       ${!this.radial
         ? html`
-          <!-- linear -->
-          <svg width="100%" height="8">
-            <defs>
-              <clipPath id="clip-path">
-                <rect width="100%" height="8px" rx="4px" />
-              </clipPath>
-            </defs>
-            <rect
-              fill="rgba(var(--neutral-1), .1)"
-              width="100%"
-              height="100%"
-              rx="4px"
-            />
-            <rect
-              fill="${this.color ? this.color : 'rgb(var(--accent-1))'}"
-              width="${this.value}%"
-              height="100%"
-              clip-path="url(#clip-path)"
-            />
-          </svg>
-        `
-        : html`
-          <!-- radial -->
-          <div class="radial-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="radial"
-              width="${this.getSize()}"
-              viewBox="0 0 ${this.getSize()} ${this.getSize()}"
-            >
-              <circle
-                stroke="rgba(var(--neutral-1), .1)"
-                r="${this.getSize() / 2 - 4}"
-                cx="${this.getSize() / 2}"
-                cy="${this.getSize() / 2}"
+            <!-- linear -->
+            <svg width="100%" height="8">
+              <defs>
+                <clipPath id="clip-path">
+                  <rect width="100%" height="8px" rx="4px" />
+                </clipPath>
+              </defs>
+              <rect
+                fill="rgba(var(--neutral-1), .1)"
+                width="100%"
+                height="100%"
+                rx="4px"
               />
-              <circle
-                stroke="${this.color ? this.color : 'rgb(var(--accent-1))'}"
-                stroke-dasharray="${2 * Math.PI * (this.getSize() / 2 - 4)}"
-                stroke-dashoffset="${2 *
-          Math.PI *
-          (this.getSize() / 2 - 4) *
-          (1 - (this.value ? this.value / 100 : 0))}"
-                r="${this.getSize() / 2 - 4}"
-                cx="${this.getSize() / 2}"
-                cy="${this.getSize() / 2}"
+              <rect
+                fill="${this.color ? this.color : 'rgb(var(--accent-1))'}"
+                width="${this.value}%"
+                height="100%"
+                clip-path="url(#clip-path)"
               />
             </svg>
-            ${this.showProgress
-            ? html` <kor-text size="header-2">${this.value}%</kor-text> `
-            : ''}
-          </div>
-        `}
+          `
+        : html`
+            <!-- radial -->
+            <div class="radial-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="radial"
+                width="${this.getSize()}"
+                viewBox="0 0 ${this.getSize()} ${this.getSize()}"
+              >
+                <circle
+                  stroke="rgba(var(--neutral-1), .1)"
+                  r="${this.getSize() / 2 - 4}"
+                  cx="${this.getSize() / 2}"
+                  cy="${this.getSize() / 2}"
+                />
+                <circle
+                  stroke="${this.color ? this.color : 'rgb(var(--accent-1))'}"
+                  stroke-dasharray="${2 * Math.PI * (this.getSize() / 2 - 4)}"
+                  stroke-dashoffset="${2 *
+                  Math.PI *
+                  (this.getSize() / 2 - 4) *
+                  (1 - (this.value ? this.value / 100 : 0))}"
+                  r="${this.getSize() / 2 - 4}"
+                  cx="${this.getSize() / 2}"
+                  cy="${this.getSize() / 2}"
+                />
+              </svg>
+              ${this.showProgress
+                ? html` <kor-text size="header-2">${this.value}%</kor-text> `
+                : ''}
+            </div>
+          `}
       ${this.info || this.status
         ? html`
-          <div class="footer">
-            <!-- status -->
-            ${this.status
-            ? html`
-              <kor-icon
-                class="status-icon"
-                .icon="${this.getStatusIcon()}"
-              ></kor-icon>
-              `
-            : ''}
-            <!-- info -->
-            ${this.info
-            ? html`
-              <kor-text color="var(--text-2)" class="info"
-                >${this.info}</kor-text
-              >
-            `
-            : ''}
-          </div>
-        `
+            <div class="footer">
+              <!-- status -->
+              ${this.status
+                ? html`
+                    <kor-icon
+                      class="status-icon"
+                      .icon="${this.getStatusIcon()}"
+                    ></kor-icon>
+                  `
+                : ''}
+              <!-- info -->
+              ${this.info
+                ? html`
+                    <kor-text color="var(--text-2)" class="info"
+                      >${this.info}</kor-text
+                    >
+                  `
+                : ''}
+            </div>
+          `
         : ''}
     `;
   }

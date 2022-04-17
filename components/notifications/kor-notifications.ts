@@ -27,13 +27,13 @@ export class korNotifications extends LitElement {
           flex-direction: column;
           max-height: 100%;
           box-sizing: border-box;
-          padding: 16px;
+          padding: var(--spacing-l);
           margin: 0;
           width: 320px;
           z-index: 6;
           pointer-events: none;
           /* css properties */
-          --body-gap: 12px;
+          --body-gap: var(--spacing-m);
         }
         slot:not([name]) {
           gap: var(--body-gap);

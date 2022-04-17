@@ -44,7 +44,7 @@ export class korSpinner extends LitElement {
         }
         /* label */
         kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
           text-align: center;
           max-width: 240px;
         }

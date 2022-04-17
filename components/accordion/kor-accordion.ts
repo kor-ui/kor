@@ -39,16 +39,16 @@ export class korAccordion extends LitElement {
       css`
         :host {
           /* css properties */
-          --body-gap: 12px;
-          --header-gap: 12px;
-          --functions-gap: 12px;
-          --footer-gap: 12px;
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host(:not([expanded])) kor-card {
           cursor: pointer;
         }
         kor-card {
-          padding: 8px 16px;
+          padding: var(--spacing-s) var(--spacing-l);
         }
         slot {
         }
@@ -63,7 +63,7 @@ export class korAccordion extends LitElement {
         }
         /* expanded */
         :host([expanded]) slot:not([name]) {
-          margin-top: 16px;
+          margin-top: var(--spacing-l);
         }
         :host(:not([expanded])) slot:not([name]) {
           max-height: 0px;
@@ -80,7 +80,7 @@ export class korAccordion extends LitElement {
           flex: 1;
         }
         .icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         slot[name='header'] p {
           font: var(--header-1);

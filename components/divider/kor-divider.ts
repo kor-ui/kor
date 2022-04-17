@@ -36,22 +36,22 @@ export class korDivider extends LitElement {
         }
         /* spacing */
         :host([spacing='s'][orientation='horizontal']) {
-          padding: 8px 0;
+          padding: var(--spacing-s) 0;
         }
         :host([spacing='m'][orientation='horizontal']) {
-          padding: 16px 0;
+          padding: var(--spacing-l) 0;
         }
         :host([spacing='l'][orientation='horizontal']) {
-          padding: 32px 0;
+          padding: calc(var(--spacing-l) * 2) 0;
         }
         :host([spacing='s'][orientation='vertical']) {
-          padding: 0 8px;
+          padding: 0 var(--spacing-s);
         }
         :host([spacing='m'][orientation='vertical']) {
-          padding: 0 16px;
+          padding: 0 var(--spacing-l);
         }
         :host([spacing='l'][orientation='vertical']) {
-          padding: 0 32px;
+          padding: 0 calc(var(--spacing-s) * 2);
         }
       `,
     ];

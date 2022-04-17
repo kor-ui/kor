@@ -46,7 +46,7 @@ export class korCheckbox extends LitElement {
         /* label */
         kor-text {
           flex: 1;
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -79,8 +79,8 @@ export class korCheckbox extends LitElement {
       />
       <div class="box">
         ${this.active
-        ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
-        : ''}
+          ? html` <kor-icon icon="check" size="s" color="white"></kor-icon> `
+          : ''}
       </div>
       ${this.label ? html` <kor-text>${this.label}</kor-text> ` : ''}
     `;

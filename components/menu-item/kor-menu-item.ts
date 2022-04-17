@@ -27,7 +27,7 @@ export class korMenuItem extends LitElement {
       sharedStyles,
       css`
         :host {
-          padding: 8px 0;
+          padding: var(--spacing-s) 0;
           border-radius: var(--border-radius);
           display: flex;
           cursor: pointer;
@@ -35,7 +35,7 @@ export class korMenuItem extends LitElement {
           overflow: visible;
         }
         kor-icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         .label {
           flex: 1;
@@ -49,12 +49,12 @@ export class korMenuItem extends LitElement {
           pointer-events: none;
         }
         slot[name='functions']::slotted(*) {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         :host([active]) {
-          padding: 8px;
-          margin-left: -8px;
-          margin-right: -8px;
+          padding: var(--spacing-s);
+          margin-left: calc(var(--spacing-s) * -1);
+          margin-right: calc(var(--spacing-s) * -1);
           background: rgba(var(--neutral-1), 0.1);
         }
         /* disabled */
@@ -65,9 +65,9 @@ export class korMenuItem extends LitElement {
         /* hover inputs */
         @media (hover: hover) {
           :host(:not([active]):hover) {
-            padding: 8px;
-            margin-left: -8px;
-            margin-right: -8px;
+            padding: var(--spacing-s);
+            margin-left: calc(var(--spacing-s) * -1);
+            margin-right: calc(var(--spacing-s) * -1);
             background: rgba(var(--neutral-1), 0.05);
           }
         }
