@@ -28,7 +28,7 @@ export class korAppBar extends LitElement {
       css`
         :host {
           z-index: 3;
-          height: 56px;
+          height: calc(24px + var(--spacing-l) * 2);
           padding: 0 var(--spacing-l);
           display: flex;
           align-items: center;

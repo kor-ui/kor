@@ -21,7 +21,7 @@ export class korPage extends LitElement {
     | 'dark'
     | 'light'
     | undefined;
-  @property({ type: String, reflect: true }) padding = '16px';
+  @property({ type: String, reflect: true }) padding = 'var(--spacing-l)';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
   flexDirection: 'row' | 'column' = 'row';
   @property({ type: Boolean, reflect: true }) flat: boolean | undefined;

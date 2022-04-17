@@ -53,7 +53,7 @@ export class korTabItem extends LitElement {
           width: max-content;
           min-width: 72px;
           max-width: 240px;
-          height: 56px;
+          height: calc(24px + var(--spacing-l) * 2);
           padding: 0px var(--spacing-l);
           border-width: 0px 0px 2px 0px;
         }
