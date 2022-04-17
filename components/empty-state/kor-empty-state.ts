@@ -9,6 +9,8 @@ import '../text';
  * @prop {String} icon - If set, defines the icon shown above the label.
  *
  * @slot footer - Displayed below the label.
+ *
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
 export class korEmptyState extends LitElement {
@@ -26,13 +28,13 @@ export class korEmptyState extends LitElement {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          /* css properties */
+          --footer-gap: 12px;
         }
         slot[name='footer'] {
           display: flex;
           margin-top: 16px;
-        }
-        slot[name='footer']::slotted(*) {
-          margin: 0 8px;
+          gap: var(--footer-gap);
         }
         kor-icon + kor-text {
           margin-top: 8px;
