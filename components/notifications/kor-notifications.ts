@@ -6,6 +6,8 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {'top-left'|'top-right'|'bottom-left'|'bottom-right'} position - Defines the corner where the notification is located. Possible values are `top-left`, `top-right`, `bottom-left` and `bottom-right`.
  *
  * @slot - Hosts kor-notification-items.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
  */
 
 export class korNotifications extends LitElement {
@@ -30,6 +32,13 @@ export class korNotifications extends LitElement {
           width: 320px;
           z-index: 6;
           pointer-events: none;
+          /* css properties */
+          --body-gap: 12px;
+        }
+        slot:not([name]) {
+          gap: var(--body-gap);
+          display: flex;
+          flex-direction: column;
         }
         ::slotted(*) {
           pointer-events: all;
@@ -46,12 +55,6 @@ export class korNotifications extends LitElement {
         }
         :host([position$='right']) {
           right: 0px;
-        }
-        :host([position^='top']) ::slotted(kor-notification-item[visible]) {
-          margin-bottom: 12px;
-        }
-        :host([position^='bottom']) ::slotted(kor-notification-item[visible]) {
-          margin-top: 12px;
         }
       `,
     ];
