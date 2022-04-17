@@ -32,24 +32,49 @@ export class korAccordion extends LitElement {
     return [
       sharedStyles,
       css`
+        :host {
+          /* css properties */
+          --body-gap: 12px;
+          --functions-gap: 8px;
+          --header-gap: var(--functions-gap);
+          --footer-gap: var(--body-gap);
+        }
         :host(:not([expanded])) kor-card {
           cursor: pointer;
         }
         kor-card {
           padding: 8px 16px;
         }
-        slot:not([name]) {
-          margin-top: 16px;
+        slot {
           display: flex;
+          flex: 1;
+        }
+        slot:not([name]) {
           flex-direction: column;
           transition: var(--transition-1);
+          gap: var(--body-gap);
+        }
+        slot[name='functions'] {
+          gap: var(--functions-gap);
+        }
+        slot[name='header'] {
+          gap: var(--header-gap);
+        }
+        slot[name='footer'] {
+          gap: var(--footer-gap);
+          justify-content: flex-end;
         }
         /* expanded */
+        :host([expanded]) slot:not([name]) {
+          margin-top: 16px;
+        }
         :host(:not([expanded])) slot:not([name]) {
-          margin-top: 0;
           max-height: 0px;
           opacity: 0;
           overflow: hidden;
+        }
+        :host([expanded]) .expand {
+          transform: rotate(180deg);
         }
         .header {
           overflow: hidden;
@@ -61,17 +86,13 @@ export class korAccordion extends LitElement {
           margin-right: 8px;
         }
         slot[name='header'] p {
-          margin-right: 8px;
           font: var(--header-1);
           color: var(--text-1);
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          margin: 0;
+          margin: unset;
           flex: 1;
-        }
-        :host([expanded]) .expand {
-          transform: rotate(180deg);
         }
         /* disabled */
         :host([disabled]) .header {
@@ -106,8 +127,8 @@ export class korAccordion extends LitElement {
             ></kor-icon>
           </div>
         </slot>
-        <slot></slot>
         <slot name="functions" slot="functions"></slot>
+        <slot></slot>
         ${this.expanded
           ? html`
               <slot

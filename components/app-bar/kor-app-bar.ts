@@ -14,7 +14,7 @@ import { sharedStyles } from '../../shared-styles';
  *
  * @fires logo-clicked - Fired when clicking on the logo.
  *
- *  @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
  */
 
 export class korAppBar extends LitElement {
