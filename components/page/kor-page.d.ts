@@ -13,12 +13,12 @@ import { LitElement } from 'lit';
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 export declare class korPage extends LitElement {
-    theme: 'dark' | 'light' | undefined;
-    padding: string;
-    flexDirection: 'row' | 'column';
-    flat: boolean | undefined;
-    scrollable: boolean | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  theme: 'dark' | 'light' | undefined;
+  padding: string;
+  flexDirection: 'row' | 'column';
+  flat: boolean | undefined;
+  scrollable: boolean | undefined;
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

@@ -12,14 +12,14 @@ import '../text';
  * @slot - Hosts plain text or other elements.
  */
 export declare class korTableCell extends LitElement {
-    gridCols: number | undefined;
-    alignment: string;
-    head: boolean | undefined;
-    sorted: boolean | undefined;
-    sortable: boolean | undefined;
-    sortDirection: string | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
-    handleSort(): void;
+  gridCols: number | undefined;
+  alignment: string;
+  head: boolean | undefined;
+  sorted: boolean | undefined;
+  sortable: boolean | undefined;
+  sortDirection: string | undefined;
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  handleSort(): void;
 }

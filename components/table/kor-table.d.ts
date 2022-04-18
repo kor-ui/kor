@@ -8,10 +8,10 @@ import { LitElement } from 'lit';
  * @slot header - The container for the header (kor-table-row). It does not scroll with the content, but remains sticky on top.
  */
 export declare class korTable extends LitElement {
-    readonly: boolean | undefined;
-    condensed: boolean | undefined;
-    columns: string;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  readonly: boolean | undefined;
+  condensed: boolean | undefined;
+  columns: string;
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

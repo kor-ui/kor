@@ -149,7 +149,10 @@ export class korAccordion extends LitElement {
     super.connectedCallback();
     // remove card padding
     setTimeout(() => {
-      const topNode: HTMLElement | null | undefined = this.shadowRoot
+      const topNode:
+        | HTMLElement
+        | null
+        | undefined = this.shadowRoot
         ?.querySelector('kor-card')
         ?.shadowRoot?.querySelector('.top');
       if (topNode) {

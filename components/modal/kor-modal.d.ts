@@ -21,17 +21,17 @@ import '../icon';
  * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korModal extends LitElement {
-    label: string | undefined;
-    icon: string | undefined;
-    height: string;
-    width: string;
-    flexDirection: 'row' | 'column';
-    visible: boolean | undefined;
-    sticky: boolean | undefined;
-    emptyHeader: boolean;
-    emptyFunctions: boolean;
-    emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  label: string | undefined;
+  icon: string | undefined;
+  height: string;
+  width: string;
+  flexDirection: 'row' | 'column';
+  visible: boolean | undefined;
+  sticky: boolean | undefined;
+  emptyHeader: boolean;
+  emptyFunctions: boolean;
+  emptyFooter: boolean;
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

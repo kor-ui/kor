@@ -18,17 +18,17 @@ import '../card';
  * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korAccordion extends LitElement {
-    label: string;
-    icon: string | undefined;
-    expanded: boolean | undefined;
-    disabled: boolean | undefined;
-    emptyHeader: boolean;
-    emptyFunctions: boolean;
-    emptyBody: boolean;
-    emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
-    connectedCallback(): void;
-    handleCollapse(e: any): void;
+  label: string;
+  icon: string | undefined;
+  expanded: boolean | undefined;
+  disabled: boolean | undefined;
+  emptyHeader: boolean;
+  emptyFunctions: boolean;
+  emptyBody: boolean;
+  emptyFooter: boolean;
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  connectedCallback(): void;
+  handleCollapse(e: any): void;
 }

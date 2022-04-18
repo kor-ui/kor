@@ -4,9 +4,9 @@ import { LitElement } from 'lit';
  * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the divider. Possible values are `vertical` and `horizontal`.
  */
 export declare class korDivider extends LitElement {
-    spacing: 's' | 'm' | 'l';
-    orientation: 'horizontal' | 'vertical';
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
-    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+  spacing: 's' | 'm' | 'l';
+  orientation: 'horizontal' | 'vertical';
+  static get styles(): import('lit').CSSResultGroup[];
+  render(): import('lit-html').TemplateResult<1>;
+  attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

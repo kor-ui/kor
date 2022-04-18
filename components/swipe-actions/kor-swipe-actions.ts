@@ -10,7 +10,6 @@ import { sharedStyles } from '../../shared-styles';
  */
 
 export class korSwipeActions extends LitElement {
-
   static get styles() {
     return [
       sharedStyles,
@@ -23,7 +22,7 @@ export class korSwipeActions extends LitElement {
         }
         slot[name] {
           display: flex;
-          transition: .1s opacity ease-out;
+          transition: 0.1s opacity ease-out;
         }
         slot:not([name]) {
           min-width: 100%;
@@ -36,13 +35,13 @@ export class korSwipeActions extends LitElement {
 
   render() {
     return html`
-      <slot 
-        name="left" 
+      <slot
+        name="left"
         @slotchange="${(e: Event) => this.setSlotWidth(e.target)}"
       ></slot>
       <slot></slot>
-      <slot 
-        name="right" 
+      <slot
+        name="right"
         @slotchange="${(e: Event) => this.setSlotWidth(e.target)}"
       ></slot>
     `;
@@ -64,7 +63,7 @@ export class korSwipeActions extends LitElement {
 
   handleTouchEnd(): void {
     const scrollDelta = this.scrollLeft - this.clientWidth;
-    if (scrollDelta < this.clientWidth / 3 * -1) {
+    if (scrollDelta < (this.clientWidth / 3) * -1) {
       this.dispatchEvent(new Event('swipe-left'));
     } else if (scrollDelta > this.clientWidth / 3) {
       this.dispatchEvent(new Event('swipe-right'));
@@ -76,16 +75,20 @@ export class korSwipeActions extends LitElement {
     const rightSlot: any = this.shadowRoot?.querySelector('slot[name="right"]');
     const scrollDelta = this.scrollLeft - this.clientWidth;
     if (leftSlot) {
-      leftSlot.style.opacity = (scrollDelta) * -1 / this.clientWidth * 3 > 1 ? 1 : .5;
+      leftSlot.style.opacity =
+        ((scrollDelta * -1) / this.clientWidth) * 3 > 1 ? 1 : 0.5;
     }
     if (rightSlot) {
-      rightSlot.style.opacity = (scrollDelta) * 1 / this.clientWidth * 3 > 1 ? 1 : .5;
+      rightSlot.style.opacity =
+        ((scrollDelta * 1) / this.clientWidth) * 3 > 1 ? 1 : 0.5;
     }
   }
 
   getSlotOpacity(name: string): number {
     const modifier = name === 'left' ? -1 : 1;
-    const opacity = (this.scrollLeft - this.clientWidth) * modifier / this.clientWidth * 3;
+    const opacity =
+      (((this.scrollLeft - this.clientWidth) * modifier) / this.clientWidth) *
+      3;
     return opacity > 1 ? 1 : opacity < 0 ? 0 : opacity;
   }
 }

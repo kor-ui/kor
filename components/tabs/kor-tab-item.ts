@@ -120,8 +120,9 @@ export class korTabItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any =
-      this.closest('kor-tabs')?.querySelectorAll('kor-tab-item');
+    let siblings: any = this.closest('kor-tabs')?.querySelectorAll(
+      'kor-tab-item'
+    );
     siblings.forEach((el: any) => {
       el.active = false;
     });
