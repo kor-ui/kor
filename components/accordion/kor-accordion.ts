@@ -49,8 +49,10 @@ export class korAccordion extends LitElement {
         }
         kor-card {
           padding: var(--spacing-s) var(--spacing-l);
-        }
-        slot {
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
         slot:not([name]) {
           transition: var(--transition-1);
@@ -149,10 +151,7 @@ export class korAccordion extends LitElement {
     super.connectedCallback();
     // remove card padding
     setTimeout(() => {
-      const topNode:
-        | HTMLElement
-        | null
-        | undefined = this.shadowRoot
+      const topNode: HTMLElement | null | undefined = this.shadowRoot
         ?.querySelector('kor-card')
         ?.shadowRoot?.querySelector('.top');
       if (topNode) {
