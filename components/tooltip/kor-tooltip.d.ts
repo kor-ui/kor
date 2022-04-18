@@ -19,17 +19,17 @@ import '../popover';
  * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korTooltip extends LitElement {
-  label: string | undefined;
-  icon: string | undefined;
-  flexDirection: 'column' | 'row';
-  position: 'left' | 'right' | 'top' | 'bottom';
-  target: string | undefined;
-  visible: boolean | undefined;
-  emptyHeader: boolean;
-  emptyFunctions: boolean;
-  emptyFooter: boolean;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
-  targetObserver(): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'column' | 'row';
+    position: 'left' | 'right' | 'top' | 'bottom';
+    target: string | undefined;
+    visible: boolean | undefined;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    targetObserver(): void;
 }

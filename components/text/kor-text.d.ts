@@ -6,9 +6,9 @@ import { LitElement } from 'lit';
  * @slot - Container where plain text (and/or other elements) is written.
  */
 export declare class korText extends LitElement {
-  size: string;
-  color: 'header-1' | 'header-2' | 'body-1' | 'body-2' | string | undefined;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    size: string;
+    color: 'header-1' | 'header-2' | 'body-1' | 'body-2' | string | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

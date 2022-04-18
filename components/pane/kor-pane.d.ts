@@ -17,14 +17,14 @@ import '../card';
  * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korPane extends LitElement {
-  label: string | undefined;
-  icon: string | undefined;
-  flexDirection: 'row' | 'column';
-  size: 's' | 'm' | 'l';
-  emptyHeader: boolean;
-  emptyFunctions: boolean;
-  emptyFooter: boolean;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'row' | 'column';
+    size: 's' | 'm' | 'l';
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

@@ -20,21 +20,21 @@ import '../card';
  * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korPopover extends LitElement {
-  label: string | undefined;
-  icon: string | undefined;
-  flexDirection: 'row' | 'column';
-  position: 'left' | 'right' | 'top' | 'bottom';
-  target: string | HTMLElement | undefined;
-  visible: boolean | undefined;
-  sticky: boolean | undefined;
-  emptyHeader: boolean;
-  emptyFunctions: boolean;
-  emptyFooter: boolean;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
-  targetObserver(): void;
-  visibleObserver(): void;
-  handlePosition(tar: Element | null | undefined): void;
-  addDocListener(tar: Element | null | undefined): void;
+    label: string | undefined;
+    icon: string | undefined;
+    flexDirection: 'row' | 'column';
+    position: 'left' | 'right' | 'top' | 'bottom';
+    target: string | HTMLElement | undefined;
+    visible: boolean | undefined;
+    sticky: boolean | undefined;
+    emptyHeader: boolean;
+    emptyFunctions: boolean;
+    emptyFooter: boolean;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    targetObserver(): void;
+    visibleObserver(): void;
+    handlePosition(tar: Element | null | undefined): void;
+    addDocListener(tar: Element | null | undefined): void;
 }

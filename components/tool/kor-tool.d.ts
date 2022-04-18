@@ -10,13 +10,13 @@ import '../text';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korTool extends LitElement {
-  label: string | undefined;
-  icon: string | undefined;
-  size: 's' | 'm';
-  toggle: boolean | undefined;
-  active: boolean | undefined;
-  disabled: boolean | undefined;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    label: string | undefined;
+    icon: string | undefined;
+    size: 's' | 'm';
+    toggle: boolean | undefined;
+    active: boolean | undefined;
+    disabled: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

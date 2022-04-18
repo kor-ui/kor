@@ -7,8 +7,8 @@ import { LitElement } from 'lit';
  * @cssprop --body-gap - Defines the gap between elements in the body slot.
  */
 export declare class korNotifications extends LitElement {
-  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

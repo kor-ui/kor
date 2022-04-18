@@ -7,11 +7,11 @@ import '../icon';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 export declare class korButton extends LitElement {
-  label: string | undefined;
-  icon: string | undefined;
-  color: 'primary' | 'secondary' | 'tertiary';
-  disabled: boolean | undefined;
-  static get styles(): import('lit').CSSResultGroup[];
-  render(): import('lit-html').TemplateResult<1>;
-  attributeChangedCallback(name: string, oldval: string, newval: string): void;
+    label: string | undefined;
+    icon: string | undefined;
+    color: 'primary' | 'secondary' | 'tertiary';
+    disabled: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }
