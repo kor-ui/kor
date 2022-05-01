@@ -7,6 +7,8 @@ import '../text';
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
+ *
+ * @slot - The main content area. If used, replaces the label and icon elements.
  */
 export declare class korTabItem extends LitElement {
     label: string | undefined;

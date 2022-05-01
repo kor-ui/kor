@@ -36,5 +36,5 @@ export declare class korPopover extends LitElement {
     targetObserver(): void;
     visibleObserver(): void;
     handlePosition(tar: Element | null | undefined): void;
-    addDocListener(tar: Element | null | undefined): void;
+    addDocListener(tar: Element): void;
 }
