@@ -102,10 +102,12 @@ export class korTabItem extends LitElement {
 
   render() {
     return html`
-      ${this.icon ? html` <kor-icon icon="${this.icon}"></kor-icon> ` : ''}
-      ${this.label
-        ? html` <kor-text class="label">${this.label}</kor-text> `
-        : ''}
+      <slot>
+        ${this.icon ? html` <kor-icon icon="${this.icon}"></kor-icon> ` : ''}
+        ${this.label
+          ? html` <kor-text class="label">${this.label}</kor-text> `
+          : ''}
+      </slot>
     `;
   }
 
@@ -120,9 +122,8 @@ export class korTabItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.closest('kor-tabs')?.querySelectorAll(
-      'kor-tab-item'
-    );
+    let siblings: any =
+      this.closest('kor-tabs')?.querySelectorAll('kor-tab-item');
     siblings.forEach((el: any) => {
       el.active = false;
     });

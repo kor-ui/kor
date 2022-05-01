@@ -155,8 +155,10 @@ export class korPopover extends LitElement {
         : this.target;
     if (tar) {
       this.handlePosition(tar);
+      if (!this.sticky && this.target) {
+        this.addDocListener(tar);
+      }
     }
-    !this.sticky && this.target ? this.addDocListener(tar) : '';
   }
 
   handlePosition(tar: Element | null | undefined) {
