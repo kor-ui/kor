@@ -1,8 +1,8 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 /**
- * @prop {String} theme - Defines the color theme of the page. Possible values are dark and light.
+ * @prop {'dark'|'light'|undefined} theme - Defines the color theme of the page. Possible values are `dark` and `light`.
  * @prop {String} padding - Defines the padding style of the default slot.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {Boolean} flat - If set to true, the page background will be flat, without the need to use card as containers for the content.
  * @prop {Boolean} scrollable - If set to true, the page content will scroll if there is an overflow of content.
  *
@@ -13,12 +13,12 @@ import { LitElement } from 'lit-element';
  * @slot right - Shown on the right side. Hosts components such as kor-pane.
  */
 export declare class korPage extends LitElement {
-    theme: any;
+    theme: 'dark' | 'light' | undefined;
     padding: string;
-    flexDirection: string;
-    flat: boolean;
-    scrollable: boolean;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    flexDirection: 'row' | 'column';
+    flat: boolean | undefined;
+    scrollable: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

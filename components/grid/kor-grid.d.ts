@@ -1,16 +1,16 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 /**
  * @prop {Number} columns -	Defines how many columns the grid has.
  * @prop {Number} rows - If set, defines how many rows the grid has. If left undefined, the rows will be automatically populated according to the columns wrapping.
- * @prop {String} spacing -	Defines the gap between the elements in the grid. Possible values are s (8px), m (12px) and l(16px).
+ * @prop {'s'|'m'|'l'} spacing -	Defines the gap between the elements in the grid. Possible values are `s`(8px), `m`(12px) and `l`(16px).
  *
  * @slot - The slot where the content is rendered.
  */
 export declare class korGrid extends LitElement {
     columns: number;
-    rows: any;
-    spacing: string;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    rows: Number | undefined;
+    spacing: 's' | 'm' | 'l';
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

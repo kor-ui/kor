@@ -1,4 +1,6 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
+import '../icon';
+import '../text';
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown besides the label.
@@ -9,11 +11,11 @@ import { LitElement } from 'lit-element';
  */
 export declare class korTag extends LitElement {
     label: string;
-    icon: any;
-    button: any;
-    removable: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    icon: string | undefined;
+    button: boolean | undefined;
+    removable: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
     handleRemove(): void;
 }

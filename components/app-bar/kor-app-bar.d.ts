@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 /**
  * @prop {String} label -	If set, defines the text label shown on the left side (if mobile is unset).
  * @prop {String} logo - If set, defines the logo shown on the left side.
@@ -10,13 +10,15 @@ import { LitElement } from 'lit-element';
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
  *
  * @fires logo-clicked - Fired when clicking on the logo.
+ *
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
  */
 export declare class korAppBar extends LitElement {
-    label: any;
-    logo: any;
-    mobile: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    label: string | undefined;
+    logo: string | undefined;
+    mobile: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
     handleLogoClick(): void;
 }

@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label shown next to the icon/image. If the label is set and an image is not defined, the initials will be shown as a placeholder.
@@ -8,12 +11,11 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} condensed - If set, the image is shown in a smaller size.
  */
 
-@customElement('kor-avatar')
 export class korAvatar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) info;
-  @property({ type: String, reflect: true }) image;
-  @property({ type: Boolean, reflect: true }) condensed;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) info: string | undefined;
+  @property({ type: String, reflect: true }) image: string | undefined;
+  @property({ type: Boolean, reflect: true }) condensed: boolean | undefined;
 
   static get styles() {
     return [
@@ -29,7 +31,7 @@ export class korAvatar extends LitElement {
           flex-direction: column;
           justify-content: center;
           flex: 1;
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
           overflow: hidden;
         }
         .label,
@@ -103,16 +105,17 @@ export class korAvatar extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getInitials(label) {
-    var initials = label.match(/\b\w/g) || [];
-    initials = (
-      (initials.shift() || '') + (initials.pop() || '')
-    ).toUpperCase();
-    return initials;
+  getInitials(label: string) {
+    const initials = label.match(/\b\w/g) || [];
+    return (initials.shift() || '') + (initials.pop() || '').toUpperCase();
   }
+}
+
+if (!window.customElements.get('kor-avatar')) {
+  window.customElements.define('kor-avatar', korAvatar);
 }

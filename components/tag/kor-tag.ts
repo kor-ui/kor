@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -10,19 +13,18 @@ import { sharedStyles } from '../../shared-styles';
  * @fires remove - Dispatched when clicking on the close icon (removable only).
  */
 
-@customElement('kor-tag')
 export class korTag extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) button;
-  @property({ type: Boolean, reflect: true }) removable;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) button: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) removable: boolean | undefined;
 
   static get styles() {
     return [
       sharedStyles,
       css`
         :host {
-          padding: 4px;
+          padding: var(--spacing-xs);
           display: flex;
           height: max-content;
           width: max-content;
@@ -32,7 +34,7 @@ export class korTag extends LitElement {
           transition: var(--transition-1);
         }
         .label {
-          margin: 0 4px;
+          margin: 0 var(--spacing-xs);
         }
         /* button */
         :host([button]) {
@@ -70,7 +72,7 @@ export class korTag extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -78,4 +80,8 @@ export class korTag extends LitElement {
   handleRemove() {
     this.dispatchEvent(new Event('remove'));
   }
+}
+
+if (!window.customElements.get('kor-tag')) {
+  window.customElements.define('kor-tag', korTag);
 }

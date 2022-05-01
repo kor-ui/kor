@@ -1,15 +1,21 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {Number} label -		If set, degines the number shown inside the badge. Numbers bigger than 3 digits are shown as 999+.
- * @prop {String} status - If set, a status icon is shown inside the badge. Accepted values are error, warning, success.
+ * @prop {'error'|'warning'|'success'|undefined} status - If set, a status icon is shown inside the badge. Accepted values are `error`, `warning`, `success`.
  */
 
-@customElement('kor-badge')
 export class korBadge extends LitElement {
-  @property({ type: Number, reflect: true }) label;
-  @property({ type: String, reflect: true }) status;
+  @property({ type: Number, reflect: true }) label: number | undefined;
+  @property({ type: String, reflect: true }) status:
+    | 'error'
+    | 'warning'
+    | 'success'
+    | undefined;
 
   static get styles() {
     return [
@@ -78,12 +84,12 @@ export class korBadge extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':
@@ -98,4 +104,8 @@ export class korBadge extends LitElement {
     }
     return icon;
   }
+}
+
+if (!window.customElements.get('kor-badge')) {
+  window.customElements.define('kor-badge', korBadge);
 }

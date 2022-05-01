@@ -1,19 +1,19 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
  * @prop {Number} columns -	Defines how many columns the grid has.
  * @prop {Number} rows - If set, defines how many rows the grid has. If left undefined, the rows will be automatically populated according to the columns wrapping.
- * @prop {String} spacing -	Defines the gap between the elements in the grid. Possible values are s (8px), m (12px) and l(16px).
+ * @prop {'s'|'m'|'l'} spacing -	Defines the gap between the elements in the grid. Possible values are `s`(8px), `m`(12px) and `l`(16px).
  *
  * @slot - The slot where the content is rendered.
  */
 
-@customElement('kor-grid')
 export class korGrid extends LitElement {
   @property({ type: Number, reflect: true }) columns = 12;
-  @property({ type: Number, reflect: true }) rows;
-  @property({ type: String, reflect: true }) spacing = 'm';
+  @property({ type: Number, reflect: true }) rows: Number | undefined;
+  @property({ type: String, reflect: true }) spacing: 's' | 'm' | 'l' = 'm';
 
   static get styles() {
     return [
@@ -34,13 +34,13 @@ export class korGrid extends LitElement {
         }
         /* spacing */
         :host([spacing='s']) {
-          grid-gap: 8px;
+          grid-gap: var(--spacing-s);
         }
         :host([spacing='m']) {
-          grid-gap: 12px;
+          grid-gap: var(--spacing-m);
         }
         :host([spacing='l']) {
-          grid-gap: 16px;
+          grid-gap: var(--spacing-l);
         }
         /* columns and rows */
         ::slotted(*[grid-cols='0']) {
@@ -281,10 +281,10 @@ export class korGrid extends LitElement {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`<slot></slot>`;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // update columns
@@ -296,4 +296,8 @@ export class korGrid extends LitElement {
       this.style.gridTemplateRows = `repeat(${this.rows}, 1fr)`;
     }
   }
+}
+
+if (!window.customElements.get('kor-grid')) {
+  window.customElements.define('kor-grid', korGrid);
 }

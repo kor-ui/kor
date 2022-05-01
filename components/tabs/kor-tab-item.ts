@@ -1,20 +1,25 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown above the label (if set).
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
-@customElement('kor-tab-item')
 export class korTabItem extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -48,8 +53,8 @@ export class korTabItem extends LitElement {
           width: max-content;
           min-width: 72px;
           max-width: 240px;
-          height: 56px;
-          padding: 0px 16px;
+          height: calc(24px + var(--spacing-l) * 2);
+          padding: 0px var(--spacing-l);
           border-width: 0px 0px 2px 0px;
         }
         :host([orientation='horizontal']) .label {
@@ -66,11 +71,12 @@ export class korTabItem extends LitElement {
           min-width: unset;
           max-width: 100%;
           height: max-content;
-          padding: 8px 8px 8px 14px;
+          padding: var(--spacing-s) var(--spacing-s) var(--spacing-s)
+            calc(var(--spacing-l) - 2px);
           border-width: 0px 0px 0px 2px;
         }
         :host([orientation='vertical']) kor-icon + .label {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         /* active */
         :host([active]) {
@@ -103,7 +109,7 @@ export class korTabItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -114,12 +120,16 @@ export class korTabItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.closest('kor-tabs').querySelectorAll(
+    let siblings: any = this.closest('kor-tabs')?.querySelectorAll(
       'kor-tab-item'
     );
-    siblings.forEach((el) => {
+    siblings.forEach((el: any) => {
       el.active = false;
     });
     (<any>this).active = true;
   }
+}
+
+if (!window.customElements.get('kor-tab-item')) {
+  window.customElements.define('kor-tab-item', korTabItem);
 }

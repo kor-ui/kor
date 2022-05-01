@@ -1,4 +1,6 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
+import '../icon';
+import '../text';
 /**
  * @prop {String} label - Defines the text label.
  * @prop {String} icon - If set, defines the icon shown before the label.
@@ -11,11 +13,11 @@ import { LitElement } from 'lit-element';
  */
 export declare class korMenuItem extends LitElement {
     label: string;
-    icon: any;
-    active: any;
+    icon: string | undefined;
+    active: boolean | undefined;
     toggle: boolean;
-    disabled: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    disabled: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

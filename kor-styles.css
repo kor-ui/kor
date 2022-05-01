@@ -1,10 +1,9 @@
 /* colors */
-html, *[theme="light"] {
+html, :host, *[theme="light"] {
   --neutral-1: 0, 0, 0;
   --neutral-2: 255, 255, 255;
   --accent-1: 60, 100, 240;
   --accent-1b: 70, 110, 250;
-  --accent-1c: 50, 90, 230;
   --base-0: 255, 255, 255;
   --base-1: 235, 235, 235;
   --base-2: 245, 245, 245;
@@ -24,7 +23,6 @@ html, *[theme="light"] {
   --neutral-2: 0, 0, 0;
   --accent-1: 60, 100, 240;
   --accent-1b: 70, 110, 250;
-  --accent-1c: 50, 90, 230;
   --base-0: 0, 0, 2;
   --base-1: 15, 15, 15;
   --base-2: 25, 25, 25;
@@ -42,7 +40,7 @@ html, *[theme="light"] {
 /* typography */
 @font-face {
   font-family: 'md-icons';
-  src:  local('Material Icons'), local('MaterialIcons-Regular'), url('./fonts/md-icons.woff2') format('woff2'), url('./fonts/md-icons.woff') format('woff');
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('./fonts/md-icons.ttf') format('truetype');
 }
 @font-face {
   font-family: 'open-sans';
@@ -67,8 +65,12 @@ html, body {
   --body-2: normal 12px/16px 'open-sans';
   --header-1: bold 16px/24px 'open-sans';
   --header-2: bold 14px/24px 'open-sans';
-  --transition-1: 0.1s all ease-in-out;
+  --transition-1: 0.1s all ease-out;
   --border-radius: 4px;
+  --spacing-xs: calc(var(--spacing-s) / 2);
+  --spacing-s: 8px;
+  --spacing-m: calc(var(--spacing-s) * 1.5);
+  --spacing-l: calc(var(--spacing-s) * 2);;
   font-family: 'open-sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -102,4 +104,7 @@ html, body {
 *::-webkit-scrollbar-thumb:active,
 *::-webkit-scrollbar-thumb:hover {
   background-color: rgba(var(--neutral-1), .20)
+}
+kor-swipe-actions::-webkit-scrollbar {
+  display: none;
 }

@@ -1,15 +1,17 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
- * @prop {String} spacing -	Defines the space around the divider. Possible values are s, n and l.
- * @prop {String} orientation - Defines the orientation of the divider. Possible values are vertical and horizontal.
+ * @prop {'s'|'m'|'l'} spacing -	Defines the space around the divider. Possible values are `s`, `m` and `l`.
+ * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the divider. Possible values are `vertical` and `horizontal`.
  */
 
-@customElement('kor-divider')
 export class korDivider extends LitElement {
-  @property({ type: String, reflect: true }) spacing = 'm';
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) spacing: 's' | 'm' | 'l' = 'm';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -34,33 +36,37 @@ export class korDivider extends LitElement {
         }
         /* spacing */
         :host([spacing='s'][orientation='horizontal']) {
-          padding: 8px 0;
+          padding: var(--spacing-s) 0;
         }
         :host([spacing='m'][orientation='horizontal']) {
-          padding: 16px 0;
+          padding: var(--spacing-l) 0;
         }
         :host([spacing='l'][orientation='horizontal']) {
-          padding: 32px 0;
+          padding: calc(var(--spacing-l) * 2) 0;
         }
         :host([spacing='s'][orientation='vertical']) {
-          padding: 0 8px;
+          padding: 0 var(--spacing-s);
         }
         :host([spacing='m'][orientation='vertical']) {
-          padding: 0 16px;
+          padding: 0 var(--spacing-l);
         }
         :host([spacing='l'][orientation='vertical']) {
-          padding: 0 32px;
+          padding: 0 calc(var(--spacing-s) * 2);
         }
       `,
     ];
   }
 
   render() {
-    return html` <div class="line"></div> `;
+    return html`<div class="line"></div>`;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-divider')) {
+  window.customElements.define('kor-divider', korDivider);
 }

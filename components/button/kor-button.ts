@@ -1,19 +1,23 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
 
 /**
  * @prop {String} label -	Defines the text label.
  * @prop {String} icon - If set, replaces the text label with a custom icon.
- * @prop {String} color - Defines the color. The possible values are primary, secondary and tertiary
+ * @prop {'primary'|'secondary'|'tertiary'} color - Defines the color. The possible values are `primary`, `secondary` and `tertiary`
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-button')
 export class korButton extends LitElement {
-  @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) color = 'primary';
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary' = 'primary';
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [
@@ -23,6 +27,7 @@ export class korButton extends LitElement {
           font: var(--header-2);
           color: var(--text-1);
           display: flex;
+          gap: var(--spacing-xs);
           height: max-content;
           width: max-content;
           border-radius: var(--border-radius);
@@ -34,18 +39,18 @@ export class korButton extends LitElement {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        :host(:not([icon])) {
-          min-width: 56px;
+        :host([label]) {
+          min-width: calc(24px + var(--spacing-l) * 2);
           max-width: 160px;
-          padding: 4px 12px;
+          padding: var(--spacing-xs) var(--spacing-m);
         }
-        :host([color='tertiary']:not([icon])) {
+        :host([color='tertiary'][label]) {
           padding: 3px 11px;
         }
-        :host([icon]) {
-          padding: 4px;
+        :host(:not([label])) {
+          padding: var(--spacing-xs);
         }
-        :host([color='tertiary'][icon]) {
+        :host([color='tertiary']:not([label])) {
           padding: 3px;
         }
         /* idle */
@@ -91,14 +96,19 @@ export class korButton extends LitElement {
 
   render() {
     return html`
-      ${!this.icon
-        ? html` ${this.label} `
-        : html` <kor-icon icon="${this.icon}"></kor-icon> `}
+      <slot name="icon">
+        ${this.icon ? html` <kor-icon icon="${this.icon}"></kor-icon> ` : ''}
+      </slot>
+      <slot> ${this.label ? html` ${this.label} ` : ''}</slot>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-button')) {
+  window.customElements.define('kor-button', korButton);
 }

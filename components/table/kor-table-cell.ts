@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} alignment	- Defines the alignment of items inside the cell. Possible values are left, center and right.
@@ -12,15 +15,16 @@ import { sharedStyles } from '../../shared-styles';
  * @slot - Hosts plain text or other elements.
  */
 
-@customElement('kor-table-cell')
 export class korTableCell extends LitElement {
-  @property({ type: Number, reflect: true, attribute: 'grid-cols' }) gridCols;
+  @property({ type: Number, reflect: true, attribute: 'grid-cols' }) gridCols:
+    | number
+    | undefined;
   @property({ type: String, reflect: true }) alignment = 'left';
-  @property({ type: Boolean, reflect: true }) head;
-  @property({ type: Boolean, reflect: true }) sorted;
-  @property({ type: Boolean, reflect: true }) sortable;
+  @property({ type: Boolean, reflect: true }) head: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sorted: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sortable: boolean | undefined;
   @property({ type: String, reflect: true, attribute: 'sort-direction' })
-  sortDirection;
+  sortDirection: string | undefined;
 
   static get styles() {
     return [
@@ -29,7 +33,7 @@ export class korTableCell extends LitElement {
         :host {
           display: flex;
           align-items: center;
-          padding: 12px 8px;
+          padding: var(--spacing-m) var(--spacing-s);
           font: var(--body-1);
           overflow: hidden;
           cursor: default;
@@ -41,7 +45,7 @@ export class korTableCell extends LitElement {
         }
         /* condensed */
         :host:host-context(kor-table[condensed]) {
-          padding: 8px 8px;
+          padding: var(--spacing-s);
         }
         /* head */
         :host([head]) kor-text {
@@ -62,7 +66,7 @@ export class korTableCell extends LitElement {
           transform: rotate(180deg);
         }
         .sort {
-          margin: 4px 0px 4px 4px;
+          margin: var(--spacing-xs) 0px var(--spacing-xs) var(--spacing-xs);
           color: var(--text-2);
         }
       `,
@@ -82,7 +86,7 @@ export class korTableCell extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name == 'grid-cols') {
@@ -104,12 +108,16 @@ export class korTableCell extends LitElement {
       this.sortDirection = this.sortDirection == 'asc' ? 'desc' : 'asc';
     } else {
       // unsort other heads otherwise
-      let siblings: any = this.parentElement.childNodes;
-      siblings.forEach((el) => {
+      let siblings: NodeList | undefined = this.parentElement?.childNodes;
+      siblings?.forEach((el: any) => {
         el.sorted = false;
       });
       this.sorted = true;
       this.sortDirection = 'asc';
     }
   }
+}
+
+if (!window.customElements.get('kor-table-cell')) {
+  window.customElements.define('kor-table-cell', korTableCell);
 }

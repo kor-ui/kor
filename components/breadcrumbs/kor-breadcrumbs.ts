@@ -1,11 +1,10 @@
-import { LitElement, css, html, customElement } from 'lit-element';
+import { LitElement, css, html } from 'lit';
 import { sharedStyles } from '../../shared-styles';
 
 /**
  * @slot - The default slot. Takes `kor-breadcrumb-item`s as children.
  */
 
-@customElement('kor-breadcrumbs')
 export class korBreadcrumbs extends LitElement {
   static get styles() {
     return [
@@ -23,4 +22,8 @@ export class korBreadcrumbs extends LitElement {
   render() {
     return html` <slot></slot> `;
   }
+}
+
+if (!window.customElements.get('kor-breadcrumbs')) {
+  window.customElements.define('kor-breadcrumbs', korBreadcrumbs);
 }

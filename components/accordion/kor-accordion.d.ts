@@ -1,4 +1,6 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
+import '../icon';
+import '../card';
 /**
  * @prop {String} label -	Defines the text label.
  * @prop {String} icon - If set, defines the icon shown before the label.
@@ -9,23 +11,24 @@ import { LitElement } from 'lit-element';
  * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
  * @slot functions - Displayed close to the 'expand' arrow.
  * @slot footer - Displayed below the content when it is expanded.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 export declare class korAccordion extends LitElement {
     label: string;
-    icon: any;
-    expanded: any;
-    disabled: any;
-    /** @ignore */
+    icon: string | undefined;
+    expanded: boolean | undefined;
+    disabled: boolean | undefined;
     emptyHeader: boolean;
-    /** @ignore */
     emptyFunctions: boolean;
-    /** @ignore */
     emptyBody: boolean;
-    /** @ignore */
     emptyFooter: boolean;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
     connectedCallback(): void;
     handleCollapse(e: any): void;
 }

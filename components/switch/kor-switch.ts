@@ -1,11 +1,10 @@
-import { LitElement, css, html, customElement } from 'lit-element';
+import { LitElement, css, html } from 'lit';
 import { sharedStyles } from '../../shared-styles';
 
 /**
  * @slot - Hosts kor-switch-items.
  */
 
-@customElement('kor-switch')
 export class korSwitch extends LitElement {
   static get styles() {
     return [
@@ -26,8 +25,12 @@ export class korSwitch extends LitElement {
     return html` <slot></slot> `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-switch')) {
+  window.customElements.define('kor-switch', korSwitch);
 }

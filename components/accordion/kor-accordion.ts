@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../card';
 
 /**
  * @prop {String} label -	Defines the text label.
@@ -11,47 +14,66 @@ import { sharedStyles } from '../../shared-styles';
  * @slot header - If used, the header slot replaces the default text label and expand arrow with custom content.
  * @slot functions - Displayed close to the 'expand' arrow.
  * @slot footer - Displayed below the content when it is expanded.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
-@customElement('kor-accordion')
 export class korAccordion extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) expanded;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) expanded: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyBody = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyBody = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
       sharedStyles,
       css`
+        :host {
+          /* css properties */
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
+        }
         :host(:not([expanded])) kor-card {
           cursor: pointer;
         }
         kor-card {
-          padding: 8px 16px;
+          padding: var(--spacing-s) var(--spacing-l);
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
         slot:not([name]) {
-          margin-top: 16px;
-          display: flex;
-          flex-direction: column;
           transition: var(--transition-1);
+          display: inherit;
+          flex-direction: inherit;
+          gap: inherit;
+        }
+        slot[name='footer'] {
+          justify-content: flex-end;
         }
         /* expanded */
+        :host([expanded]) slot:not([name]) {
+          margin-top: var(--spacing-l);
+        }
         :host(:not([expanded])) slot:not([name]) {
-          margin-top: 0;
           max-height: 0px;
           opacity: 0;
           overflow: hidden;
+        }
+        :host([expanded]) .expand {
+          transform: rotate(180deg);
         }
         .header {
           overflow: hidden;
@@ -60,20 +82,16 @@ export class korAccordion extends LitElement {
           flex: 1;
         }
         .icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         slot[name='header'] p {
-          margin-right: 8px;
           font: var(--header-1);
           color: var(--text-1);
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          margin: 0;
+          margin: unset;
           flex: 1;
-        }
-        :host([expanded]) .expand {
-          transform: rotate(180deg);
         }
         /* disabled */
         :host([disabled]) .header {
@@ -94,7 +112,7 @@ export class korAccordion extends LitElement {
         <slot
           name="header"
           slot="header"
-          @click="${(e) => this.handleCollapse(e)}"
+          @click="${(e: any) => this.handleCollapse(e)}"
         >
           <div class="header">
             ${this.icon
@@ -108,14 +126,14 @@ export class korAccordion extends LitElement {
             ></kor-icon>
           </div>
         </slot>
-        <slot></slot>
         <slot name="functions" slot="functions"></slot>
+        <slot></slot>
         ${this.expanded
           ? html`
               <slot
                 name="footer"
-                slot="${this.emptyFooter ? undefined : 'footer'}"
-                @slotchange="${(e) =>
+                slot="${this.emptyFooter ? 'hidden' : 'footer'}"
+                @slotchange="${(e: any) =>
                   (this.emptyFooter = e.target.assignedNodes().length === 0)}"
               ></slot>
             `
@@ -124,7 +142,7 @@ export class korAccordion extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -133,17 +151,23 @@ export class korAccordion extends LitElement {
     super.connectedCallback();
     // remove card padding
     setTimeout(() => {
-      const topNode: any = this.shadowRoot
-        .querySelector('kor-card')
-        .shadowRoot.querySelector('.top');
-      topNode.style.padding = '0';
+      const topNode: HTMLElement | null | undefined = this.shadowRoot
+        ?.querySelector('kor-card')
+        ?.shadowRoot?.querySelector('.top');
+      if (topNode) {
+        topNode.style.padding = '0';
+      }
     }, 0);
   }
 
-  handleCollapse(e) {
+  handleCollapse(e: any) {
     if (this.expanded) {
       this.expanded = false;
       e.stopPropagation();
     }
   }
+}
+
+if (!window.customElements.get('kor-accordion')) {
+  window.customElements.define('kor-accordion', korAccordion);
 }

@@ -1,0 +1,12 @@
+38 error Error: Command failed: git push --follow-tags --no-verify --atomic origin develop
+38 error error: cannot spawn sh: No such file or directory
+38 error error: cannot spawn c:\Users\edufe\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass.sh: No such file or directory
+38 error error: cannot spawn c:\Users\edufe\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass.sh: No such file or directory
+38 error error: cannot spawn stty: No such file or directory
+38 error error: cannot spawn sh: No such file or directory
+38 error remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+38 error remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+38 error fatal: Authentication failed for 'https://github.com/kor-ui/kor.git/'
+38 error
+38 error     at makeError (C:\Users\edufe\OneDrive\Documentos\repositories\kor\node_modules\execa\index.js:174:9)
+38 error     at C:\Users\edufe\OneDrive\Documentos\repositories\kor\node_modules\execa\index.js:278:16

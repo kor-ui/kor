@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - Defines the text label.
@@ -12,20 +15,19 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Shown on the right side.
  */
 
-@customElement('kor-menu-item')
 export class korMenuItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) active;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
   @property({ type: Boolean, reflect: true }) toggle = true;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [
       sharedStyles,
       css`
         :host {
-          padding: 8px 0;
+          padding: var(--spacing-s) 0;
           border-radius: var(--border-radius);
           display: flex;
           cursor: pointer;
@@ -33,7 +35,7 @@ export class korMenuItem extends LitElement {
           overflow: visible;
         }
         kor-icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         .label {
           flex: 1;
@@ -47,12 +49,12 @@ export class korMenuItem extends LitElement {
           pointer-events: none;
         }
         slot[name='functions']::slotted(*) {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         :host([active]) {
-          padding: 8px;
-          margin-left: -8px;
-          margin-right: -8px;
+          padding: var(--spacing-s);
+          margin-left: calc(var(--spacing-s) * -1);
+          margin-right: calc(var(--spacing-s) * -1);
           background: rgba(var(--neutral-1), 0.1);
         }
         /* disabled */
@@ -63,9 +65,9 @@ export class korMenuItem extends LitElement {
         /* hover inputs */
         @media (hover: hover) {
           :host(:not([active]):hover) {
-            padding: 8px;
-            margin-left: -8px;
-            margin-right: -8px;
+            padding: var(--spacing-s);
+            margin-left: calc(var(--spacing-s) * -1);
+            margin-right: calc(var(--spacing-s) * -1);
             background: rgba(var(--neutral-1), 0.05);
           }
         }
@@ -82,7 +84,7 @@ export class korMenuItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     // add toggle click listener
@@ -92,4 +94,8 @@ export class korMenuItem extends LitElement {
       });
     }
   }
+}
+
+if (!window.customElements.get('kor-menu-item')) {
+  window.customElements.define('kor-menu-item', korMenuItem);
 }

@@ -1,4 +1,5 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
+import '../text';
 /**
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {Number} value - Defines the current value. Must be a value between min and max.
@@ -8,15 +9,15 @@ import { LitElement } from 'lit-element';
  * @prop {Boolean} input - If set to true, allows the user to input a value using the keyboard.
  */
 export declare class korSlider extends LitElement {
-    label: any;
+    label: string | undefined;
     value: number;
     min: number;
     max: number;
     step: number;
-    input: any;
-    static get styles(): import("lit-element").CSSResult[];
-    render(): import("lit-element").TemplateResult;
-    attributeChangedCallback(name: any, oldval: any, newval: any): void;
+    input: boolean | undefined;
+    static get styles(): import("lit").CSSResultGroup[];
+    render(): import("lit-html").TemplateResult<1>;
+    attributeChangedCallback(name: string, oldval: string, newval: string): void;
     firstUpdated(): void;
     private handleInput;
     private handleThumbPosition;

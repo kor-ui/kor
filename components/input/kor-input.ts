@@ -1,16 +1,20 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { ifDefined } from 'lit-html/directives/if-defined';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../card';
+import '../icon';
 
 /**
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
- * @prop {String} type - Defines the type. Possible values are text, number and select.
+ * @prop {'text'|'number'|'select'|'name'} type - Defines the type. Possible values are `text`, `number`, `select` and `date`.
  * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
- * @prop {Number} min - (If type="number" only) If set, defines the minimum value accepted.
- * @prop {Number} max - (If type="number" only) If set, defines the maximum value accepted.
+ * @prop {String} min - (If type="number" only) If set, defines the minimum value accepted.
+ * @prop {String} max - (If type="number" only) If set, defines the maximum value accepted.
  * @prop {Number} step - (If type="number" only) Defines the steps to skip when the user presses the left or right arrows.
  * @prop {Boolean} condensed - If set to true, reduces the height of the input. The label is only shown if the value is undefined.
  * @prop {Boolean} active - If set to true, highlights the label and underline.
@@ -23,24 +27,28 @@ import { sharedStyles } from '../../shared-styles';
  * @slot functions - Displayed on the right side.
  */
 
-@customElement('kor-input')
 export class korInput extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) value;
-  @property({ type: String, reflect: true }) name;
-  @property({ type: String, reflect: true }) type = 'text';
-  @property({ type: String, reflect: true }) status;
-  @property({ type: Boolean, reflect: true }) condensed;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: Boolean, reflect: true }) readonly;
-  @property({ type: Boolean, reflect: true, attribute: 'no-clear' }) noClear;
-  @property({ type: Boolean, reflect: true }) autofocus;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) value: string | undefined;
+  @property({ type: String, reflect: true }) name: string | undefined;
+  @property({ type: String, reflect: true }) type:
+    | 'text'
+    | 'number'
+    | 'select'
+    | 'date' = 'text';
+  @property({ type: String, reflect: true }) status: string | undefined;
+  @property({ type: Boolean, reflect: true }) condensed: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) readonly: boolean | undefined;
+  @property({ type: Boolean, reflect: true, attribute: 'no-clear' })
+  noClear: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) autofocus = false;
   // input number properties
-  @property({ type: String, reflect: true }) pattern;
-  @property({ type: Number, reflect: true }) min;
-  @property({ type: Number, reflect: true }) max;
+  @property({ type: String, reflect: true }) pattern: string | undefined;
+  @property({ type: String, reflect: true }) min: string | undefined;
+  @property({ type: String, reflect: true }) max: string | undefined;
   @property({ type: Number, reflect: true }) step = 1;
 
   static get styles() {
@@ -87,10 +95,10 @@ export class korInput extends LitElement {
         }
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button,
-        input[type="search"]::-webkit-search-decoration,
-        input[type="search"]::-webkit-search-cancel-button,
-        input[type="search"]::-webkit-search-results-button,
-        input[type="search"]::-webkit-search-results-decoration {
+        input[type='search']::-webkit-search-decoration,
+        input[type='search']::-webkit-search-cancel-button,
+        input[type='search']::-webkit-search-results-button,
+        input[type='search']::-webkit-search-results-decoration {
           -webkit-appearance: none;
           margin: 0;
         }
@@ -99,7 +107,7 @@ export class korInput extends LitElement {
         }
         /* active */
         :host([active]) {
-          border-color: rgba(var(--neutral-1), 0.6);
+          border-color: rgb(var(--accent-1));
         }
         :host([active]) .label {
           color: rgb(var(--accent-1));
@@ -126,7 +134,7 @@ export class korInput extends LitElement {
         }
         /* icon */
         :host([icon]) .icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         /* label */
         .label {
@@ -151,11 +159,11 @@ export class korInput extends LitElement {
         }
         /* clear */
         .clear-icon {
-          transition: var(--transition-1), 0.1s opacity ease-in-out 0.1s;
+          transition: var(--transition-1), 0.1s opacity ease-out 0.1s;
         }
         :host(:not(:hover):not([active])) .clear-icon {
-          transition: var(--transition-1), 0.1s width ease-in-out 0.1s,
-            0.1s margin ease-in-out 0.1s;
+          transition: var(--transition-1), 0.1s width ease-out 0.1s,
+            0.1s margin ease-out 0.1s;
           font-size: 0;
           max-width: 0px;
           max-height: 0px;
@@ -168,7 +176,7 @@ export class korInput extends LitElement {
         .increment-icon,
         .select-icon,
         slot[name='functions']::slotted(*) {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         .status-icon[icon='cancel'] {
           color: rgb(var(--functional-red));
@@ -195,12 +203,12 @@ export class korInput extends LitElement {
           position: fixed;
           max-height: 240px;
           z-index: 3;
-          padding: 0px 16px;
+          padding: 0px var(--spacing-l);
           background-color: rgb(var(--base-4));
         }
         slot:not([name]) {
           display: block;
-          margin: 0 -8px;
+          margin: 0 calc(var(--spacing-s) * -1);
         }
         slot:not([name])::slotted(*) {
           margin-bottom: 0;
@@ -219,7 +227,7 @@ export class korInput extends LitElement {
             border-color: rgba(var(--neutral-1), 0.4);
           }
         }
-      `
+      `,
     ];
   }
 
@@ -232,18 +240,19 @@ export class korInput extends LitElement {
         ${this.label ? html` <label class="label">${this.label}</label> ` : ''}
         <input
           .type="${this.type}"
+          .value="${this.value ? this.value : ''}"
+          .step="${this.step.toString()}"
           ?autofocus="${this.autofocus}"
           ?readonly="${this.readonly ||
           this.disabled ||
           this.type === 'select'}"
-          .min="${this.min}"
-          .max="${this.max}"
-          .step="${this.step.toString()}"
-          .pattern="${this.pattern}"
-          .value="${this.value ? this.value : null}"
-          .name="${this.name}"
+          min="${ifDefined(this.min)}"
+          max="${ifDefined(this.max)}"
+          pattern="${ifDefined(this.pattern)}"
+          name="${ifDefined(this.name)}"
           @input="${this.handleChange}"
-          @focus="${() => (this.active = true)}"
+          @focus="${() =>
+            this.type !== 'select' && !this.active ? (this.active = true) : ''}"
           @blur="${this.handleBlur}"
         />
       </div>
@@ -258,11 +267,17 @@ export class korInput extends LitElement {
             ${this.active
               ? html`
                   <kor-card
-                    @wheel="${(e) => e.stopPropagation()}"
+                    @click="${(e: Event) => {
+                      this.active = false;
+                      e.stopPropagation();
+                    }}"
+                    @wheel="${(e: Event) => e.stopPropagation()}"
                     class="select-menu"
-                    .style="top: ${this.getMenuStyles()
-                      .top}; left: ${this.getMenuStyles()
-                      .left}; width: ${this.getMenuStyles().width};"
+                    .style="
+                  top: ${this.getMenuStyles().top};
+                  left: ${this.getMenuStyles().left};
+                  width: ${this.getMenuStyles().width};
+                "
                   >
                     <slot @slotchange="${this.handleItems}"></slot>
                   </kor-card>
@@ -285,7 +300,7 @@ export class korInput extends LitElement {
               button
               class="clear-icon"
               icon="close"
-              @click="${() => this.handleClear()}"
+              @click="${this.handleClear}"
             ></kor-icon>
           `
         : ''}
@@ -294,7 +309,7 @@ export class korInput extends LitElement {
         ? html`
             <kor-icon
               class="status-icon"
-              icon="${this.getStatusIcon()}"
+              .icon="${this.getStatusIcon()}"
             ></kor-icon>
           `
         : ''}
@@ -322,18 +337,24 @@ export class korInput extends LitElement {
 
   constructor() {
     super();
-    this.addEventListener('click', () => {
-      this.active = true;
-      this.shadowRoot.querySelector('input').focus();
+    this.addEventListener('click', (e) => {
+      if (this.active && this.type === 'select') {
+        this.closeSelectMenu(e);
+      } else if (!this.active) {
+        this.active = true;
+        if (this.type !== 'select' && !this.disabled && !this.readonly) {
+          this.shadowRoot?.querySelector('input')?.focus();
+        }
+      }
     });
   }
 
-  handleChange(e) {
+  handleChange(e: any) {
     this.value = e.target.value;
     this.dispatchEvent(
       new CustomEvent('change', {
         bubbles: true,
-        composed: true
+        composed: true,
       })
     );
   }
@@ -344,12 +365,12 @@ export class korInput extends LitElement {
     this.dispatchEvent(
       new CustomEvent('change', {
         bubbles: true,
-        composed: true
+        composed: true,
       })
     );
   }
 
-  handleBlur(e) {
+  handleBlur(e: any) {
     if (this.type === 'number') {
       this.validateMinMax(e.target.value);
     }
@@ -358,28 +379,30 @@ export class korInput extends LitElement {
     }
   }
 
-  handleIncrement(dir) {
+  handleIncrement(dir: string) {
     if (dir === 'left') {
       this.validateMinMax(
-        parseInt(this.value ? this.value : this.min ? this.min : 0) - this.step
+        parseInt(this.value ? this.value : this.min ? this.min : '0') -
+          this.step
       );
     } else if (dir === 'right') {
       this.validateMinMax(
-        parseInt(this.value ? this.value : this.min ? this.min : 0) + this.step
+        parseInt(this.value ? this.value : this.min ? this.min : '0') +
+          this.step
       );
     }
   }
 
-  handleItems(e) {
-    const items: any = e.target.assignedNodes();
-    items.forEach((el) => {
+  handleItems(e: any) {
+    const items: NodeList = e.target.assignedNodes();
+    items.forEach((el: any) => {
       if (el.tagName === 'KOR-MENU-ITEM') {
         // handle click on menu item
-        el.addEventListener('active-changed', (e) => {
+        el.addEventListener('active-changed', (e: any) => {
           if (e.target.active) {
             // unselect siblings
-            items.forEach((sib) => {
-              sib.active = false;
+            items.forEach((el: any) => {
+              el.active = false;
             });
             e.target.active = true;
             this.value = el.label;
@@ -390,10 +413,10 @@ export class korInput extends LitElement {
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
-    if (name == 'active' && this.active && this.type == 'select') {
+    if (name === 'active' && this.active && this.type === 'select') {
       this.handleMenu();
     }
   }
@@ -401,30 +424,33 @@ export class korInput extends LitElement {
   handleMenu() {
     const parent = this.parentElement;
     // handle click outside of popover
-    const closePopover = (e) => {
-      if ((e.type === 'click' && e.target !== this) || e.type === 'wheel') {
-        this.active = false;
-        parent.removeEventListener('click', closePopover);
-        parent.removeEventListener('wheel', closePopover);
-      }
+    const closePopover = () => {
+      this.active = false;
+      parent?.removeEventListener('wheel', closePopover);
     };
-    parent.addEventListener('click', closePopover);
-    parent.addEventListener('wheel', closePopover);
+    parent?.addEventListener('wheel', closePopover);
   }
 
-  validateMinMax(val) {
+  closeSelectMenu(e: Event): void {
+    if (this.type === 'select' && this.active) {
+      e.stopImmediatePropagation();
+      this.active = false;
+    }
+  }
+
+  validateMinMax(val: number) {
     if (val) {
-      if (this.min && val < this.min) {
+      if (this.min && val < parseInt(this.min)) {
         this.value = this.min;
-      } else if (val > this.max) {
+      } else if (this.max && val > parseInt(this.max)) {
         this.value = this.max;
       } else {
-        this.value = val;
+        this.value = val.toString();
       }
     }
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':
@@ -444,8 +470,12 @@ export class korInput extends LitElement {
     const styles = {
       top: `${this.getBoundingClientRect().top + this.clientHeight + 1}px`,
       left: `${this.getBoundingClientRect().left}px`,
-      width: `${this.clientWidth}px`
+      width: `${this.clientWidth}px`,
     };
     return styles;
   }
+}
+
+if (!window.customElements.get('kor-input')) {
+  window.customElements.define('kor-input', korInput);
 }

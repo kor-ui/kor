@@ -1,11 +1,14 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../card';
+import '../icon';
 
 /**
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
- * @prop {String} position - Defines the position of the component in the screen. Possible values are left, right, top and bottom.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'left'|'right'|'top'|'bottom'} position - Defines the position of the component in the screen. Possible values are `left`, `right`, `top` and `bottom`.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {String} height - Defines the height of the container (not the overlay).
  * @prop {String} width - Defines the width of the container (not the overlay).
  * @prop {Boolean} visible - If set to true, displays the component on top of the screen.
@@ -15,27 +18,32 @@ import { sharedStyles } from '../../shared-styles';
  * @slot header - If used, the header slot is shown on top of the component, below the label (if any is set).
  * @slot functions - Shown on the right side of the label or header slot.
  * @slot footer - Shown below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
-@customElement('kor-drawer')
 export class korDrawer extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) position = 'left';
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) position:
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'bottom' = 'left';
   @property({ type: String, reflect: true }) height = '320px';
   @property({ type: String, reflect: true }) width = '320px';
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
-  @property({ type: Boolean, reflect: true }) visible = false;
-  @property({ type: Boolean, reflect: true }) sticky;
+  flexDirection: 'row' | 'column' = 'column';
+  @property({ type: Boolean, reflect: true }) visible: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) sticky: boolean | undefined;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -51,6 +59,11 @@ export class korDrawer extends LitElement {
           width: 100%;
           height: 100%;
           background: rgba(0, 0, 0, 0.4);
+          /* css properties */
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host(:not([visible])) {
           opacity: 0;
@@ -61,7 +74,11 @@ export class korDrawer extends LitElement {
           border-radius: 0px;
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
-          transition: 0.2s all ease-in-out, 0s top, 0s left;
+          transition: 0.2s all ease-out, 0s top, 0s left;
+          --body-gap: inherit;
+          --header-gap: inherit;
+          --functions-gap: inherit;
+          --footer-gap: inherit;
         }
         /* position */
         :host([position='left']) kor-card {
@@ -96,7 +113,7 @@ export class korDrawer extends LitElement {
   render() {
     return html`
       <kor-card
-        @click="${(e) => e.stopPropagation()}"
+        @click="${(e: any) => e.stopPropagation()}"
         style="height: ${this.getCardSize().height}; width: ${this.getCardSize()
           .width}; max-height: ${this.getCardSize()
           .height}; max-width: ${this.getCardSize().width}"
@@ -106,8 +123,8 @@ export class korDrawer extends LitElement {
       >
         <slot
           name="header"
-          slot="${this.emptyHeader ? undefined : 'header'}"
-          @slotchange="${(e) =>
+          slot="${this.emptyHeader ? 'hidden' : 'header'}"
+          @slotchange="${(e: any) =>
             (this.emptyHeader = e.target.assignedNodes().length === 0)}"
         ></slot>
         <slot name="functions" slot="functions">
@@ -124,15 +141,15 @@ export class korDrawer extends LitElement {
         <slot></slot>
         <slot
           name="footer"
-          slot="${this.emptyFooter ? undefined : 'footer'}"
-          @slotchange="${(e) =>
+          slot="${this.emptyFooter ? 'hidden' : 'footer'}"
+          @slotchange="${(e: any) =>
             (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         ></slot>
       </kor-card>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
     if (name === 'visible' && this.visible) {
@@ -161,4 +178,8 @@ export class korDrawer extends LitElement {
     }
     return size;
   }
+}
+
+if (!window.customElements.get('kor-drawer')) {
+  window.customElements.define('kor-drawer', korDrawer);
 }

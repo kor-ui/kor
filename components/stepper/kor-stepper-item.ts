@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -8,19 +11,21 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Number} index - Defines the index number shown inside the bubble (if icon is undefined). It is set dinamically by the component.
  * @prop {Boolean} active - If set to true, a highlight style gets applied. Only one item can be active at a time.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
+ * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  */
 
-@customElement('kor-stepper-item')
 export class korStepperItem extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) info;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Number, reflect: true }) index;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
-  @property({ type: Boolean, reflect: true }) first;
-  @property({ type: Boolean, reflect: true }) last;
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) info: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Number, reflect: true }) index: number | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) first: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) last: boolean | undefined;
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -42,7 +47,7 @@ export class korStepperItem extends LitElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 8px;
+          padding: var(--spacing-s);
           border-radius: 50%;
           background-color: rgba(var(--neutral-1), 0.1);
           transition: var(--transition-1);
@@ -78,14 +83,14 @@ export class korStepperItem extends LitElement {
         :host([orientation='horizontal']) {
           justify-content: center;
           flex-direction: column;
-          padding: 0 16px;
+          padding: 0 var(--spacing-l);
         }
         :host([orientation='horizontal']) .label,
         :host([orientation='horizontal']) .info {
           text-align: center;
         }
         :host([orientation='horizontal']) .circle + .text {
-          margin-top: 4px;
+          margin-top: var(--spacing-xs);
         }
         :host([orientation='horizontal']) .line {
           height: 2px;
@@ -104,14 +109,14 @@ export class korStepperItem extends LitElement {
           flex-direction: row;
           width: 100%;
           height: max-content;
-          padding: 16px 0;
+          padding: var(--spacing-l) 0;
         }
         :host([orientation='vertical']) .label,
         :host([orientation='vertical']) .info {
           text-align: left;
         }
         :host([orientation='vertical']) .circle + .text {
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
         }
         :host([orientation='vertical']) .line {
           width: 2px;
@@ -186,7 +191,7 @@ export class korStepperItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -195,8 +200,8 @@ export class korStepperItem extends LitElement {
     super.connectedCallback();
     this.getIndex();
     this.addEventListener('click', () => {
-      let siblings: any = this.parentElement.childNodes;
-      siblings.forEach((el) => {
+      let siblings: any = this.parentElement?.childNodes;
+      siblings.forEach((el: any) => {
         el.active = false;
       });
       (<any>this).active = true;
@@ -205,7 +210,11 @@ export class korStepperItem extends LitElement {
 
   getIndex() {
     let children;
-    children = Array.prototype.slice.call(this.parentElement.children);
+    children = Array.prototype.slice.call(this.parentElement?.children);
     this.index = children.indexOf(this) + 1;
   }
+}
+
+if (!window.customElements.get('kor-stepper-item')) {
+  window.customElements.define('kor-stepper-item', korStepperItem);
 }

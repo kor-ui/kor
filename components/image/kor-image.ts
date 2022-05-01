@@ -1,28 +1,34 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../text';
 
 /**
  * @prop {String} src - Defines the source image to be displayed. Must be a url (web or relative path).
  * @prop {String} alt - Defines the text shown in case the image cannot be loaded.
  * @prop {String} width - Defines the width of the image. Can take a numeric or percentual value.
  * @prop {String} height - Defines the height of the image. Can take a numeric or percentual value.
- * @prop {String} fit - Defines how the image fits to the component. Possible values are `fill`, `contain`, `cover`, `none` and `scale-down`.
+ * @prop {'fill'|'contain'|'cover'|'none'|'scale-down'} fit - Defines how the image fits to the component. Possible values are `fill`, `contain`, `cover`, `none` and `scale-down`.
  * @prop {String} legend - Defines the legend text.
- * @prop {String} legendPosition - Defines the position of the legend. Possible values are `inner-top` and `inner bottom`. If left unset, the legend is displayed underneath the image
+ * @prop {'inner-top'|'inner-bottom'} legendPosition - Defines the position of the legend. Possible values are `inner-top` and `inner-bottom`. If left unset, the legend is displayed underneath the image
  * @slot top - The container for components overlayed at the top corner of the image.
  * @slot bottom - The container for components overlayed at the bottom corner of the image.
  */
 
-@customElement('kor-image')
 export class korImage extends LitElement {
-  @property({ type: String, reflect: true }) src;
-  @property({ type: String, reflect: true }) alt;
+  @property({ type: String, reflect: true }) src: string | undefined;
+  @property({ type: String, reflect: true }) alt: string | undefined;
+  @property({ type: String, reflect: true }) height: string | undefined;
   @property({ type: String, reflect: true }) width = '100%';
-  @property({ type: String, reflect: true }) height;
-  @property({ type: String, reflect: true }) fit = 'contain';
-  @property({ type: String, reflect: true }) legend;
+  @property({ type: String, reflect: true }) fit:
+    | 'fill'
+    | 'contain'
+    | 'cover'
+    | 'none'
+    | 'scale-down' = 'contain';
+  @property({ type: String, reflect: true }) legend: string | undefined;
   @property({ type: String, reflect: true, attribute: 'legend-position' })
-  legendPosition;
+  legendPosition: string | undefined;
 
   static get styles() {
     return [
@@ -46,11 +52,11 @@ export class korImage extends LitElement {
           white-space: nowrap;
         }
         :host(:not([legend-position])) kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         :host([legend-position^='inner-']) kor-text {
           position: absolute;
-          padding: 8px;
+          padding: var(--spacing-s);
           box-sizing: border-box;
         }
         :host([legend-position='inner-top']) kor-text {
@@ -73,9 +79,9 @@ export class korImage extends LitElement {
         slot {
           display: flex;
           justify-content: flex-end;
-          gap: 8px;
+          gap: var(--spacing-s);
           position: absolute;
-          padding: 4px;
+          padding: var(--spacing-xs);
           box-sizing: border-box;
           width: 100%;
           overflow: hidden;
@@ -112,8 +118,12 @@ export class korImage extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-image')) {
+  window.customElements.define('kor-image', korImage);
 }

@@ -1,28 +1,34 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label shown above the bar.
  * @prop {String} info - If set, defines the info text shown below of the bar.
- * @prop {String} status - If set, shows a status icon besides the information text. Possible values are success, warning and error.
+ * @prop {'success'|'warning'|'error'|undefined} status - If set, shows a status icon besides the information text. Possible values are `success`, `warning` and `error`.
  * @prop {String} color - If set, defines the color of the bar.
- * @prop {String} size - (Only if radial is true) Defines the size of the bar. Possible values are s, m and l.
+ * @prop {'s'|'m'|'l'} size - (Only if radial is true) Defines the size of the bar. Possible values are `s`, `m` and `l`.
  * @prop {Number} value - Defines the value of the bar. Must be a number from 0 to 100.
  * @prop {Boolean} radial - If set to true, the bar will become a circle instead of a linear bar.
  * @prop {Boolean} showProgress - If set to true, the value (in %) will be visible.
  */
 
-@customElement('kor-progress-bar')
 export class korProgressBar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) info;
-  @property({ type: String, reflect: true }) status;
-  @property({ type: String, reflect: true }) color;
-  @property({ type: String, reflect: true }) size = 'm';
-  @property({ type: Number, reflect: true }) value;
-  @property({ type: Boolean, reflect: true }) radial = false;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) info: string | undefined;
+  @property({ type: String, reflect: true }) status:
+    | 'success'
+    | 'warning'
+    | 'error'
+    | undefined;
+  @property({ type: String, reflect: true }) color: string | undefined;
+  @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
+  @property({ type: Number, reflect: true }) value: number | undefined;
+  @property({ type: Boolean, reflect: true }) radial: boolean | undefined;
   @property({ type: Boolean, reflect: true, attribute: 'show-progress' })
-  showProgress = false;
+  showProgress: boolean | undefined;
 
   static get styles() {
     return [
@@ -46,10 +52,10 @@ export class korProgressBar extends LitElement {
           text-overflow: ellipsis;
         }
         .header {
-          margin-bottom: 8px;
+          margin-bottom: var(--spacing-s);
         }
         .footer {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         /* radial */
         :host([radial]) {
@@ -76,7 +82,7 @@ export class korProgressBar extends LitElement {
         }
         /* status */
         .status-icon {
-          margin-right: 8px;
+          margin-right: var(--spacing-s);
         }
         .status-icon[icon='cancel'] {
           color: rgb(var(--functional-red));
@@ -148,7 +154,7 @@ export class korProgressBar extends LitElement {
                   stroke-dashoffset="${2 *
                   Math.PI *
                   (this.getSize() / 2 - 4) *
-                  (1 - this.value / 100)}"
+                  (1 - (this.value ? this.value / 100 : 0))}"
                   r="${this.getSize() / 2 - 4}"
                   cx="${this.getSize() / 2}"
                   cy="${this.getSize() / 2}"
@@ -167,7 +173,7 @@ export class korProgressBar extends LitElement {
                 ? html`
                     <kor-icon
                       class="status-icon"
-                      icon="${this.getStatusIcon()}"
+                      .icon="${this.getStatusIcon()}"
                     ></kor-icon>
                   `
                 : ''}
@@ -185,12 +191,12 @@ export class korProgressBar extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
-  getStatusIcon(): string {
+  getStatusIcon(): string | undefined {
     let icon;
     switch (this.status) {
       case 'error':
@@ -218,7 +224,13 @@ export class korProgressBar extends LitElement {
       case 'l':
         size = 80;
         break;
+      default:
+        size = 0;
     }
     return size;
   }
+}
+
+if (!window.customElements.get('kor-progress-bar')) {
+  window.customElements.define('kor-progress-bar', korProgressBar);
 }

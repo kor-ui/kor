@@ -1,15 +1,17 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - Defines the text label.
  * @prop {Boolean} active - Defines whether the item is currently active or not.
  */
 
-@customElement('kor-breadcrumb-item')
 export class korBreadcrumbItem extends LitElement {
   @property({ type: String, reflect: true }) label = 'Label';
-  @property({ type: Boolean, reflect: true }) active = false;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
 
   static get styles() {
     return [
@@ -21,7 +23,7 @@ export class korBreadcrumbItem extends LitElement {
         }
         kor-icon {
           pointer-events: none;
-          margin: 0 4px;
+          margin: 0 var(--spacing-xs);
         }
         kor-text {
           color: var(--text-2);
@@ -55,15 +57,19 @@ export class korBreadcrumbItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   firstItem(): boolean {
     let firstItem: boolean, children: any;
-    children = Array.prototype.slice.call(this.parentElement.children);
+    children = Array.prototype.slice.call(this.parentElement?.children);
     firstItem = children.indexOf(this) == 0;
     return firstItem;
   }
+}
+
+if (!window.customElements.get('kor-breadcrumb-item')) {
+  window.customElements.define('kor-breadcrumb-item', korBreadcrumbItem);
 }

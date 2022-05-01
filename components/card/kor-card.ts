@@ -1,35 +1,38 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property, state } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
 
 /**
  * @prop {String} label -	If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} image - If set, defines the image shown on top of the card.
- * @prop {String} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are column and row.
+ * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
  * @prop {Boolean} flat - If set, background, shadows and external padding are not shown.
  *
  * @slot - Displayed inside the content area.
  * @slot header - Shown on top of the card, below the label (if any is set).
  * @slot functions - Shown on the right side of the label or header slot.
  * @slot footer - Shown below the content area.
+ *
+ * @cssprop --body-gap - Defines the gap between elements in the body slot.
+ * @cssprop --header-gap - Defines the gap between elements in the header slot.
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
-@customElement('kor-card')
 export class korCard extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: String, reflect: true }) image;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: String, reflect: true }) image: string | undefined;
   @property({ type: String, reflect: true, attribute: 'flex-direction' })
-  flexDirection = 'column';
-  @property({ type: Boolean, reflect: true }) flat = false;
+  flexDirection: 'column' | 'row' = 'column';
+  @property({ type: Boolean, reflect: true }) flat: boolean | undefined;
 
   // readonly properties
-  /** @ignore */
-  @property({ type: Boolean }) emptyHeader = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFunctions = true;
-  /** @ignore */
-  @property({ type: Boolean }) emptyFooter = true;
+  @state() emptyHeader = true;
+  @state() emptyFunctions = true;
+  @state() emptyFooter = true;
 
   static get styles() {
     return [
@@ -42,11 +45,16 @@ export class korCard extends LitElement {
           border-radius: var(--border-radius);
           box-sizing: border-box;
           overflow: hidden;
+          /* css properties */
+          --body-gap: var(--spacing-m);
+          --header-gap: var(--spacing-m);
+          --functions-gap: var(--spacing-m);
+          --footer-gap: var(--spacing-m);
         }
         :host(:not([flat])) {
           background-color: rgb(var(--base-3));
           box-shadow: var(--shadow-1);
-          padding: 16px;
+          padding: var(--spacing-l);
         }
         /* header */
         slot,
@@ -63,14 +71,15 @@ export class korCard extends LitElement {
           flex: 1;
         }
         .top:not(.empty) {
-          padding-bottom: 16px;
+          padding-bottom: var(--spacing-l);
         }
         slot[name='footer']:not(.empty) {
-          padding-top: 16px;
+          padding-top: var(--spacing-l);
         }
         .label {
           flex: 1;
           display: flex;
+          gap: var(--spacing-s);
         }
         .label p {
           font: var(--header-1);
@@ -78,48 +87,46 @@ export class korCard extends LitElement {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          margin: 0;
+          margin: unset;
         }
-        .label kor-icon {
-          margin-right: 8px;
+        /* slots */
+        slot[name='functions'] {
+          gap: var(--functions-gap);
         }
-        slot[name='footer']::slotted(*:not(:first-child)),
-        slot[name='functions']::slotted(*) {
-          margin-left: 12px;
+        slot[name='header'] {
+          gap: var(--header-gap);
         }
-        /* content */
         slot:not([name]) {
-          flex: 1;
-          width: 100%;
-          padding: 0 16px;
-          margin-right: -16px;
-          margin-left: -16px;
-        }
-        :host([flex-direction='column']) slot:not([name]),
-        .header {
-          flex-direction: column;
-        }
-        :host([flex-direction='column'])
-          slot:not([name])::slotted(*:not(:last-child)) {
-          margin-bottom: 12px;
-        }
-        :host([flex-direction='row'])
-          slot:not([name])::slotted(*:not(:last-child)) {
-          margin-right: 12px;
-        }
-        /* footer */
-        slot[name='footer'] {
-          justify-content: flex-end;
+          gap: var(--spacing-m);
         }
         slot[name='header'],
         slot[name='functions'],
         slot[name='footer'] {
           align-items: center;
         }
+        /* content */
+        slot:not([name]) {
+          flex: 1;
+          width: 100%;
+          padding: 0 var(--spacing-l);
+          margin-right: calc(var(--spacing-l) * -1);
+          margin-left: calc(var(--spacing-l) * -1);
+          gap: var(--body-gap);
+        }
+        :host([flex-direction='column']) slot:not([name]),
+        .header {
+          flex-direction: column;
+        }
+        /* footer */
+        slot[name='footer'] {
+          justify-content: flex-end;
+          gap: var(--footer-gap);
+        }
         /* image */
         .image {
           width: calc(100% + 32px);
-          margin: -16px -16px 16px -16px;
+          margin: calc(var(--spacing-l) * -1) calc(var(--spacing-l) * -1)
+            var(--spacing-l) calc(var(--spacing-l) * -1);
         }
       `,
     ];
@@ -146,35 +153,39 @@ export class korCard extends LitElement {
                   <p>${this.label}</p>
                 </div>
                 ${!this.emptyHeader && (this.label || this.icon)
-                  ? html` <div style="margin-top: 16px"></div> `
+                  ? html` <div style="margin-top: var(--spacing-l)"></div> `
                   : ''}
               `
             : ''}
           <slot
             name="header"
-            @slotchange="${(e) =>
+            @slotchange="${(e: any) =>
               (this.emptyHeader = e.target.assignedNodes().length === 0)}"
             class="${this.emptyHeader ? 'empty' : ''}"
           ></slot>
         </div>
         <slot
           name="functions"
-          @slotchange="${(e) =>
+          @slotchange="${(e: any) =>
             (this.emptyFunctions = e.target.assignedNodes().length === 0)}"
         ></slot>
       </div>
       <slot></slot>
       <slot
         name="footer"
-        @slotchange="${(e) =>
+        @slotchange="${(e: any) =>
           (this.emptyFooter = e.target.assignedNodes().length === 0)}"
         class="${this.emptyFooter ? 'empty' : ''}"
       ></slot>
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-card')) {
+  window.customElements.define('kor-card', korCard);
 }

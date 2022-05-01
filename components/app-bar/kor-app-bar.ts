@@ -1,4 +1,5 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -12,13 +13,14 @@ import { sharedStyles } from '../../shared-styles';
  * @slot right - Displayed on the right side (if mobile is set to true). Used for hosting components such as Icon.
  *
  * @fires logo-clicked - Fired when clicking on the logo.
+ *
+ * @cssprop --functions-gap - Defines the gap between elements in the functions slot.
  */
 
-@customElement('kor-app-bar')
 export class korAppBar extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) logo;
-  @property({ type: Boolean, reflect: true }) mobile;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) logo: string | undefined;
+  @property({ type: Boolean, reflect: true }) mobile: boolean | undefined;
 
   static get styles() {
     return [
@@ -26,32 +28,36 @@ export class korAppBar extends LitElement {
       css`
         :host {
           z-index: 3;
-          height: 56px;
-          padding: 0 16px;
+          height: calc(24px + var(--spacing-l) * 2);
+          padding: 0 var(--spacing-l);
           display: flex;
           align-items: center;
           overflow: hidden;
           background-color: rgb(var(--base-0));
           box-shadow: var(--shadow-1);
           transition: var(--transition-1);
+          gap: calc(var(--spacing-l) * 2);
+          /* css properties */
+          --functions-gap: var(--spacing-m);
         }
         .logo {
           height: 24px;
-          margin-right: 32px;
         }
         .label {
           font: var(--header-1);
           color: var(--text-1);
           max-width: 320px;
-          margin-right: 32px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
+        /* mobile */
+        :host[mobile] {
+          gap: var(--spacing-l);
+        }
         :host([mobile]) .label {
           flex: 1;
           max-width: unset;
-          margin: 0 16px;
           text-align: center;
         }
         /* slots */
@@ -62,8 +68,8 @@ export class korAppBar extends LitElement {
         slot:not([name]) {
           flex: 1;
         }
-        slot[name='functions']::slotted(*) {
-          margin-left: 12px;
+        slot[name='functions'] {
+          gap: var(--functions-gap);
         }
         ::slotted(kor-tabs) {
           border-bottom: unset;
@@ -104,7 +110,7 @@ export class korAppBar extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -112,4 +118,8 @@ export class korAppBar extends LitElement {
   handleLogoClick() {
     this.dispatchEvent(new Event('logo-clicked'));
   }
+}
+
+if (!window.customElements.get('kor-app-bar')) {
+  window.customElements.define('kor-app-bar', korAppBar);
 }

@@ -1,5 +1,7 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -7,11 +9,10 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-radio-button')
 export class korRadioButton extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [
@@ -44,7 +45,7 @@ export class korRadioButton extends LitElement {
         /* label */
         kor-text {
           flex: 1;
-          margin-left: 8px;
+          margin-left: var(--spacing-s);
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -79,7 +80,7 @@ export class korRadioButton extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -99,10 +100,14 @@ export class korRadioButton extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.parentElement.childNodes;
-    siblings.forEach((el) => {
+    let siblings: NodeList | undefined = this.parentElement?.childNodes;
+    siblings?.forEach((el: any) => {
       el.active = false;
     });
     (<any>this).active = true;
   }
+}
+
+if (!window.customElements.get('kor-radio-button')) {
+  window.customElements.define('kor-radio-button', korRadioButton);
 }

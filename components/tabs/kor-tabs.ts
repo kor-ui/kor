@@ -1,15 +1,17 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
- * @prop {String} orientation	- Defines the orientation of the component. Possible values are horizontal and vertical.
+ * @prop {'horizontal'|'vertical'} orientation	- Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  *
  * @slot - Hosts kor-tab-items.
  */
 
-@customElement('kor-tabs')
 export class korTabs extends LitElement {
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -21,7 +23,7 @@ export class korTabs extends LitElement {
           height: max-content;
         }
         :host([slot='header']) {
-          margin-top: -16px;
+          margin-top: calc(var(--spacing-l) * -1);
         }
         :host(:not([orientation='vertical'])) {
           border-bottom: 1px solid rgba(var(--neutral-1), 0.1);
@@ -41,13 +43,17 @@ export class korTabs extends LitElement {
   }
 
   handleOrientation() {
-    (<any>this.childNodes).forEach((el) => {
+    (<NodeListOf<any>>this.childNodes).forEach((el: any) => {
       el.orientation = this.orientation;
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-tabs')) {
+  window.customElements.define('kor-tabs', korTabs);
 }

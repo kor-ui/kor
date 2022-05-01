@@ -1,15 +1,17 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
 
 /**
- * @prop {String} orientation - Defines the orientation of the component. Possible values are horizontal and vertical.
+ * @prop {'horizontal'|'vertical'} orientation - Defines the orientation of the component. Possible values are `horizontal` and `vertical`.
  *
  * @slot - Hosts kor-stepper-items.
  */
 
-@customElement('kor-stepper')
 export class korStepper extends LitElement {
-  @property({ type: String, reflect: true }) orientation = 'horizontal';
+  @property({ type: String, reflect: true }) orientation:
+    | 'horizontal'
+    | 'vertical' = 'horizontal';
 
   static get styles() {
     return [
@@ -40,13 +42,13 @@ export class korStepper extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
 
   handleOrientation() {
-    (<any>this.childNodes).forEach((el) => {
+    (<NodeListOf<any>>this.childNodes).forEach((el: any) => {
       el.orientation = this.orientation;
     });
   }
@@ -60,4 +62,8 @@ export class korStepper extends LitElement {
       el.last = el.index == length;
     });
   }
+}
+
+if (!window.customElements.get('kor-stepper')) {
+  window.customElements.define('kor-stepper', korStepper);
 }

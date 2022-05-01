@@ -1,17 +1,21 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label -	If set, defines the text label shown under the icon.
  * @prop {String} icon - If set, defines the icon shown above the label.
  *
  * @slot footer - Displayed below the label.
+ *
+ * @cssprop --footer-gap - Defines the gap between elements in the footer slot.
  */
 
-@customElement('kor-empty-state')
 export class korEmptyState extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
 
   static get styles() {
     return [
@@ -24,16 +28,16 @@ export class korEmptyState extends LitElement {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          /* css properties */
+          --footer-gap: var(--spacing-m);
         }
         slot[name='footer'] {
           display: flex;
-          margin-top: 16px;
-        }
-        slot[name='footer']::slotted(*) {
-          margin: 0 8px;
+          margin-top: var(--spacing-l);
+          gap: var(--footer-gap);
         }
         kor-icon + kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
         }
         kor-text {
           text-align: center;
@@ -60,8 +64,12 @@ export class korEmptyState extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
+}
+
+if (!window.customElements.get('kor-empty-state')) {
+  window.customElements.define('kor-empty-state', korEmptyState);
 }

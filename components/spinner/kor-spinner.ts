@@ -1,15 +1,16 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
- * @prop {String} size - Defines the size of the component. Possible values are s (24px), m (32px) and l (40px).
+ * @prop {'s'|'m'|'l'} size - Defines the size of the component. Possible values are `s`(24px), `m`(32px) and `l`(40px).
  */
 
-@customElement('kor-spinner')
 export class korSpinner extends LitElement {
-  @property({ type: String, reflect: true }) size = 'm';
-  @property({ type: String, reflect: true }) label;
+  @property({ type: String, reflect: true }) size: 's' | 'm' | 'l' = 'm';
+  @property({ type: String, reflect: true }) label: string | undefined;
 
   static get styles() {
     return [
@@ -43,7 +44,7 @@ export class korSpinner extends LitElement {
         }
         /* label */
         kor-text {
-          margin-top: 8px;
+          margin-top: var(--spacing-s);
           text-align: center;
           max-width: 240px;
         }
@@ -69,7 +70,7 @@ export class korSpinner extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -89,4 +90,8 @@ export class korSpinner extends LitElement {
     }
     return size;
   }
+}
+
+if (!window.customElements.get('kor-spinner')) {
+  window.customElements.define('kor-spinner', korSpinner);
 }

@@ -1,5 +1,8 @@
-import { LitElement, css, html, customElement, property } from 'lit-element';
+import { LitElement, css, html } from 'lit';
+import { property } from 'lit/decorators';
 import { sharedStyles } from '../../shared-styles';
+import '../icon';
+import '../text';
 
 /**
  * @prop {String} label - If set, defines the text label.
@@ -8,12 +11,11 @@ import { sharedStyles } from '../../shared-styles';
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  */
 
-@customElement('kor-switch-item')
 export class korSwitchItem extends LitElement {
-  @property({ type: String, reflect: true }) label;
-  @property({ type: String, reflect: true }) icon;
-  @property({ type: Boolean, reflect: true }) active;
-  @property({ type: Boolean, reflect: true }) disabled;
+  @property({ type: String, reflect: true }) label: string | undefined;
+  @property({ type: String, reflect: true }) icon: string | undefined;
+  @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @property({ type: Boolean, reflect: true }) disabled: boolean | undefined;
 
   static get styles() {
     return [
@@ -24,7 +26,7 @@ export class korSwitchItem extends LitElement {
           width: max-content;
           min-width: 40px;
           max-width: 120px;
-          padding: 4px 12px;
+          padding: var(--spacing-xs) var(--spacing-m);
           border-radius: var(--border-radius);
           cursor: pointer;
           align-items: center;
@@ -76,7 +78,7 @@ export class korSwitchItem extends LitElement {
     `;
   }
 
-  attributeChangedCallback(name, oldval, newval) {
+  attributeChangedCallback(name: string, oldval: string, newval: string) {
     super.attributeChangedCallback(name, oldval, newval);
     this.dispatchEvent(new Event(`${name}-changed`));
   }
@@ -87,10 +89,14 @@ export class korSwitchItem extends LitElement {
   }
 
   handleActive() {
-    let siblings: any = this.parentElement.childNodes;
-    siblings.forEach((el) => {
+    let siblings: any = this.parentElement?.childNodes;
+    siblings.forEach((el: any) => {
       el.active = false;
     });
     (<any>this).active = true;
   }
+}
+
+if (!window.customElements.get('kor-switch-item')) {
+  window.customElements.define('kor-switch-item', korSwitchItem);
 }
