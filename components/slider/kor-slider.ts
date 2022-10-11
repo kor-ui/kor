@@ -35,7 +35,7 @@ export class korSlider extends LitElement {
           padding: 10px;
           position: absolute;
           top: -15px;
-          margin-left: cal(var(--spacing-l) * -1);
+          margin-left: calc(var(--spacing-l) * -1);
           cursor: pointer;
         }
         .thumb > div {
@@ -141,10 +141,8 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbPosition(): void {
-    const thumb:
-      | HTMLElement
-      | null
-      | undefined = this.shadowRoot?.querySelector('.thumb');
+    const thumb: HTMLElement | null | undefined =
+      this.shadowRoot?.querySelector('.thumb');
     const position = ((this.value - this.min) / (this.max - this.min)) * 100;
     // check if thumb exists and position is within range
     if (thumb && position >= 0 && position <= 100) {
@@ -153,8 +151,8 @@ export class korSlider extends LitElement {
   }
 
   private handleThumbDrag(e: any) {
-    const trackWidth: number = this.shadowRoot!.querySelector('.track')!
-      .clientWidth;
+    const trackWidth: number =
+      this.shadowRoot!.querySelector('.track')!.clientWidth;
     const stepWidth: number = (trackWidth / (this.max - this.min)) * this.step;
     let originX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
     const getDeltaX = (e: any) => {
