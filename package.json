@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.2",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "lerna": "^3.22.0",
     "terser-webpack-plugin": "^2.3.8",
     "ts-loader": "^6.2.2",
