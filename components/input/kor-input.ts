@@ -474,7 +474,13 @@ export class korInput extends LitElement {
     if (isNaN(chosen_date_or_now.getTime())) {
       chosen_date_or_now = new Date();
     }
-    chosen_date_or_now.setHours(parseInt(hours) ?? 0);
+    let hour: number = parseInt(hours) ?? 0;
+    // Don't switch PM to AM changing hours value
+    if (this.is12Hour_ && hour > 0
+        && hour < 12 && this.getAMPM_() === "PM") {
+      hour += 12;
+    }
+    chosen_date_or_now.setHours(hour);
     this.handleChange_(chosen_date_or_now);
   }
 
