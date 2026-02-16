@@ -378,10 +378,7 @@ export class korInput extends LitElement {
       if (this.active) {
         if (this.type === 'select') {
           this.closeSelectMenu(e);
-        } else if (this.type !== 'date' && this.type !== 'datetime'
-                   // Close the calendar popup only on the main input click
-                   || (this as HTMLElement) == (e.target as HTMLElement))
-        {
+        } else {
           this.active = false;
         }
       } else if (!this.active) {
@@ -465,7 +462,11 @@ export class korInput extends LitElement {
     if (isNaN(chosen_date_or_now.getTime())) {
       chosen_date_or_now = new Date();
     }
-    return String(chosen_date_or_now.getHours());
+    let hours: number = chosen_date_or_now.getHours();
+    if (this.is12Hour_ && hours > 12) {
+      hours -= 12;
+    }
+    return String(hours);
   }
   private setHour_(hours: string) {
     let chosen_date_or_now: Date =
