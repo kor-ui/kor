@@ -25,7 +25,7 @@ export class korButton extends LitElement {
       css`
         :host {
           font: var(--header-2);
-          color: var(--btn-face-color, --text-1);
+          color: var(--text-1);
           display: flex;
           gap: var(--spacing-xs);
           height: max-content;
@@ -54,6 +54,7 @@ export class korButton extends LitElement {
         }
         /* idle */
         :host([color='primary']) {
+          color: var(--btn-primary-face-color, --text-1);
           background: var(--btn-primary-gradient, rgb(var(--accent-1)));
         }
         :host([color='secondary']) {
