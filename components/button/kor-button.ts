@@ -25,12 +25,12 @@ export class korButton extends LitElement {
       css`
         :host {
           font: var(--header-2);
-          color: var(--text-1);
+          color: var(--btn-face-color, --text-1);
           display: flex;
           gap: var(--spacing-xs);
           height: max-content;
           width: max-content;
-          border-radius: var(--border-radius);
+          border-radius: var(--btn-border-radius, --border-radius);
           cursor: pointer;
           transition: var(--transition-1);
           justify-content: center;
@@ -54,7 +54,7 @@ export class korButton extends LitElement {
         }
         /* idle */
         :host([color='primary']) {
-          background-color: rgb(var(--accent-1));
+          background: var(--btn-primary-gradient, rgb(var(--accent-1)));
         }
         :host([color='secondary']) {
           background-color: rgba(var(--neutral-1), 0.1);
@@ -72,9 +72,6 @@ export class korButton extends LitElement {
         /* text and icon colors */
         kor-icon {
           color: unset;
-        }
-        :host([color='primary']) {
-          color: rgba(255, 255, 255, 0.9);
         }
         /* hover inputs */
         @media (hover: hover) {
