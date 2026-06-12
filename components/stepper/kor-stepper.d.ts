@@ -6,7 +6,7 @@ import { LitElement } from 'lit';
  */
 export declare class korStepper extends LitElement {
     orientation: 'horizontal' | 'vertical';
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     handleOrientation(): void;

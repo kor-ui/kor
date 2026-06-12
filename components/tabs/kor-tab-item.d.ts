@@ -16,7 +16,7 @@ export declare class korTabItem extends LitElement {
     active: boolean | undefined;
     disabled: boolean | undefined;
     orientation: 'horizontal' | 'vertical';
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     connectedCallback(): void;

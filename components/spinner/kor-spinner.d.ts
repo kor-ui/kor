@@ -7,7 +7,7 @@ import '../text';
 export declare class korSpinner extends LitElement {
     size: 's' | 'm' | 'l';
     label: string | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     getSize(): number;

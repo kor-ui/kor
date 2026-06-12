@@ -8,7 +8,7 @@ import '../text';
 export declare class korBreadcrumbItem extends LitElement {
     label: string;
     active: boolean | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     firstItem(): boolean;

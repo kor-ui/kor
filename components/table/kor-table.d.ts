@@ -14,7 +14,7 @@ export declare class korTable extends LitElement {
     readonly: boolean | undefined;
     condensed: boolean | undefined;
     columns: string;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

@@ -1,5 +1,5 @@
 import { LitElement, css, html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement, property, query } from 'lit/decorators.js';
 import { sharedStyles } from '../../shared-styles';
 import type { korSwitchItem } from '../switch/index.d.ts';

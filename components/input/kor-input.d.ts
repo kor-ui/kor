@@ -51,7 +51,7 @@ export declare class korInput extends LitElement {
     main_input: HTMLInputElement;
     private is12Hour_;
     private isMenuHandlerSet_;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): TemplateResult<1>;
     constructor();
     firstUpdated(): void;
