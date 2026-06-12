@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property, queryAll } from 'lit/decorators.js';
 import { sharedStyles } from '../../shared-styles';
 
 /**
@@ -10,6 +10,12 @@ import { sharedStyles } from '../../shared-styles';
 
 export class korTableRow extends LitElement {
   @property({ type: Boolean, reflect: true }) active: boolean | undefined;
+  @queryAll('slot') slots!: NodeListOf<HTMLSlotElement>;
+
+  getAllSlottedContent(): Array<Element> {
+    return Array.from(this.slots).flatMap(
+      slot => slot.assignedElements({ flatten: true }));
+  }
 
   static get styles() {
     return [
@@ -53,6 +59,25 @@ export class korTableRow extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.addEventListener('click', () => this.handleActive());
+    this.addEventListener('mouseenter', () => {
+      if (this.active || this.slot == 'header') return;
+      // Set highlighted background for sticky cells
+      this.getAllSlottedContent().forEach(el => {
+        if ((<any>el).sticky) {
+          (el as HTMLElement).style.backgroundColor =
+            'color-mix(in srgb, rgb(var(--neutral-1)) 5%, rgb(var(--base-3)))';
+        }
+      });
+    });
+    this.addEventListener('mouseleave', () => {
+      if (this.active || this.slot == 'header') return;
+      // Set highlighted background for sticky cells
+      this.getAllSlottedContent().forEach(el => {
+        if ((<any>el).sticky) {
+          (el as HTMLElement).style.backgroundColor = 'rgb(var(--base-3))';
+        }
+      });
+    });
     this.handleColumns();
   }
 
@@ -63,8 +88,22 @@ export class korTableRow extends LitElement {
       siblings = this.parentElement?.childNodes;
       siblings?.forEach((el: any) => {
         (<any>el).active = false;
+        // Remove highlighted background from sticky cells
+        if ((<any>el).slot == 'header' || !(<any>el).getAllSlottedContent) return;
+        (<any>el).getAllSlottedContent().forEach((child: Element) => {
+          if ((<any>child).sticky) {
+            (child as HTMLElement).style.backgroundColor = 'rgb(var(--base-3))';
+          }
+        });
       });
       this.active = true;
+      // Set highlighted background for sticky cells
+      this.getAllSlottedContent().forEach(el => {
+        if ((<any>el).sticky) {
+          (el as HTMLElement).style.backgroundColor =
+            'color-mix(in srgb, rgb(var(--neutral-1)) 10%, rgb(var(--base-3)))';
+        }
+      });
     }
   }
 

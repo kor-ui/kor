@@ -5,6 +5,8 @@ webpack.dev.config.js
 .github
 *.ts
 !*.d.ts
+!*.js
 components/*/*.ts
 !components/*/*.d.ts
+!components/*/*.js
 lerna.json

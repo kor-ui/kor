@@ -1,7 +1,7 @@
 import { LitElement } from 'lit';
 import '../icon';
 /**
- * @prop {String} label -	If set, defines the text label.
+ * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} image - If set, defines the image shown on top of the card.
  * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
@@ -26,7 +26,7 @@ export declare class korCard extends LitElement {
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

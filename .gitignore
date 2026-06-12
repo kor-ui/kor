@@ -1,7 +1,5 @@
 node_modules
 *.d.ts
 components/*/*.d.ts
-components/*/index.js
-index.js
 custom-elements.json
 .DS_Store

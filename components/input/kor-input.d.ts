@@ -1,11 +1,19 @@
-import { LitElement } from 'lit';
+import { LitElement, TemplateResult } from 'lit';
 import '../card';
 import '../icon';
+declare global {
+    namespace Intl {
+        interface ResolvedDateTimeFormatOptions {
+            hourCycle?: "h11" | "h12" | "h23" | "h24";
+        }
+    }
+}
 /**
  * @prop {String} label - If set, defines the text label shown on top.
  * @prop {String} icon - If set, defines the icon shown before the label/value.
  * @prop {String} value - If set, defines the value of the input. Changes upon user interaction.
- * @prop {'text'|'number'|'select'|'name'} type - Defines the type. Possible values are `text`, `number`, `select` and `date`.
+ * @prop {'text'|'number'|'select'|'password'|'date'|'datetime'} type - Defines the type. Possible values are `text`, `number`, `select`, `password`, `date` and `datetime`.
+ * @prop {String} locale - (If type="date" || type="datetime" only) Sets the locale for the calendar custom popup.
  * @prop {String} name - Sets the name of the input. Corresponds to the native input's 'name' attribute.
  * @prop {String} status - If set, Displays a status icon on the right side of the input.
  * @prop {String} pattern - (If type="number" only) If set, defines a custom input pattern (see full documentation).
@@ -13,7 +21,7 @@ import '../icon';
  * @prop {String} max - (If type="number" only) If set, defines the maximum value accepted.
  * @prop {Number} step - (If type="number" only) Defines the steps to skip when the user presses the left or right arrows.
  * @prop {Boolean} condensed - If set to true, reduces the height of the input. The label is only shown if the value is undefined.
- * @prop {Boolean} active - If set to true, highlights the label and underline.
+ * @prop {Boolean} active - If set to true, highlights the label and underline, opens/closes various popups if any.
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
  * @prop {Boolean} readonly - If set to true, disables the input without reducing the opacity.
  * @prop {Boolean} noClear - If set to true, the clear icon and functionality will not be available.
@@ -27,7 +35,8 @@ export declare class korInput extends LitElement {
     icon: string | undefined;
     value: string | undefined;
     name: string | undefined;
-    type: 'text' | 'number' | 'select' | 'date';
+    type: 'text' | 'number' | 'select' | 'password' | 'datetime' | 'date';
+    locale: string | undefined;
     status: string | undefined;
     condensed: boolean | undefined;
     active: boolean | undefined;
@@ -39,13 +48,25 @@ export declare class korInput extends LitElement {
     min: string | undefined;
     max: string | undefined;
     step: number;
-    static get styles(): import("lit").CSSResultGroup[];
-    render(): import("lit-html").TemplateResult<1>;
+    main_input: HTMLInputElement;
+    private is12Hour_;
+    private isMenuHandlerSet_;
+    static get styles(): import("lit").CSSResult[];
+    render(): TemplateResult<1>;
     constructor();
-    handleChange(e: any): void;
-    handleClear(): void;
-    handleBlur(e: any): void;
-    handleIncrement(dir: string): void;
+    firstUpdated(): void;
+    private handleChange_;
+    private setDay_;
+    private getHour_;
+    private setHour_;
+    private getMinute_;
+    private setMinute_;
+    private getAMPM_;
+    private setAMPM_;
+    handleClear(e: Event): void;
+    private handleFocus_;
+    private handleBlur_;
+    private handleIncrement_;
     handleItems(e: any): void;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     handleMenu(): void;
@@ -57,4 +78,7 @@ export declare class korInput extends LitElement {
         left: string;
         width: string;
     };
+    private validateAndFormatDate_;
+    private getLocaleDayNames_;
+    private getCalendarGrid_;
 }

@@ -5,6 +5,6 @@ import '../app-bar';
  * @slot functions - Shown on the right side.
  */
 export declare class korNavbar extends LitElement {
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
 }

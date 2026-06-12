@@ -31,7 +31,7 @@ export declare class korModal extends LitElement {
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }

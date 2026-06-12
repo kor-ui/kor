@@ -26,7 +26,7 @@ export declare class korAccordion extends LitElement {
     emptyFunctions: boolean;
     emptyBody: boolean;
     emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     connectedCallback(): void;

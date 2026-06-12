@@ -12,7 +12,7 @@ export declare class korAvatar extends LitElement {
     info: string | undefined;
     image: string | undefined;
     condensed: boolean | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     getInitials(label: string): string;

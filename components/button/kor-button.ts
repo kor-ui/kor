@@ -1,10 +1,10 @@
 import { LitElement, css, html } from 'lit';
-import { property } from 'lit/decorators';
+import { property } from 'lit/decorators.js';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 
 /**
- * @prop {String} label -	Defines the text label.
+ * @prop {String} label - Defines the text label.
  * @prop {String} icon - If set, replaces the text label with a custom icon.
  * @prop {'primary'|'secondary'|'tertiary'} color - Defines the color. The possible values are `primary`, `secondary` and `tertiary`
  * @prop {Boolean} disabled - If set to true, disables mouse clicks and the style gets updated.
@@ -30,7 +30,7 @@ export class korButton extends LitElement {
           gap: var(--spacing-xs);
           height: max-content;
           width: max-content;
-          border-radius: var(--border-radius);
+          border-radius: var(--btn-border-radius, --border-radius);
           cursor: pointer;
           transition: var(--transition-1);
           justify-content: center;
@@ -40,7 +40,6 @@ export class korButton extends LitElement {
           text-overflow: ellipsis;
         }
         :host([label]) {
-          min-width: calc(24px + var(--spacing-l) * 2);
           max-width: 160px;
           padding: var(--spacing-xs) var(--spacing-m);
         }
@@ -55,7 +54,8 @@ export class korButton extends LitElement {
         }
         /* idle */
         :host([color='primary']) {
-          background-color: rgb(var(--accent-1));
+          color: var(--btn-primary-face-color, --text-1);
+          background: var(--btn-primary-gradient, rgb(var(--accent-1)));
         }
         :host([color='secondary']) {
           background-color: rgba(var(--neutral-1), 0.1);
@@ -74,13 +74,10 @@ export class korButton extends LitElement {
         kor-icon {
           color: unset;
         }
-        :host([color='primary']) {
-          color: rgba(255, 255, 255, 0.9);
-        }
         /* hover inputs */
         @media (hover: hover) {
           :host([color='primary']:not(:active):hover) {
-            background-color: rgb(var(--accent-1b));
+            background: var(--btn-primary-gradient-hover, rgb(var(--accent-1b)));
           }
           :host([color='secondary']:not(:active):hover) {
             background-color: rgba(var(--neutral-1), 0.15);
@@ -89,6 +86,17 @@ export class korButton extends LitElement {
             border-color: rgba(var(--neutral-1), 0.3);
             background-color: rgba(var(--neutral-1), 0.05);
           }
+        }
+        .center {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .label {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       `,
     ];
@@ -99,7 +107,9 @@ export class korButton extends LitElement {
       <slot name="icon">
         ${this.icon ? html` <kor-icon icon="${this.icon}"></kor-icon> ` : ''}
       </slot>
-      <slot> ${this.label ? html` ${this.label} ` : ''}</slot>
+      <slot>${this.label ?
+              html`<div class="center"><label class="label">${this.label}</label></div>`
+              : ''}</slot>
     `;
   }
 

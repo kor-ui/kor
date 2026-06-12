@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { property, state } from 'lit/decorators';
+import { property, state } from 'lit/decorators.js';
 import { sharedStyles } from '../../shared-styles';
 import '../popover';
 
@@ -32,7 +32,7 @@ export class korTooltip extends LitElement {
     | 'right'
     | 'top'
     | 'bottom' = 'bottom';
-  @property({ type: String, reflect: true }) target: string | undefined;
+  @property({ type: String, reflect: true }) target: string | HTMLElement | undefined;
   @property({ type: Boolean, reflect: true }) visible: boolean | undefined;
 
   // readonly properties

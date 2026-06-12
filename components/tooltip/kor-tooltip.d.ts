@@ -23,12 +23,12 @@ export declare class korTooltip extends LitElement {
     icon: string | undefined;
     flexDirection: 'column' | 'row';
     position: 'left' | 'right' | 'top' | 'bottom';
-    target: string | undefined;
+    target: string | HTMLElement | undefined;
     visible: boolean | undefined;
     emptyHeader: boolean;
     emptyFunctions: boolean;
     emptyFooter: boolean;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     targetObserver(): void;

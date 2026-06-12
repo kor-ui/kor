@@ -1,10 +1,10 @@
 import { LitElement, css, html } from 'lit';
-import { property, state } from 'lit/decorators';
+import { property, state } from 'lit/decorators.js';
 import { sharedStyles } from '../../shared-styles';
 import '../icon';
 
 /**
- * @prop {String} label -	If set, defines the text label.
+ * @prop {String} label - If set, defines the text label.
  * @prop {String} icon - If set, defines the icon shown close to the label.
  * @prop {String} image - If set, defines the image shown on top of the card.
  * @prop {'row'|'column'} flexDirection - Defines the direction in which the slotted content flows (e.g. top to bottom or left to right). Possible values are `column` and `row`.
@@ -108,7 +108,8 @@ export class korCard extends LitElement {
         slot:not([name]) {
           flex: 1;
           width: 100%;
-          padding: 0 var(--spacing-l);
+          /* Don't set the right padding to have a vertical scrollbar for overflows */
+          padding: 0 0 0 var(--spacing-l);
           margin-right: calc(var(--spacing-l) * -1);
           margin-left: calc(var(--spacing-l) * -1);
           gap: var(--body-gap);
