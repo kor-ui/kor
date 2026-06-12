@@ -601,7 +601,7 @@
     `}attributeChangedCallback(r,c,p){super.attributeChangedCallback(r,c,p),this.dispatchEvent(new Event(`${r}-changed`))}firstItem(){var r;let c,p;return p=Array.prototype.slice.call(null===(r=this.parentElement)||void 0===r?void 0:r.children),c=0==p.indexOf(this),c}}kor_breadcrumb_item_decorate([(0,h.MZ)({type:String,reflect:!0})],korBreadcrumbItem.prototype,"label",void 0),kor_breadcrumb_item_decorate([(0,h.MZ)({type:Boolean,reflect:!0})],korBreadcrumbItem.prototype,"active",void 0),window.customElements.get("kor-breadcrumb-item")||window.customElements.define("kor-breadcrumb-item",korBreadcrumbItem);var kor_button_decorate=function(r,c,p,h){var g,f=arguments.length,y=f<3?c:null===h?h=Object.getOwnPropertyDescriptor(c,p):h;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)y=Reflect.decorate(r,c,p,h);else for(var b=r.length-1;b>=0;b--)(g=r[b])&&(y=(f<3?g(y):f>3?g(c,p,y):g(c,p))||y);return f>3&&y&&Object.defineProperty(c,p,y),y};class korButton extends p.WF{constructor(){super(...arguments),this.color="primary"}static get styles(){return[g.g,p.AH`
         :host {
           font: var(--header-2);
-          color: var(--btn-face-color, --text-1);
+          color: var(--text-1);
           display: flex;
           gap: var(--spacing-xs);
           height: max-content;
@@ -630,6 +630,7 @@
         }
         /* idle */
         :host([color='primary']) {
+          color: var(--btn-primary-face-color, --text-1);
           background: var(--btn-primary-gradient, rgb(var(--accent-1)));
         }
         :host([color='secondary']) {
