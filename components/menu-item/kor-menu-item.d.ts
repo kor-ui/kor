@@ -17,7 +17,7 @@ export declare class korMenuItem extends LitElement {
     active: boolean | undefined;
     toggle: boolean;
     disabled: boolean | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
 }
