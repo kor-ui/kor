@@ -76,7 +76,7 @@ export class korButton extends LitElement {
         /* hover inputs */
         @media (hover: hover) {
           :host([color='primary']:not(:active):hover) {
-            background-color: rgb(var(--accent-1b));
+            background: var(--btn-primary-gradient-hover, rgb(var(--accent-1b)));
           }
           :host([color='secondary']:not(:active):hover) {
             background-color: rgba(var(--neutral-1), 0.15);
