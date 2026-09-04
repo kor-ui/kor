@@ -1,1 +1,1 @@
-export declare const sharedStyles: import("lit").CSSResultGroup;
+export declare const sharedStyles: import("lit").CSSResult;

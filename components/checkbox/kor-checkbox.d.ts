@@ -10,7 +10,7 @@ export declare class korCheckbox extends LitElement {
     label: string | undefined;
     active: boolean | undefined;
     disabled: boolean | undefined;
-    static get styles(): import("lit").CSSResultGroup[];
+    static get styles(): import("lit").CSSResult[];
     render(): import("lit-html").TemplateResult<1>;
     attributeChangedCallback(name: string, oldval: string, newval: string): void;
     connectedCallback(): void;

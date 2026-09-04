@@ -1,59 +1,4 @@
-(()=>{"use strict";var t={796:(t,l,p)=>{p(8928)},1098:(t,l,p)=>{var u=p(6161),v=p(5707),g=p(4399),__decorate=function(t,l,p,u){var v,g=arguments.length,f=g<3?l:null===u?u=Object.getOwnPropertyDescriptor(l,p):u;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)f=Reflect.decorate(t,l,p,u);else for(var y=t.length-1;y>=0;y--)(v=t[y])&&(f=(g<3?v(f):g>3?v(l,p,f):v(l,p))||f);return g>3&&f&&Object.defineProperty(l,p,f),f};class korIcon extends u.WF{constructor(){super(...arguments),this.size="m"}static get styles(){return[g.g,u.AH`
-        :host {
-          font-family: 'md-icons';
-          line-height: 1;
-          -webkit-font-smoothing: auto;
-          text-rendering: optimizeLegibility;
-          -moz-osx-font-smoothing: grayscale;
-          font-feature-settings: 'liga';
-          opacity: 0.9;
-          color: var(--text-1);
-          transition: var(--transition-1);
-          height: max-content;
-          width: max-content;
-          min-height: max-content;
-          min-width: max-content;
-          overflow: hidden;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-        }
-        :host([button]) {
-          opacity: 0.6;
-          cursor: pointer;
-        }
-        :host([disabled]) {
-          pointer-events: none;
-          opacity: 0.2;
-        }
-        /* size */
-        :host([size='xl']) {
-          height: 48px;
-          width: 48px;
-          font-size: 48px;
-        }
-        :host([size='l']) {
-          height: 32px;
-          width: 32px;
-          font-size: 32px;
-        }
-        :host([size='m']) {
-          height: 24px;
-          width: 24px;
-          font-size: 24px;
-        }
-        :host([size='s']) {
-          height: 16px;
-          width: 16px;
-          font-size: 16px;
-        }
-        /* hover inputs */
-        @media (hover: hover) {
-          :host([button]:hover:not(:active)) {
-            opacity: 0.9;
-          }
-        }
-      `]}render(){var t;return u.qy` ${(null===(t=this.icon)||void 0===t?void 0:t.indexOf("url"))?u.qy` ${this.icon} `:""}`}attributeChangedCallback(t,l,p){super.attributeChangedCallback(t,l,p),this.dispatchEvent(new Event(t+"-changed")),"color"==t&&this.color?this.style.color=this.color:"icon"==t&&p.indexOf("url")>-1&&this.setBackgroundImage(p)}setBackgroundImage(t){this.style.backgroundImage=t}}__decorate([(0,v.MZ)({type:String,reflect:!0})],korIcon.prototype,"icon",void 0),__decorate([(0,v.MZ)({type:String,reflect:!0})],korIcon.prototype,"color",void 0),__decorate([(0,v.MZ)({type:String,reflect:!0})],korIcon.prototype,"size",void 0),__decorate([(0,v.MZ)({type:Boolean,reflect:!0})],korIcon.prototype,"button",void 0),__decorate([(0,v.MZ)({type:Boolean,reflect:!0})],korIcon.prototype,"disabled",void 0),window.customElements.get("kor-icon")||window.customElements.define("kor-icon",korIcon)},1869:(t,l,p)=>{p(3664)},2730:(t,l,p)=>{p(1098)},3664:(t,l,p)=>{var u=p(6161),v=p(5707),g=p(4399),f=(p(2730),function(t,l,p,u){var v,g=arguments.length,f=g<3?l:null===u?u=Object.getOwnPropertyDescriptor(l,p):u;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)f=Reflect.decorate(t,l,p,u);else for(var y=t.length-1;y>=0;y--)(v=t[y])&&(f=(g<3?v(f):g>3?v(l,p,f):v(l,p))||f);return g>3&&f&&Object.defineProperty(l,p,f),f});class korCard extends u.WF{constructor(){super(...arguments),this.flexDirection="column",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[g.g,u.AH`
+import*as e from"lit";var o={1869(e,o,r){r(3664)},3664(e,o,r){var s=r(2927),a=r(5707),l=r(4399),p=(r(2730),function(e,o,r,s){var a,l=arguments.length,p=l<3?o:null===s?s=Object.getOwnPropertyDescriptor(o,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)p=Reflect.decorate(e,o,r,s);else for(var c=e.length-1;c>=0;c--)(a=e[c])&&(p=(l<3?a(p):l>3?a(o,r,p):a(o,r))||p);return l>3&&p&&Object.defineProperty(o,r,p),p});class korCard extends s.LitElement{constructor(){super(...arguments),this.flexDirection="column",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[l.g,s.css`
         :host {
           display: flex;
           flex-direction: column;
@@ -124,7 +69,8 @@
         slot:not([name]) {
           flex: 1;
           width: 100%;
-          padding: 0 var(--spacing-l);
+          /* Don't set the right padding to have a vertical scrollbar for overflows */
+          padding: 0 0 0 var(--spacing-l);
           margin-right: calc(var(--spacing-l) * -1);
           margin-left: calc(var(--spacing-l) * -1);
           gap: var(--body-gap);
@@ -144,57 +90,92 @@
           margin: calc(var(--spacing-l) * -1) calc(var(--spacing-l) * -1)
             var(--spacing-l) calc(var(--spacing-l) * -1);
         }
-      `]}render(){return u.qy`
-      ${this.image?u.qy` <img class="image" src="${this.image}" /> `:""}
+      `]}render(){return s.html`
+      ${this.image?s.html` <img class="image" src="${this.image}" /> `:""}
       <div
         class="top ${this.emptyHeader&&this.emptyFunctions&&!this.label&&!this.icon?"empty":""}"
       >
         <div class="header">
-          ${this.label||this.icon?u.qy`
+          ${this.label||this.icon?s.html`
                 <div class="label">
-                  ${this.icon?u.qy` <kor-icon icon="${this.icon}"></kor-icon> `:""}
+                  ${this.icon?s.html` <kor-icon icon="${this.icon}"></kor-icon> `:""}
                   <p>${this.label}</p>
                 </div>
-                ${this.emptyHeader||!this.label&&!this.icon?"":u.qy` <div style="margin-top: var(--spacing-l)"></div> `}
+                ${this.emptyHeader||!this.label&&!this.icon?"":s.html` <div style="margin-top: var(--spacing-l)"></div> `}
               `:""}
           <slot
             name="header"
-            @slotchange="${t=>this.emptyHeader=0===t.target.assignedNodes().length}"
+            @slotchange="${e=>this.emptyHeader=0===e.target.assignedNodes().length}"
             class="${this.emptyHeader?"empty":""}"
           ></slot>
         </div>
         <slot
           name="functions"
-          @slotchange="${t=>this.emptyFunctions=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyFunctions=0===e.target.assignedNodes().length}"
         ></slot>
       </div>
       <slot></slot>
       <slot
         name="footer"
-        @slotchange="${t=>this.emptyFooter=0===t.target.assignedNodes().length}"
+        @slotchange="${e=>this.emptyFooter=0===e.target.assignedNodes().length}"
         class="${this.emptyFooter?"empty":""}"
       ></slot>
-    `}attributeChangedCallback(t,l,p){super.attributeChangedCallback(t,l,p),this.dispatchEvent(new Event(t+"-changed"))}}f([(0,v.MZ)({type:String,reflect:!0})],korCard.prototype,"label",void 0),f([(0,v.MZ)({type:String,reflect:!0})],korCard.prototype,"icon",void 0),f([(0,v.MZ)({type:String,reflect:!0})],korCard.prototype,"image",void 0),f([(0,v.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korCard.prototype,"flexDirection",void 0),f([(0,v.MZ)({type:Boolean,reflect:!0})],korCard.prototype,"flat",void 0),f([(0,v.wk)()],korCard.prototype,"emptyHeader",void 0),f([(0,v.wk)()],korCard.prototype,"emptyFunctions",void 0),f([(0,v.wk)()],korCard.prototype,"emptyFooter",void 0),window.customElements.get("kor-card")||window.customElements.define("kor-card",korCard)},3826:(t,l,p)=>{p.d(l,{AH:()=>i,Rf:()=>S,sk:()=>f});const u=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,v=Symbol();class s{constructor(t,l){if(l!==v)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t}get styleSheet(){return u&&void 0===this.t&&(this.t=new CSSStyleSheet,this.t.replaceSync(this.cssText)),this.t}toString(){return this.cssText}}const g=new Map,o=t=>{let l=g.get(t);return void 0===l&&g.set(t,l=new s(t,v)),l},i=(t,...l)=>{const p=1===t.length?t[0]:l.reduce((l,p,u)=>l+(t=>{if(t instanceof s)return t.cssText;if("number"==typeof t)return t;throw Error("Value passed to 'css' function must be a 'css' function result: "+t+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(p)+t[u+1],t[0]);return o(p)},S=(t,l)=>{u?t.adoptedStyleSheets=l.map(t=>t instanceof CSSStyleSheet?t:t.styleSheet):l.forEach(l=>{const p=document.createElement("style");p.textContent=l.cssText,t.appendChild(p)})},f=u?t=>t:t=>t instanceof CSSStyleSheet?(t=>{let l="";for(const p of t.cssRules)l+=p.cssText;return(t=>o("string"==typeof t?t:t+""))(l)})(t):t},4290:(t,l,p)=>{p.d(l,{w:()=>r});var u=p(5694);function r(t){return(0,u.M)({...t,state:!0,attribute:!1})}},4399:(t,l,p)=>{p.d(l,{g:()=>u});const u=p(6161).AH`
-  /* scrollbar */
-  *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background-color: transparent;
-    visibility: hidden;
-  }
-  *::-webkit-scrollbar-track {
-    background-color: rgba(var(--neutral-1), 0.05);
-    border-radius: 8px;
-  }
-  *::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--neutral-1), 0.1);
-    border-radius: 8px;
-  }
-  *::-webkit-scrollbar-thumb:active,
-  *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(var(--neutral-1), 0.2);
-  }
-`},5228:(t,l,p)=>{p.d(l,{AH:()=>w.AH,WF:()=>h,qy:()=>x.qy});var u,v,g,f,y,m,w=p(8760),x=p(6752);(null!==(u=(m=globalThis).litElementVersions)&&void 0!==u?u:m.litElementVersions=[]).push("3.0.0-rc.2");class h extends w.mN{constructor(){super(...arguments),this.renderOptions={host:this},this.Φt=void 0}createRenderRoot(){var t,l;const p=super.createRenderRoot();return null!==(t=(l=this.renderOptions).renderBefore)&&void 0!==t||(l.renderBefore=p.firstChild),p}update(t){const l=this.render();super.update(t),this.Φt=(0,x.XX)(l,this.renderRoot,this.renderOptions)}connectedCallback(){var t;super.connectedCallback(),null===(t=this.Φt)||void 0===t||t.setConnected(!0)}disconnectedCallback(){var t;super.disconnectedCallback(),null===(t=this.Φt)||void 0===t||t.setConnected(!1)}render(){return x.c0}}h.finalized=!0,h._$litElement$=!0,null===(g=(v=globalThis).litElementHydrateSupport)||void 0===g||g.call(v,{LitElement:h}),null===(y=(f=globalThis).litElementPlatformSupport)||void 0===y||y.call(f,{LitElement:h})},5694:(t,l,p)=>{p.d(l,{M:()=>e});const i=(t,l)=>"method"===l.kind&&l.descriptor&&!("value"in l.descriptor)?{...l,finisher(p){p.createProperty(l.key,t)}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:l.key,initializer(){"function"==typeof l.initializer&&(this[l.key]=l.initializer.call(this))},finisher(p){p.createProperty(l.key,t)}};function e(t){return(l,p)=>void 0!==p?((t,l,p)=>{l.constructor.createProperty(p,t)})(t,l,p):i(t,l)}},5707:(t,l,p)=>{p.d(l,{MZ:()=>u.M,wk:()=>v.w});var u=p(5694),v=p(4290);p(9896)},6161:(t,l,p)=>{p.d(l,{AH:()=>u.AH,WF:()=>u.WF,qy:()=>u.qy});p(8760),p(6752);var u=p(5228)},6752:(t,l,p)=>{var u,v,g,f;p.d(l,{XX:()=>V,c0:()=>j,qy:()=>Z});const y=globalThis.trustedTypes,m=y?y.createPolicy("lit-html",{createHTML:t=>t}):void 0,w=`lit$${(Math.random()+"").slice(9)}$`,x="?"+w,$=`<${x}>`,P=document,c=(t="")=>P.createComment(t),d=t=>null===t||"object"!=typeof t&&"function"!=typeof t,_=Array.isArray,a=t=>{var l;return _(t)||"function"==typeof(null===(l=t)||void 0===l?void 0:l[Symbol.iterator])},E=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,O=/-->/g,A=/>/g,T=/>|[ 	\n\r](?:([^\s"'>=/]+)([ 	\n\r]*=[ 	\n\r]*(?:[^ 	\n\r"'`<>=]|("|')|))|$)/g,U=/'/g,q=/"/g,F=/^(?:script|style|textarea)$/i,b=t=>(l,...p)=>({_$litType$:t,strings:l,values:p}),Z=b(1),j=(b(2),Symbol.for("lit-noChange")),B=Symbol.for("lit-nothing"),D=new WeakMap,V=(t,l,p)=>{var u,v;const g=null!==(u=null==p?void 0:p.renderBefore)&&void 0!==u?u:l;let f=g._$litPart$;if(void 0===f){const t=null!==(v=null==p?void 0:p.renderBefore)&&void 0!==v?v:null;g._$litPart$=f=new C(l.insertBefore(c(),t),t,void 0,p)}return f.I(t),f},W=P.createTreeWalker(P,129,null,!1),M=(t,l)=>{const p=t.length-1,u=[];let v,g=2===l?"<svg>":"",f=E;for(let l=0;l<p;l++){const p=t[l];let y,m,x=-1,P=0;for(;P<p.length&&(f.lastIndex=P,m=f.exec(p),null!==m);)P=f.lastIndex,f===E?"!--"===m[1]?f=O:void 0!==m[1]?f=A:void 0!==m[2]?(F.test(m[2])&&(v=RegExp("</"+m[2],"g")),f=T):void 0!==m[3]&&(f=T):f===T?">"===m[0]?(f=null!=v?v:E,x=-1):void 0===m[1]?x=-2:(x=f.lastIndex-m[2].length,y=m[1],f=void 0===m[3]?T:'"'===m[3]?q:U):f===q||f===U?f=T:f===O||f===A?f=E:(f=T,v=void 0);const _=f===T&&t[l+1].startsWith("/>")?" ":"";g+=f===E?p+$:x>=0?(u.push(y),p.slice(0,x)+"$lit$"+p.slice(x)+w+_):p+w+(-2===x?(u.push(void 0),l):_)}const y=g+(t[p]||"<?>")+(2===l?"</svg>":"");return[void 0!==m?m.createHTML(y):y,u]};class N{constructor({strings:t,_$litType$:l},p){let u;this.parts=[];let v=0,g=0;const f=t.length-1,m=this.parts,[$,P]=M(t,l);if(this.el=N.createElement($,p),W.currentNode=this.el.content,2===l){const t=this.el.content,l=t.firstChild;l.remove(),t.append(...l.childNodes)}for(;null!==(u=W.nextNode())&&m.length<f;){if(1===u.nodeType){if(u.hasAttributes()){const t=[];for(const l of u.getAttributeNames())if(l.endsWith("$lit$")||l.startsWith(w)){const p=P[g++];if(t.push(l),void 0!==p){const t=u.getAttribute(p.toLowerCase()+"$lit$").split(w),l=/([.?@])?(.*)/.exec(p);m.push({type:1,index:v,name:l[2],strings:t,ctor:"."===l[1]?I:"?"===l[1]?L:"@"===l[1]?R:H})}else m.push({type:6,index:v})}for(const l of t)u.removeAttribute(l)}if(F.test(u.tagName)){const t=u.textContent.split(w),l=t.length-1;if(l>0){u.textContent=y?y.emptyScript:"";for(let p=0;p<l;p++)u.append(t[p],c()),W.nextNode(),m.push({type:2,index:++v});u.append(t[l],c())}}}else if(8===u.nodeType)if(u.data===x)m.push({type:2,index:v});else{let t=-1;for(;-1!==(t=u.data.indexOf(w,t+1));)m.push({type:7,index:v}),t+=w.length-1}v++}}static createElement(t,l){const p=P.createElement("template");return p.innerHTML=t,p}}function S(t,l,p=t,u){var v,g,f,y;if(l===j)return l;let m=void 0!==u?null===(v=p.Σi)||void 0===v?void 0:v[u]:p.Σo;const w=d(l)?void 0:l._$litDirective$;return(null==m?void 0:m.constructor)!==w&&(null===(g=null==m?void 0:m.O)||void 0===g||g.call(m,!1),void 0===w?m=void 0:(m=new w(t),m.T(t,p,u)),void 0!==u?(null!==(f=(y=p).Σi)&&void 0!==f?f:y.Σi=[])[u]=m:p.Σo=m),void 0!==m&&(l=S(t,m.S(t,l.values),m,u)),l}class k{constructor(t,l){this.l=[],this.N=void 0,this.D=t,this.M=l}u(t){var l;const{el:{content:p},parts:u}=this.D,v=(null!==(l=null==t?void 0:t.creationScope)&&void 0!==l?l:P).importNode(p,!0);W.currentNode=v;let g=W.nextNode(),f=0,y=0,m=u[0];for(;void 0!==m;){if(f===m.index){let l;2===m.type?l=new C(g,g.nextSibling,this,t):1===m.type?l=new m.ctor(g,m.name,m.strings,this,t):6===m.type&&(l=new z(g,this,t)),this.l.push(l),m=u[++y]}f!==(null==m?void 0:m.index)&&(g=W.nextNode(),f++)}return v}v(t){let l=0;for(const p of this.l)void 0!==p&&(void 0!==p.strings?(p.I(t,p,l),l+=p.strings.length-2):p.I(t[l])),l++}}class C{constructor(t,l,p,u){this.type=2,this.N=void 0,this.A=t,this.B=l,this.M=p,this.options=u}setConnected(t){var l;null===(l=this.P)||void 0===l||l.call(this,t)}get parentNode(){return this.A.parentNode}get startNode(){return this.A}get endNode(){return this.B}I(t,l=this){t=S(this,t,l),d(t)?t===B||null==t||""===t?(this.H!==B&&this.R(),this.H=B):t!==this.H&&t!==j&&this.m(t):void 0!==t._$litType$?this._(t):void 0!==t.nodeType?this.$(t):a(t)?this.g(t):this.m(t)}k(t,l=this.B){return this.A.parentNode.insertBefore(t,l)}$(t){this.H!==t&&(this.R(),this.H=this.k(t))}m(t){const l=this.A.nextSibling;null!==l&&3===l.nodeType&&(null===this.B?null===l.nextSibling:l===this.B.previousSibling)?l.data=t:this.$(P.createTextNode(t)),this.H=t}_(t){var l;const{values:p,_$litType$:u}=t,v="number"==typeof u?this.C(t):(void 0===u.el&&(u.el=N.createElement(u.h,this.options)),u);if((null===(l=this.H)||void 0===l?void 0:l.D)===v)this.H.v(p);else{const t=new k(v,this),l=t.u(this.options);t.v(p),this.$(l),this.H=t}}C(t){let l=D.get(t.strings);return void 0===l&&D.set(t.strings,l=new N(t)),l}g(t){_(this.H)||(this.H=[],this.R());const l=this.H;let p,u=0;for(const v of t)u===l.length?l.push(p=new C(this.k(c()),this.k(c()),this,this.options)):p=l[u],p.I(v),u++;u<l.length&&(this.R(p&&p.B.nextSibling,u),l.length=u)}R(t=this.A.nextSibling,l){var p;for(null===(p=this.P)||void 0===p||p.call(this,!1,!0,l);t&&t!==this.B;){const l=t.nextSibling;t.remove(),t=l}}}class H{constructor(t,l,p,u,v){this.type=1,this.H=B,this.N=void 0,this.V=void 0,this.element=t,this.name=l,this.M=u,this.options=v,p.length>2||""!==p[0]||""!==p[1]?(this.H=Array(p.length-1).fill(B),this.strings=p):this.H=B}get tagName(){return this.element.tagName}I(t,l=this,p,u){const v=this.strings;let g=!1;if(void 0===v)t=S(this,t,l,0),g=!d(t)||t!==this.H&&t!==j,g&&(this.H=t);else{const u=t;let f,y;for(t=v[0],f=0;f<v.length-1;f++)y=S(this,u[p+f],l,f),y===j&&(y=this.H[f]),g||(g=!d(y)||y!==this.H[f]),y===B?t=B:t!==B&&(t+=(null!=y?y:"")+v[f+1]),this.H[f]=y}g&&!u&&this.W(t)}W(t){t===B?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,null!=t?t:"")}}class I extends H{constructor(){super(...arguments),this.type=3}W(t){this.element[this.name]=t===B?void 0:t}}class L extends H{constructor(){super(...arguments),this.type=4}W(t){t&&t!==B?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name)}}class R extends H{constructor(){super(...arguments),this.type=5}I(t,l=this){var p;if((t=null!==(p=S(this,t,l,0))&&void 0!==p?p:B)===j)return;const u=this.H,v=t===B&&u!==B||t.capture!==u.capture||t.once!==u.once||t.passive!==u.passive,g=t!==B&&(u===B||v);v&&this.element.removeEventListener(this.name,this,u),g&&this.element.addEventListener(this.name,this,t),this.H=t}handleEvent(t){var l,p;"function"==typeof this.H?this.H.call(null!==(p=null===(l=this.options)||void 0===l?void 0:l.host)&&void 0!==p?p:this.element,t):this.H.handleEvent(t)}}class z{constructor(t,l,p){this.element=t,this.type=6,this.N=void 0,this.V=void 0,this.M=l,this.options=p}I(t){S(this,t)}}null===(v=(u=globalThis).litHtmlPlatformSupport)||void 0===v||v.call(u,N,C),(null!==(g=(f=globalThis).litHtmlVersions)&&void 0!==g?g:f.litHtmlVersions=[]).push("2.0.0-rc.3")},8760:(t,l,p)=>{p.d(l,{AH:()=>y.AH,mN:()=>a});var u,v,g,f,y=p(3826);const m={toAttribute(t,l){switch(l){case Boolean:t=t?"":null;break;case Object:case Array:t=null==t?t:JSON.stringify(t)}return t},fromAttribute(t,l){let p=t;switch(l){case Boolean:p=null!==t;break;case Number:p=null===t?null:Number(t);break;case Object:case Array:try{p=JSON.parse(t)}catch(t){p=null}}return p}},n=(t,l)=>l!==t&&(l==l||t==t),w={attribute:!0,type:String,converter:m,reflect:!1,hasChanged:n};class a extends HTMLElement{constructor(){super(),this.Πi=new Map,this.Πo=void 0,this.Πl=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this.Πh=null,this.u()}static addInitializer(t){var l;null!==(l=this.v)&&void 0!==l||(this.v=[]),this.v.push(t)}static get observedAttributes(){this.finalize();const t=[];return this.elementProperties.forEach((l,p)=>{const u=this.Πp(p,l);void 0!==u&&(this.Πm.set(u,p),t.push(u))}),t}static createProperty(t,l=w){if(l.state&&(l.attribute=!1),this.finalize(),this.elementProperties.set(t,l),!l.noAccessor&&!this.prototype.hasOwnProperty(t)){const p="symbol"==typeof t?Symbol():"__"+t,u=this.getPropertyDescriptor(t,p,l);void 0!==u&&Object.defineProperty(this.prototype,t,u)}}static getPropertyDescriptor(t,l,p){return{get(){return this[l]},set(u){const v=this[t];this[l]=u,this.requestUpdate(t,v,p)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)||w}static finalize(){if(this.hasOwnProperty("finalized"))return!1;this.finalized=!0;const t=Object.getPrototypeOf(this);if(t.finalize(),this.elementProperties=new Map(t.elementProperties),this.Πm=new Map,this.hasOwnProperty("properties")){const t=this.properties,l=[...Object.getOwnPropertyNames(t),...Object.getOwnPropertySymbols(t)];for(const p of l)this.createProperty(p,t[p])}return this.elementStyles=this.finalizeStyles(this.styles),!0}static finalizeStyles(t){const l=[];if(Array.isArray(t)){const p=new Set(t.flat(1/0).reverse());for(const t of p)l.unshift((0,y.sk)(t))}else void 0!==t&&l.push((0,y.sk)(t));return l}static"Πp"(t,l){const p=l.attribute;return!1===p?void 0:"string"==typeof p?p:"string"==typeof t?t.toLowerCase():void 0}u(){var t;this.Πg=new Promise(t=>this.enableUpdating=t),this.L=new Map,this.Π_(),this.requestUpdate(),null===(t=this.constructor.v)||void 0===t||t.forEach(t=>t(this))}addController(t){var l,p;(null!==(l=this.ΠU)&&void 0!==l?l:this.ΠU=[]).push(t),void 0!==this.renderRoot&&this.isConnected&&(null===(p=t.hostConnected)||void 0===p||p.call(t))}removeController(t){var l;null===(l=this.ΠU)||void 0===l||l.splice(this.ΠU.indexOf(t)>>>0,1)}"Π_"(){this.constructor.elementProperties.forEach((t,l)=>{this.hasOwnProperty(l)&&(this.Πi.set(l,this[l]),delete this[l])})}createRenderRoot(){var t;const l=null!==(t=this.shadowRoot)&&void 0!==t?t:this.attachShadow(this.constructor.shadowRootOptions);return(0,y.Rf)(l,this.constructor.elementStyles),l}connectedCallback(){var t;void 0===this.renderRoot&&(this.renderRoot=this.createRenderRoot()),this.enableUpdating(!0),null===(t=this.ΠU)||void 0===t||t.forEach(t=>{var l;return null===(l=t.hostConnected)||void 0===l?void 0:l.call(t)}),this.Πl&&(this.Πl(),this.Πo=this.Πl=void 0)}enableUpdating(t){}disconnectedCallback(){var t;null===(t=this.ΠU)||void 0===t||t.forEach(t=>{var l;return null===(l=t.hostDisconnected)||void 0===l?void 0:l.call(t)}),this.Πo=new Promise(t=>this.Πl=t)}attributeChangedCallback(t,l,p){this.K(t,p)}"Πj"(t,l,p=w){var u,v;const g=this.constructor.Πp(t,p);if(void 0!==g&&!0===p.reflect){const f=(null!==(v=null===(u=p.converter)||void 0===u?void 0:u.toAttribute)&&void 0!==v?v:m.toAttribute)(l,p.type);this.Πh=t,null==f?this.removeAttribute(g):this.setAttribute(g,f),this.Πh=null}}K(t,l){var p,u,v;const g=this.constructor,f=g.Πm.get(t);if(void 0!==f&&this.Πh!==f){const t=g.getPropertyOptions(f),y=t.converter,w=null!==(v=null!==(u=null===(p=y)||void 0===p?void 0:p.fromAttribute)&&void 0!==u?u:"function"==typeof y?y:null)&&void 0!==v?v:m.fromAttribute;this.Πh=f,this[f]=w(l,t.type),this.Πh=null}}requestUpdate(t,l,p){let u=!0;void 0!==t&&(((p=p||this.constructor.getPropertyOptions(t)).hasChanged||n)(this[t],l)?(this.L.has(t)||this.L.set(t,l),!0===p.reflect&&this.Πh!==t&&(void 0===this.Πk&&(this.Πk=new Map),this.Πk.set(t,p))):u=!1),!this.isUpdatePending&&u&&(this.Πg=this.Πq())}async"Πq"(){this.isUpdatePending=!0;try{for(await this.Πg;this.Πo;)await this.Πo}catch(t){Promise.reject(t)}const t=this.performUpdate();return null!=t&&await t,!this.isUpdatePending}performUpdate(){var t;if(!this.isUpdatePending)return;this.hasUpdated,this.Πi&&(this.Πi.forEach((t,l)=>this[l]=t),this.Πi=void 0);let l=!1;const p=this.L;try{l=this.shouldUpdate(p),l?(this.willUpdate(p),null===(t=this.ΠU)||void 0===t||t.forEach(t=>{var l;return null===(l=t.hostUpdate)||void 0===l?void 0:l.call(t)}),this.update(p)):this.Π$()}catch(t){throw l=!1,this.Π$(),t}l&&this.E(p)}willUpdate(t){}E(t){var l;null===(l=this.ΠU)||void 0===l||l.forEach(t=>{var l;return null===(l=t.hostUpdated)||void 0===l?void 0:l.call(t)}),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t)}"Π$"(){this.L=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this.Πg}shouldUpdate(t){return!0}update(t){void 0!==this.Πk&&(this.Πk.forEach((t,l)=>this.Πj(l,this[l],t)),this.Πk=void 0),this.Π$()}updated(t){}firstUpdated(t){}}a.finalized=!0,a.elementProperties=new Map,a.elementStyles=[],a.shadowRootOptions={mode:"open"},null===(v=(u=globalThis).reactiveElementPlatformSupport)||void 0===v||v.call(u,{ReactiveElement:a}),(null!==(g=(f=globalThis).reactiveElementVersions)&&void 0!==g?g:f.reactiveElementVersions=[]).push("1.0.0-rc.2")},8928:(t,l,p)=>{var u=p(6161),v=p(5707),g=p(4399),f=(p(1869),function(t,l,p,u){var v,g=arguments.length,f=g<3?l:null===u?u=Object.getOwnPropertyDescriptor(l,p):u;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)f=Reflect.decorate(t,l,p,u);else for(var y=t.length-1;y>=0;y--)(v=t[y])&&(f=(g<3?v(f):g>3?v(l,p,f):v(l,p))||f);return g>3&&f&&Object.defineProperty(l,p,f),f});class korPopover extends u.WF{constructor(){super(...arguments),this.flexDirection="column",this.position="bottom",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[g.g,u.AH`
+    `}attributeChangedCallback(e,o,r){super.attributeChangedCallback(e,o,r),this.dispatchEvent(new Event(`${e}-changed`))}}p([(0,a.MZ)({type:String,reflect:!0})],korCard.prototype,"label",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korCard.prototype,"icon",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korCard.prototype,"image",void 0),p([(0,a.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korCard.prototype,"flexDirection",void 0),p([(0,a.MZ)({type:Boolean,reflect:!0})],korCard.prototype,"flat",void 0),p([(0,a.wk)()],korCard.prototype,"emptyHeader",void 0),p([(0,a.wk)()],korCard.prototype,"emptyFunctions",void 0),p([(0,a.wk)()],korCard.prototype,"emptyFooter",void 0),window.customElements.get("kor-card")||window.customElements.define("kor-card",korCard)},2730(e,o,r){r(1098)},1098(e,o,r){var s=r(2927),a=r(5707),l=r(4399),__decorate=function(e,o,r,s){var a,l=arguments.length,p=l<3?o:null===s?s=Object.getOwnPropertyDescriptor(o,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)p=Reflect.decorate(e,o,r,s);else for(var c=e.length-1;c>=0;c--)(a=e[c])&&(p=(l<3?a(p):l>3?a(o,r,p):a(o,r))||p);return l>3&&p&&Object.defineProperty(o,r,p),p};class korIcon extends s.LitElement{constructor(){super(...arguments),this.size="m"}static get styles(){return[l.g,s.css`
+        :host {
+          font-family: 'md-icons';
+          line-height: 1;
+          -webkit-font-smoothing: auto;
+          text-rendering: optimizeLegibility;
+          -moz-osx-font-smoothing: grayscale;
+          font-feature-settings: 'liga';
+          opacity: 0.9;
+          color: var(--text-1);
+          transition: var(--transition-1);
+          height: max-content;
+          width: max-content;
+          min-height: max-content;
+          min-width: max-content;
+          overflow: hidden;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+        :host([button]) {
+          opacity: 0.6;
+          cursor: pointer;
+        }
+        :host([disabled]) {
+          pointer-events: none;
+          opacity: 0.2;
+        }
+        /* size */
+        :host([size='xl']) {
+          height: 48px;
+          width: 48px;
+          font-size: 48px;
+        }
+        :host([size='l']) {
+          height: 32px;
+          width: 32px;
+          font-size: 32px;
+        }
+        :host([size='m']) {
+          height: 24px;
+          width: 24px;
+          font-size: 24px;
+        }
+        :host([size='s']) {
+          height: 16px;
+          width: 16px;
+          font-size: 16px;
+        }
+        /* hover inputs */
+        @media (hover: hover) {
+          :host([button]:hover:not(:active)) {
+            opacity: 0.9;
+          }
+        }
+      `]}render(){var e;return s.html` ${(null===(e=this.icon)||void 0===e?void 0:e.indexOf("url"))?s.html` ${this.icon} `:""}`}attributeChangedCallback(e,o,r){super.attributeChangedCallback(e,o,r),this.dispatchEvent(new Event(`${e}-changed`)),"color"==e&&this.color?this.style.color=this.color:"icon"==e&&r.indexOf("url")>-1&&this.setBackgroundImage(r)}setBackgroundImage(e){this.style.backgroundImage=e}}__decorate([(0,a.MZ)({type:String,reflect:!0})],korIcon.prototype,"icon",void 0),__decorate([(0,a.MZ)({type:String,reflect:!0})],korIcon.prototype,"color",void 0),__decorate([(0,a.MZ)({type:String,reflect:!0})],korIcon.prototype,"size",void 0),__decorate([(0,a.MZ)({type:Boolean,reflect:!0})],korIcon.prototype,"button",void 0),__decorate([(0,a.MZ)({type:Boolean,reflect:!0})],korIcon.prototype,"disabled",void 0),window.customElements.get("kor-icon")||window.customElements.define("kor-icon",korIcon)},796(e,o,r){r(8928)},8928(e,o,r){var s=r(2927),a=r(5707),l=r(4399),p=(r(1869),function(e,o,r,s){var a,l=arguments.length,p=l<3?o:null===s?s=Object.getOwnPropertyDescriptor(o,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)p=Reflect.decorate(e,o,r,s);else for(var c=e.length-1;c>=0;c--)(a=e[c])&&(p=(l<3?a(p):l>3?a(o,r,p):a(o,r))||p);return l>3&&p&&Object.defineProperty(o,r,p),p});class korPopover extends s.LitElement{constructor(){super(...arguments),this.flexDirection="column",this.position="bottom",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[l.g,s.css`
         :host {
           background-color: rgb(var(--base-4));
           border-radius: var(--border-radius);
@@ -235,10 +216,10 @@
           --functions-gap: inherit;
           --footer-gap: inherit;
         }
-      `]}render(){return u.qy`
+      `]}render(){return s.html`
       <kor-card
-        @click="${t=>t.stopPropagation()}"
-        @wheel="${t=>t.stopPropagation()}"
+        @click="${e=>e.stopPropagation()}"
+        @wheel="${e=>e.stopPropagation()}"
         .label="${this.label}"
         .icon="${this.icon}"
         flex-direction="${this.flexDirection}"
@@ -246,21 +227,41 @@
         <slot
           name="header"
           slot="${this.emptyHeader?"hidden":"header"}"
-          @slotchange="${t=>this.emptyHeader=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyHeader=0===e.target.assignedNodes().length}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions?"hidden":"functions"}"
-          @slotchange="${t=>this.emptyFunctions=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyFunctions=0===e.target.assignedNodes().length}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter?"hidden":"footer"}"
-          @slotchange="${t=>this.emptyFooter=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyFooter=0===e.target.assignedNodes().length}"
         ></slot>
       </kor-card>
-    `}attributeChangedCallback(t,l,p){super.attributeChangedCallback(t,l,p),this.dispatchEvent(new Event(t+"-changed")),"target"===t&&this.target?this.targetObserver():"visible"===t&&this.visible&&this.visibleObserver()}targetObserver(){const t="string"==typeof this.target?document.querySelector(this.target):this.target;t&&t.addEventListener("click",()=>this.handlePosition(t))}visibleObserver(){const t="string"==typeof this.target?document.querySelector(this.target):this.target;t&&(this.handlePosition(t),!this.sticky&&this.target&&this.addDocListener(t))}handlePosition(t){if(!t)return;let l=this,p=t.getBoundingClientRect();if(l.visible=!0,l.position.startsWith("bottom"))l.style.top=p.top+p.height+8+"px";else if(l.position.startsWith("top"))l.style.top=p.top-l.clientHeight-8+"px";else{l.style.top=p.top+p.height/2-l.clientHeight/2+"px",parseInt(l.style.top)<0&&(l.style.top="8px");const t=Math.max(document.documentElement.clientHeight||0,window.innerHeight||0);parseInt(l.style.top)+l.clientHeight>t&&(l.style.top=t-l.clientHeight-8+"px")}l.position.startsWith("right")?l.style.left=p.left+p.width+8+"px":l.position.startsWith("left")?l.style.left=p.left-l.clientWidth-8+"px":l.style.left=p.left+p.width/2-l.clientWidth/2+"px"}addDocListener(t){let closePopover=l=>{(l.composedPath()[0]!==t&&l.target!==t&&"click"===l.type||"wheel"===l.type)&&(this.visible=!1,document.removeEventListener("click",closePopover),document.removeEventListener("wheel",closePopover))};document.addEventListener("click",closePopover),document.addEventListener("wheel",closePopover)}}f([(0,v.MZ)({type:String,reflect:!0})],korPopover.prototype,"label",void 0),f([(0,v.MZ)({type:String,reflect:!0})],korPopover.prototype,"icon",void 0),f([(0,v.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korPopover.prototype,"flexDirection",void 0),f([(0,v.MZ)({type:String,reflect:!0})],korPopover.prototype,"position",void 0),f([(0,v.MZ)({type:String,reflect:!0})],korPopover.prototype,"target",void 0),f([(0,v.MZ)({type:Boolean,reflect:!0})],korPopover.prototype,"visible",void 0),f([(0,v.MZ)({type:Boolean,reflect:!0})],korPopover.prototype,"sticky",void 0),f([(0,v.wk)()],korPopover.prototype,"emptyHeader",void 0),f([(0,v.wk)()],korPopover.prototype,"emptyFunctions",void 0),f([(0,v.wk)()],korPopover.prototype,"emptyFooter",void 0),window.customElements.get("kor-popover")||window.customElements.define("kor-popover",korPopover)},9896:(t,l,p)=>{const u=Element.prototype;u.msMatchesSelector||u.webkitMatchesSelector}},l={};function __webpack_require__(p){var u=l[p];if(void 0!==u)return u.exports;var v=l[p]={exports:{}};return t[p](v,v.exports,__webpack_require__),v.exports}__webpack_require__.d=(t,l)=>{for(var p in l)__webpack_require__.o(l,p)&&!__webpack_require__.o(t,p)&&Object.defineProperty(t,p,{enumerable:!0,get:l[p]})},__webpack_require__.o=(t,l)=>Object.prototype.hasOwnProperty.call(t,l);var p=__webpack_require__(6161),u=__webpack_require__(5707),v=__webpack_require__(4399),g=(__webpack_require__(796),function(t,l,p,u){var v,g=arguments.length,f=g<3?l:null===u?u=Object.getOwnPropertyDescriptor(l,p):u;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)f=Reflect.decorate(t,l,p,u);else for(var y=t.length-1;y>=0;y--)(v=t[y])&&(f=(g<3?v(f):g>3?v(l,p,f):v(l,p))||f);return g>3&&f&&Object.defineProperty(l,p,f),f});class korTooltip extends p.WF{constructor(){super(...arguments),this.flexDirection="column",this.position="bottom",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[v.g,p.AH`
+    `}attributeChangedCallback(e,o,r){super.attributeChangedCallback(e,o,r),this.dispatchEvent(new Event(`${e}-changed`)),"target"===e&&this.target?this.targetObserver():"visible"===e&&this.visible&&this.visibleObserver()}targetObserver(){const e="string"==typeof this.target?document.querySelector(this.target):this.target;e&&e.addEventListener("click",()=>this.handlePosition(e))}visibleObserver(){const e="string"==typeof this.target?document.querySelector(this.target):this.target;e&&(this.handlePosition(e),!this.sticky&&this.target&&this.addDocListener(e))}handlePosition(e){if(!e)return;let o=this,r=e.getBoundingClientRect();if(o.visible=!0,o.position.startsWith("bottom"))o.style.top=`${r.top+r.height+8}px`;else if(o.position.startsWith("top"))o.style.top=r.top-o.clientHeight-8+"px";else{o.style.top=r.top+r.height/2-o.clientHeight/2+"px",parseInt(o.style.top)<0&&(o.style.top="8px");const e=Math.max(document.documentElement.clientHeight||0,window.innerHeight||0);parseInt(o.style.top)+o.clientHeight>e&&(o.style.top=e-o.clientHeight-8+"px")}o.position.startsWith("right")?o.style.left=`${r.left+r.width+8}px`:o.position.startsWith("left")?o.style.left=r.left-o.clientWidth-8+"px":o.style.left=r.left+r.width/2-o.clientWidth/2+"px"}addDocListener(e){let closePopover=o=>{(o.composedPath()[0]!==e&&o.target!==e&&"click"===o.type||"wheel"===o.type)&&(this.visible=!1,document.removeEventListener("click",closePopover),document.removeEventListener("wheel",closePopover))};document.addEventListener("click",closePopover),document.addEventListener("wheel",closePopover)}}p([(0,a.MZ)({type:String,reflect:!0})],korPopover.prototype,"label",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korPopover.prototype,"icon",void 0),p([(0,a.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korPopover.prototype,"flexDirection",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korPopover.prototype,"position",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korPopover.prototype,"target",void 0),p([(0,a.MZ)({type:Boolean,reflect:!0})],korPopover.prototype,"visible",void 0),p([(0,a.MZ)({type:Boolean,reflect:!0})],korPopover.prototype,"sticky",void 0),p([(0,a.wk)()],korPopover.prototype,"emptyHeader",void 0),p([(0,a.wk)()],korPopover.prototype,"emptyFunctions",void 0),p([(0,a.wk)()],korPopover.prototype,"emptyFooter",void 0),window.customElements.get("kor-popover")||window.customElements.define("kor-popover",korPopover)},4399(e,o,r){r.d(o,{g:()=>s});const s=r(2927).css`
+  /* scrollbar */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    visibility: hidden;
+  }
+  *::-webkit-scrollbar-track {
+    background-color: rgba(var(--neutral-1), 0.05);
+    border-radius: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--neutral-1), 0.1);
+    border-radius: 8px;
+  }
+  *::-webkit-scrollbar-thumb:active,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--neutral-1), 0.2);
+  }
+`},2927(o,r,s){o.exports=(e=>{var o={};return s.d(o,e),o})({LitElement:()=>e.LitElement,css:()=>e.css,html:()=>e.html})},5694(e,o,r){r.d(o,{M:()=>n});const i=(e,o)=>"method"===o.kind&&o.descriptor&&!("value"in o.descriptor)?{...o,finisher(r){r.createProperty(o.key,e)}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:o.key,initializer(){"function"==typeof o.initializer&&(this[o.key]=o.initializer.call(this))},finisher(r){r.createProperty(o.key,e)}};function n(e){return(o,r)=>void 0!==r?((e,o,r)=>{o.constructor.createProperty(r,e)})(e,o,r):i(e,o)}},1124(){var e;null===(e=window.HTMLSlotElement)||void 0===e||e.prototype.assignedElements},9896(e,o,r){r(1124)},4290(e,o,r){r.d(o,{w:()=>t});var s=r(5694);function t(e){return(0,s.M)({...e,state:!0})}},5707(e,o,r){r.d(o,{MZ:()=>s.M,wk:()=>a.w});var s=r(5694),a=r(4290);r(1124),r(9896)}},r={};function __webpack_require__(e){var s=r[e];if(void 0!==s)return s.exports;var a=r[e]={exports:{}};return o[e](a,a.exports,__webpack_require__),a.exports}__webpack_require__.d=(e,o)=>{for(var r in o)__webpack_require__.o(o,r)&&!__webpack_require__.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:o[r]})},__webpack_require__.o=(e,o)=>Object.prototype.hasOwnProperty.call(e,o);var s=__webpack_require__(2927),a=__webpack_require__(5707),l=__webpack_require__(4399),p=(__webpack_require__(796),function(e,o,r,s){var a,l=arguments.length,p=l<3?o:null===s?s=Object.getOwnPropertyDescriptor(o,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)p=Reflect.decorate(e,o,r,s);else for(var c=e.length-1;c>=0;c--)(a=e[c])&&(p=(l<3?a(p):l>3?a(o,r,p):a(o,r))||p);return l>3&&p&&Object.defineProperty(o,r,p),p});class korTooltip extends s.LitElement{constructor(){super(...arguments),this.flexDirection="column",this.position="bottom",this.emptyHeader=!0,this.emptyFunctions=!0,this.emptyFooter=!0}static get styles(){return[l.g,s.css`
         :host {
           position: fixed;
           z-index: 4;
@@ -276,7 +277,7 @@
           --functions-gap: inherit;
           --footer-gap: inherit;
         }
-      `]}render(){return p.qy`
+      `]}render(){return s.html`
       <kor-popover
         .label="${this.label}"
         .icon="${this.icon}"
@@ -288,18 +289,18 @@
         <slot
           name="header"
           slot="${this.emptyHeader?"hidden":"header"}"
-          @slotchange="${t=>this.emptyHeader=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyHeader=0===e.target.assignedNodes().length}"
         ></slot>
         <slot
           name="functions"
           slot="${this.emptyFunctions?"hidden":"functions"}"
-          @slotchange="${t=>this.emptyFunctions=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyFunctions=0===e.target.assignedNodes().length}"
         ></slot>
         <slot></slot>
         <slot
           name="footer"
           slot="${this.emptyFooter?"hidden":"footer"}"
-          @slotchange="${t=>this.emptyFooter=0===t.target.assignedNodes().length}"
+          @slotchange="${e=>this.emptyFooter=0===e.target.assignedNodes().length}"
         ></slot>
       </kor-popover>
-    `}attributeChangedCallback(t,l,p){super.attributeChangedCallback(t,l,p),this.dispatchEvent(new Event(t+"-changed")),"target"===t&&this.target&&this.targetObserver()}targetObserver(){let t;const l="string"==typeof this.target?document.querySelector(this.target):this.target;l&&(l.addEventListener("mouseover",()=>{t=setTimeout(()=>this.visible=!0,500)}),l.addEventListener("mouseout",()=>{this.visible=!1,clearTimeout(t)}))}}g([(0,u.MZ)({type:String,reflect:!0})],korTooltip.prototype,"label",void 0),g([(0,u.MZ)({type:String,reflect:!0})],korTooltip.prototype,"icon",void 0),g([(0,u.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korTooltip.prototype,"flexDirection",void 0),g([(0,u.MZ)({type:String,reflect:!0})],korTooltip.prototype,"position",void 0),g([(0,u.MZ)({type:String,reflect:!0})],korTooltip.prototype,"target",void 0),g([(0,u.MZ)({type:Boolean,reflect:!0})],korTooltip.prototype,"visible",void 0),g([(0,u.wk)()],korTooltip.prototype,"emptyHeader",void 0),g([(0,u.wk)()],korTooltip.prototype,"emptyFunctions",void 0),g([(0,u.wk)()],korTooltip.prototype,"emptyFooter",void 0),window.customElements.get("kor-tooltip")||window.customElements.define("kor-tooltip",korTooltip)})();
+    `}attributeChangedCallback(e,o,r){super.attributeChangedCallback(e,o,r),this.dispatchEvent(new Event(`${e}-changed`)),"target"===e&&this.target&&this.targetObserver()}targetObserver(){let e;const o="string"==typeof this.target?document.querySelector(this.target):this.target;o&&(o.addEventListener("mouseover",()=>{e=setTimeout(()=>this.visible=!0,500)}),o.addEventListener("mouseout",()=>{this.visible=!1,clearTimeout(e)}))}}p([(0,a.MZ)({type:String,reflect:!0})],korTooltip.prototype,"label",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korTooltip.prototype,"icon",void 0),p([(0,a.MZ)({type:String,reflect:!0,attribute:"flex-direction"})],korTooltip.prototype,"flexDirection",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korTooltip.prototype,"position",void 0),p([(0,a.MZ)({type:String,reflect:!0})],korTooltip.prototype,"target",void 0),p([(0,a.MZ)({type:Boolean,reflect:!0})],korTooltip.prototype,"visible",void 0),p([(0,a.wk)()],korTooltip.prototype,"emptyHeader",void 0),p([(0,a.wk)()],korTooltip.prototype,"emptyFunctions",void 0),p([(0,a.wk)()],korTooltip.prototype,"emptyFooter",void 0),window.customElements.get("kor-tooltip")||window.customElements.define("kor-tooltip",korTooltip);export{korTooltip};
